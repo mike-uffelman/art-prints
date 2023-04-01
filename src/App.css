@@ -1,0 +1,6 @@
+.app {
+    height: 100%;
+
+    border: 1px solid red;
+    background-color: rgb(247, 247, 247);
+}
