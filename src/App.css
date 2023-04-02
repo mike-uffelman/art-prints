@@ -1,6 +1,44 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;600&display=swap');
+
+
+@font-face {
+    font-family: "Raleway-ExtraLight";
+    src: local("Raleway-ExtraLight"),
+        url("../fonts/Raleway/Raleway-ExtraLight.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Raleway-Light";
+    src: local("Raleway-Light"),
+        url("../fonts/Raleway/Raleway-Light.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Raleway-Regular";
+    src: local("Raleway-Regular"),
+        url("../fonts/Raleway/Raleway-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Raleway-SemiBold";
+    src: local("DM-Raleway-SemiBold"),
+        url("../fonts/Raleway/Raleway-SemiBold.ttf");
+    font-weight: 700;
+} */
+
+html {
+    font-size: 62.5%;
+}
+
 .app {
     height: 100%;
 
+    /* font-family: 'Raleway', Arial, Helvetica, sans-serif; */
+    font-family: 'Courier New', Courier, monospace;
     border: 1px solid red;
     background-color: rgb(247, 247, 247);
 }
+

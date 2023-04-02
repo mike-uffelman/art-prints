@@ -5,7 +5,7 @@ import Products from "./components/Products";
 import Cart from "./components/Cart";
 import Search from "./components/Search";
 import unsplash from "./data/unsplash";
-import buildProducts from "./data/productGenerator";
+import {buildProducts, getTags} from "./data/productGenerator";
 
 
 function App() {
@@ -29,6 +29,8 @@ function App() {
             setProducts(results);
         }
         getProducts()
+
+        getTags(products);
     //     const results = onSearch('cars');
     //     setProducts(results);
     //     console.log(products)
