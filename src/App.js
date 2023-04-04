@@ -1,7 +1,7 @@
 import './App.css';
 import {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import Products from "./components/Products";
+import Products from "./components/AllProducts";
 import Cart from "./components/Cart";
 import Search from "./components/Search";
 import unsplash from "./data/unsplash";
