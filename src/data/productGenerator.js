@@ -10,7 +10,9 @@ export async function buildProducts(data) {
             alt_description: product.alt_description,
             image_urls: product.urls,
             tags: product.tags,
-            base_amt: (Math.random() * 10 + 6).toFixed(2)
+            base_amt: (Math.random() * 10 + 6).toFixed(2),
+            width: product.width,
+            height: product.height
         }
 
     })

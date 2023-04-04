@@ -1,33 +1,32 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@200;300;400;600&display=swap');
 
 @font-face {
-    font-family: "Raleway-ExtraLight";
-    src: local("Raleway-ExtraLight"),
-        url("../fonts/Raleway/Raleway-ExtraLight.ttf");
+    font-family: "Barlow-ExtraLight";
+    src: local("Barlow-ExtraLight"),
+        url("../fonts/Barlow/Barlow-ExtraLight.ttf");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: "Barlow-Light";
+    src: local("Barlow-Light"),
+        url("../fonts/Barlow/Barlow-Light.ttf");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Barlow-Regular";
+    src: local("Barlow-Regular"),
+        url("../fonts/Barlow/Barlow-Regular.ttf");
     font-weight: 400;
 }
 
 @font-face {
-    font-family: "Raleway-Light";
-    src: local("Raleway-Light"),
-        url("../fonts/Raleway/Raleway-Light.ttf");
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "Raleway-Regular";
-    src: local("Raleway-Regular"),
-        url("../fonts/Raleway/Raleway-Regular.ttf");
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "Raleway-SemiBold";
-    src: local("DM-Raleway-SemiBold"),
-        url("../fonts/Raleway/Raleway-SemiBold.ttf");
+    font-family: "Barlow-SemiBold";
+    src: local("DM-Barlow-SemiBold"),
+        url("../fonts/Barlow/Barlow-SemiBold.ttf");
     font-weight: 700;
-} */
+}
 
 html {
     font-size: 62.5%;
@@ -37,7 +36,8 @@ html {
     height: 100%;
 
     /* font-family: 'Raleway', Arial, Helvetica, sans-serif; */
-    font-family: 'Courier New', Courier, monospace;
+    /* font-family: 'Courier New', Courier, monospace; */
+    font-family: 'Barlow';
     border: 1px solid red;
     background-color: rgb(247, 247, 247);
 }
