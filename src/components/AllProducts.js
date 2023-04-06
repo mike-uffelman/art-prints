@@ -1,4 +1,5 @@
 import './AllProducts.css';
+import Link from './Link';
 
 function Products({products}) {
     console.log(products)
@@ -16,10 +17,13 @@ function Products({products}) {
         return (
             <div className="product" key={photo.base_amt}>
                 {/* replace anchor tag with Link navigation, create Link component with <a/> returned */}
-                <a href={`/photo/${photo.id}`} className='product__link'>
+                <Link to={`/photos/product/${photo.id}`} className='product__link'>
                     <img className='product__img' src={photo.image_urls.thumb} alt={photo.description}/>
+
+                </Link>
+                {/* <a href={`/photo/${photo.id}`} className='product__link'>
                 </a>
-                
+                 */}
                 <div className='product__details'>
                     <h1 className='product__title'>{photo.alt_description === null ? shortenDescription(photo.description) : shortenDescription(photo.alt_description)}</h1>
                     <p className='product__size'>{(photo.width/96).toFixed(0)}" x {(photo.height/96).toFixed(0)}"</p>

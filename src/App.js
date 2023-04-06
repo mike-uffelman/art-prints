@@ -2,14 +2,19 @@ import './App.css';
 import {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import Products from "./components/AllProducts";
+import Product from "./components/Product";
 import Cart from "./components/Cart";
 import Search from "./components/Search";
+import Route from "./components/Route";
 import unsplash from "./data/unsplash";
 import {buildProducts, getTags} from "./data/productGenerator";
-
+import { useContext } from 'react';
+import NavContext from './context/navigation';
 
 function App() {
+    const {currentPath} = useContext(NavContext);
     // const dispatch = useDispatch();
+
     const [products, setProducts] = useState([]);
 
     const onSearch = async term => {
@@ -35,15 +40,25 @@ function App() {
     //     setProducts(results);
     //     console.log(products)
             // console.log(products)    
+            console.log(products)
     }, [])
 
     // getData();
 
     return (
         <article className="app">
-            <Search onSearch={onSearch}/>
-            <Cart />
-            <Products products={products}/>
+            <Route path='/photos/search'>
+                <Search onSearch={onSearch}/>
+            </Route>
+            <Route path='/photos/cart'>
+                <Cart />
+            </Route>
+            <Route path='/photos/results'>
+                <Products products={products}/>
+            </Route>
+            <Route path='/photos/product' >
+                <Product products={products} />
+            </Route>
         </article>
     )
 }
