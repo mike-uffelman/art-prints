@@ -17,10 +17,10 @@ function Products({products}) {
         return (
             <div className="product" key={photo.base_amt}>
                 {/* replace anchor tag with Link navigation, create Link component with <a/> returned */}
-                <Link to={`/photos/product/${photo.id}`} className='product__link'>
+                {/* <Link to={`/photos/product/${photo.id}`} className='product__link'> */}
                     <img className='product__img' src={photo.image_urls.thumb} alt={photo.description}/>
 
-                </Link>
+                {/* </Link> */}
                 {/* <a href={`/photo/${photo.id}`} className='product__link'>
                 </a>
                  */}

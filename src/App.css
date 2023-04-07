@@ -48,3 +48,14 @@ html {
     background-color: rgb(247, 247, 247);
 }
 
+.app__header {
+    padding: 1rem;
+    
+}
+
+.heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+}

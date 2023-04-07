@@ -5,28 +5,15 @@ import Products from "./components/AllProducts";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
 import Search from "./components/Search";
-import Route from "./components/Route";
-import unsplash from "./data/unsplash";
+// import Route from "./components/Route";
+// import unsplash from "./data/unsplash";
 import {buildProducts, getTags} from "./data/productGenerator";
-import { useContext } from 'react';
-import NavContext from './context/navigation';
+// import { useContext } from 'react';
+// import NavContext from './context/navigation';
+
 
 function App() {
-    const {currentPath} = useContext(NavContext);
-    // const dispatch = useDispatch();
-
     const [products, setProducts] = useState([]);
-
-    const onSearch = async term => {
-        // console.log('searching', term)
-        // const response = await unsplash.get('/search/photos', {
-        //     params: {
-        //             query: term
-        //     }
-        // })
-
-        
-    }
 
     useEffect(() => {
         const getProducts = async () => {
@@ -43,24 +30,71 @@ function App() {
             console.log(products)
     }, [])
 
-    // getData();
 
-    return (
-        <article className="app">
-            <Route path='/photos/search'>
-                <Search onSearch={onSearch}/>
-            </Route>
-            <Route path='/photos/cart'>
+    return( 
+        <div>
+            <h1 className='app__header'>PhotoPrinter</h1>
+            <section className='heading'>
+                <Search />
                 <Cart />
-            </Route>
-            <Route path='/photos/results'>
-                <Products products={products}/>
-            </Route>
-            <Route path='/photos/product' >
-                <Product products={products} />
-            </Route>
-        </article>
+            </section>
+            
+            <Products products={products} />
+        </div>
     )
 }
+
+
+// function App() {
+//     const {currentPath} = useContext(NavContext);
+//     // const dispatch = useDispatch();
+
+//     const [products, setProducts] = useState([]);
+
+//     const onSearch = async term => {
+//         // console.log('searching', term)
+//         // const response = await unsplash.get('/search/photos', {
+//         //     params: {
+//         //             query: term
+//         //     }
+//         // })
+
+        
+//     }
+
+//     useEffect(() => {
+//         const getProducts = async () => {
+//             const results = await buildProducts();
+//             setProducts(results);
+//         }
+//         getProducts()
+
+//         getTags(products);
+//     //     const results = onSearch('cars');
+//     //     setProducts(results);
+//     //     console.log(products)
+//             // console.log(products)    
+//             console.log(products)
+//     }, [])
+
+//     // getData();
+
+//     return (
+//         <article className="app">
+//             <Route path='/photos/search'>
+//                 <Search onSearch={onSearch}/>
+//             </Route>
+//             <Route path='/photos/cart'>
+//                 <Cart />
+//             </Route>
+//             <Route path='/photos/results'>
+//                 <Products products={products}/>
+//             </Route>
+//             <Route path='/photos/product' >
+//                 <Product products={products} />
+//             </Route>
+//         </article>
+//     )
+// }
 
 export default App;
