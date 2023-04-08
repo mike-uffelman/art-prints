@@ -1,17 +1,17 @@
-import { useContext } from "react";
-import NavContext from "../context/navigation"
+// import { useContext } from "react";
+// import NavContext from "../context/navigation"
 
-function Route({path, children}) {
-    const {currentPath} = useContext(NavContext);
+// function Route({path, children}) {
+//     const {currentPath} = useContext(NavContext);
     
 
-    console.log(path, currentPath)
+//     console.log(path, currentPath)
 
-    if(path === currentPath) {
-        return children
-    }
-    return null;
+//     if(path === currentPath) {
+//         return children
+//     }
+//     return null;
     
-}
+// }
 
-export default Route
+// export default Route

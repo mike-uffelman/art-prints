@@ -1,15 +1,27 @@
-import { useContext, useEffect } from "react";
-import NavContext from "../context/navigation";
+import { useEffect } from "react";
+// import NavContext from "../context/navigation";
+import { useParams } from "react-router-dom";
 
-function Product({product}) {
-    const {currentPath} = useContext(NavContext);
+function Product() {
+    const {id} = useParams();
+    console.log(id)
+    // const {currentPath} = useContext(NavContext);
     
-    useEffect(() => {
-        console.log(currentPath)
-        // window.history.pushState({}, '', `${window.location.pathname}/${product.id}`)
-    }, [])
+    // useEffect(() => {
+    //     // console.log(currentPath)
+    //     // window.history.pushState({}, '', `${window.location.pathname}/${product.id}`)
+    // }, [])
 
-    return <div>One product</div>
+    const renderPhoto = () => {
+
+        return (
+            <div className="photo">
+                this is the photo with id: {id}
+            </div>
+        )
+    }
+
+    return <div>{renderPhoto}</div>
 }
 
 export default Product;

@@ -5,6 +5,8 @@ import Products from "./components/AllProducts";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
 import Search from "./components/Search";
+import { Link, Outlet } from 'react-router-dom';
+
 // import Route from "./components/Route";
 // import unsplash from "./data/unsplash";
 import {buildProducts, getTags} from "./data/productGenerator";
@@ -32,13 +34,15 @@ function App() {
 
 
     return( 
-        <div>
-            <h1 className='app__header'>PhotoPrinter</h1>
+        <div className='app'>
+            <Link to={'/'} className='app__header--link'><h1 className="app__header--logo">PhotoPrinter</h1></Link>
             <section className='heading'>
                 <Search />
                 <Cart />
+                
             </section>
-            
+            <Outlet />
+            <Product />
             <Products products={products} />
         </div>
     )
