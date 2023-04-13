@@ -44,9 +44,11 @@ export function getTags(products) {
         if(!acc[key]) acc[key] = 0;
         acc[key] = acc[key] + 1;
         return acc;
-    }, [])
+    }, {})
 
     console.log('tagsCounter', tagsCounter)
+
+    return tagsCounter;
 }
 
 

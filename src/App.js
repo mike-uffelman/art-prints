@@ -3,13 +3,18 @@ import {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import Products from "./components/AllProducts";
 import Product from "./components/Product";
+import ProductPage from './pages/ProductPage';
 import Cart from "./components/Cart";
 import Search from "./components/Search";
-import { Link, Outlet } from 'react-router-dom';
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route, Link, Outlet } from 'react-router-dom';
 
 // import Route from "./components/Route";
 // import unsplash from "./data/unsplash";
 import {buildProducts, getTags} from "./data/productGenerator";
+import RootLayout from './layouts/RootLayout';
+import Home from './pages/Home';
+import ResultsPage, { resultsLoader } from './pages/ResultsPage';
+import ErrorPage from './error-page';
 // import { useContext } from 'react';
 // import NavContext from './context/navigation';
 
@@ -32,19 +37,24 @@ function App() {
             console.log(products)
     }, [])
 
+    const router = createBrowserRouter(
+        createRoutesFromElements(
+            <Route path='/' element={<RootLayout />}>
+                
+                <Route index element={<Home />} />
+
+                <Route path='results/:term' element={<ResultsPage />} loader={resultsLoader} />
+
+                <Route path='photo/:id' element={<Product products={products} />} />
+                <Route path='cart' element={<Cart />} />
+                <Route path='*' element={<ErrorPage />} />
+
+            </Route>
+        )
+    )
 
     return( 
-        <div className='app'>
-            <Link to={'/'} className='app__header--link'><h1 className="app__header--logo">PhotoPrinter</h1></Link>
-            <section className='heading'>
-                <Search />
-                <Cart />
-                
-            </section>
-            <Outlet />
-            <Product />
-            <Products products={products} />
-        </div>
+        <RouterProvider router={router} />
     )
 }
 

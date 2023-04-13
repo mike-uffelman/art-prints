@@ -17,10 +17,10 @@ function Search({onSearch}) {
     }
 
     return (
-        <section>
-            <form className='' onSubmit={handleSubmit}>
-                <input className='' onChange={handleChange} type='text' value={term}></input>
-                <button className=''>Search</button>
+        <section className='search'>
+            <form className='search__form' onSubmit={handleSubmit}>
+                <input className='search__input' onChange={handleChange} type='text' value={term}></input>
+                <button className='search__btn'>Search</button>
             </form>
         </section>
     )
