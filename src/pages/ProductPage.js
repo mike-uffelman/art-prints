@@ -1,8 +1,11 @@
+import Product from "../components/Products/Product"
 
-
-export default function ProductPage() {
+export default function ProductPage({products}) {
 
     return (
-        <div>Product here</div>
+        <div className="product-page">
+            <Product products={products} />
+
+        </div>
     )
 }

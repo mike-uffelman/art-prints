@@ -28,25 +28,32 @@
     font-weight: 700;
 }
 
+
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    outline: 1px solid rgba(255, 0, 0, .5);
 }
 
 html {
     font-size: 62.5%;
+    background-color: rgb(246, 246, 246);
 }
 
 .app {
-    height: 100%;
-    width: 100%;
-
+    /* height: 100%; */
+    width: 100vw;
+    max-width: 80rem;
+    min-width: 30rem;
+    margin: 0 auto;
     /* font-family: 'Raleway', Arial, Helvetica, sans-serif; */
     /* font-family: 'Courier New', Courier, monospace; */
     font-family: 'Barlow';
     /* border: 1px solid red; */
-    background-color: rgb(247, 247, 247);
+    /* display: flex; */
+    /* min-width: 100%; */
 }
 
 .app__header {
@@ -61,8 +68,7 @@ html {
     /* justify-content: center; */
 
     padding: 1rem;
-    
-    background-color: white;
+    background-color: rgb(246, 246, 246);
     
 }
 
@@ -111,23 +117,20 @@ html {
 .cart--quantity {
     content: '';
     position: absolute;
-    bottom: 1.75rem;
-    right: 0;
-    height: 1rem;
-    width: 1rem;
+    bottom: .85rem;
+    right: .85rem;
+
+    height: .75rem;
+    width: .75rem;
+
     border-radius: 50%;
-    /* padding: .1rem .5rem; */
-    background-color: magenta;
-    /* font-size: 1.2rem; */
-    /* font-weight: bold; */
-    /* border-radius: 50%; */
+    background-color: gray;
 }
 
 .content {
-
     position: relative;
     z-index: 0;
-    /* top: 7rem; */
+
     border: 1px solid green;
 }
 
@@ -135,11 +138,9 @@ html {
     display: flex;
     justify-self: flex-end;
     flex: 1;
-    /* min-width: 100%; */
 }
 
 .search__form {
-    /* width: 100%; */
     flex: 1;
     display: flex;
     flex-direction: row;
@@ -151,6 +152,11 @@ html {
 .search__input {
     margin-right: 1rem;
     width: 100%;
+    background-color: inherit;
+}
+
+.search__input:focus {
+    background-color: white;
 }
 
 .tags__container {
@@ -166,7 +172,6 @@ html {
 .tags__label {
     font-size: 1rem;
     font-family: 'Barlow-Regular';
-    /* font-weight:  */
 }
 
 .tags__list {
@@ -178,17 +183,11 @@ html {
 
 
 .tags__link {
-    color: black;
-    text-decoration: none;
-    /* border: none; */
-    /* border-radius: 0; */
-    /* background-color: transparent; */
-    /* outline: none; */
-    /* box-shadow: none; */
-    /* transform: drop-shadow(0); */
-    font-weight: bold;
     padding: .25rem 1rem;
 
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .tags__btn:hover {
@@ -199,3 +198,109 @@ html {
 .tags__btn:focus {
     color: magenta;
 }
+
+.product-page {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: 1fr;
+    height: 100%;
+}
+
+.product {
+
+}
+
+.product__img {
+
+}
+
+.product__details {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.product__description {
+    font-family: 'Barlow-SemiBold';
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+.product__price {
+
+}
+
+.product__add-to-cart--btn {
+    font-family: 'Barlow-Regular';
+    color: black;
+    width: 100%;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+
+}
+
+.product__add-to-cart--btn:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+.size__option {
+    padding: .5rem 1rem;
+
+}
+
+.size-options__box {
+    display: none;
+    flex-direction: column;
+}
+
+.size__dropdown {
+    box-shadow: 0 0 .2rem black;
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+}
+
+.size__dropdown--label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: gray; */
+    align-items: center;
+}
+
+
+.size__dropdown--label:hover {
+    cursor: pointer;
+}
+
+.size__dropdown--icon {
+    /* color: orange; */
+}
+
+.size__dropdown--option {
+    padding: .5rem 1rem;
+    font-family: 'Barlow-SemiBold';
+    font-size: 1.4rem;
+    letter-spacing: .15rem;
+}
+
+.size__dropdown--option:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+.isOpen {
+    display: flex;
+}
+
+
+
+@media screen and (min-width: 30rem) {
+    .app {
+        /* margin: 0 auto; */
+    }
+
+}
+

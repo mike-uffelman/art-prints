@@ -1,8 +1,8 @@
 import './App.css';
 import {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import Products from "./components/AllProducts";
-import Product from "./components/Product";
+import Products from "./components/Products/AllProducts";
+import Product from "./components/Products/Product";
 import ProductPage from './pages/ProductPage';
 import Cart from "./components/Cart";
 import Search from "./components/Search";
@@ -45,7 +45,7 @@ function App() {
 
                 <Route path='results/:term' element={<ResultsPage />} loader={resultsLoader} />
 
-                <Route path='photo/:id' element={<Product products={products} />} />
+                <Route path='photo/:id' element={<ProductPage products={products} />} />
                 <Route path='cart' element={<Cart />} />
                 <Route path='*' element={<ErrorPage />} />
 

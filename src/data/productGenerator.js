@@ -12,7 +12,8 @@ export async function buildProducts(data) {
             tags: product.tags,
             base_amt: (Math.random() * 10 + 6).toFixed(2),
             width: product.width,
-            height: product.height
+            height: product.height,
+            orientation: product.width > product.height ? 'landscape' : 'portrait'
         }
 
     })

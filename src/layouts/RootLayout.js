@@ -18,10 +18,12 @@ export default function RootLayout() {
                     </div>
                     <div className="app__header--actions">
                         <Search />
+                        
+                        {/* // Add Conditional if cart empty, hide it */}
                         <Link to='cart'>
                             <div className="app__header--cart">
                                 <span className="cart--icon material-symbols-outlined">
-                                    shopping_cart
+                                    shopping_bag
                                 </span>
                                 <div className="cart--quantity"></div>
                             </div>

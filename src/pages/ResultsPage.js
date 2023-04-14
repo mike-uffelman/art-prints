@@ -1,6 +1,6 @@
 import { useParams, useLoaderData } from "react-router-dom"
 import { buildProducts } from "../data/productGenerator";
-import Products from "../components/AllProducts";
+import Products from "../components/Products/AllProducts";
 import Tags, { tagsLoader } from "../components/Tags";
 
 export default function ResultsPage() {

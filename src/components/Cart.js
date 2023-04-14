@@ -6,7 +6,7 @@ function Cart() {
     return (
         <div className="app__header--cart">
             <span className="cart--icon material-symbols-outlined">
-                shopping_cart
+                shopping_bag
             </span>
         </div>
     )
