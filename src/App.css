@@ -62,7 +62,7 @@ html {
     z-index: 1;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 1fr;
     /* display: flex; */
     /* flex-wrap: wrap; */
     /* justify-content: center; */
@@ -72,22 +72,29 @@ html {
     
 }
 
-.app__header--link {
-    /* padding: 1rem; */
-    text-decoration: none;
-    /* font-size: 3rem; */
-    /* color: black; */
-
-}
-
 .app__header--logo {
     flex: 2;
     padding: 1rem 0;
     font-size: 2rem;
     letter-spacing: .25rem;
     color:rgb(20, 20, 20);
-    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
+
+.app__header--link {
+    /* padding: 1rem; */
+    text-decoration: none;
+    /* font-size: 3rem; */
+    color: black;
+    /* width: 100%; */
+    /* align-content: center; */
+    /* align-self: center; */
+}
+
+
+
 
 
 .app__header--actions {
@@ -200,14 +207,21 @@ html {
 }
 
 .product-page {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-template-rows: 1fr;
-    height: 100%;
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+    /* grid-template-rows: 1fr; */
+    /* height: 100%; */
+    padding: 2rem;
 }
 
-.product {
+.product-page__container {
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+}
 
+.products-page__product {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .product__img {
@@ -217,7 +231,6 @@ html {
 .product__details {
     display: flex;
     flex-direction: column;
-
 }
 
 .product__description {
@@ -301,6 +314,22 @@ html {
     .app {
         /* margin: 0 auto; */
     }
+
+    .app__header {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    }
+
+    .app__header--link {
+        justify-self: flex-start;
+    }
+
+    .app__header--logo {
+        justify-content: flex-start;
+        font-size: 2.4rem;
+        padding: 0;
+    }
+
 
 }
 

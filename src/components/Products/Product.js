@@ -47,7 +47,6 @@ function Product({products}) {
     return (
         <div className="product-page">
             {renderPhoto()}
-            <Products products={products} className={'products-page__similar'}/>
         </div>
     )
 }

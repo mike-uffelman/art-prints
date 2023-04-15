@@ -11,14 +11,14 @@ export default function RootLayout() {
             <header>
                 <div className="app__header">
                     <div className="app__header--logo">
-                        <Link to='/' className="app__header--logo">
+                        <Link to='/' className="app__header--link">
                         PhotoPRINT
 
                         </Link>
                     </div>
                     <div className="app__header--actions">
                         <Search />
-                        
+
                         {/* // Add Conditional if cart empty, hide it */}
                         <Link to='cart'>
                             <div className="app__header--cart">
