@@ -1,3 +1,4 @@
+import './Tags.css';
 import { useEffect, useState } from "react";
 import { getTags } from "../data/productGenerator"
 import { useLoaderData, Link } from "react-router-dom"

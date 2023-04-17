@@ -1,9 +1,12 @@
+import './ProductSizeDropdown.css';
 import {useState} from 'react';
 import SizeOptions from './SizeOptions';
 
-export default function SizeOption() {
+export default function ProductSizeDropdown({product, updatePrice}) {
     const [activeTab, setActiveTab] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
+
+    // console.log('size dropdown: ', product)
 
     const sizes = {
         small: {
@@ -42,7 +45,7 @@ export default function SizeOption() {
         // const activeTab = 
         
         return (
-                <SizeOptions size={size} index={index} selected={handleSelection}/>
+                <SizeOptions key={index} updatePrice={updatePrice} size={size} index={index} product={product} selected={handleSelection}/>
         )
     })
 
@@ -51,12 +54,15 @@ export default function SizeOption() {
 
     return (   
         <div className="size__dropdown">
-            <div className="size__dropdown--label" onClick={handleClick}>
-                <SizeOptions size={Object.values(sizes)[activeTab]} />
-                <span class="size__dropdown--icon material-symbols-outlined">
-                    {expand}
-                </span>
-            </div>
+                <p className=''>Size</p>
+
+                <div className='size__dropdown--select' onClick={handleClick}>
+                    <SizeOptions size={Object.values(sizes)[activeTab]} product={product} />
+                    <span className="size__dropdown--icon material-symbols-outlined">
+                        {expand}
+                    </span>
+                </div>
+
             <div className={`size-options__box ${optionsToggle}`}>
                 {renderSizes}
 

@@ -1,0 +1,43 @@
+.tags__container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(246, 246, 246);
+
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    margin: 1rem 0;
+    padding: 1rem;
+}
+
+.tags__label {
+    font-size: 1rem;
+    font-family: 'Barlow-Regular';
+}
+
+.tags__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.tags__link {
+    padding: .25rem 1rem;
+
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.tags__btn:hover {
+    cursor: pointer;
+    color: gray;
+}
+
+.tags__btn:focus {
+    color: magenta;
+}

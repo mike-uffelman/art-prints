@@ -14,7 +14,7 @@ export default function ResultsPage() {
     return (
         <div className="">
             <Tags  products={data}/>
-            <Products products={data} />
+            <Products products={data} className='products__container'/>
         </div>
     )
 }

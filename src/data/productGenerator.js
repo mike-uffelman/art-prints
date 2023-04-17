@@ -1,9 +1,20 @@
 import testData from './testData.json';
 
 export async function buildProducts(data) {
-    // console.log(testData)
+    console.log(testData)
+
+
 
     const newData = testData.map(product => {
+        // return a random stock quantity, run a qualifier, if random number ===0 then stock is zero, otherwise return a random number over 0 
+        const stockQuantity = () => {
+            if((Math.round(Math.random()) * 5) === 0) {
+                return 0;
+            } else {
+                return Math.round(Math.random() * 100  + 1);
+            }
+        }
+    
         return {
             id: product.id,
             description: product.description,
@@ -13,7 +24,9 @@ export async function buildProducts(data) {
             base_amt: (Math.random() * 10 + 6).toFixed(2),
             width: product.width,
             height: product.height,
-            orientation: product.width > product.height ? 'landscape' : 'portrait'
+            orientation: product.width > product.height ? 'landscape' : 'portrait',
+            quantity_available: stockQuantity(),
+            owner: product.user.name
         }
 
     })
@@ -30,7 +43,7 @@ export function getTags(products) {
         return acc;
     },[]).flat()
 
-    console.log(tags)
+    // console.log(tags)
 
     // const tagsTest = tags.reduce((acc, curr) => {
         
@@ -47,7 +60,7 @@ export function getTags(products) {
         return acc;
     }, {})
 
-    console.log('tagsCounter', tagsCounter)
+    // console.log('tagsCounter', tagsCounter)
 
     return tagsCounter;
 }

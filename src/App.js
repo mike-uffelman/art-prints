@@ -34,7 +34,7 @@ function App() {
     //     setProducts(results);
     //     console.log(products)
             // console.log(products)    
-            console.log(products)
+            // console.log(products)
     }, [])
 
     const router = createBrowserRouter(
