@@ -1,21 +1,16 @@
 import { Outlet, Link } from "react-router-dom"
 import Cart from "../components/Cart"
 import Search from "../components/Search"
-
+import Footer from "../components/Footer"
+import Logo from "../components/Logo"
 export default function RootLayout() {
     
 
 
     return (
         <article className="app">
-            <header>
-                <div className="app__header">
-                    <div className="app__header--logo">
-                        <Link to='/' className="app__header--link">
-                        PhotoPRINT
-
-                        </Link>
-                    </div>
+            <header className="app__header">
+                    <Logo />
                     <div className="app__header--actions">
                         <Search />
 
@@ -29,11 +24,15 @@ export default function RootLayout() {
                             </div>
                         </Link>
                     </div>
-                </div>
-                <div className="content">
-                    <Outlet />
-                </div>
             </header>
+
+            <section className="content">
+                <Outlet />
+            </section>
+            <footer className="app__footer">
+                <Footer />
+            </footer>
+        
 
         </article>
     )

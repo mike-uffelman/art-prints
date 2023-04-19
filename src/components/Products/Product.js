@@ -4,12 +4,20 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { shortenDescription } from "../../utility/helpers";
 import ProductSizeDropdown from "./Product-Size/ProductSizeDropdown";
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../../store/slices/cartsSlice';
 import Products from "./AllProducts";
 import classNames from 'classnames';
 
-function Product({products, className}) {
+function Product({products, className, addToCart}) {
     const [ sizeMultiplier, setSizeMultiplier ] = useState(0)
     const {id} = useParams();
+
+    const dispatch = useDispatch();
+    // const productData = useSelector((state) => {
+        // return state.
+    // }) 
+
     // console.log(id)
     // console.log(products)
     // const {currentPath} = useContext(NavContext);
@@ -26,22 +34,26 @@ function Product({products, className}) {
         setSizeMultiplier(val.price_multiplier)
     }
 
-    const renderPhoto = () => {
+    const submitForm = (e, product) => {
+        e.preventDefault();
+        console.log(e.target, product)
+        dispatch(addToCart('hello'))
+    }
 
-        return products.map(product => {
+    const renderProduct = products.map(product => {
             if(id === product.id) {
                 return (
                     <section key={product.id} className='products-page__product'>
                         <div className='img__container'>
                             <img className='product__img product__img--full' src={product.image_urls.regular} alt={product.description}/>
                         </div>
-                        <div className="product__details">
+                        <form className="product__details" onSubmit={(e) => submitForm(e, product)}>
                             <h3 className="product__description">{product.alt_description === null ? shortenDescription(product.description) : shortenDescription(product.alt_description)}</h3>
                             <p className='product__owner'>by {product.owner}</p>
                             <p className="product__price">${(product.base_amt * sizeMultiplier).toFixed(2)}</p>
                             <ProductSizeDropdown product={product} updatePrice={updatePrice}/>
-                            <button className="product__add-to-cart--btn">Add to cart</button>
-                        </div>
+                            <button onClick={() => addToCart(product)} className="product__add-to-cart--btn">Add to cart</button>
+                        </form>
                         
                     </section>
                 )
@@ -50,7 +62,7 @@ function Product({products, className}) {
             //     throw Error('Photo not found');
             // }
         })
-    }
+    
 
         
         
@@ -58,7 +70,7 @@ function Product({products, className}) {
 
     return (
         <div className="product-page">
-            {renderPhoto()}
+            {renderProduct}
         </div>
     )
 }

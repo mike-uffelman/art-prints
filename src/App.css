@@ -46,9 +46,18 @@ html {
     max-width: 80rem;
     min-width: 27.5rem;
     margin: 0 auto;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /* display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr 1fr; */
 
     font-family: 'Barlow';
-    /* overflow: hidden; */
+    overflow: scrollY;
 }
 
 .app__header {
@@ -56,30 +65,29 @@ html {
     top: 0;
     z-index: 1;
 
+    /* flex: 1; */
+
     display: grid;
     grid-template-columns: 1fr;
 
+    align-items: center;
+
     width: 100%;
     padding: 1rem;
-    background-color: rgb(246, 246, 246);
+    /* background-color: rgb(246, 246, 246); */
     
 }
 
-.app__header--logo {
+/* .app__header--logo {
     flex: 2;
     padding: 1rem 0;
     font-size: 2rem;
-    letter-spacing: .25rem;
     color:rgb(20, 20, 20);
     display: flex;
-    flex-direction: row;
     justify-content: center;
-}
-
-.app__header--link {
-    text-decoration: none;
-    color: black;
-}
+    align-items: center;
+    border: 1px solid blue;
+} */
 
 .app__header--actions {
     display: flex;
@@ -94,6 +102,15 @@ html {
     position: relative;
     justify-self: flex-end;
     margin-left: 1rem;
+}
+
+.app__footer {
+    /* flex: 1; */
+    /* position: absolute; */
+    /* bottom: 0; */
+    /* left: 0; */
+    width: 100%;
+    align-self: flex-end;
 }
 
 .cart--icon {
@@ -115,8 +132,11 @@ html {
 }
 
 .content {
-    position: relative;
+    flex: 1;
+    /* position: relative; */
     z-index: 0;
+    /* height: 100%; */
+    border: 1px solid magenta;
 
     /* border: 1px solid green; */
 }
@@ -149,14 +169,14 @@ html {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
-    .app__header--link {
+    /* .app__header--link {
         justify-self: flex-start;
-    }
+    } */
 
     .app__header--logo {
-        justify-content: flex-start;
-        font-size: 2.4rem;
-        padding: 0;
+        /* justify-content: flex-start; */
+        /* font-size: 2.4rem; */
+        /* padding: 0; */
     }
 }
 

@@ -2,6 +2,7 @@ import { useParams, useLoaderData } from "react-router-dom"
 import { buildProducts } from "../data/productGenerator";
 import Products from "../components/Products/AllProducts";
 import Tags, { tagsLoader } from "../components/Tags";
+import React from "react";
 
 export default function ResultsPage() {
     const {term} = useParams();
@@ -12,10 +13,10 @@ export default function ResultsPage() {
     console.log(term)
 
     return (
-        <div className="">
+        <React.Fragment >
             <Tags  products={data}/>
             <Products products={data} className='products__container'/>
-        </div>
+        </React.Fragment>
     )
 }
 

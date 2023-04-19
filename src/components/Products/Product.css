@@ -7,13 +7,14 @@
     /* display: flex; */
     padding: 2rem;
     /* justify-content: center; */
-
+    
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
 }
 
 .product-page__container {
+    
     /* display: grid; */
     /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
 }

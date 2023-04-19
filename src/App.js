@@ -21,6 +21,7 @@ import ErrorPage from './error-page';
 
 function App() {
     const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState([])
 
     useEffect(() => {
         const getProducts = async () => {
@@ -37,6 +38,19 @@ function App() {
             // console.log(products)
     }, [])
 
+    useEffect(() => {
+        console.log('cart: ', cart)
+    }, [cart])
+
+    const addToCart = (item) => {
+        console.log('adding to cart', item)
+        setCart()
+    }
+
+    const removeFromCart = (id) => {
+        console.log('removing from cart')
+    }
+
     const router = createBrowserRouter(
         createRoutesFromElements(
             <Route path='/' element={<RootLayout />}>
@@ -45,8 +59,8 @@ function App() {
 
                 <Route path='results/:term' element={<ResultsPage />} loader={resultsLoader} />
 
-                <Route path='photo/:id' element={<ProductPage products={products} />} />
-                <Route path='cart' element={<Cart />} />
+                <Route path='photo/:id' element={<ProductPage products={products} addToCart={addToCart} removeFromCart={removeFromCart}/>} />
+                <Route path='cart' element={<Cart cart={cart}/>} />
                 <Route path='*' element={<ErrorPage />} />
 
             </Route>

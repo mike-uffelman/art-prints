@@ -1,0 +1,16 @@
+.footer {
+
+    margin-top: auto;
+    position: relative;
+    bottom: 0;
+    background-color: lightgray;
+    display: flex;
+
+    /* width: 100%; */
+}
+
+
+.material-symbols-outlined.logo {
+    color: blue;
+    transform: rotate(-20deg);
+}

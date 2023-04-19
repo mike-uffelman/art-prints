@@ -46,22 +46,33 @@
     margin-top: .5rem;
 }
 
+.size__dropdown--select:hover {
+    cursor: pointer;
+}
+
 .size__dropdown--icon {
     /* color: orange; */
 }
+
+
 
 .size__dropdown--option {
     padding: .5rem 1rem;
     font-family: 'Barlow-SemiBold';
     font-size: 1.4rem;
     letter-spacing: .15rem;
+    width: 100%;
 }
 
-.size__dropdown--option:hover {
+
+
+.size__dropdown--option:not(.label):hover {
     cursor: pointer;
     background-color: black;
     color: white;
 }
+
+
 
 .isOpen {
     display: flex;
