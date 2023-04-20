@@ -1,7 +1,7 @@
 import './Product.css';
 import React, { useEffect, useState } from "react";
 // import NavContext from "../context/navigation";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { shortenDescription } from "../../utility/helpers";
 import ProductSizeDropdown from "./Product-Size/ProductSizeDropdown";
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,14 +9,15 @@ import { addToCart } from '../../store/slices/cartsSlice';
 import Products from "./AllProducts";
 import classNames from 'classnames';
 
-function Product({products, className, addToCart}) {
+function Product({products, className}) {
     const [ sizeMultiplier, setSizeMultiplier ] = useState(0)
+    const [ quantity , setQuantity ] = useState(1); // quantity state for product
     const {id} = useParams();
 
     const dispatch = useDispatch();
-    // const productData = useSelector((state) => {
-        // return state.
-    // }) 
+    const productData = useSelector((state) => {
+        return state;
+    }) 
 
     // console.log(id)
     // console.log(products)
@@ -26,6 +27,7 @@ function Product({products, className, addToCart}) {
     //     // console.log(currentPath)
     //     // window.history.pushState({}, '', `${window.location.pathname}/${product.id}`)
     // }, [])
+
 
     const similarClassnames = classNames(className)
 
@@ -37,8 +39,17 @@ function Product({products, className, addToCart}) {
     const submitForm = (e, product) => {
         e.preventDefault();
         console.log(e.target, product)
-        dispatch(addToCart('hello'))
+        const cartItem = {
+            quantity,
+            product,
+            // size: 
+        }
+        
+        
+        dispatch(addToCart(cartItem))
+        console.log(productData)
     }
+
 
     const renderProduct = products.map(product => {
             if(id === product.id) {
@@ -47,12 +58,19 @@ function Product({products, className, addToCart}) {
                         <div className='img__container'>
                             <img className='product__img product__img--full' src={product.image_urls.regular} alt={product.description}/>
                         </div>
-                        <form className="product__details" onSubmit={(e) => submitForm(e, product)}>
+                        <form className="product__details" >
                             <h3 className="product__description">{product.alt_description === null ? shortenDescription(product.description) : shortenDescription(product.alt_description)}</h3>
                             <p className='product__owner'>by {product.owner}</p>
                             <p className="product__price">${(product.base_amt * sizeMultiplier).toFixed(2)}</p>
+                            <div className=''>
+                                <label className='' >Quantity</label>
+                                <input type='number' min='1' step='1' onChange={(e) => setQuantity(e.target.value)} value={quantity}></input>
+                            </div>
+                            
                             <ProductSizeDropdown product={product} updatePrice={updatePrice}/>
-                            <button onClick={() => addToCart(product)} className="product__add-to-cart--btn">Add to cart</button>
+                            <button
+                                onClick={(e) => submitForm(e, product)}
+                                className="product__add-to-cart--btn">Add to cart</button>
                         </form>
                         
                     </section>
@@ -70,6 +88,7 @@ function Product({products, className, addToCart}) {
 
     return (
         <div className="product-page">
+            <Link to='/results/dogs'>Back to results</Link>
             {renderProduct}
         </div>
     )

@@ -1,5 +1,5 @@
 import { Outlet, Link } from "react-router-dom"
-import Cart from "../components/Cart"
+import Cart from "../components/Cart/Cart"
 import Search from "../components/Search"
 import Footer from "../components/Footer"
 import Logo from "../components/Logo"
@@ -25,7 +25,10 @@ export default function RootLayout() {
                         </Link>
                     </div>
             </header>
+            <aside className="breadcrumbs">
+                <Link to='/results/dogs'>Back to results</Link>
 
+            </aside>
             <section className="content">
                 <Outlet />
             </section>

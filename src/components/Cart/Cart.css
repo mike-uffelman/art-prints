@@ -1,0 +1,35 @@
+.cart {
+    padding: 1rem;
+}
+
+.cart__items {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid blue;
+}
+
+.cart__item {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.item__img {
+    max-width: 20rem;
+}
+
+.item__details {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+
+
+
+@media screen and (min-width: 30rem) {
+    .cart__item {
+        flex-direction: row;
+    }
+}

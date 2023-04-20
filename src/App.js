@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import Products from "./components/Products/AllProducts";
 import Product from "./components/Products/Product";
 import ProductPage from './pages/ProductPage';
-import Cart from "./components/Cart";
+import Cart from "./components/Cart/Cart";
 import Search from "./components/Search";
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route, Link, Outlet } from 'react-router-dom';
 
