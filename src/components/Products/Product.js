@@ -8,9 +8,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../store/slices/cartsSlice';
 import Products from "./AllProducts";
 import classNames from 'classnames';
+import {v4 as uuidv4 } from 'uuid';
 
 function Product({products, className}) {
-    const [ sizeMultiplier, setSizeMultiplier ] = useState(0)
+    const [ size, setSize ] = useState({
+        width: 9,
+        height: 12,
+        price_multiplier: 1
+    })
     const [ quantity , setQuantity ] = useState(1); // quantity state for product
     const {id} = useParams();
 
@@ -28,12 +33,12 @@ function Product({products, className}) {
     //     // window.history.pushState({}, '', `${window.location.pathname}/${product.id}`)
     // }, [])
 
-
+    
     const similarClassnames = classNames(className)
 
     const updatePrice = (val) => {
         console.log(val);
-        setSizeMultiplier(val.price_multiplier)
+        setSize(val)
     }
 
     const submitForm = (e, product) => {
@@ -42,7 +47,8 @@ function Product({products, className}) {
         const cartItem = {
             quantity,
             product,
-            // size: 
+            size,
+            id: uuidv4()
         }
         
         
@@ -61,7 +67,7 @@ function Product({products, className}) {
                         <form className="product__details" >
                             <h3 className="product__description">{product.alt_description === null ? shortenDescription(product.description) : shortenDescription(product.alt_description)}</h3>
                             <p className='product__owner'>by {product.owner}</p>
-                            <p className="product__price">${(product.base_amt * sizeMultiplier).toFixed(2)}</p>
+                            <p className="product__price">${(product.base_amt * size.price_multiplier).toFixed(2)}</p>
                             <div className=''>
                                 <label className='' >Quantity</label>
                                 <input type='number' min='1' step='1' onChange={(e) => setQuantity(e.target.value)} value={quantity}></input>
@@ -88,7 +94,6 @@ function Product({products, className}) {
 
     return (
         <div className="product-page">
-            <Link to='/results/dogs'>Back to results</Link>
             {renderProduct}
         </div>
     )

@@ -1,5 +1,7 @@
 .cart {
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .cart__items {
@@ -10,23 +12,39 @@
 
 .cart__item {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    
     padding: 1rem;
 }
 
 .item__img {
-    max-width: 20rem;
+    flex: 1 2;
+
+    max-width: 10rem;
 }
 
 .item__details {
     display: flex;
     flex-direction: column;
+    flex: 3 0;
+
+}
+
+.item__total {
+    font-family: 'Barlow-SemiBold';
+    font-size: 1.6rem;
     
 }
 
 
+.cart__subtotal {
+    font-family: 'Barlow-SemiBold';
+    font-size: 1.8rem;
+    width: 100%;
+    /* justify-self: flex-end; */
+    /* align-self: flex-end; */
 
-
+}
 
 @media screen and (min-width: 30rem) {
     .cart__item {

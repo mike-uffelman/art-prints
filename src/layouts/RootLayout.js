@@ -1,10 +1,14 @@
-import { Outlet, Link } from "react-router-dom"
-import Cart from "../components/Cart/Cart"
-import Search from "../components/Search"
-import Footer from "../components/Footer"
-import Logo from "../components/Logo"
+import { Outlet, Link } from "react-router-dom";
+import Cart from "../components/Cart/Cart";
+import Search from "../components/Search";
+import Footer from "../components/Footer";
+import Logo from "../components/Logo";
+import { useSelector } from 'react-redux';
+
 export default function RootLayout() {
-    
+    const cart = useSelector((state) => {
+        return state.cart
+    })
 
 
     return (
@@ -15,6 +19,7 @@ export default function RootLayout() {
                         <Search />
 
                         {/* // Add Conditional if cart empty, hide it */}
+                        {cart.length > 0 &&
                         <Link to='cart'>
                             <div className="app__header--cart">
                                 <span className="cart--icon material-symbols-outlined">
@@ -22,7 +27,7 @@ export default function RootLayout() {
                                 </span>
                                 <div className="cart--quantity"></div>
                             </div>
-                        </Link>
+                        </Link>}
                     </div>
             </header>
             <aside className="breadcrumbs">
