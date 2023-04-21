@@ -42,14 +42,6 @@ function App() {
         console.log('cart: ', cart)
     }, [cart])
 
-    const addToCart = (item) => {
-        console.log('adding to cart', item)
-        setCart()
-    }
-
-    const removeFromCart = (id) => {
-        console.log('removing from cart')
-    }
 
     const router = createBrowserRouter(
         createRoutesFromElements(
@@ -59,7 +51,8 @@ function App() {
 
                 <Route path='results/:term' element={<ResultsPage />} loader={resultsLoader} />
 
-                <Route path='photo/:id' element={<ProductPage products={products} addToCart={addToCart} removeFromCart={removeFromCart}/>} />
+                <Route path='product/:id' element={<ProductPage products={products} />} />
+                <Route path='product/edit/:id' element={<ProductPage products={products} />} />
                 <Route path='cart' element={<Cart cart={cart}/>} />
                 <Route path='*' element={<ErrorPage />} />
 
@@ -73,56 +66,5 @@ function App() {
 }
 
 
-// function App() {
-//     const {currentPath} = useContext(NavContext);
-//     // const dispatch = useDispatch();
-
-//     const [products, setProducts] = useState([]);
-
-//     const onSearch = async term => {
-//         // console.log('searching', term)
-//         // const response = await unsplash.get('/search/photos', {
-//         //     params: {
-//         //             query: term
-//         //     }
-//         // })
-
-        
-//     }
-
-//     useEffect(() => {
-//         const getProducts = async () => {
-//             const results = await buildProducts();
-//             setProducts(results);
-//         }
-//         getProducts()
-
-//         getTags(products);
-//     //     const results = onSearch('cars');
-//     //     setProducts(results);
-//     //     console.log(products)
-//             // console.log(products)    
-//             console.log(products)
-//     }, [])
-
-//     // getData();
-
-//     return (
-//         <article className="app">
-//             <Route path='/photos/search'>
-//                 <Search onSearch={onSearch}/>
-//             </Route>
-//             <Route path='/photos/cart'>
-//                 <Cart />
-//             </Route>
-//             <Route path='/photos/results'>
-//                 <Products products={products}/>
-//             </Route>
-//             <Route path='/photos/product' >
-//                 <Product products={products} />
-//             </Route>
-//         </article>
-//     )
-// }
 
 export default App;

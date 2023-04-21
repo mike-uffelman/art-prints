@@ -19,7 +19,7 @@ function Products({products, className}) {
         return (
             <div className="product__item" key={photo.base_amt}>
                 {/* replace anchor tag with Link navigation, create Link component with <a/> returned */}
-                <Link to={`/photo/${photo.id}`} className='product__link'>
+                <Link to={`/product/${photo.id}`} className='product__link'>
                     <img className='product__img product__img--thumb' src={photo.image_urls.thumb} alt={photo.description}/>
 
                 </Link>

@@ -31,7 +31,7 @@ function Cart() {
         return (
             <div key={Math.random()} className='cart__item'>
                 <div className=''>
-                    <Link to={`/photo/${item.product.id}`} className='product__link item__img'>
+                    <Link to={`/product/${item.product.id}`} className='product__link item__img'>
                         <img className='product__img product__img--thumb' src={item.product.image_urls.thumb} alt={item.product.description}/>
 
                     </Link>
@@ -40,7 +40,7 @@ function Cart() {
                 
 
                 <div className='item__details'>
-                    <h3 className='item__title'><Link to={`/photo/${item.product.id}`}>{shortenDescription(item.product.alt_description)}</Link></h3>
+                    <h3 className='item__title'><Link to={`/product/${item.product.id}`}>{shortenDescription(item.product.alt_description)}</Link></h3>
                     {/* <p className=''>image type i.e. poster, painting, etc</p> */}
                     <p className='item__size'>Size: {`${item.size.width}" x ${item.size.height}`}"</p>
                     {/* <p className='item__arrival-est'>Arrives by Sat, Apr 29</p> */}
@@ -51,6 +51,7 @@ function Cart() {
                         ${total(item)}
                     </p>
                     <div onClick={() => handleClick(item.id)} className='item__delete'>Delete</div>
+                    <Link to={`/product/edit/${item.product.id}`} className=''>Edit</Link>
                 </div>
 
             </div>

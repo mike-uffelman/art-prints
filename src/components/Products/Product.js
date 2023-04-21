@@ -53,7 +53,6 @@ function Product({products, className}) {
         
         
         dispatch(addToCart(cartItem))
-        console.log(productData)
     }
 
 
