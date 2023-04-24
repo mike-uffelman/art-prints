@@ -7,6 +7,7 @@ import ProductPage from './pages/ProductPage';
 import Cart from "./components/Cart/Cart";
 import Search from "./components/Search";
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route, Link, Outlet } from 'react-router-dom';
+import { tagsLoader } from './components/Tags';
 
 // import Route from "./components/Route";
 // import unsplash from "./data/unsplash";
@@ -23,25 +24,33 @@ function App() {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([])
 
-    useEffect(() => {
-        const getProducts = async () => {
-            const results = await buildProducts();
-            setProducts(results);
-        }
-        getProducts()
+    // useEffect(() => {
+    //     const getProducts = async () => {
+    //         const results = await buildProducts();
+    //         setProducts(results);
+    //     }
+    //     getProducts()
 
-        getTags(products);
+    //     getTags(products);
     //     const results = onSearch('cars');
     //     setProducts(results);
     //     console.log(products)
             // console.log(products)    
             // console.log(products)
-    }, [])
+    // }, [])
 
-    useEffect(() => {
-        console.log('cart: ', cart)
-    }, [cart])
+    // useEffect(() => {
+        // console.log('cart: ', cart)
+    // }, [cart])
 
+    // const searchResults = useSelector(state => {
+    //     return state.search
+    // })
+
+    // const results = useSelector((state) => {
+    //     console.log(state.search)
+    //     return state.search;
+    // })
 
     const router = createBrowserRouter(
         createRoutesFromElements(
@@ -49,11 +58,11 @@ function App() {
                 
                 <Route index element={<Home />} />
 
-                <Route path='results/:term' element={<ResultsPage />} loader={resultsLoader} />
+                <Route path='results/:term' element={<ResultsPage />}  />
 
-                <Route path='product/:id' element={<ProductPage products={products} />} />
-                <Route path='product/edit/:id' element={<ProductPage products={products} />} />
-                <Route path='cart' element={<Cart cart={cart}/>} />
+                <Route path='product/:id' element={<ProductPage />} />
+                <Route path='product/edit/:id' element={<ProductPage />} />
+                <Route path='cart' element={<Cart />} />
                 <Route path='*' element={<ErrorPage />} />
 
             </Route>

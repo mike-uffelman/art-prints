@@ -9,6 +9,7 @@ import { addToCart } from '../../store/slices/cartsSlice';
 import Products from "./AllProducts";
 import classNames from 'classnames';
 import {v4 as uuidv4 } from 'uuid';
+import { UNSPLASH_URL } from '../../data/config';
 
 function Product({products, className}) {
     const [ size, setSize ] = useState({
@@ -65,7 +66,17 @@ function Product({products, className}) {
                         </div>
                         <form className="product__details" >
                             <h3 className="product__description">{product.alt_description === null ? shortenDescription(product.description) : shortenDescription(product.alt_description)}</h3>
-                            <p className='product__owner'>by {product.owner}</p>
+                            
+                            <label className='product__owner'>
+                                Photo by&nbsp; 
+                                    <a href={`${product.owner.links.html} utm_source=image-print-react-practice&utm_medium=referral`} target='_blank' rel="noreferrer" className='product__owner--links'>
+                                         {product.owner.name}
+                                    </a>
+                                     &nbsp;on&nbsp;  
+                                    <a href={UNSPLASH_URL} className='product__owner--links' target='_blank' rel='noreferrer'>Unsplash</a>
+                                    
+                            </label>
+                            
                             <p className="product__price">${(product.base_amt * size.price_multiplier).toFixed(2)}</p>
                             <div className=''>
                                 <label className='' >Quantity</label>

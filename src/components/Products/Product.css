@@ -78,9 +78,24 @@
 }
 
 .product__owner {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+
+
     font-size: 1.4rem;
     font-family: 'Barlow-Light';
+    color: black;
     
+}
+
+.product__owner--text {
+
+}
+
+.product__owner--links {
+    text-decoration: none;
+    color: black;
 }
 
 .product__description {

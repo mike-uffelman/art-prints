@@ -2,28 +2,50 @@ import { useParams, useLoaderData } from "react-router-dom"
 import { buildProducts } from "../data/productGenerator";
 import Products from "../components/Products/AllProducts";
 import Tags, { tagsLoader } from "../components/Tags";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { addResults } from "../store/slices/searchSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { getTags } from "../data/productGenerator";
+
+
 
 export default function ResultsPage() {
-    const {term} = useParams();
-    const data = useLoaderData();
+    // const [ tags, setTags ] = useState([]);
+    // const {term} = useParams();
+    
+    const results = useSelector((state) => {
+        console.log(state.search)
+        return state.search;
+    })
 
-    console.log(data)
+    // useEffect(() => {
+    //     const data = getTags(results);
+    //     console.log(data);
+    //     setTags(data);
+    // }, [])
 
-    console.log(term)
+    // const renderComponents = 
+
+    if(!results) {
+        return <div>Loading...</div>
+    }
 
     return (
         <React.Fragment >
-            <Tags  products={data}/>
-            <Products products={data} className='products__container'/>
+            <Tags tagsData={results[0]}/>
+
+            <Products className='products__container' results={results[0]} />
+
         </React.Fragment>
     )
 }
 
-export const resultsLoader = async() => {
-    const res = await buildProducts()
-
-    return res;
+// export const resultsLoader = async({params}) => {
+    // return params
+    
+    // const res = await buildProducts()
+    // console.log(res)
+    // return res;
     // console.log(res.json());
 
-}
+// }

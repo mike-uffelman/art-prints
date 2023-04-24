@@ -1,11 +1,11 @@
 import testData from './testData.json';
 
 export async function buildProducts(data) {
-    console.log(testData)
+    // console.log(testData)
 
 
 
-    const newData = testData.map(product => {
+    const newData = data.map(product => {
         // return a random stock quantity, run a qualifier, if random number ===0 then stock is zero, otherwise return a random number over 0 
         const stockQuantity = () => {
             if((Math.round(Math.random()) * 5) === 0) {
@@ -14,19 +14,21 @@ export async function buildProducts(data) {
                 return Math.round(Math.random() * 100  + 1);
             }
         }
+
+        console.log(product.image)
     
         return {
             id: product.id,
-            description: product.description,
-            alt_description: product.alt_description,
-            image_urls: product.urls,
-            tags: product.tags,
+            description: product.description || 'none',
+            alt_description: product.alt_description || 'none',
+            image_urls: product.urls || 'none',
+            tags: product.tags || [],
             base_amt: (Math.random() * 10 + 6).toFixed(2),
-            width: product.width,
-            height: product.height,
+            width: product.width || 2500,
+            height: product.height || 1600,
             orientation: product.width > product.height ? 'landscape' : 'portrait',
             quantity_available: stockQuantity(),
-            owner: product.user.name
+            owner: product.user || 'none'
         }
 
     })
@@ -38,7 +40,7 @@ export async function buildProducts(data) {
 
 
 export function getTags(products) {
-    const tags = products.reduce((acc, curr) => {
+    const tags = products.flat().reduce((acc, curr) => {
         acc.push(curr.tags.map(i => i.title))
         return acc;
     },[]).flat()
