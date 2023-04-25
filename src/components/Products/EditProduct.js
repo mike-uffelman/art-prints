@@ -21,22 +21,25 @@ function Product({className}) {
         return state.cart.map(item => {
             console.log(item.id, cartItemId)
             if(item.id === cartItemId) {
+                console.log(item)
                 return item;
             }
         }) 
     }) 
+    console.log(cartItem)
     // const [products, setProducts] = useState([]);
 
     const [ size, setSize ] = useState({})
-    const [ quantity , setQuantity ] = useState(cartItem.quantity); // quantity state for product
+    const [ quantity , setQuantity ] = useState(cartItem[0].quantity); // quantity state for product
 
     
     useEffect(() => {
         if(cartItem) {
+            console.log(cartItem)
             setSize({
-                width: cartItem.size.width,
-                height: cartItem.size.height,
-                price_multiplier: cartItem.size.price_multiplier
+                width: cartItem[0].size.width,
+                height: cartItem[0].size.height,
+                price_multiplier: cartItem[0].size.price_multiplier
             })
         }
     //     // console.log(currentPath)
@@ -66,28 +69,28 @@ function Product({className}) {
     }
 
 
-    const renderProduct = 
+    const renderProduct = cartItem && 
     // cartItem && cartItems.map(item => {
             // if(cartItemId === item.id) {
                 // return (
-                    <section key={cartItem.id} className='products-page__product'>
+                    <section key={cartItem[0].id} className='products-page__product'>
                         <div className='img__container'>
-                            <img className='product__img product__img--full' src={cartItem.product.image_urls.regular} alt={cartItem.product.description}/>
+                            <img className='product__img product__img--full' src={cartItem[0].product.image_urls.regular} alt={cartItem[0].product.description}/>
                         </div>
                         <form className="product__details" >
-                            <h3 className="product__description">{cartItem.product.alt_description === null ? shortenDescription(cartItem.description) : shortenDescription(cartItem.product.alt_description)}</h3>
+                            <h3 className="product__description">{cartItem[0].product.alt_description === null ? shortenDescription(cartItem[0].description) : shortenDescription(cartItem[0].product.alt_description)}</h3>
                             
                             <label className='product__owner'>
                                 Photo by&nbsp; 
-                                    <a href={`${cartItem.product.owner.links.html} utm_source=image-print-react-practice&utm_medium=referral`} target='_blank' rel="noreferrer" className='product__owner--links'>
-                                         {cartItem.product.owner.name}
+                                    <a href={`${cartItem[0].product.owner.links.html} utm_source=image-print-react-practice&utm_medium=referral`} target='_blank' rel="noreferrer" className='product__owner--links'>
+                                         {cartItem[0].product.owner.name}
                                     </a>
                                      &nbsp;on&nbsp;  
                                     <a href={UNSPLASH_URL} className='product__owner--links' target='_blank' rel='noreferrer'>Unsplash</a>
                                     
                             </label>
                             
-                            <p className="product__price">${(cartItem.base_amt * size.price_multiplier).toFixed(2)}</p>
+                            <p className="product__price">${(cartItem[0].base_amt * size.price_multiplier).toFixed(2)}</p>
                             <div className=''>
                                 <label className='' >Quantity</label>
                                 <input type='number' min='1' step='1' onChange={(e) => setQuantity(e.target.value)} value={quantity}></input>
@@ -117,6 +120,7 @@ function Product({className}) {
 
     return (
         <div className="product-page">
+            {console.log(cartItem)}
             ...editing product
             {cartItem ? renderProduct : 'Loading...'}
         </div>
