@@ -51,7 +51,7 @@ function Cart() {
                         ${total(item)}
                     </p>
                     <div onClick={() => handleClick(item.id)} className='item__delete'>Delete</div>
-                    <Link to={`/product/edit/${item.product.id}`} className=''>Edit</Link>
+                    <Link to={`/product/editCartItem/${item.id}`} className=''>Edit</Link>
                 </div>
 
             </div>

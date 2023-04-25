@@ -12,28 +12,33 @@ import {v4 as uuidv4 } from 'uuid';
 import { UNSPLASH_URL } from '../../data/config';
 
 function Product({className}) {
-    const [ isFetched, setIsFetched ] = useState(false);
-    
     const dispatch = useDispatch();
-    const productData = useSelector((state) => {
-        console.log(state.search)
-        // setIsFetched(true)
-        return state.search;
-    }) 
-    const [products, setProducts] = useState([]);
+    const {id: cartItemId} = useParams();
+    console.log(cartItemId)
 
-    const [ size, setSize ] = useState({
-        width: 9,
-        height: 12,
-        price_multiplier: 1
-    })
-    const [ quantity , setQuantity ] = useState(1); // quantity state for product
-    const {id} = useParams();
-    console.log(id)
+    const cartItem = useSelector((state) => {
+    
+        return state.cart.map(item => {
+            console.log(item.id, cartItemId)
+            if(item.id === cartItemId) {
+                return item;
+            }
+        }) 
+    }) 
+    // const [products, setProducts] = useState([]);
+
+    const [ size, setSize ] = useState({})
+    const [ quantity , setQuantity ] = useState(cartItem.quantity); // quantity state for product
 
     
     useEffect(() => {
-
+        if(cartItem) {
+            setSize({
+                width: cartItem.size.width,
+                height: cartItem.size.height,
+                price_multiplier: cartItem.size.price_multiplier
+            })
+        }
     //     // console.log(currentPath)
     //     // window.history.pushState({}, '', `${window.location.pathname}/${product.id}`)
     }, [])
@@ -61,57 +66,59 @@ function Product({className}) {
     }
 
 
-    const renderProduct = productData && productData[0].results.map(product => {
-            if(id === product.id) {
-                return (
-                    <section key={product.id} className='products-page__product'>
+    const renderProduct = 
+    // cartItem && cartItems.map(item => {
+            // if(cartItemId === item.id) {
+                // return (
+                    <section key={cartItem.id} className='products-page__product'>
                         <div className='img__container'>
-                            <img className='product__img product__img--full' src={product.image_urls.regular} alt={product.description}/>
+                            <img className='product__img product__img--full' src={cartItem.product.image_urls.regular} alt={cartItem.product.description}/>
                         </div>
                         <form className="product__details" >
-                            <h3 className="product__description">{product.alt_description === null ? shortenDescription(product.description) : shortenDescription(product.alt_description)}</h3>
+                            <h3 className="product__description">{cartItem.product.alt_description === null ? shortenDescription(cartItem.description) : shortenDescription(cartItem.product.alt_description)}</h3>
                             
                             <label className='product__owner'>
                                 Photo by&nbsp; 
-                                    <a href={`${product.owner.links.html} utm_source=image-print-react-practice&utm_medium=referral`} target='_blank' rel="noreferrer" className='product__owner--links'>
-                                         {product.owner.name}
+                                    <a href={`${cartItem.product.owner.links.html} utm_source=image-print-react-practice&utm_medium=referral`} target='_blank' rel="noreferrer" className='product__owner--links'>
+                                         {cartItem.product.owner.name}
                                     </a>
                                      &nbsp;on&nbsp;  
                                     <a href={UNSPLASH_URL} className='product__owner--links' target='_blank' rel='noreferrer'>Unsplash</a>
                                     
                             </label>
                             
-                            <p className="product__price">${(product.base_amt * size.price_multiplier).toFixed(2)}</p>
+                            <p className="product__price">${(cartItem.base_amt * size.price_multiplier).toFixed(2)}</p>
                             <div className=''>
                                 <label className='' >Quantity</label>
                                 <input type='number' min='1' step='1' onChange={(e) => setQuantity(e.target.value)} value={quantity}></input>
                             </div>
                             
-                            <ProductSizeDropdown product={product} updatePrice={updatePrice}/>
+                            {/* <ProductSizeDropdown product={item} updatePrice={updatePrice}/> */}
                             <button
-                                onClick={(e) => submitForm(e, product)}
-                                className="product__add-to-cart--btn">Add to cart</button>
+                                // onClick={(e) => submitForm(e, item)}
+                                className="product__add-to-cart--btn">Update</button>
                         </form>
                         
                     </section>
-                )
-            } 
+                // )
+            // } 
             // else {
             //     throw Error('Photo not found');
             // }
-        })
+        // })
     
 
-    if(!productData) {
+    if(!cartItem || cartItem === undefined) {
         
-    // if(!productData || productData === undefined) {
-        return <div>Loading product...</div>
+    // if(!cartItems || cartItems === undefined) {
+        return <div>Loading item...</div>
     }
         
 
     return (
         <div className="product-page">
-            {productData ? renderProduct : 'Loading...'}
+            ...editing product
+            {cartItem ? renderProduct : 'Loading...'}
         </div>
     )
 }

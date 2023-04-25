@@ -18,39 +18,13 @@ import ResultsPage, { resultsLoader } from './pages/ResultsPage';
 import ErrorPage from './error-page';
 // import { useContext } from 'react';
 // import NavContext from './context/navigation';
-
+import EditPage from './pages/EditPage';
 
 function App() {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([])
 
-    // useEffect(() => {
-    //     const getProducts = async () => {
-    //         const results = await buildProducts();
-    //         setProducts(results);
-    //     }
-    //     getProducts()
-
-    //     getTags(products);
-    //     const results = onSearch('cars');
-    //     setProducts(results);
-    //     console.log(products)
-            // console.log(products)    
-            // console.log(products)
-    // }, [])
-
-    // useEffect(() => {
-        // console.log('cart: ', cart)
-    // }, [cart])
-
-    // const searchResults = useSelector(state => {
-    //     return state.search
-    // })
-
-    // const results = useSelector((state) => {
-    //     console.log(state.search)
-    //     return state.search;
-    // })
+   
 
     const router = createBrowserRouter(
         createRoutesFromElements(
@@ -61,7 +35,7 @@ function App() {
                 <Route path='results/:term' element={<ResultsPage />}  />
 
                 <Route path='product/:id' element={<ProductPage />} />
-                <Route path='product/edit/:id' element={<ProductPage />} />
+                <Route path='product/editCartItem/:id' element={<EditPage />} />
                 <Route path='cart' element={<Cart />} />
                 <Route path='*' element={<ErrorPage />} />
 
