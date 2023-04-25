@@ -17,20 +17,13 @@ function Product({className}) {
     console.log(cartItemId)
 
     const cartItem = useSelector((state) => {
-    
-        return state.cart.map(item => {
-            console.log(item.id, cartItemId)
-            if(item.id === cartItemId) {
-                console.log(item)
-                return item;
-            }
-        }) 
+        return state.cart.filter(item => item.id === cartItemId) 
     }) 
     console.log(cartItem)
     // const [products, setProducts] = useState([]);
 
     const [ size, setSize ] = useState({})
-    const [ quantity , setQuantity ] = useState(cartItem[0].quantity); // quantity state for product
+    const [ quantity , setQuantity ] = useState(0); // quantity state for product
 
     
     useEffect(() => {
@@ -90,13 +83,13 @@ function Product({className}) {
                                     
                             </label>
                             
-                            <p className="product__price">${(cartItem[0].base_amt * size.price_multiplier).toFixed(2)}</p>
+                            <p className="product__price">${(cartItem[0].product.base_amt * size.price_multiplier).toFixed(2)}</p>
                             <div className=''>
                                 <label className='' >Quantity</label>
                                 <input type='number' min='1' step='1' onChange={(e) => setQuantity(e.target.value)} value={quantity}></input>
                             </div>
                             
-                            {/* <ProductSizeDropdown product={item} updatePrice={updatePrice}/> */}
+                            <ProductSizeDropdown product={cartItem[0].product} updatePrice={updatePrice}/>
                             <button
                                 // onClick={(e) => submitForm(e, item)}
                                 className="product__add-to-cart--btn">Update</button>

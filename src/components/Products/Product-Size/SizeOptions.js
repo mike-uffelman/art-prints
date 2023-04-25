@@ -2,7 +2,7 @@ import classNames from "classnames";
 
 export default function SizeOptions({size, selected, index, product, updatePrice, className}) {
     // console.log(size)
-    // console.log(product)
+    console.log(product)
     
     // console.log(size)
 
