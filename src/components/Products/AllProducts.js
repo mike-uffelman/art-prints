@@ -27,7 +27,7 @@ function Products({className, results}) {
     
     // const renderProducts = <div>these are the products!!!!!</div>
 
-    const renderProducts = results && results.results.map(photo => {
+    const renderProducts = results && results.map(photo => {
     //     // console.log('photo urls...', photo.image_urls)
 
         return (
@@ -61,7 +61,7 @@ function Products({className, results}) {
         )
     })
 
-    if(!results || results === undefined) {
+    if(!results || results === undefined || results.length === 0) {
         return <div>Loading search results...</div>
     }
 

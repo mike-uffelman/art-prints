@@ -5,6 +5,7 @@ import { useLoaderData, Link, defer, resolvePath } from "react-router-dom"
 import unsplash from "../data/unsplash";
 import { useDispatch, useSelector } from 'react-redux';
 import { addResults } from '../store/slices/searchSlice';
+import { search } from '../data/dataHelper';
 
 export default function Tags({tagsData}) {
     const dispatch = useDispatch();
@@ -37,41 +38,22 @@ export default function Tags({tagsData}) {
         console.log(tagsData)
     }, [])
 
-    const handleClick = async (tag) => {
-        // e.preventDefault();
-        // console.log(e.target.textContent);
-        console.log(tag)
-        const res = await unsplash.get('/search/photos', {
-            params: {
-                query: tag
-            }
-        })
-
-        const data = await buildProducts(res.data.results);
-
-        const tags = await getTags(res.data.results);
-
-        const resultsObj = {
-            results: data,
-            tags: Object.keys(tags)
-        }
-
-        
-        dispatch(addResults(resultsObj));
-
+    const handleClick = async (term) => {
+        const results = await search(term);
+        dispatch(addResults(results));
     }
 
 
 
     // console.log(tagsList)
-    const renderTags = tagsData && tagsData.tags.map(tag => {
+    const renderTags = tagsData && tagsData.map(tag => {
     //         // console.log(tag)
             return ( 
                 <Link to={`/results/${tag}`} onClick={() => handleClick(tag)} key={tag} className="tags__link" >{tag}</Link>
             )
         })
 
-    if(!tagsData) {
+    if(!tagsData || tagsData === undefined) {
         return <div>Loading tags...</div>
     }
 

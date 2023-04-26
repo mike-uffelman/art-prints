@@ -4,6 +4,7 @@ import {useSelector, useDispatch } from 'react-redux';
 import unsplash from '../data/unsplash';
 import { addResults } from '../store/slices/searchSlice';
 import { buildProducts, getTags } from '../data/productGenerator';
+import { search } from '../data/dataHelper';
 
 function Search() {
     const [term, setTerm] = useState('');
@@ -15,29 +16,9 @@ function Search() {
     }
 
     const handleSubmit = async (e) => {
-        // e.preventDefault();
+        const results = await search(term);
 
-        //*----------------uncomment below for search
-        const res = await unsplash.get('/search/photos', {
-            params: { query: term }
-        });
-        console.log(term, res.data.results)
-
-
-        const data = await buildProducts(res.data.results); // search 
-
-        const tags = await getTags(res.data.results);
-        console.log('tags: ', tags)
-        // *-----------------
-        // const data = await buildProducts();
-
-        const resultsObj = {
-            results: data,
-            tags: Object.keys(tags)
-        }
-
-        await dispatch(addResults(resultsObj))
-
+        await dispatch(addResults(results))
     }
 
 

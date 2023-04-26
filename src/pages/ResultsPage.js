@@ -26,15 +26,14 @@ export default function ResultsPage() {
 
     // const renderComponents = 
 
-    if(!results) {
+    if(!results || results === undefined) {
         return <div>Loading...</div>
     }
 
     return (
         <React.Fragment >
-            <Tags tagsData={results}/>
-
-            <Products className='products__container' results={results} />
+            {results.tags ? <Tags tagsData={results.tags}/> : 'Loading tags...'}
+            {results.results ? <Products className='products__container' results={results.results}/> : 'Loading photos...'}
 
         </React.Fragment>
     )
