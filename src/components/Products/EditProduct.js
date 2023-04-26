@@ -5,7 +5,7 @@ import { useParams, Link } from "react-router-dom";
 import { shortenDescription } from "../../utility/helpers";
 import ProductSizeDropdown from "./Product-Size/ProductSizeDropdown";
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../../store/slices/cartsSlice';
+import { updateCartItem } from '../../store/slices/cartsSlice';
 import Products from "./AllProducts";
 import classNames from 'classnames';
 import {v4 as uuidv4 } from 'uuid';
@@ -34,6 +34,7 @@ function Product({className}) {
                 height: cartItem[0].size.height,
                 price_multiplier: cartItem[0].size.price_multiplier
             })
+            setQuantity(cartItem[0].quantity)
         }
     //     // console.log(currentPath)
     //     // window.history.pushState({}, '', `${window.location.pathname}/${product.id}`)
@@ -50,15 +51,15 @@ function Product({className}) {
     const submitForm = (e, product) => {
         e.preventDefault();
         console.log(e.target, product)
-        const cartItem = {
+        const cartUpdate = {
             quantity: Number(quantity),
-            product,
+            product: cartItem && cartItem[0].product,
             size,
-            id: uuidv4()
+            id: cartItem && cartItem[0].id
         }
         
         
-        dispatch(addToCart(cartItem))
+        dispatch(updateCartItem(cartUpdate))
     }
 
 
@@ -89,9 +90,9 @@ function Product({className}) {
                                 <input type='number' min='1' step='1' onChange={(e) => setQuantity(e.target.value)} value={quantity}></input>
                             </div>
                             
-                            <ProductSizeDropdown product={cartItem[0].product} updatePrice={updatePrice}/>
+                            <ProductSizeDropdown product={cartItem[0].product} size={size} updatePrice={updatePrice}/>
                             <button
-                                // onClick={(e) => submitForm(e, item)}
+                                onClick={(e) => submitForm(e)}
                                 className="product__add-to-cart--btn">Update</button>
                         </form>
                         

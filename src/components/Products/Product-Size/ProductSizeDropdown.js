@@ -3,7 +3,7 @@ import {useState, useEffect, useRef} from 'react';
 import SizeOptions from './SizeOptions';
 import classNames from 'classnames';
 
-export default function ProductSizeDropdown({product, updatePrice}) {
+export default function ProductSizeDropdown({product, updatePrice, size}) {
     const [activeTab, setActiveTab] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
     const dropDownEl = useRef()
@@ -90,7 +90,7 @@ export default function ProductSizeDropdown({product, updatePrice}) {
                 <p className=''>Size</p>
 
                 <div className='size__dropdown--select' onClick={handleClick} ref={dropDownEl}>
-                    <SizeOptions size={Object.values(sizes)[activeTab]} product={product} className='size__dropdown--option label' />
+                    <SizeOptions size={size || Object.values(sizes)[activeTab]} product={product} className='size__dropdown--option label' />
                     <span className="size__dropdown--icon material-symbols-outlined">
                         {expand}
                     </span>

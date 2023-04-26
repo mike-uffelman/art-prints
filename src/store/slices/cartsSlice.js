@@ -13,12 +13,21 @@ export const cartsSlice = createSlice({
             const index = Object.values(state).findIndex(item => item.id === action.payload);
             state.splice(index, 1)
         },
-        editCartItem: (state, action) => {
-
+        updateCartItem: (state, action) => {
+            const {id} = action.payload;
+            console.log(state, action, id)
+            
+            Object.values(state).find(item => {
+                if(item.id === action.payload.id) {
+                    item.quantity = action.payload.quantity
+                    item.size = action.payload.size
+                };
+            
+            })
         }
     }
 
 })
 
-export const { addToCart, removeFromCart } = cartsSlice.actions;
+export const { addToCart, removeFromCart, updateCartItem } = cartsSlice.actions;
 export const cartsReducer = cartsSlice.reducer;
