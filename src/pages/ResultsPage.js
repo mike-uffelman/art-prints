@@ -32,9 +32,9 @@ export default function ResultsPage() {
 
     return (
         <React.Fragment >
-            <Tags tagsData={results[0]}/>
+            <Tags tagsData={results}/>
 
-            <Products className='products__container' results={results[0]} />
+            <Products className='products__container' results={results} />
 
         </React.Fragment>
     )

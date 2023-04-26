@@ -61,7 +61,7 @@ function Product({className}) {
     }
 
 
-    const renderProduct = productData && productData[0].results.map(product => {
+    const renderProduct = productData && productData.results.map(product => {
             if(id === product.id) {
                 return (
                     <section key={product.id} className='products-page__product'>

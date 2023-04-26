@@ -1,11 +1,13 @@
 import './Tags.css';
 import { useEffect, useState } from "react";
-import { getTags } from "../data/productGenerator"
-import { useLoaderData, Link, defer } from "react-router-dom"
+import { buildProducts, getTags } from "../data/productGenerator"
+import { useLoaderData, Link, defer, resolvePath } from "react-router-dom"
 import unsplash from "../data/unsplash";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addResults } from '../store/slices/searchSlice';
 
 export default function Tags({tagsData}) {
+    const dispatch = useDispatch();
     // const [ tagsLoaded, setTagsLoaded ] = useState(false);
     // const [ tagList, setTagList ] = useState([])
     // const tags = useLoaderData();
@@ -35,16 +37,29 @@ export default function Tags({tagsData}) {
         console.log(tagsData)
     }, [])
 
-    // const handleClick = async (e) => {
-    //     // e.preventDefault();
-    //     console.log(e.target.textContent);
+    const handleClick = async (tag) => {
+        // e.preventDefault();
+        // console.log(e.target.textContent);
+        console.log(tag)
+        const res = await unsplash.get('/search/photos', {
+            params: {
+                query: tag
+            }
+        })
+
+        const data = await buildProducts(res.data.results);
+
+        const tags = await getTags(res.data.results);
+
+        const resultsObj = {
+            results: data,
+            tags: Object.keys(tags)
+        }
+
         
-    //     const res = await unsplash.get('/search/photos', {
-    //         params: {
-    //             query: e.target.textContent
-    //         }
-    //     })
-    // }
+        dispatch(addResults(resultsObj));
+
+    }
 
 
 
@@ -52,7 +67,7 @@ export default function Tags({tagsData}) {
     const renderTags = tagsData && tagsData.tags.map(tag => {
     //         // console.log(tag)
             return ( 
-                <Link to={`/results/${tag}`} key={tag} className="tags__link" >{tag}</Link>
+                <Link to={`/results/${tag}`} onClick={() => handleClick(tag)} key={tag} className="tags__link" >{tag}</Link>
             )
         })
 
