@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { Form, redirect } from 'react-router-dom';
 import {useSelector, useDispatch } from 'react-redux';
 import { addResults } from '../store/slices/searchSlice';
+import { buildReviews } from '../data/productGenerator';
 import { search } from '../data/dataHelper';
+import { addReviews } from '../store/slices/reviewsSlice';
 
 
 function Search() {
@@ -10,12 +12,16 @@ function Search() {
     const dispatch = useDispatch();
 
     const handleChange = (e) => {
-        setTerm(e.target.value)
+        setTerm(e.target.value);
     }
 
     const handleSubmit = async (e) => {
         const results = await search(term);
-        await dispatch(addResults(results))
+        await dispatch(addResults(results));
+
+        console.log(results)
+        const reviews = await buildReviews(results);
+        await dispatch(addReviews(reviews));
     }
 
     return (

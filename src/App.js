@@ -24,13 +24,6 @@ function App() {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([])
 
-    const productIds = [{id: 'm3m-lnR90uM'}, {id: 'YApiWyp0lqo'}, {id: '3ZUsNJhi_Ik'}]
-   
-    useEffect(() => {
-        buildReviews(productIds)
-    }, [])
-
-
     const router = createBrowserRouter(
         createRoutesFromElements(
             <Route path='/' element={<RootLayout />}>
@@ -38,7 +31,7 @@ function App() {
                 <Route index element={<Home />} />
 
                 <Route path='results/:term' element={<ResultsPage />}  />
-
+            
                 <Route path='product/:id' element={<ProductPage />} />
                 <Route path='product/editCartItem/:id' element={<EditPage />} />
                 <Route path='cart' element={<Cart />} />

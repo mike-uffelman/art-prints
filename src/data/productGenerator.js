@@ -47,7 +47,7 @@ export async function buildReviews(products) {
     const today = new Date().toISOString();
     console.log(testData)
 
-    const reviews = testData.map(product => {
+    const reviews = products.results.map(product => {
         let productReviews = [];
 
         const reviewCount = Math.ceil(Math.random() * 10);
@@ -57,7 +57,7 @@ export async function buildReviews(products) {
                 product_id: product.id,
                 review_id: uuidv4(),
                 comment: faker.lorem.paragraph(),
-                date: faker.date.between('2020-04-25T13:01:20Z', today),
+                // date: faker.date.between('2020-04-25T13:01:20Z', today),
                 user: faker.internet.userName(),
                 rating: Math.ceil(Math.random() * 5)
             })
@@ -67,7 +67,7 @@ export async function buildReviews(products) {
         return productReviews;
     })
 
-    console.log(reviews)
+    return reviews
 
 
     // return products && products.map(product => console.log('hello: ', product))
