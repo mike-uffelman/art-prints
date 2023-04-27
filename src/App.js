@@ -11,7 +11,7 @@ import { tagsLoader } from './components/Tags';
 
 // import Route from "./components/Route";
 // import unsplash from "./data/unsplash";
-import {buildProducts, getTags} from "./data/productGenerator";
+import {buildProducts, getTags, buildReviews} from "./data/productGenerator";
 import RootLayout from './layouts/RootLayout';
 import Home from './pages/Home';
 import ResultsPage, { resultsLoader } from './pages/ResultsPage';
@@ -24,7 +24,12 @@ function App() {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([])
 
+    const productIds = [{id: 'm3m-lnR90uM'}, {id: 'YApiWyp0lqo'}, {id: '3ZUsNJhi_Ik'}]
    
+    useEffect(() => {
+        buildReviews(productIds)
+    }, [])
+
 
     const router = createBrowserRouter(
         createRoutesFromElements(

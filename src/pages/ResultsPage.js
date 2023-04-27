@@ -1,5 +1,5 @@
 import { useParams, useLoaderData } from "react-router-dom"
-import { buildProducts } from "../data/productGenerator";
+import { buildProducts, buildReviews } from "../data/productGenerator";
 import Products from "../components/Products/AllProducts";
 import Tags, { tagsLoader } from "../components/Tags";
 import React, { useState, useEffect } from "react";
@@ -17,6 +17,7 @@ export default function ResultsPage() {
         console.log(state.search)
         return state.search;
     })
+
 
     // useEffect(() => {
     //     const data = getTags(results);

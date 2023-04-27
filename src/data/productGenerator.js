@@ -1,9 +1,12 @@
 import testData from './testData.json';
+import { faker } from '@faker-js/faker';
+import {v4 as uuidv4 } from 'uuid';
+
 
 export async function buildProducts(data) {
     // console.log(testData)
 
-
+    console.log(data)
 
     const newData = data.map(product => {
         // return a random stock quantity, run a qualifier, if random number ===0 then stock is zero, otherwise return a random number over 0 
@@ -15,8 +18,6 @@ export async function buildProducts(data) {
             }
         }
 
-        console.log(product.image)
-    
         return {
             id: product.id,
             description: product.description || 'none',
@@ -28,7 +29,9 @@ export async function buildProducts(data) {
             height: product.height || 1600,
             orientation: product.width > product.height ? 'landscape' : 'portrait',
             quantity_available: stockQuantity(),
-            owner: product.user || 'none'
+            owner: product.user || 'none',
+            likes: (Math.random() * 1000).toFixed(),
+            created_at: product.created_at
         }
 
     })
@@ -37,7 +40,40 @@ export async function buildProducts(data) {
     
 }
 
+export async function buildReviews(products) {
+    // console.log('is buildReviews workign???')
+    // console.log(faker.internet.userName(), faker.lorem.paragraph(), faker.date.between('2020-04-25T13:01:20Z', new Date().toISOString()))
 
+    const today = new Date().toISOString();
+    console.log(testData)
+
+    const reviews = testData.map(product => {
+        let productReviews = [];
+
+        const reviewCount = Math.ceil(Math.random() * 10);
+
+        for (let i = 0; i < reviewCount; i++) {
+            productReviews.push({
+                product_id: product.id,
+                review_id: uuidv4(),
+                comment: faker.lorem.paragraph(),
+                date: faker.date.between('2020-04-25T13:01:20Z', today),
+                user: faker.internet.userName(),
+                rating: Math.ceil(Math.random() * 5)
+            })
+        }
+        
+
+        return productReviews;
+    })
+
+    console.log(reviews)
+
+
+    // return products && products.map(product => console.log('hello: ', product))
+
+
+}
 
 export function getTags(products) {
     const tags = products.flat().reduce((acc, curr) => {
