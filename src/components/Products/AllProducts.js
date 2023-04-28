@@ -19,7 +19,7 @@ function Products({className, results}) {
     // }
 
     useEffect(() => {
-        console.log(results)
+        // console.log(results)
         
     }, [])
     

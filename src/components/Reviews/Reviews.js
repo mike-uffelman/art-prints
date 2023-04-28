@@ -1,6 +1,7 @@
 import './Reviews.css';
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
+import { dateTransformer } from '../../utility/helpers';
 
 export default function Reviews() {
     const reviews = useSelector((state) => {
@@ -10,11 +11,14 @@ export default function Reviews() {
 
     const renderReviews = reviews.flat().filter(review => review.product_id === id).map(review => {
         return (
-            <section className="review__item">
+            <section key={review.review_id} className="review__item">
                 <div className="review__header">
-                    {review.user}
+                    <div className='review__header--rating'>Stars here</div>
+                    <div className='review__header--title'>{review.user}</div>
+                    <div className='review__header--date'>{dateTransformer(review.date)}</div>
                 </div>
                 <div className="review__detail">
+                    <p className='review__detail--title'>Adjective here!</p>
                     <p className="review__detail--text">{review.comment}</p>
                 </div>
             </section>
@@ -26,8 +30,8 @@ export default function Reviews() {
     }
 
     return (
-        <section className="reviews">
-            <h3 className='reviews__heading'>Product Reviews</h3>
+        <section className="reviews" id='reviews'>
+            <h3 className='reviews__heading'>Reviews</h3>
             {reviews ? renderReviews : 'Loading reviews...'}
         </section>
     )

@@ -35,7 +35,7 @@ export default function Tags({tagsData}) {
         // setTagsLoaded(true)
     //     console.log(tags)
         // console.log(testTags)
-        console.log(tagsData)
+        // console.log(tagsData)
     }, [])
 
     const handleClick = async (term) => {

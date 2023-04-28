@@ -78,7 +78,7 @@
 }
 
 .product__owner {
-    display: flex;
+    display: block;
     flex-direction: row;
     padding: 1rem;
 
@@ -86,6 +86,7 @@
     font-size: 1.4rem;
     font-family: 'Barlow-Light';
     color: black;
+
     
 }
 
@@ -95,46 +96,17 @@
 }
 
 .product__owner--links {
+    /* display: inline; */
     text-decoration: none;
     color: black;
+    flex-wrap: nowrap;
 }
 
-.product__reviews {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    align-content: center;
-    grid-gap: 1rem;
-    
-    padding: 1rem;
-    align-items: center;
-    /* color: red; */
-    font-size: 1.6rem;
-    
+.product__owner--links:hover {
+    color: rgb(200, 0, 133);
 }
 
-.product__ratings {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
 
-.product__likes {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-self: end;
-}
-
-.product__likes--icon {
-    color: rgb(255, 0, 0);
-}
-
-.product__likes--count {
-    font-size: 1.6rem;
-    color: black;
-    margin-left: .5rem;
-}
 
 .product__description {
     font-family: 'Barlow-SemiBold';

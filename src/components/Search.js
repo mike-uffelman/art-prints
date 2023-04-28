@@ -19,7 +19,7 @@ function Search() {
         const results = await search(term);
         await dispatch(addResults(results));
 
-        console.log(results)
+        // console.log(results)
         const reviews = await buildReviews(results);
         await dispatch(addReviews(reviews));
     }

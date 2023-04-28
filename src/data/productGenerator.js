@@ -6,7 +6,7 @@ import {v4 as uuidv4 } from 'uuid';
 export async function buildProducts(data) {
     // console.log(testData)
 
-    console.log(data)
+    // console.log(data)
 
     const newData = data.map(product => {
         // return a random stock quantity, run a qualifier, if random number ===0 then stock is zero, otherwise return a random number over 0 
@@ -45,19 +45,21 @@ export async function buildReviews(products) {
     // console.log(faker.internet.userName(), faker.lorem.paragraph(), faker.date.between('2020-04-25T13:01:20Z', new Date().toISOString()))
 
     const today = new Date().toISOString();
-    console.log(testData)
+    console.log(products.results[0].created_at, today)
+    // console.log(testData)
 
     const reviews = products.results.map(product => {
         let productReviews = [];
-
         const reviewCount = Math.ceil(Math.random() * 10);
 
         for (let i = 0; i < reviewCount; i++) {
+            const date = faker.date.between(product.created_at, today)
+
             productReviews.push({
                 product_id: product.id,
                 review_id: uuidv4(),
                 comment: faker.lorem.paragraph(),
-                // date: faker.date.between('2020-04-25T13:01:20Z', today),
+                date: date.toString(),
                 user: faker.internet.userName(),
                 rating: Math.ceil(Math.random() * 5)
             })

@@ -1,0 +1,55 @@
+
+.product__reception {
+
+}
+
+.product__reviews {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-content: center;
+    grid-gap: 1rem;
+    
+    /* padding: 1rem; */
+    align-items: center;
+    /* color: red; */
+    font-size: 1.6rem;
+    
+}
+
+.product__ratings {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.product__ratings--icon {
+    /* color: blue; */
+    /* transform: scale(.5) ; */
+}
+
+.product__likes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-self: end;
+}
+
+.product__likes--icon {
+    color: rgb(255, 0, 0);
+}
+
+.product__likes--count {
+    font-size: 1.6rem;
+    color: black;
+    margin-left: .5rem;
+}
+
+@media screen and (min-width: 30em) {
+
+    .product__reviews {
+        padding: 1rem;
+    }
+}
