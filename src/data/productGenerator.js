@@ -4,12 +4,7 @@ import {v4 as uuidv4 } from 'uuid';
 
 
 export async function buildProducts(data) {
-    // console.log(testData)
-
-    // console.log(data)
-
     const newData = data.map(product => {
-        // return a random stock quantity, run a qualifier, if random number ===0 then stock is zero, otherwise return a random number over 0 
         const stockQuantity = () => {
             if((Math.round(Math.random()) * 5) === 0) {
                 return 0;
@@ -31,9 +26,10 @@ export async function buildProducts(data) {
             quantity_available: stockQuantity(),
             owner: product.user || 'none',
             likes: (Math.random() * 1000).toFixed(),
-            created_at: product.created_at
-        }
+            created_at: product.created_at,
+            review_count: Math.round(Math.random() * 1000)
 
+        }
     })
 
     return newData;
@@ -41,16 +37,11 @@ export async function buildProducts(data) {
 }
 
 export async function buildReviews(products) {
-    // console.log('is buildReviews workign???')
-    // console.log(faker.internet.userName(), faker.lorem.paragraph(), faker.date.between('2020-04-25T13:01:20Z', new Date().toISOString()))
-
     const today = new Date().toISOString();
-    console.log(products.results[0].created_at, today)
-    // console.log(testData)
 
     const reviews = products.results.map(product => {
         let productReviews = [];
-        const reviewCount = Math.ceil(Math.random() * 10);
+        const reviewCount = Math.ceil(Math.random() * 30);
 
         for (let i = 0; i < reviewCount; i++) {
             const date = faker.date.between(product.created_at, today)
@@ -58,23 +49,18 @@ export async function buildReviews(products) {
             productReviews.push({
                 product_id: product.id,
                 review_id: uuidv4(),
-                comment: faker.lorem.paragraph(),
+                comment: {
+                    title: faker.lorem.words(),
+                    comments: faker.lorem.paragraph(),
+                },
                 date: date.toString(),
                 user: faker.internet.userName(),
-                rating: Math.ceil(Math.random() * 5)
+                rating: Math.ceil(Math.random() * 5),
             })
         }
-        
-
         return productReviews;
     })
-
     return reviews
-
-
-    // return products && products.map(product => console.log('hello: ', product))
-
-
 }
 
 export function getTags(products) {
@@ -83,36 +69,12 @@ export function getTags(products) {
         return acc;
     },[]).flat()
 
-    // console.log(tags)
-
-    // const tagsTest = tags.reduce((acc, curr) => {
-        
-    // });
-
-    // console.log('tags test: ', tagsTest)
-
     const tagsCounter = tags.reduce((acc, curr) => {
-        
-        
         let key = curr;
         if(!acc[key]) acc[key] = 0;
         acc[key] = acc[key] + 1;
         return acc;
     }, {})
 
-    // console.log('tagsCounter', tagsCounter)
-
     return tagsCounter;
 }
-
-
-
-// const reduceDailyTransactions = (data) => {
-//     return data
-//         .reduce((accumulator, current) => {
-//             let key = current.date
-//             if(!accumulator[key]) accumulator[key] = [];
-//             accumulator[key].push(current)
-//             return accumulator;
-//         }, {})
-// }

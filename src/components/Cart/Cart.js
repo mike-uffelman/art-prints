@@ -13,16 +13,15 @@ function Cart() {
         return state.cart
     })
 
-    useEffect(() => {
-        console.log(cart)
-    }, [])
+    // useEffect(() => {
+    //     console.log(cart)
+    // }, [])
 
     const total = (item) => {
         return (item.product.base_amt * item.size.price_multiplier * item.quantity).toFixed(2)
     }
 
     const handleClick = (id) => {
-        console.log(id)
         dispatch(removeFromCart(id))
     }
 

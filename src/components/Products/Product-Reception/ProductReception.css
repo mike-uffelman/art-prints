@@ -25,7 +25,12 @@
     color: black;
 }
 
-.product__ratings--icon {
+.product__ratings--count {
+    margin-left: .5rem;
+}
+
+.product__ratings > .material-icons {
+    /* transform: scale(.75); */
     /* color: blue; */
     /* transform: scale(.5) ; */
 }

@@ -22,6 +22,7 @@ function Search() {
         // console.log(results)
         const reviews = await buildReviews(results);
         await dispatch(addReviews(reviews));
+        setTerm('')
     }
 
     return (

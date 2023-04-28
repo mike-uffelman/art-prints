@@ -33,6 +33,10 @@
     grid-gap: 1rem;
     justify-items: stretch;
 
+    background-color: rgb(217, 232, 234);
+    padding: 1rem;
+    border-radius: 1rem;
+
 }
 
 .img__container {

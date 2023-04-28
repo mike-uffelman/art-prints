@@ -8,6 +8,10 @@
     position: relative;
     font-size: 2rem;
     padding-bottom: 1rem;
+    background-color: rgb(217, 232, 234);
+    padding: 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 }
 
 .reviews__heading::after {
@@ -44,6 +48,19 @@
 
 .review__header {
     margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.review__header--rating {
+    display: flex;
+}
+
+.review__header--rating > .material-icons {
+    margin: -.25rem;
+    transform: scale(.75) ;
+    color: rgb(0, 149, 166);
 }
 
 /* .review__header:last-child {

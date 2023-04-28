@@ -10,18 +10,17 @@ import Products from "./AllProducts";
 import classNames from 'classnames';
 import {v4 as uuidv4 } from 'uuid';
 import { UNSPLASH_URL } from '../../data/config';
-import ProductReception from './ProductReception';
+import ProductReception from './Product-Reception/ProductReception';
 
 function Product({className}) {
-    const [ isFetched, setIsFetched ] = useState(false);
+    // const [ isFetched, setIsFetched ] = useState(false);
     
     const dispatch = useDispatch();
     const productData = useSelector((state) => {
-        console.log(state.search)
         // setIsFetched(true)
         return state.search;
     }) 
-    const [products, setProducts] = useState([]);
+    // const [products, setProducts] = useState([]);
 
     const [ size, setSize ] = useState({
         width: 9,
@@ -30,11 +29,10 @@ function Product({className}) {
     })
     const [ quantity , setQuantity ] = useState(1); // quantity state for product
     const {id} = useParams();
-    console.log(id)
 
     
     useEffect(() => {
-
+        window.scrollTo({top: 0, left: 0, behavior: 'instant'})
     //     // console.log(currentPath)
     //     // window.history.pushState({}, '', `${window.location.pathname}/${product.id}`)
     }, [])
@@ -43,13 +41,11 @@ function Product({className}) {
     const similarClassnames = classNames(className)
 
     const updatePrice = (val) => {
-        console.log(val);
         setSize(val)
     }
 
     const submitForm = (e, product) => {
         e.preventDefault();
-        console.log(e.target, product)
         const cartItem = {
             quantity: Number(quantity),
             product,

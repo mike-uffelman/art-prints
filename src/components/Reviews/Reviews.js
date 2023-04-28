@@ -2,6 +2,7 @@ import './Reviews.css';
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { dateTransformer } from '../../utility/helpers';
+import RatingStars from '../Products/Product-Reception/RatingStars';
 
 export default function Reviews() {
     const reviews = useSelector((state) => {
@@ -13,13 +14,15 @@ export default function Reviews() {
         return (
             <section key={review.review_id} className="review__item">
                 <div className="review__header">
-                    <div className='review__header--rating'>Stars here</div>
+                    <div className='review__header--rating'>
+                        <RatingStars rating={review.rating} className='review__header--rating'/>
+                    </div>
                     <div className='review__header--title'>{review.user}</div>
                     <div className='review__header--date'>{dateTransformer(review.date)}</div>
                 </div>
                 <div className="review__detail">
-                    <p className='review__detail--title'>Adjective here!</p>
-                    <p className="review__detail--text">{review.comment}</p>
+                    <p className='review__detail--title'>{review.comment.title}</p>
+                    <p className="review__detail--text">{review.comment.comments}</p>
                 </div>
             </section>
         )
