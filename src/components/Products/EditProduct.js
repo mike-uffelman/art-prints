@@ -10,8 +10,9 @@ import Products from "./AllProducts";
 import classNames from 'classnames';
 import {v4 as uuidv4 } from 'uuid';
 import { UNSPLASH_URL } from '../../data/config';
+import ProductSize from './Product-Size/ProductSize';
 
-function Product({className}) {
+export default function EditProduct({className}) {
     const dispatch = useDispatch();
     const {id: cartItemId} = useParams();
     console.log(cartItemId)
@@ -90,7 +91,8 @@ function Product({className}) {
                                 <input type='number' min='1' step='1' onChange={(e) => setQuantity(e.target.value)} value={quantity}></input>
                             </div>
                             
-                            <ProductSizeDropdown product={cartItem[0].product} size={size} updatePrice={updatePrice}/>
+                            <ProductSize updatePrice={updatePrice} size={size}/>
+
                             <button
                                 onClick={(e) => submitForm(e)}
                                 className="product__add-to-cart--btn">Update</button>
@@ -114,11 +116,8 @@ function Product({className}) {
 
     return (
         <div className="product-page">
-            {console.log(cartItem)}
-            ...editing product
+            <h2 className='product-page__header'>Editing Cart Item</h2>
             {cartItem ? renderProduct : 'Loading...'}
         </div>
     )
 }
-
-export default Product;

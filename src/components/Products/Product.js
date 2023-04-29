@@ -11,6 +11,7 @@ import classNames from 'classnames';
 import {v4 as uuidv4 } from 'uuid';
 import { UNSPLASH_URL } from '../../data/config';
 import ProductReception from './Product-Reception/ProductReception';
+import ProductSize from './Product-Size/ProductSize';
 
 function Product({className}) {
     // const [ isFetched, setIsFetched ] = useState(false);
@@ -41,6 +42,7 @@ function Product({className}) {
     const similarClassnames = classNames(className)
 
     const updatePrice = (val) => {
+        console.log(val)
         setSize(val)
     }
 
@@ -56,6 +58,7 @@ function Product({className}) {
         
         dispatch(addToCart(cartItem))
     }
+
 
 
     const renderProduct = productData && productData.results.map(product => {
@@ -86,7 +89,7 @@ function Product({className}) {
                                 <input type='number' min='1' step='1' onChange={(e) => setQuantity(e.target.value)} value={quantity}></input>
                             </div>
                             
-                            <ProductSizeDropdown product={product} updatePrice={updatePrice}/>
+                            <ProductSize product={product} updatePrice={updatePrice}/>
                             <button
                                 onClick={(e) => submitForm(e, product)}
                                 className="product__add-to-cart--btn">Add to cart</button>
@@ -107,6 +110,7 @@ function Product({className}) {
         return <div>Loading product...</div>
     }
         
+    console.log(productData)
 
     return (
         <div className="product-page">
