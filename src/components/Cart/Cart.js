@@ -31,8 +31,11 @@ function Cart() {
             <div key={Math.random()} className='cart__item'>
                 <div className=''>
                     <Link to={`/product/${item.product.id}`} className='product__link item__img'>
-                        <img className='product__img product__img--thumb' src={item.product.image_urls.thumb} alt={item.product.description}/>
-
+                            <div className='img__border cart'>
+                                <div className='img__inset cart'>
+                                    <img className='product__img product__img--thumb' src={item.product.image_urls.thumb} alt={item.product.description}/>
+                                </div>
+                            </div>
                     </Link>
 
                 </div>

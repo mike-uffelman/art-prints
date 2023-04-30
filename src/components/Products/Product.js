@@ -69,8 +69,6 @@ function Product({className}) {
         setIsModalOpen(!isModalOpen)
     }
 
-
-
     const renderProduct = productData && productData.results.map(product => {
             if(id === product.id) {
                 return (
@@ -78,7 +76,7 @@ function Product({className}) {
                         <div className='img__container'>
                             <div className='img__border'>
                                 <div className='img__inset'>
-                                    <img onClick={handleImgClick} className='product__img ' src={product.image_urls.regular} alt={product.description}/>
+                                    <img onClick={handleImgClick}  className='product__img ' src={product.image_urls.regular} alt={product.description}/>
 
                                 </div>
                             </div>
