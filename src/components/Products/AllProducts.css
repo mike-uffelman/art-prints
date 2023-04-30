@@ -83,17 +83,13 @@
     /* display: flex; */
     object-fit: contain;
     width: 100%;
-    padding: 10%;
+    /* padding: 10%; */
     justify-self: center;
     cursor: pointer;
-    background-color: white;
-    border: 3px solid rgb(0, 0, 0);
-    box-shadow: inset 0 0 .5rem black;
+    /* border: 3px solid rgb(97, 97, 97); */
+    /* transform: scale(.99); */
+    box-shadow: inset 0 0 1rem gray;
     transition: all ease 300ms;
-}
-
-.product__img--thumb {
-
 }
 
 .products__details {

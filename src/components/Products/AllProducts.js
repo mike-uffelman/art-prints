@@ -34,7 +34,10 @@ function Products({className, results}) {
             // <div >{searchResults[0][0].id}</div>
             <div className="product__item" key={photo.base_amt}>
                 <Link to={`/product/${photo.id}`} className='product__link'>
-                    <img className='product__img product__img--thumb' src={photo.image_urls.thumb} alt={photo.description}/>
+                    <div className='img__border'>
+                        <img className='product__img product__img--thumb' src={photo.image_urls.thumb} alt={photo.description}/>
+
+                    </div>
 
                 </Link>
                 <div className='products__details'> 

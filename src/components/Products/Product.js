@@ -2,6 +2,7 @@ import './Product.css';
 import React, { useEffect, useState } from "react";
 // import NavContext from "../context/navigation";
 import { useParams, Link } from "react-router-dom";
+import { createPortal } from 'react-dom';
 import { shortenDescription } from "../../utility/helpers";
 import ProductSizeDropdown from "./Product-Size/ProductSizeDropdown";
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,9 +13,11 @@ import {v4 as uuidv4 } from 'uuid';
 import { UNSPLASH_URL } from '../../data/config';
 import ProductReception from './Product-Reception/ProductReception';
 import ProductSize from './Product-Size/ProductSize';
+import PhotoModal from './PhotoModal';
 
 function Product({className}) {
     // const [ isFetched, setIsFetched ] = useState(false);
+    const [ isModalOpen, setIsModalOpen ] = useState(false);
     
     const dispatch = useDispatch();
     const productData = useSelector((state) => {
@@ -34,9 +37,11 @@ function Product({className}) {
     
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'instant'})
-    //     // console.log(currentPath)
-    //     // window.history.pushState({}, '', `${window.location.pathname}/${product.id}`)
     }, [])
+
+    useEffect(() => {
+        document.body.classList.toggle('modal-open');
+    }, [isModalOpen])
 
     
     const similarClassnames = classNames(className)
@@ -59,6 +64,11 @@ function Product({className}) {
         dispatch(addToCart(cartItem))
     }
 
+    const handleImgClick = () => {
+        console.log('img clicked')
+        setIsModalOpen(!isModalOpen)
+    }
+
 
 
     const renderProduct = productData && productData.results.map(product => {
@@ -66,7 +76,17 @@ function Product({className}) {
                 return (
                     <section key={product.id} className='products-page__product'>
                         <div className='img__container'>
-                            <img className='product__img product__img--full' src={product.image_urls.regular} alt={product.description}/>
+                            <div className='img__border'>
+                                <div className='img__inset'>
+                                    <img onClick={handleImgClick} className='product__img ' src={product.image_urls.regular} alt={product.description}/>
+
+                                </div>
+                            </div>
+                            
+                            {isModalOpen && createPortal(
+                                <PhotoModal image={product.image_urls.regular} alt={product.description} className={`${product.orientation}`}toggleModal={handleImgClick} />, document.body
+                            )}
+                            
                         </div>
                         <form className="product__details" >
                             <h3 className="product__description">{product.alt_description === null ? shortenDescription(product.description) : shortenDescription(product.alt_description)}</h3>
@@ -110,8 +130,6 @@ function Product({className}) {
         return <div>Loading product...</div>
     }
         
-    console.log(productData)
-
     return (
         <div className="product-page">
             {productData ? renderProduct : 'Loading...'}

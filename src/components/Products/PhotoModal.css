@@ -1,0 +1,74 @@
+.modal {
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    /* bottom: 0; */
+    left: 0;
+    display: flex;
+    /* transform: translate(-50%, -50%); */
+
+
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .5);
+
+    /* max-height: calc(100vh - 50px); */
+    /* overflow-y: auto; */
+}
+
+.modal__img-container {
+    /* position: relative; */
+    /* display: flex; */
+    /* max-width: 80%; */
+    /* max-height: 80%; */
+    /* margin: 5rem auto; */
+    /* flex: 1 0; */
+    /* max-inline-size: 100%; */
+    padding: 2.5rem;
+    block-size: auto;
+    /* overflow: auto; */
+}
+
+.modal__close {
+    position: absolute;
+    z-index: 9999;
+    right: 1rem;
+    top: 2rem;
+}
+
+.product__img--modal {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.modal__close > .material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 200,
+  'GRAD' -25,
+  'opsz' 40
+}
+
+.modal__close > span {
+    background-color: white;
+    color: black;
+    
+}
+
+.material-symbols-outlined:hover {
+    cursor: pointer;
+    color: #0095a6;
+}
+
+@media screen and (min-width: 35rem) {
+    .modal__img-container.portrait {
+        max-width: 55rem;
+    }
+    .modal__img-container.landscape {
+        max-width: 90rem;
+    }
+}
+

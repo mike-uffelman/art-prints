@@ -70,7 +70,12 @@ export default function EditProduct({className}) {
                 // return (
                     <section key={cartItem[0].id} className='products-page__product'>
                         <div className='img__container'>
-                            <img className='product__img product__img--full' src={cartItem[0].product.image_urls.regular} alt={cartItem[0].product.description}/>
+                            <div className='img__border'>
+                                <div className='img__inset'>
+                                    <img className='product__img ' src={cartItem[0].product.image_urls.regular} alt={cartItem[0].product.description}/>
+
+                                </div>
+                            </div>
                         </div>
                         <form className="product__details" >
                             <h3 className="product__description">{cartItem[0].product.alt_description === null ? shortenDescription(cartItem[0].description) : shortenDescription(cartItem[0].product.alt_description)}</h3>
