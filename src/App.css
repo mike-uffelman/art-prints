@@ -177,14 +177,6 @@ body {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
-    /* .app__header--link {
-        justify-self: flex-start;
-    } */
 
-    .app__header--logo {
-        /* justify-content: flex-start; */
-        /* font-size: 2.4rem; */
-        /* padding: 0; */
-    }
 }
 

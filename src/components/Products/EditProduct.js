@@ -11,6 +11,7 @@ import classNames from 'classnames';
 import {v4 as uuidv4 } from 'uuid';
 import { UNSPLASH_URL } from '../../data/config';
 import ProductSize from './Product-Size/ProductSize';
+import Image from '../Image';
 
 export default function EditProduct({className}) {
     const dispatch = useDispatch();
@@ -69,14 +70,8 @@ export default function EditProduct({className}) {
             // if(cartItemId === item.id) {
                 // return (
                     <section key={cartItem[0].id} className='products-page__product'>
-                        <div className='img__container'>
-                            <div className='img__border'>
-                                <div className='img__inset'>
-                                    <img className='product__img ' src={cartItem[0].product.image_urls.regular} alt={cartItem[0].product.description}/>
-
-                                </div>
-                            </div>
-                        </div>
+                        <Image product={cartItem[0].product} className='product' />
+                        
                         <form className="product__details" >
                             <h3 className="product__description">{cartItem[0].product.alt_description === null ? shortenDescription(cartItem[0].description) : shortenDescription(cartItem[0].product.alt_description)}</h3>
                             

@@ -14,6 +14,7 @@ import { UNSPLASH_URL } from '../../data/config';
 import ProductReception from './Product-Reception/ProductReception';
 import ProductSize from './Product-Size/ProductSize';
 import PhotoModal from './PhotoModal';
+import Image from '../Image';
 
 function Product({className}) {
     // const [ isFetched, setIsFetched ] = useState(false);
@@ -40,8 +41,16 @@ function Product({className}) {
     }, [])
 
     useEffect(() => {
-        document.body.classList.toggle('modal-open');
+        // if(isModalOpen) {
+            // document.body.style.overflow = 'hidden';
+            document.body.classList.toggle('modal-open');
+        // }
+        // return () => {
+            // document.body.style.overflow = 'none';
+        // }
+    
     }, [isModalOpen])
+
 
     
     const similarClassnames = classNames(className)
@@ -73,19 +82,13 @@ function Product({className}) {
             if(id === product.id) {
                 return (
                     <section key={product.id} className='products-page__product'>
-                        <div className='img__container'>
-                            <div className='img__border'>
-                                <div className='img__inset'>
-                                    <img onClick={handleImgClick}  className='product__img ' src={product.image_urls.regular} alt={product.description}/>
-
-                                </div>
-                            </div>
-                            
+                        <div className='product__image'>
+                            <Image product={product} modalOpen={handleImgClick} className={`product ${product.orientation}`} />
                             {isModalOpen && createPortal(
-                                <PhotoModal image={product.image_urls.regular} alt={product.description} className={`${product.orientation}`}toggleModal={handleImgClick} />, document.body
+                                <PhotoModal product={product} image={product.image_urls.regular} alt={product.description} className={``} toggleModal={handleImgClick} />, document.body
                             )}
-                            
                         </div>
+                        
                         <form className="product__details" >
                             <h3 className="product__description">{product.alt_description === null ? shortenDescription(product.description) : shortenDescription(product.alt_description)}</h3>
                             

@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import { UNSPLASH_URL } from '../../data/config';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import Image from '../Image';
 
 function Products({className, results}) {
     // const data = useLoaderData()
@@ -34,14 +35,7 @@ function Products({className, results}) {
             // <div >{searchResults[0][0].id}</div>
             <div className="product__item" key={photo.base_amt}>
                 <Link to={`/product/${photo.id}`} className='product__link'>
-                    <div className='img__border results'>
-                        <div className='img__inset cart'>
-                            <img className='product__img product__img--thumb' src={photo.image_urls.thumb} alt={photo.description}/>
-
-                        </div>
-
-                    </div>
-
+                    <Image product={photo} className={'results'} />
                 </Link>
                 <div className='products__details'> 
                     <h1 className='product__title'>{photo.alt_description === null ? shortenDescription(photo.description) : shortenDescription(photo.alt_description)}</h1>

@@ -6,16 +6,13 @@ import { Link } from 'react-router-dom';
 import CartTotal from './CartTotal';
 import { shortenDescription } from '../../utility/helpers';
 import { removeFromCart } from '../../store/slices/cartsSlice';
+import Image from '../Image';
 
 function Cart() {
     const dispatch = useDispatch();
     const cart = useSelector((state) => {
         return state.cart
     })
-
-    // useEffect(() => {
-    //     console.log(cart)
-    // }, [])
 
     const total = (item) => {
         return (item.product.base_amt * item.size.price_multiplier * item.quantity).toFixed(2)
@@ -29,13 +26,9 @@ function Cart() {
         
         return (
             <div key={Math.random()} className='cart__item'>
-                <div className=''>
-                    <Link to={`/product/${item.product.id}`} className='product__link item__img'>
-                            <div className='img__border cart'>
-                                <div className='img__inset cart'>
-                                    <img className='product__img product__img--thumb' src={item.product.image_urls.thumb} alt={item.product.description}/>
-                                </div>
-                            </div>
+                <div className='item__img'>
+                    <Link to={`/product/${item.product.id}`} className=''>
+                        <Image product={item.product} className={`cart`} />
                     </Link>
 
                 </div>

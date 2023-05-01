@@ -22,6 +22,8 @@
     /* position: relative; */
     /* display: flex; */
     /* max-width: 80%; */
+    height: 100%;
+    width: 100%;
     /* max-height: 80%; */
     /* margin: 5rem auto; */
     /* flex: 1 0; */
@@ -31,6 +33,10 @@
     /* overflow: auto; */
 }
 
+.modal__image-container.landscape, .modal__image-container.modal__img-container.portrait {
+    
+}
+
 .modal__close {
     position: absolute;
     z-index: 9999;
@@ -38,11 +44,7 @@
     top: 2rem;
 }
 
-.product__img--modal {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
+
 
 .modal__close > .material-symbols-outlined {
   font-variation-settings:

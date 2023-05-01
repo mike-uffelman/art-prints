@@ -1,24 +1,22 @@
 import './PhotoModal.css';
-import classNames from 'classnames';
 
-export default function PhotoModal({image, alt, toggleModal, className}) {
+import classNames from 'classnames';
+import Image from '../Image';
+
+export default function PhotoModal({product, toggleModal, className}) {
     const classes = classNames(className)
+    console.log(classes)
     
     return (
         <section className="modal">
-            <div className={`modal__img-container ${classes}`}>
+            <div className={`modal__img-container ${product.orientation}`}>
                 <button className='modal__close' onClick={toggleModal} >
                     <span className="material-symbols-outlined">
                         close
                     </span>
                 </button>
-                <div className='img__border'>
-                    <div className='img__inset'>
-                        <img className='product__img product__img--modal' src={image} alt={alt}/>
+                <Image product={product} className={classes}/>
 
-                    </div>
-
-                </div>
             </div>
         </section>
     )

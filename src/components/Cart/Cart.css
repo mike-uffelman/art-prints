@@ -1,5 +1,5 @@
 .cart {
-    padding: 1rem;
+    /* padding: 1rem; */
     display: flex;
     flex-direction: column;
 }
@@ -13,21 +13,22 @@
 .cart__item {
     display: flex;
     flex-direction: row;
-    
+
+    border: 1px solid green;
     padding: 1rem;
 }
 
 .item__img {
-    flex: 1 2;
+    flex: 1;
 
-    max-width: 10rem;
+    max-width: 20rem;
 }
 
 .item__details {
     display: flex;
     flex-direction: column;
-    flex: 3 0;
-
+    flex: 1 ;
+    padding: 1rem;
 }
 
 .item__total {
@@ -48,6 +49,6 @@
 
 @media screen and (min-width: 30rem) {
     .cart__item {
-        flex-direction: row;
+        /* flex-direction: row; */
     }
 }
