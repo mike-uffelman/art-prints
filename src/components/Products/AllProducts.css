@@ -1,7 +1,8 @@
 .products__container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-
+    /* grid-template-rows: 35rem; */
+    grid-auto-rows: 35rem;
     /* min-width: 30rem; */
     max-width: 80rem;
     justify-items: center;
@@ -27,6 +28,7 @@
     /* box-shadow: 0 0 .25rem transparent; */
     border: 1px solid transparent;
     overflow: hidden;
+    flex: 0;
     border-radius: 1rem;
 
 }
@@ -58,17 +60,18 @@
 
 .product__link {
     position: relative;
-    /* flex: 3 0; */
+    flex: 1 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
+    /* min-height: 100%; */
     /* border: 2px solid black; */
     /* max-height: 100%; */
     /* max-width: 100%; */
     padding: 1.5rem;
     border-radius: 1rem;
-    /* overflow: hidden; */
+    overflow: hidden;
     background-color: rgb(220, 220, 220);
 }
 

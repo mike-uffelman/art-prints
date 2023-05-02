@@ -34,8 +34,9 @@
     
     display: grid;
     grid-template-columns: 1fr;
+    
     /* grid-template-rows: repeat(2, 1fr); */
-    grid-gap: 1rem;
+    /* grid-gap: 1rem; */
     justify-items: stretch;
 
     background-color: rgb(217, 232, 234);
@@ -48,6 +49,7 @@
 .product__image {
     grid-row: 1 / 2;
     align-self: center;
+    overflow: hidden;
 }
 
 .product__details {
@@ -141,8 +143,9 @@ option {
         max-width: none;
         display: grid;
         grid-template-columns: 2fr 2fr;
-        grid-template-rows: 1fr;
+        grid-auto-rows: 45rem;
         grid-gap: 3rem;
+        overflow: hidden;
         /* flex-direction: row; */
         /* max-width: none; */
         /* background-color: green; */
