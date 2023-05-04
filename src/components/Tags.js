@@ -46,14 +46,14 @@ export default function Tags({tagsData}) {
 
 
     // console.log(tagsList)
-    const renderTags = tagsData && tagsData[0].map(tag => {
+    const renderTags = tagsData.flat() && tagsData.flat().map((tag, index) => {
     //         // console.log(tag)
             return ( 
-                <Link to={`/results/${tag}`} onClick={() => handleClick(tag)} key={tag} className="tags__link" >{tag}</Link>
+                <Link to={`/results/${tag}`} onClick={() => handleClick(tag)} key={`${tag}-${index}`} className="tags__link" >{tag}</Link>
             )
         })
 
-    if(!tagsData || tagsData === undefined) {
+    if(!tagsData[0] || tagsData[0] === undefined) {
         return <div>Loading tags...</div>
     }
 
@@ -62,7 +62,7 @@ export default function Tags({tagsData}) {
             <label className="tags__label">Related Searches</label>
             <div className="tags__list">
                 {/* {console.log('testtags: ', testTags)} */}
-                    {tagsData ? renderTags : '...'}
+                    {tagsData[0] ? renderTags : '...'}
                 {/* {testTags && Object.keys(testTags).length > 0 && renderTags} */}
             </div>
         </form>

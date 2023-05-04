@@ -15,6 +15,7 @@ export const search = async(term, page = 1) => {
     const data = await buildProducts(res.data.results);
 
     const tags = await getTags(res.data.results);
+    
 
     const resultsObj = {
         pages: res.headers.link,

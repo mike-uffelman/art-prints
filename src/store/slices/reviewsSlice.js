@@ -5,8 +5,8 @@ const reviewSlice = createSlice({
     initialState: [],
     reducers: {
         addReviews(state, action) {
-            return action.payload
-            // state.push(action.payload)
+            // return action.payload
+            state.push(action.payload)
         }
     }
 })

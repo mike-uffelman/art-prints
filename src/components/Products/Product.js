@@ -78,7 +78,7 @@ function Product({className}) {
         setIsModalOpen(!isModalOpen)
     }
 
-    const renderProduct = productData && productData.results[0].map(product => {
+    const renderProduct = productData && productData.results.flat().map(product => {
             if(id === product.id) {
                 return (
                     <section key={product.id} className='products-page__product'>

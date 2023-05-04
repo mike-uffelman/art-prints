@@ -10,7 +10,7 @@ export default function Reviews() {
     })
     const { id } = useParams();
 
-    const renderReviews = reviews.flat().filter(review => review.product_id === id).map(review => {
+    const renderReviews = reviews.flat().flat().filter(review => review.product_id === id).map(review => {
         return (
             <section key={review.review_id} className="review__item">
                 <div className="review__header">
