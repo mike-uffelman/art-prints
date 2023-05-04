@@ -7,6 +7,7 @@ import { UNSPLASH_URL } from '../../data/config';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Image from '../Image';
+import Pagination from './Pagination/Pagination';
 
 function Products({className, results}) {
     // const data = useLoaderData()
@@ -28,12 +29,12 @@ function Products({className, results}) {
     
     // const renderProducts = <div>these are the products!!!!!</div>
 
-    const renderProducts = results && results.map(photo => {
+    const renderProducts = results && results.flat().map(photo => {
     //     // console.log('photo urls...', photo.image_urls)
 
         return (
             // <div >{searchResults[0][0].id}</div>
-            <div className="product__item" key={photo.base_amt}>
+            <div className="product__item" key={photo.id}>
                 <Link to={`/product/${photo.id}`} className='product__link'>
                     <Image product={photo} className={'results'} />
                 </Link>

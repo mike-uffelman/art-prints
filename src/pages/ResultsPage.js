@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 import { addResults } from "../store/slices/searchSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { getTags } from "../data/productGenerator";
+import Pagination from "../components/Products/Pagination/Pagination";
 
 
 
@@ -35,7 +36,7 @@ export default function ResultsPage() {
         <React.Fragment >
             {results.tags ? <Tags tagsData={results.tags}/> : 'Loading tags...'}
             {results.results ? <Products className='products__container' results={results.results}/> : 'Loading photos...'}
-
+            <Pagination />
         </React.Fragment>
     )
 }

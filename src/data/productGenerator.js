@@ -4,6 +4,7 @@ import {v4 as uuidv4 } from 'uuid';
 
 
 export async function buildProducts(data) {
+    console.log(data);
     const newData = data.map(product => {
         const stockQuantity = () => {
             if((Math.round(Math.random()) * 5) === 0) {

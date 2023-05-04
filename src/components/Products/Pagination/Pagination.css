@@ -1,0 +1,20 @@
+.pagination__btn {
+    border: none;
+    margin: 1rem;
+    padding: .5rem 1rem;
+    font-size: 2rem;
+    font-family: 'Barlow-SemiBold';
+    width: 12rem;
+    align-self: center;
+    color: rgb(91, 140, 205);
+    transition: all ease 300ms;
+}
+
+.pagination__btn:hover {
+    cursor: pointer;
+    background-color: rgb(91, 140, 205);
+    color: white;
+    /* box-shadow: 0 0 1rem black; */
+    transition: all ease 300ms;
+
+}

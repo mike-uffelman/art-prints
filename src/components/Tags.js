@@ -46,7 +46,7 @@ export default function Tags({tagsData}) {
 
 
     // console.log(tagsList)
-    const renderTags = tagsData && tagsData.map(tag => {
+    const renderTags = tagsData && tagsData[0].map(tag => {
     //         // console.log(tag)
             return ( 
                 <Link to={`/results/${tag}`} onClick={() => handleClick(tag)} key={tag} className="tags__link" >{tag}</Link>
@@ -61,7 +61,6 @@ export default function Tags({tagsData}) {
         <form className="tags__container">
             <label className="tags__label">Related Searches</label>
             <div className="tags__list">
-                tags list goes here...
                 {/* {console.log('testtags: ', testTags)} */}
                     {tagsData ? renderTags : '...'}
                 {/* {testTags && Object.keys(testTags).length > 0 && renderTags} */}
