@@ -1,13 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+    results:[],
+    term: '',
+    tags: [],
+    // pages: ''
+}
+
 const searchSlice = createSlice({
     name: 'search',
-    initialState: {
-        results:[],
-        term: '',
-        tags: [],
-        // pages: ''
-    },
+    initialState,
     reducers: {
         addResults(state, action) {
             // return action.payload
@@ -18,9 +20,12 @@ const searchSlice = createSlice({
             state.term = action.payload.term;
             state.tags.push(action.payload.tags);
 
+        },
+        reset(state, action) {
+            return initialState;
         }
     }
 })
 
-export const {addResults} = searchSlice.actions;
+export const {addResults, reset} = searchSlice.actions;
 export const searchReducer = searchSlice.reducer;

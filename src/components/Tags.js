@@ -4,43 +4,20 @@ import { buildProducts, getTags } from "../data/productGenerator"
 import { useLoaderData, Link, defer, resolvePath } from "react-router-dom"
 import unsplash from "../data/unsplash";
 import { useDispatch, useSelector } from 'react-redux';
-import { addResults } from '../store/slices/searchSlice';
+import { addResults, reset } from '../store/slices/searchSlice';
 import { search } from '../data/dataHelper';
 
 export default function Tags({tagsData}) {
     const dispatch = useDispatch();
-    // const [ tagsLoaded, setTagsLoaded ] = useState(false);
-    // const [ tagList, setTagList ] = useState([])
-    // const tags = useLoaderData();
-    // setTagList(tags);
-    // const results = useSelector((state) => {
-    //     console.log(state.search) 
-    //     return state.search; 
-    // })
-    // console.log('outside of useEffect: ', results)
-    // const tagsObj = useSelector((state) => {
-    //     console.log(state.search[0].tags)
-    //     return state.search[0].tags;
-    // })
-    // console.log('loaded data for tags: ', tagList)
-    useEffect(() => {
-    //     console.log('tags component rendered')
-    //     console.log('tags results: ', results)
-        // const runGetTags = async() => {
-        //     return await getTags(results)
-        // }
-        
-        // runGetTags();
-        // setTagList(runGetTags())
-        // setTagsLoaded(true)
-    //     console.log(tags)
-        // console.log(testTags)
-        // console.log(tagsData)
-    }, [])
+
+    // useEffect(() => {
+
+    // }, [])
 
     const handleClick = async (term) => {
+        await dispatch(reset());
         const results = await search(term);
-        dispatch(addResults(results));
+        await dispatch(addResults(results));
     }
 
 

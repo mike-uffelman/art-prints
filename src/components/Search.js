@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Form, redirect } from 'react-router-dom';
 import {useSelector, useDispatch } from 'react-redux';
-import { addResults } from '../store/slices/searchSlice';
+import { addResults, reset } from '../store/slices/searchSlice';
 import { buildReviews } from '../data/productGenerator';
 import { search } from '../data/dataHelper';
 import { addReviews } from '../store/slices/reviewsSlice';
@@ -16,6 +16,7 @@ function Search() {
     }
 
     const handleSubmit = async (e) => {
+        await dispatch(reset());
         const results = await search(term);
         await dispatch(addResults(results));
 

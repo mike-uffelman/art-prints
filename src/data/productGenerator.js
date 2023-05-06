@@ -1,6 +1,7 @@
 import testData from './testData.json';
 import { faker } from '@faker-js/faker';
 import {v4 as uuidv4 } from 'uuid';
+import { useSelector } from 'react-redux';
 
 
 export async function buildProducts(data) {
@@ -65,6 +66,7 @@ export async function buildReviews(products) {
 }
 
 export function getTags(products) {
+
     const tags = products.flat().reduce((acc, curr) => {
         acc.push(curr.tags.map(i => i.title))
         return acc;
