@@ -7,10 +7,16 @@
     /* display: flex; */
     padding: 2rem;
     /* justify-content: center; */
-    
-    display: grid;
-    grid-template-columns: 1fr;
+    margin: 0 auto;
+    max-width: 45rem;
+    /* display: grid; */
+    /* grid-template-columns: 1fr; */
+    /* grid-auto-rows: 60rem; */
     justify-items: center;
+    display: flex;
+    justify-content: center;
+    
+
 }
 
 .product-page__container {
@@ -34,12 +40,13 @@
     
     display: grid;
     grid-template-columns: 1fr;
+    /* grid-auto-rows: 3rem; */
     
     /* grid-template-rows: repeat(2, 1fr); */
     /* grid-gap: 1rem; */
     justify-items: stretch;
 
-    background-color: rgb(217, 232, 234);
+    background-color: #d9e8ea;
     padding: 2rem;
     border-radius: 1rem;
     overflow: hidden;
@@ -47,17 +54,25 @@
 }
 
 .product__image {
+    min-height: auto;
+    width: 100%;
     grid-row: 1 / 2;
     align-self: center;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
 .product__details {
     grid-row: 2 / 3;
-    flex: 2 0;
+    /* flex: 2 0; */
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
+    align-self: end;
+    
     /* display: flex; */
     /* flex-direction: column; */
     /* padding: 1rem;  */
@@ -135,17 +150,25 @@ option {
 
 @media screen and (min-width: 35em) {
     .product-page {
-        /* max-width: 70rem; */
+        max-width: 70rem;
+        /* max-height: 50rem; */
         margin: 0 auto;
+        grid-auto-rows: 40rem;
     }
 
     .products-page__product {
-        max-width: none;
-        display: grid;
-        grid-template-columns: 2fr 2fr;
-        grid-auto-rows: 45rem;
-        grid-gap: 3rem;
+        /* max-width: none; */
+        min-width: 100%;
+        /* max-height: 50rem; */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        /* display: grid; */
+        /* grid-template-columns: 2fr 2fr; */
+        /* grid-auto-rows: 40rem; */
+        /* grid-gap: 3rem; */
         overflow: hidden;
+
         /* flex-direction: row; */
         /* max-width: none; */
         /* background-color: green; */
@@ -153,13 +176,18 @@ option {
     }
 
     .product__image {
-        grid-column: 0 / 2;
-        grid-row: 1;
+        width: 100%;
+        height: 100%;
+        justify-self: stretch;
+        align-self: stretch;
+        /* grid-column: 0 / 2; */
+        /* grid-row: 1; */
     }
 
     .product__details {
-        grid-column: 2 / -1;
-        grid-row: 1;
+        /* grid-column: 2 / -1; */
+        /* grid-row: 1; */
+        align-self: center;
     }
 
 
