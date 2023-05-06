@@ -34,9 +34,8 @@ export default function Pagination() {
     }
 
     return (
-        <div>
+        <div className='pagination'>
         <button onClick={handleLoadMore} className='pagination__btn'>Load More</button>
-        <div>{page}</div>
 
         </div>
     )

@@ -46,6 +46,10 @@
     /* flex: 1; */
 }
 
+.img__product:hover {
+    cursor: pointer;
+}
+
 .img__product.product.landscape {
     object-fit: contain;
     /* max-height: 100%; */

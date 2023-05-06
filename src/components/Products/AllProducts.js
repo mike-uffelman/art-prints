@@ -34,10 +34,11 @@ function Products({className, results}) {
 
         return (
             // <div >{searchResults[0][0].id}</div>
-            <div className="product__item" key={photo.id}>
-                <Link to={`/product/${photo.id}`} className='product__link'>
+            <Link to={`/product/${photo.id}`} key={photo.id} className='product__link'>
+
+                <div className="product__item" >
                     <Image product={photo} className={'results'} />
-                </Link>
+                </div>
                 <div className='products__details'> 
                     <h1 className='product__title'>{photo.alt_description === null ? shortenDescription(photo.description) : shortenDescription(photo.alt_description)}</h1>
                     <p className='product__owner--label'>{photo.owner.name || 'none'}</p>
@@ -58,7 +59,8 @@ function Products({className, results}) {
                     {/* </div> */}
 
                 </div>
-            </div>
+            </Link>
+
         )
     })
 
