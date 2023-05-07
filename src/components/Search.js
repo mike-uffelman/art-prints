@@ -9,6 +9,9 @@ import { addReviews } from '../store/slices/reviewsSlice';
 
 function Search() {
     const [term, setTerm] = useState('');
+    const prevSearch = useSelector((state) => {
+        return state.search;
+    })
     const dispatch = useDispatch();
 
     const handleChange = (e) => {
@@ -16,8 +19,15 @@ function Search() {
     }
 
     const handleSubmit = async (e) => {
+        
+        // if(prevSearch.term === term) {
+        //     await dispatch(reset());
+        //     const results = await search(term, prevSearch.tags);
+        //     await dispatch(addResults(results));
+        // }
+        
         await dispatch(reset());
-        const results = await search(term);
+        const results = await search(term, prevSearch.tags);
         await dispatch(addResults(results));
 
         // console.log(results)

@@ -15,8 +15,7 @@ export default function ResultsPage() {
     // const {term} = useParams();
     
     const results = useSelector((state) => {
-        // console.log(state.search)
-        return state.search;
+        return state.search
     })
 
 

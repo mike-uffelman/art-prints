@@ -1,7 +1,7 @@
 .tags__container {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     align-items: center;
     justify-content: center;
     background-color: rgb(246, 246, 246);
@@ -10,6 +10,7 @@
     border-bottom: 1px solid lightgray;
     margin: 1rem 0;
     padding: 1rem;
+    /* overflow-x: scroll; */
 }
 
 .tags__label {
@@ -17,11 +18,38 @@
     font-family: 'Barlow-Regular';
 }
 
+.tags__content {
+    max-width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.tags__arrow {
+    font-size: 2rem;
+    color: red;
+    background-color: orange;
+}
+
+.tags__arrow--left {
+    /* margin: 0 .5rem; */
+    /* position: absolute; */
+    /* left: 0; */
+}
+
+.tags__arrow--right {
+
+}
+
 .tags__list {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
+    overflow-x: scroll;
+    padding: 1rem;
+    scroll-snap-type: mandatory;
 }
 
 
@@ -31,13 +59,15 @@
     color: black;
     text-decoration: none;
     font-weight: bold;
+    white-space: nowrap;
 }
 
-.tags__btn:hover {
+.tags__link:hover {
     cursor: pointer;
-    color: gray;
+    color: rgb(5, 42, 255);
+    font-family: 'Barlow-SemiBold';
 }
 
-.tags__btn:focus {
+.tags__link:focus {
     color: magenta;
 }

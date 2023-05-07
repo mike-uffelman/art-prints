@@ -1,7 +1,8 @@
 import unsplash from "./unsplash";
 import { buildProducts, getTags } from "./productGenerator";
+import { all } from "axios";
 
-export const search = async(term, page = 1) => {
+export const search = async(term, prevTags = {}, page = 1) => {
 
     const res = await unsplash.get('/search/photos', {
         params: {
@@ -16,11 +17,22 @@ export const search = async(term, page = 1) => {
 
     const tags = await getTags(res.data.results);
     
+    console.log(prevTags, tags)
+
+    const allTags = prevTags && { ...prevTags, ...tags}
+
+    allTags && Object.keys(allTags).forEach(key => {
+        if(prevTags[key] && tags[key]) {
+            allTags[key] = prevTags[key] + tags[key]
+        }
+    })
+
+    console.log(allTags)
 
     const resultsObj = {
         pages: res.headers.link,
         results: data,
-        tags: Object.keys(tags),
+        tags: allTags,
         term: term
     }
 

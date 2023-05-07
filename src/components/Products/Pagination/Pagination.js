@@ -10,7 +10,7 @@ export default function Pagination() {
     const [ page, setPage ] = useState(2);
 
     const dispatch = useDispatch();
-    const pages = useSelector((state) => {
+    const searchState = useSelector((state) => {
         return state.search;
     })
 
@@ -20,7 +20,7 @@ export default function Pagination() {
 
     const handleLoadMore = async() => {
         setPage(page+1);
-        const results = await search(pages.term, page);
+        const results = await search(searchState.term, searchState.tags, page);
         console.log(results)
         dispatch(addResults(results));
 

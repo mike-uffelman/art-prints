@@ -18,7 +18,7 @@ const searchSlice = createSlice({
 
             state.results.push(action.payload.results);
             state.term = action.payload.term;
-            state.tags.push(action.payload.tags);
+            state.tags = action.payload.tags;
 
         },
         reset(state, action) {
