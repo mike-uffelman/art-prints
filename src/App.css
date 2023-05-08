@@ -50,7 +50,7 @@ body {
 
 .app {
     width: 100vw;
-    height: 100%;
+    /* height: 100%; */
     max-width: 80rem;
     min-width: 30rem;
     margin: 0 auto;
@@ -65,7 +65,7 @@ body {
     grid-template-rows: 1fr 3fr 1fr; */
 
     font-family: 'Barlow';
-    overflow: scrollY;
+    overflow-y: scroll;
 }
 
 .app__header {

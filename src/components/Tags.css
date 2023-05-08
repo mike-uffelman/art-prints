@@ -14,8 +14,8 @@
 }
 
 .tags__label {
-    font-size: 1rem;
-    font-family: 'Barlow-Regular';
+    font-size: 1.6rem;
+    font-family: 'Barlow-SemiBold';
 }
 
 .tags__content {
@@ -46,9 +46,8 @@
     /* min-width: 100%; */
     display: flex;
 
-    justify-content: center;
-    border: 1px solid red;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
 }
 
 .tags__list {
@@ -69,7 +68,7 @@
 
 .tags__link {
     padding: .25rem 1rem;
-
+    font-size: 1.4rem;
     color: black;
     text-decoration: none;
     font-weight: bold;

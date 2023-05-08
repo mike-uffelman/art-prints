@@ -44,7 +44,7 @@ function Products({className, results}) {
                     <p className='product__owner--label'>{photo.owner.name || 'none'}</p>
 
                     <div className='product__footer'>
-                        <p className='product__size'>{(photo.width/96).toFixed(0)}" x {(photo.height/96).toFixed(0)}"</p>
+                        <p className='product__size'>9" x 12"</p>
                         
                         <div className='product__price'>From ${Math.round(photo.base_amt)}</div>
                     </div>

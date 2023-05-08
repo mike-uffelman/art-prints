@@ -6,7 +6,7 @@
     /* min-width: 30rem; */
     max-width: 80rem;
     justify-items: center;
-    grid-gap: 2rem;
+    grid-gap: 1rem;
     padding: 1rem;
 }
 
@@ -113,12 +113,17 @@
 }
 
 .product__title {
+    font-family: 'Barlow-SemiBold';
     font-weight: 300;
     font-size: 1.4rem;
     margin: 0;
     margin-top: 1rem;
     max-height: 2rem;
     overflow: hidden;
+}
+
+.product__size {
+    font-size: 1.4rem;
 }
 
 .product__actions {
@@ -157,9 +162,18 @@
 }
 
 
+
+
+/* @media screen and (min-width: 20rem) {
+    .products__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+} */
+
 @media screen and (min-width: 30rem) {
     .products__container {
         grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem;
     }
 }
 
