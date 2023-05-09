@@ -24,7 +24,10 @@
     
 }
 
-
+.size label {
+    font-family: 'Barlow-SemiBold';
+    font-size: 1.4rem;
+}
 
 
 
@@ -34,9 +37,10 @@
     flex-direction: row;
     justify-content: space-between;
     /* align-items: center; */
-    /* box-shadow: 0 0 .2rem black; */
+    /* box-shadow: 0 0 .1rem black; */
+    border: 1px solid lightgray;
     /* background-color: white; */
-    border-radius: .5rem;
+    border-radius: 1rem;
     overflow: hidden;
     margin-top: .5rem;
 
@@ -110,7 +114,7 @@
 
 @media screen and (min-width: 50em) {
     .size__btn {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
 }
 

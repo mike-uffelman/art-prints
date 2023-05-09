@@ -81,8 +81,8 @@ function Product({className}) {
     const renderProduct = productData && productData.results.flat().map(product => {
             if(id === product.id) {
                 return (
-                    <section key={product.id} className='products-page__product'>
-                        <div className='product__image'>
+                    <section key={product.id} className={`products-page__product ${product.orientation}`}>
+                        <div className={`product__image ${product.orientation}`}>
                             <Image product={product} modalOpen={handleImgClick} className={`product ${product.orientation}`} />
                             {isModalOpen && createPortal(
                                 <PhotoModal product={product} image={product.image_urls.regular} alt={product.description} className={``} toggleModal={handleImgClick} />, document.body
@@ -90,25 +90,34 @@ function Product({className}) {
                         </div>
                         
                         <form className="product__details" >
-                            <h3 className="product__description">{product.alt_description === null ? shortenDescription(product.description) : shortenDescription(product.alt_description)}</h3>
-                            
-                            
-                            <label className='product__owner'>
-                                Photo by&nbsp; 
-                                    <a href={`${product.owner.links.html} utm_source=image-print-react-practice&utm_medium=referral`} target='_blank' rel="noreferrer" className='product__owner--links'>
-                                         {product.owner.name}
-                                    </a>
-                                     &nbsp;on&nbsp;  
-                                    <a href={UNSPLASH_URL} className='product__owner--links' target='_blank' rel='noreferrer'>Unsplash</a>
-                                    
-                            </label>
-                            <ProductReception product={product}/>
-                            
-                            <p className="product__price">${(product.base_amt * size.price_multiplier).toFixed(2)}</p>
-                            <div className=''>
-                                <label className='' >Quantity</label>
-                                <input type='number' min='1' step='1' onChange={(e) => setQuantity(e.target.value)} value={quantity}></input>
+                            <div className='product__description'>
+                                <h3 className="product__heading">{product.alt_description === null ? shortenDescription(product.description) : shortenDescription(product.alt_description)}</h3>
+                                
+                                
+                                <label className='product__owner'>
+                                    Photo by&nbsp; 
+                                        <a href={`${product.owner.links.html} utm_source=image-print-react-practice&utm_medium=referral`} target='_blank' rel="noreferrer" className='product__owner--links'>
+                                            {product.owner.name}
+                                        </a>
+                                        &nbsp;on&nbsp;  
+                                        <a href={UNSPLASH_URL} className='product__owner--links' target='_blank' rel='noreferrer'>Unsplash</a>
+                                        
+                                </label>
+                                <ProductReception product={product}/>
+
                             </div>
+                            
+                            <p className="product__price">${(product.base_amt * size.price_multiplier).toFixed(2)}</p>                            
+                            <div className='product__box'>
+                                    
+                                <div className='product__quantity'>
+                                    <label className='' >Quantity</label>
+                                    <input type='number' min='1' step='1' onChange={(e) => setQuantity(e.target.value)} value={quantity}></input>
+                                </div>
+
+                            </div>
+                            
+                            
                             
                             <ProductSize product={product} updatePrice={updatePrice}/>
                             <button

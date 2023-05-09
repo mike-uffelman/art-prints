@@ -144,7 +144,6 @@ body {
     /* position: relative; */
     z-index: 0;
     /* height: 100%; */
-    border: 1px solid magenta;
 
     /* border: 1px solid green; */
     display: flex;

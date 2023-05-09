@@ -58,7 +58,7 @@ export default function ProductSize({product, updatePrice, size}) {
 
     return (   
         <div className="size" >
-                <p className=''>Size</p>
+                <label className=''>Size</label>
                 <div className='size__selection'>
                     {renderSizes}
                 </div>
