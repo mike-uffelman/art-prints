@@ -1,6 +1,8 @@
 import EditProduct from "../components/Products/EditProduct"
 
 
+// renders the edit product layout page
+
 export default function EditPage() {
 
     return (

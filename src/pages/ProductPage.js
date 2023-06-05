@@ -3,6 +3,8 @@ import Products from "../components/Products/AllProducts"
 import Reviews from "../components/Reviews/Reviews"
 
 
+// Builds the layout for the individual product page
+
 export default function ProductPage({products, addToCart}) {
 
     return (

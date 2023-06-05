@@ -9,11 +9,11 @@ import { Provider } from 'react-redux'
 const el = document.querySelector('#root');
 const root = ReactDOM.createRoot(el);
 
-
+// define the base root for react application
 root.render(
     <React.StrictMode>
-        <Provider store={store}>
-            <App />
+        <Provider store={store}> {/* wrop application with Redux provider for state access */}
+            <App /> {/* start of content */}
         </Provider> 
     </React.StrictMode>
 )

@@ -7,6 +7,9 @@ import { search } from '../data/dataHelper';
 import { addReviews } from '../store/slices/reviewsSlice';
 
 
+// Search bar component
+// user submits a search term into the input, component state 'term' updates as the term is entered (controlled), and on submit the handleSubmit callback clears the search object in the store, performs the search request, updates the store, builds reviews for the results and update the reviews store, finally the term is set back to blank
+
 function Search() {
     const [term, setTerm] = useState('');
     const prevSearch = useSelector((state) => {
@@ -14,6 +17,7 @@ function Search() {
     })
     const dispatch = useDispatch();
 
+    
     const handleChange = (e) => {
         setTerm(e.target.value);
     }

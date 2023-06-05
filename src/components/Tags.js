@@ -8,8 +8,10 @@ import { addReviews } from '../store/slices/reviewsSlice';
 import { search } from '../data/dataHelper';
 
 export default function Tags({tagsData}) {
+    // define the dispatch hook for store actions
     const dispatch = useDispatch();
 
+    // on tag click, reset search results in store, execute new search request, update state, create reviews, update reviews state
     const handleClick = async (term) => {
         await dispatch(reset());
         const results = await search(term);
@@ -19,6 +21,7 @@ export default function Tags({tagsData}) {
         await dispatch(addReviews(reviews));
     }
 
+    // if tagsData, filter over tags and return link with path to tag term; tag click handled by callback
     const renderTags = tagsData && Object.entries(tagsData).filter(tags => tags[1] > 0).map((tag, index) => {
         console.log(tag)
         return ( 
@@ -26,6 +29,7 @@ export default function Tags({tagsData}) {
         )
     })
     
+    // if tags undefined or null, render loading
     if(!tagsData || tagsData === undefined) {
         return <div>Loading tags...</div>
     }
