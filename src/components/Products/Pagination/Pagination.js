@@ -21,7 +21,7 @@ export default function Pagination() {
     const handleLoadMore = async() => {
         setPage(page+1);
         const results = await search(searchState.term, searchState.tags, page);
-        console.log(results)
+        // console.log(results)
         dispatch(addResults(results));
 
         const reviews = await buildReviews(results);
@@ -30,7 +30,7 @@ export default function Pagination() {
         
 
         // console.log('loading more results...')
-        console.log(page)
+        // console.log(page)
     }
 
     return (

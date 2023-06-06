@@ -14,6 +14,7 @@ function Cart() {
         return state.cart
     })
 
+    // calculate product total, base amount, size, quantity factors
     const total = (item) => {
         return (item.product.base_amt * item.size.price_multiplier * item.quantity).toFixed(2)
     }

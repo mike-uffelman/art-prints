@@ -8,9 +8,9 @@ export default function CartTotal() {
 
     const cartSubtotal = cart.reduce((acc, curr) => acc += curr.product.base_amt * curr.size.price_multiplier * curr.quantity, 0)
 
-    useEffect(() => {
-        console.log(cart)
-    }, [])
+    // useEffect(() => {
+    //     console.log(cart)
+    // }, [])
 
     return (
         <div className='cart__subtotal'>

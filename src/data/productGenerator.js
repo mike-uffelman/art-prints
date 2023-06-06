@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 
 export async function buildProducts(data) {
-    console.log(data);
+    // console.log(data);
     const newData = data.map(product => {
         const stockQuantity = () => {
             if((Math.round(Math.random()) * 5) === 0) {
@@ -78,6 +78,6 @@ export function getTags(products) {
         acc[key] = acc[key] + 1;
         return acc;
     }, {})
-    console.log(tagsCounter)
+    // console.log(tagsCounter)
     return tagsCounter;
 }

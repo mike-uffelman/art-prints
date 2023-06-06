@@ -16,12 +16,12 @@ import Image from '../Image';
 export default function EditProduct({className}) {
     const dispatch = useDispatch();
     const {id: cartItemId} = useParams();
-    console.log(cartItemId)
+    // console.log(cartItemId)
 
     const cartItem = useSelector((state) => {
         return state.cart.filter(item => item.id === cartItemId) 
     }) 
-    console.log(cartItem)
+    // console.log(cartItem)
     // const [products, setProducts] = useState([]);
 
     const [ size, setSize ] = useState({})
@@ -30,7 +30,7 @@ export default function EditProduct({className}) {
     
     useEffect(() => {
         if(cartItem) {
-            console.log(cartItem)
+            // console.log(cartItem)
             setSize({
                 width: cartItem[0].size.width,
                 height: cartItem[0].size.height,
@@ -46,13 +46,13 @@ export default function EditProduct({className}) {
     const similarClassnames = classNames(className)
 
     const updatePrice = (val) => {
-        console.log(val);
+        // console.log(val);
         setSize(val)
     }
 
     const submitForm = (e, product) => {
         e.preventDefault();
-        console.log(e.target, product)
+        // console.log(e.target, product)
         const cartUpdate = {
             quantity: Number(quantity),
             product: cartItem && cartItem[0].product,

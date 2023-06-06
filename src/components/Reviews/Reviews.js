@@ -5,11 +5,14 @@ import { dateTransformer } from '../../utility/helpers';
 import RatingStars from '../Products/Product-Reception/RatingStars';
 
 export default function Reviews() {
+
+    // retrieve the product reviews from state
     const reviews = useSelector((state) => {
         return state.reviews
     })
     const { id } = useParams();
 
+    // if param id matches the product id render the product reviews
     const renderReviews = reviews.flat().flat().filter(review => review.product_id === id).map(review => {
         return (
             <section key={review.review_id} className="review__item">

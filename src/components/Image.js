@@ -2,6 +2,8 @@ import './Image.css';
 import { useState, useRef } from 'react';
 import classNames from "classnames";
 
+
+// reusable image component 
 export default function Image({product, modalOpen, className}) {
     const imgRef = useRef();
     const [ isHovered, setIsHovered ] = useState(null)
@@ -19,6 +21,7 @@ export default function Image({product, modalOpen, className}) {
         setIsHovered(null)
     }
 
+    // switch for image size to render
     const imgSwitch = () => {
         const classValue = classes.split(' ')[0]
         switch(classValue) {

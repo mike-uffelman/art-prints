@@ -17,8 +17,8 @@ const searchSlice = createSlice({
         // adds search results to the store
         addResults(state, action) {
             // return action.payload
-            console.log(state)
-            console.log(action.payload)
+            // console.log(state)
+            // console.log(action.payload)
 
             // push results to arary - allows for 'load more' pagination to display previous and new results
             state.results.push(action.payload.results);

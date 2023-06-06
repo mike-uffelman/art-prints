@@ -23,7 +23,7 @@ export default function Tags({tagsData}) {
 
     // if tagsData, filter over tags and return link with path to tag term; tag click handled by callback
     const renderTags = tagsData && Object.entries(tagsData).filter(tags => tags[1] > 0).map((tag, index) => {
-        console.log(tag)
+        // console.log(tag)
         return ( 
             <Link to={`/results/${tag[0]}`} onClick={() => handleClick(tag[0])} key={`${tag[0]}-${index}`} className="tags__link" >{tag[0]}</Link>
         )

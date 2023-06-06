@@ -5,7 +5,7 @@ import Image from '../Image';
 
 export default function PhotoModal({product, toggleModal, className}) {
     const classes = classNames(className)
-    console.log(classes)
+    // console.log(classes)
     
     return (
         <section className="modal">

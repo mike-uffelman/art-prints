@@ -27,6 +27,7 @@ function Product({className}) {
     }) 
     // const [products, setProducts] = useState([]);
 
+    // define and set defaults for product size selection
     const [ size, setSize ] = useState({
         width: 9,
         height: 12,
@@ -56,10 +57,11 @@ function Product({className}) {
     const similarClassnames = classNames(className)
 
     const updatePrice = (val) => {
-        console.log(val)
+        // console.log(val)
         setSize(val)
     }
 
+    // add to cart callback, create cart item dispatch to reducer
     const submitForm = (e, product) => {
         e.preventDefault();
         const cartItem = {
@@ -68,13 +70,11 @@ function Product({className}) {
             size,
             id: uuidv4()
         }
-        
-        
         dispatch(addToCart(cartItem))
     }
 
     const handleImgClick = () => {
-        console.log('img clicked')
+        // console.log('img clicked')
         setIsModalOpen(!isModalOpen)
     }
 
