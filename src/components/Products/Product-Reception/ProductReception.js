@@ -20,7 +20,7 @@ export default function ProductReception({product}) {
         <div className='product__reception'>
             <div className='product__reviews'>
                 <a className='product__ratings' href='#reviews'>
-                    {reviews ? <RatingStars rating={rating} /> : 'loading rating...'}
+                    {rating ? <RatingStars rating={rating} /> : 'loading rating...'}
                     <span className='product__ratings--count'>{product.review_count}</span>
                 </a>
                 <div className='product__likes'>
