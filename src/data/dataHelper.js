@@ -2,6 +2,7 @@ import unsplash from "./unsplash";
 import { buildProducts, getTags } from "./productGenerator";
 import { all } from "axios";
 
+// search request - fetches data from api, builds a result object for components and state
 export const search = async(term, prevTags = {}, page = 1) => {
 
     const res = await unsplash.get('/search/photos', {

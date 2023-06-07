@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 export default function RatingStars({className, rating}) {
-
+    console.log(rating)
     const classes = classNames();
     
     // const div = <span className="material-icons-outlined product__ratings--icon">star</span>

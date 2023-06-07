@@ -3,6 +3,7 @@ import './PhotoModal.css';
 import classNames from 'classnames';
 import Image from '../Image';
 
+
 export default function PhotoModal({product, toggleModal, className}) {
     const classes = classNames(className)
     // console.log(classes)

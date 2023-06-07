@@ -4,11 +4,12 @@ export const shortenDescription = (str) => {
 };
 
 
-
+// transform date to long format string
 export const dateTransformer = (date) => {
     return new Date(date).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})
 }
 
+// returns average product review value for product reception
 // this could probably be refactored...
 export const getProductRating = (reviews, id) => {
     const productReviewCount = reviews.flat().reduce((acc, curr) => {

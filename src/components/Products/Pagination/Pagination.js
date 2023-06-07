@@ -18,6 +18,7 @@ export default function Pagination() {
     //     setPage(page+1);
     // }
 
+    // on click callback, to get more search results, increments page state count, makes call to search and dispatches to update state
     const handleLoadMore = async() => {
         setPage(page+1);
         const results = await search(searchState.term, searchState.tags, page);

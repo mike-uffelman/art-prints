@@ -4,6 +4,7 @@ import {v4 as uuidv4 } from 'uuid';
 import { useSelector } from 'react-redux';
 
 
+// builds each product based on the data response from api request
 export async function buildProducts(data) {
     // console.log(data);
     const newData = data.map(product => {
@@ -38,6 +39,7 @@ export async function buildProducts(data) {
     
 }
 
+// builds product reviews for each product, uses faker.js and uuid
 export async function buildReviews(products) {
     const today = new Date().toISOString();
 
@@ -65,6 +67,7 @@ export async function buildReviews(products) {
     return reviews
 }
 
+// builds a tags object, with a tag property and count of times appeared in product results
 export function getTags(products) {
 
     const tags = products.flat().reduce((acc, curr) => {
