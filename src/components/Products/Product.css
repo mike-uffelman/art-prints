@@ -24,6 +24,7 @@
 
 .products-page__product.landscape {
     max-width: none;
+    min-width: 100%;
 }
 
 .products-page__product.portrait {
@@ -32,6 +33,7 @@
 
 .product__image {
     min-height: auto;
+
     width: 100%;
     grid-row: 1 / 2;
     align-self: center;

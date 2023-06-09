@@ -11,9 +11,9 @@ const root = ReactDOM.createRoot(el);
 
 // define the base root for react application
 root.render(
-    <React.StrictMode>
+    // <React.StrictMode>
         <Provider store={store}> {/* wrop application with Redux provider for state access */}
             <App /> {/* start of content */}
         </Provider> 
-    </React.StrictMode>
+    // </React.StrictMode>
 ) 

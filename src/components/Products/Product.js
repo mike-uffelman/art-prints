@@ -15,6 +15,7 @@ import ProductReception from './Product-Reception/ProductReception';
 import ProductSize from './Product-Size/ProductSize';
 import PhotoModal from './PhotoModal';
 import Image from '../Image';
+import Carousel from '../Carousel/Carousel';
 
 function Product({className}) {
     // const [ isFetched, setIsFetched ] = useState(false);
@@ -83,10 +84,11 @@ function Product({className}) {
                 return (
                     <section key={product.id} className={`products-page__product ${product.orientation}`}>
                         <div className={`product__image ${product.orientation}`}>
-                            <Image product={product} modalOpen={handleImgClick} className={`product ${product.orientation}`} />
+                            <Carousel product={product} />
+                            {/* <Image product={product} modalOpen={handleImgClick} className={`product ${product.orientation}`} />
                             {isModalOpen && createPortal(
                                 <PhotoModal product={product} image={product.image_urls.regular} alt={product.description} className={``} toggleModal={handleImgClick} />, document.body
-                            )}
+                            )} */}
                         </div>
                         
                         <form className="product__details" >

@@ -21,6 +21,7 @@ export async function buildProducts(data) {
             description: product.description || 'none',
             alt_description: product.alt_description || 'none',
             image_urls: product.urls || 'none',
+            carousel_links: ['https://images.pexels.com/photos/139764/pexels-photo-139764.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/447592/pexels-photo-447592.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/1046639/pexels-photo-1046639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' ],
             tags: product.tags || [],
             base_amt: (Math.random() * 10 + 6).toFixed(2),
             width: product.width || 2500,
@@ -37,6 +38,10 @@ export async function buildProducts(data) {
 
     return newData;
     
+}
+
+function buildScenePhoto() {
+
 }
 
 // builds product reviews for each product, uses faker.js and uuid
