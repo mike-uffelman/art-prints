@@ -1,9 +1,11 @@
 import './Carousel.css';
 import React, {useState, useEffect, useRef} from 'react';
-
+import { createPortal } from 'react-dom';
+import Image from '../Image';
+import PhotoModal from '../Products/PhotoModal';
 
 // pass images into carousel
-export default function Carousel({product}) {
+export default function Carousel({product, isModalOpen, handleImgClick, toggleModal }) {
     const [slideIndex, setSlideIndex] = useState(0);
     const imgEl = useRef();
     console.log(slideIndex)
@@ -32,7 +34,17 @@ export default function Carousel({product}) {
         const show = slideIndex === index ? 'show' : '';
         console.log(link)
 
-        return <img ref={imgEl} className={`carousel--img ${show} ${index}`} width={100} height={100} key={`${link}-${index}`} alt={`${index}`} src={link}></img>
+        return (
+            <React.Fragment>
+                <Image product={product} toggleModal={handleImgClick} className={`product ${product.orientation} ${show}`} />
+                    {isModalOpen && createPortal(
+                <PhotoModal product={product} image={product.image_urls.regular} alt={product.description} className={``} toggleModal={handleImgClick} />, document.body
+                )}
+            </React.Fragment>
+             
+        )
+
+        // return <img ref={imgEl} className={`carousel--img ${show} ${index}`} width={100} height={100} key={`${link}-${index}`} alt={`${index}`} src={link}></img>
     })
 
     // function showSlides(n) {
@@ -73,7 +85,7 @@ export default function Carousel({product}) {
         let slide = slideIndex + n
         let pics = product.carousel_links;
 
-        if(slide > pics.length - 1) {
+        if(slide > pics.length) {
             setSlideIndex(1)
         }
         if(slide < 1) {

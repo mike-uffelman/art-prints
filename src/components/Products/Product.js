@@ -84,7 +84,7 @@ function Product({className}) {
                 return (
                     <section key={product.id} className={`products-page__product ${product.orientation}`}>
                         <div className={`product__image ${product.orientation}`}>
-                            <Carousel product={product} />
+                            <Carousel product={product} className={`product ${product.orientation}`} toggleModal={handleImgClick} isModalOpen={isModalOpen}/>
                             {/* <Image product={product} modalOpen={handleImgClick} className={`product ${product.orientation}`} />
                             {isModalOpen && createPortal(
                                 <PhotoModal product={product} image={product.image_urls.regular} alt={product.description} className={``} toggleModal={handleImgClick} />, document.body
