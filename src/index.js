@@ -14,6 +14,7 @@ root.render(
     // <React.StrictMode>
         <Provider store={store}> {/* wrop application with Redux provider for state access */}
             <App /> {/* start of content */}
+            <canvas id='canvas'></canvas>
         </Provider> 
     // </React.StrictMode>
 ) 

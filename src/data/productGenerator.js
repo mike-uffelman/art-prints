@@ -21,7 +21,20 @@ export async function buildProducts(data) {
             description: product.description || 'none',
             alt_description: product.alt_description || 'none',
             image_urls: product.urls || 'none',
-            carousel_links: ['https://images.pexels.com/photos/139764/pexels-photo-139764.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/447592/pexels-photo-447592.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'https://images.pexels.com/photos/1046639/pexels-photo-1046639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' ],
+            carousel_links: {
+                framed: {
+                    url: 'https://images.pexels.com/photos/139764/pexels-photo-139764.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                    styles: ''
+                }, 
+                unframed: {
+                    url: 'https://images.pexels.com/photos/447592/pexels-photo-447592.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                    styles: ''
+                },
+                scene: {
+                    url: buildScenePhoto('https://images.pexels.com/photos/139764/pexels-photo-139764.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+                    styles: ''
+                }
+            },
             tags: product.tags || [],
             base_amt: (Math.random() * 10 + 6).toFixed(2),
             width: product.width || 2500,
@@ -40,8 +53,67 @@ export async function buildProducts(data) {
     
 }
 
-function buildScenePhoto() {
+function buildScenePhoto(src, orientation, width, height) {
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext("2d");
 
+    const image = new Image();
+    image.src = './images/room.jpg';
+    image.style.filter = 'blur(2px)'
+
+    canvas.width = image.width;
+    canvas.height = image.height;
+
+    const newImage = new Image();
+    newImage.src = src
+
+    console.log(newImage)
+    // newImage.style.height = '49px';
+    // newImage.style.width = '32px';
+
+    image.addEventListener('load', () => {
+        ctx.drawImage(image, 0, 0);
+    }, false)
+
+
+    newImage.addEventListener('load', () => {
+        console.log(image.src)
+        // ctx.drawImage(newImage, 43, 75, 129, 178)
+        if(image.src.includes('landscape')) {
+            // ctx.fillStyle = 'white'
+            // ctx.fillRect(553, 370, 317, 245);
+            // ctx.beginPath();
+            const frameWidth = 317
+            const frameHeight = 239
+
+            ctx.lineWidth = 1;
+            ctx.moveTo(553, 373);
+            ctx.lineTo(870, 373);
+            ctx.lineTo(865, 612);
+            ctx.lineTo(555, 612);
+            ctx.closePath();
+            ctx.fillStyle = 'rgb(247, 247, 247)'
+            ctx.fill()
+            
+            ctx.strokeStyle = 'white'
+            ctx.stroke()
+            ctx.transform(1, 0.003, -0.003, 1, 0, 0);
+
+            ctx.drawImage(newImage, 573, 393, frameWidth - 40, frameHeight - 40)
+
+        } else {
+            ctx.drawImage(newImage, 54, 86, 108, 156)
+
+        }
+        
+
+    }, false)
+    
+    const dataURL = canvas.toDataURL('image/png', 1.0);
+    console.log(dataURL)
+
+    // console.log('building scene photo...', src)
+    
 }
 
 // builds product reviews for each product, uses faker.js and uuid

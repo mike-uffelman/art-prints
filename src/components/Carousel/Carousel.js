@@ -8,44 +8,41 @@ import PhotoModal from '../Products/PhotoModal';
 export default function Carousel({product, isModalOpen, handleImgClick, toggleModal }) {
     const [slideIndex, setSlideIndex] = useState(0);
     const imgEl = useRef();
-    console.log(slideIndex)
-    console.log(product);
+    // console.log(slideIndex)
+    // console.log(product);
+
+    useEffect(() => {
+        console.log(slideIndex)
+    }, [slideIndex])
 
     
+    const carouselImages = () => {
+        for (let i = 0; i < 3; i++) {
+            const show = slideIndex === i ? 'show' : '';
+            let thirdPic;
+            if (i === 2) {
+                thirdPic = 'alternativePic'
+            }
 
-    // var slideIndex = 1;
-    // showSlides(slideIndex);
-
-    // // function plusSlides(n) {
-    // //     showSlides(slideIndex += n);
-    // // }
-
-    // // function currentSlide(n) {
-    // //     showSlides(slideIndex = n);
-    // // }
-
-    // useEffect(() => {
-    //     console.log(slideIndex)
-    // }, [slideIndex])
 
     
-
-    const carouselImages = product && product.carousel_links.map((link, index) => {
-        const show = slideIndex === index ? 'show' : '';
-        console.log(link)
-
-        return (
-            <React.Fragment>
-                <Image product={product} toggleModal={handleImgClick} className={`product ${product.orientation} ${show}`} />
+            return (
+                // <div>asdf</div>
+                <React.Fragment>
+                    <Image product={product} toggleModal={handleImgClick} className={`product ${product.orientation} ${show} ${thirdPic}`} />
+                    
                     {isModalOpen && createPortal(
-                <PhotoModal product={product} image={product.image_urls.regular} alt={product.description} className={``} toggleModal={handleImgClick} />, document.body
-                )}
-            </React.Fragment>
-             
-        )
+                        <PhotoModal product={product} image={product.image_urls.regular} alt={product.description} className={``} toggleModal={handleImgClick} />, document.body
+                    )}
+                </React.Fragment>
+                 
+            )
+        } 
+        // product && product.carousel_links.map((link, index) => {
+        
 
         // return <img ref={imgEl} className={`carousel--img ${show} ${index}`} width={100} height={100} key={`${link}-${index}`} alt={`${index}`} src={link}></img>
-    })
+    }
 
     // function showSlides(n) {
     //     // var i;
@@ -64,49 +61,30 @@ export default function Carousel({product, isModalOpen, handleImgClick, toggleMo
 
     // }
 
-
-
-    // const prev = document.getElementsByClassName('prev')[0];
-    // const next = document.getElementsByClassName('next')[0];
-
-
-    // prev.addEventListener('click', () => {
-    //     showSlides(slideIndex += -1);
-    // })
-
-    // next.addEventListener('click', () => {
-    //     showSlides(slideIndex += 1);
-    // })
-
     const handleClick = (n) => {
+        console.log(slideIndex)
         setSlideIndex(slideIndex + n)
-        console.log('clicked change by: ', n)
-        // setSlideIndex(slideIndex + n)
-        let slide = slideIndex + n
-        let pics = product.carousel_links;
+        console.log(slideIndex)
 
-        if(slide > pics.length) {
-            setSlideIndex(1)
-        }
-        if(slide < 1) {
-            setSlideIndex(pics.length);
-        }
-        // for(i = 0; i < pics.length; i++){
-        //     imgEl.style.display = 'none';
+        // let slide = slideIndex;
+        // setSlideIndex(slideIndex + n)
+        // slide = slideIndex + n
+        // let pics = 2;
+
+        // if(slide > pics) {
+        //     setSlideIndex(0)
+        // }
+        // if(slide < 1) {
+        //     setSlideIndex(pics);
         // }
 
-
-
+        // console.log(slide)
     }
-
-
-    const renderImages = 'carousel images here'
-
 
     return (
         <div className='carousel'>
             <div className='direction prev' onClick={() => handleClick(-1)}>&lt; Prev</div>
-                {product ? carouselImages : 'loading...'}
+                {product ? carouselImages() : 'loading...'}
 
             <div className='direction next' onClick={() => handleClick(1)}>Next &gt;</div>
         </div>

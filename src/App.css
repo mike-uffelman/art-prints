@@ -44,6 +44,17 @@ body {
     position: relative;
 }
 
+canvas {
+    position: absolute;
+    bottom: 0;
+    z-index: 99999;
+    border: 1px solid red;
+    background-color: gray;
+    /* display: none; */
+    max-height: 30rem;
+    width: 100%;
+}
+
 .modal-open {
     overflow: hidden;
 }
