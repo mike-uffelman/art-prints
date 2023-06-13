@@ -17,13 +17,14 @@ function Search() {
     })
     const dispatch = useDispatch();
 
-    
+        
     const handleChange = (e) => {
         setTerm(e.target.value);
     }
 
     const handleSubmit = async (e) => {
         
+        console.log('previous search: ', prevSearch)
         // if(prevSearch.term === term) {
         //     await dispatch(reset());
         //     const results = await search(term, prevSearch.tags);
@@ -31,7 +32,12 @@ function Search() {
         // }
         
         await dispatch(reset());
-        const results = await search(term, prevSearch.tags);
+        
+        const results = await search(
+            term, 
+            prevSearch.term === term ? prevSearch.tags : undefined
+        );
+        
         await dispatch(addResults(results));
 
         // console.log(results)
