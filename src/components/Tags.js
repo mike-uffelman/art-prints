@@ -22,10 +22,10 @@ export default function Tags({tagsData}) {
     }
 
     // if tagsData, filter over tags and return link with path to tag term; tag click handled by callback
-    const renderTags = tagsData && Object.entries(tagsData).filter(tags => tags[1] > 0).map((tag, index) => {
+    const renderTags = tagsData && tagsData.map((tag, index) => {
         // console.log(tag)
         return ( 
-            <Link to={`/results/${tag[0]}`} onClick={() => handleClick(tag[0])} key={`${tag[0]}-${index}`} className="tags__link" >{tag[0]}</Link>
+            <Link to={`/results/${tag}`} onClick={() => handleClick(tag)} key={`${tag}-${index}`} className="tags__link" >{tag}</Link>
         )
     })
     
@@ -33,6 +33,8 @@ export default function Tags({tagsData}) {
     if(!tagsData || tagsData === undefined) {
         return <div>Loading tags...</div>
     }
+
+    console.log(tagsData)
 
     return (
         <form className="tags__container">

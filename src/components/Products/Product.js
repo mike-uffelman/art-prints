@@ -16,15 +16,13 @@ import ProductSize from './Product-Size/ProductSize';
 import PhotoModal from './PhotoModal';
 import Image from '../Image';
 
-function Product({className}) {
+function Product({product, className}) {
     // const [ isFetched, setIsFetched ] = useState(false);
     const [ isModalOpen, setIsModalOpen ] = useState(false);
     
     const dispatch = useDispatch();
-    const productData = useSelector((state) => {
-        // setIsFetched(true)
-        return state.search;
-    }) 
+    
+
     // const [products, setProducts] = useState([]);
 
     // define and set defaults for product size selection
@@ -78,9 +76,8 @@ function Product({className}) {
         setIsModalOpen(!isModalOpen)
     }
 
-    const renderProduct = productData && productData.results.flat().map(product => {
-            if(id === product.id) {
-                return (
+    const renderProduct = product && 
+                (
                     <section key={product.id} className={`products-page__product ${product.orientation}`}>
                         <div className={`product__image ${product.orientation}`}>
                             <Image product={product} modalOpen={handleImgClick} className={`product ${product.orientation}`} />
@@ -127,14 +124,14 @@ function Product({className}) {
                         
                     </section>
                 )
-            } 
+             
             // else {
             //     throw Error('Photo not found');
             // }
-        })
+        
     
 
-    if(!productData) {
+    if(!product) {
         
     // if(!productData || productData === undefined) {
         return <div>Loading product...</div>
@@ -142,7 +139,7 @@ function Product({className}) {
         
     return (
         <div className="product-page">
-            {productData ? renderProduct : 'Loading...'}
+            {product ? renderProduct : 'Loading...'}
         </div>
     )
 }
