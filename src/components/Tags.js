@@ -34,8 +34,6 @@ export default function Tags({tagsData}) {
         return <div>Loading tags...</div>
     }
 
-    console.log(tagsData)
-
     return (
         <form className="tags__container">
             <label className="tags__label">Related Searches</label>

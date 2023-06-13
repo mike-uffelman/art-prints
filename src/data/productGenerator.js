@@ -71,7 +71,7 @@ export async function buildReviews(products) {
 
 // builds a tags object, with a tag property and count of times appeared in product results
 export function getTags(products) {
-    console.log(products)
+    
     const tags = products.flat().reduce((acc, curr) => {
         acc.push(curr.tags.map(i => i.title))
         return acc;

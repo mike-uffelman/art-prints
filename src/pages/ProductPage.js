@@ -17,7 +17,6 @@ export default function ProductPage({products, addToCart}) {
     const selectedProduct = productData.results.flat().filter(product => product.id === id && product)
 
     const productTags = selectedProduct[0].tags.map(tag => tag.title)
-    console.log(productTags)
 
     return (
         <div className="product-page__container">

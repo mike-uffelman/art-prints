@@ -24,23 +24,15 @@ function Search() {
 
     const handleSubmit = async (e) => {
         
-        console.log('previous search: ', prevSearch)
-        // if(prevSearch.term === term) {
-        //     await dispatch(reset());
-        //     const results = await search(term, prevSearch.tags);
-        //     await dispatch(addResults(results));
-        // }
-        
         await dispatch(reset());
         
         const results = await search(
             term, 
             prevSearch.term === term ? prevSearch.tags : undefined
         );
-        
+
         await dispatch(addResults(results));
 
-        // console.log(results)
         const reviews = await buildReviews(results);
         await dispatch(addReviews(reviews));
         setTerm('')

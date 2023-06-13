@@ -30,7 +30,7 @@ export default function ResultsPage() {
 
     // filter tags 
     const tagsData = Object.entries(results.tags).filter(tags => tags[1] > 0).map(tag => tag[0])
-    console.log(tagsData)
+
     if(!results || results === undefined) {
         return <div>Loading...</div>
     }
