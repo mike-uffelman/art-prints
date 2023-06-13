@@ -1,5 +1,4 @@
 import { Outlet, Link } from "react-router-dom";
-import Cart from "../components/Cart/Cart";
 import Search from "../components/Search";
 import Footer from "../components/Footer";
 import Logo from "../components/Logo";
@@ -10,6 +9,9 @@ export default function RootLayout() {
         return state.cart
     })
 
+    const results = useSelector((state) => {
+        return state.search
+    })
 
     return (
         <article className="app">
@@ -18,7 +20,6 @@ export default function RootLayout() {
                     <div className="app__header--actions">
                         <Search />
 
-                        {/* // Add Conditional if cart empty, hide it */}
                         {cart.length > 0 &&
                         <Link to='cart'>
                             <div className="app__header--cart">
@@ -31,7 +32,7 @@ export default function RootLayout() {
                     </div>
             </header>
             <aside className="breadcrumbs">
-                <Link to='/results/dogs'>Back to results</Link>
+                <Link to={`/results/${results.term}`}>Back to results</Link>
 
             </aside>
             <section className="content">

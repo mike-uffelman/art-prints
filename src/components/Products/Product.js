@@ -15,6 +15,7 @@ import ProductReception from './Product-Reception/ProductReception';
 import ProductSize from './Product-Size/ProductSize';
 import PhotoModal from './PhotoModal';
 import Image from '../Image';
+import ProductQuantity from './Product-Quantity/ProductQuantity'
 
 function Product({product, className}) {
     // const [ isFetched, setIsFetched ] = useState(false);
@@ -104,14 +105,16 @@ function Product({product, className}) {
 
                             </div>
                             
-                            <p className="product__price">${(product.base_amt * size.price_multiplier).toFixed(2)}</p>                            
                             <div className='product__box'>
-                                    
-                                <div className='product__quantity'>
-                                    <label className='' >Quantity</label>
-                                    <input type='number' min='1' step='1' onChange={(e) => setQuantity(e.target.value)} value={quantity}></input>
-                                </div>
 
+                                <ProductQuantity quantity={quantity} setQuantity={setQuantity}/>
+
+                                <div className='product__price'>
+                                    <label className='product__price--label'>
+                                        Amount per:
+                                    </label>
+                                    <p className="product__price--amount">${(product.base_amt * size.price_multiplier).toFixed(2)}</p>                            
+                                </div>
                             </div>
                             
                             

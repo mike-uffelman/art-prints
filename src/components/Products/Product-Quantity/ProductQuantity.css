@@ -1,0 +1,62 @@
+.quantity__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+
+    font-size: 2.4rem;
+    height: 100%;
+    font-family: 'Barlow-Regular'
+}
+
+.quantity__input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: .5rem;
+}
+
+.quantity__label {
+    font-size: 1.4rem;
+    font-family: 'Barlow-SemiBold';
+    margin-bottom: .5rem;
+}
+
+.quantity__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: black;
+    border-radius: .5rem;
+}
+
+.material-symbols-rounded {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+
+    padding-top: .25rem;
+    padding-left: .1rem;
+}
+
+.quantity__btn:hover {
+    cursor: pointer;
+
+    color: #0095a6;
+    border: 5px solid #0095a6;
+    border: none;
+}
+
+.quantity__value {
+    padding: 0 1rem;
+    width: 4rem;
+    
+    text-align: center;
+}
+
+
+
