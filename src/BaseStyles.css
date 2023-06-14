@@ -1,0 +1,14 @@
+:root {
+    --main-black: rgb(0, 0, 0);
+    --main-white: rgb(255, 255, 255);
+    --main-accent: rgb(0, 149, 166);
+    --main-light-accent: rgba(0, 149, 166, 0.75);
+    --main-lightgray: rgb(246, 246, 246);
+    --main-light-blue: rgb(217, 232, 234);
+
+    --text-extralight: 'Barlow-ExtraLight';
+    --text-light: 'Barlow-Light';
+    --text-regular: 'Barlow-Regular';
+    --text-bold: 'Barlow-SemiBold';
+}
+

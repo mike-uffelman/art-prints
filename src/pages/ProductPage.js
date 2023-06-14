@@ -3,6 +3,7 @@ import Product from "../components/Products/Product"
 import Reviews from "../components/Reviews/Reviews"
 import Tags from "../components/Tags"
 import { useParams } from "react-router-dom"
+import ProductTabs from "../components/Products/Product-Tabs/ProductTabs"
 
 
 // Builds the layout for the individual product page
@@ -23,7 +24,12 @@ export default function ProductPage({products, addToCart}) {
             {productData ? <Tags tagsData={productTags} /> : 'Loading tags...'}
             {selectedProduct ? <Product product={selectedProduct[0]} className=''/> : 'Loading Product...'}
             
-            <Reviews />
+            <ProductTabs product={selectedProduct}>
+
+                <Reviews />
+                {productData ? <Tags tagsData={productTags} /> : 'Loading tags...'}
+
+            </ProductTabs >
             {/* want this to be a carousel... */}
             {/* <Products products={products} className='products__similar'/> */}
 

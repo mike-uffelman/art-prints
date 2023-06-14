@@ -1,3 +1,4 @@
+import './BaseStyles.css';
 import './App.css';
 import ProductPage from './pages/ProductPage';
 import Cart from "./components/Cart/Cart";
