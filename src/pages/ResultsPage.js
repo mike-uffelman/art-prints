@@ -20,6 +20,8 @@ export default function ResultsPage() {
     })
 
 
+
+
     // useEffect(() => {
     //     const data = getTags(results);
     //     console.log(data);

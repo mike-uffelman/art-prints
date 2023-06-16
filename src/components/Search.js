@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { Form, redirect } from 'react-router-dom';
-import {useSelector, useDispatch } from 'react-redux';
+
+import { useSelector, useDispatch } from 'react-redux';
 import { addResults, reset } from '../store/slices/searchSlice';
+import { addReviews } from '../store/slices/reviewsSlice';
+import { addHistory } from '../store/slices/historySlice';
+
 import { buildReviews } from '../data/productGenerator';
 import { search } from '../data/dataHelper';
-import { addReviews } from '../store/slices/reviewsSlice';
 
 
 // Search bar component
@@ -35,6 +38,7 @@ function Search() {
 
         const reviews = await buildReviews(results);
         await dispatch(addReviews(reviews));
+        await dispatch(addHistory(term))
         setTerm('')
     }
 

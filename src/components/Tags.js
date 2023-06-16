@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { addResults, reset } from '../store/slices/searchSlice';
 import { addReviews } from '../store/slices/reviewsSlice';
 import { search } from '../data/dataHelper';
+import { addHistory } from '../store/slices/historySlice';
 
 export default function Tags({tagsData}) {
     // define the dispatch hook for store actions
@@ -19,6 +20,7 @@ export default function Tags({tagsData}) {
 
         const reviews = await buildReviews(results);
         await dispatch(addReviews(reviews));
+        await dispatch(addHistory(term))
     }
 
     // if tagsData, filter over tags and return link with path to tag term; tag click handled by callback
@@ -36,7 +38,7 @@ export default function Tags({tagsData}) {
 
     return (
         <form className="tags__container">
-            <label className="tags__label">Related Searches</label>
+            {/* <label className="tags__label">Related Searches</label> */}
             <div className='tags__content'>
                 {/* <div className='tags__arrow tags__arrow--left'>L</div> */}
                 <div className="tags__list">

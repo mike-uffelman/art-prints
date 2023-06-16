@@ -3,6 +3,7 @@ import Search from "../components/Search";
 import Footer from "../components/Footer";
 import Logo from "../components/Logo";
 import { useSelector } from 'react-redux';
+import History from "../components/History/History";
 
 export default function RootLayout() {
     const cart = useSelector((state) => {
@@ -12,8 +13,9 @@ export default function RootLayout() {
     const location = useLocation();
 
     const results = useSelector((state) => {
-        return state.search
+        return state
     })
+
 
     return (
         <article className="app">
@@ -21,8 +23,11 @@ export default function RootLayout() {
                 <section className='header'>
                     <Logo />
                     <div className="header__actions">
+                        <History history={results.history} />
+
                         <Search />
 
+                        {/* search history here */}
                         {cart.length > 0 &&
                         <Link to='cart'>
                             <div className="header__cart">
@@ -37,7 +42,7 @@ export default function RootLayout() {
 
                 <aside className="breadcrumbs">
                     {location.pathname === '/' ? '' : <Link className="breadcrumbs__link" to='/'>Home</Link>} 
-                    {location.pathname !== '/' && !location.pathname.includes('/results/') && <Link className="breadcrumbs__link" to={`/results/${results.term}`}>Back to results</Link>}
+                    {location.pathname !== '/' && !location.pathname.includes('/results/') && <Link className="breadcrumbs__link" to={`/results/${results.search.term}`}>Back to results</Link>}
 
                 </aside>
             </header>
