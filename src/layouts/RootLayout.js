@@ -36,8 +36,7 @@ export default function RootLayout() {
                 </section>
 
                 <aside className="breadcrumbs">
-                    {location.pathname === '/' ? '' : <Link className="breadcrumbs__link" to='/'>Home</Link>}
-
+                    {location.pathname === '/' ? '' : <Link className="breadcrumbs__link" to='/'>Home</Link>} 
                     {location.pathname !== '/' && !location.pathname.includes('/results/') && <Link className="breadcrumbs__link" to={`/results/${results.term}`}>Back to results</Link>}
 
                 </aside>

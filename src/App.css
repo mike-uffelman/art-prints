@@ -183,13 +183,22 @@ body {
     display: flex;
     flex-direction: row;
     font-size: 1.4rem;
-    margin-top: .5rem;
+    margin: 1rem 0 0 0;
     font-family: var(--text-bold);
 }
 
 .breadcrumbs__link {
-    background-color: orange;
     text-decoration: none;
+    color: black;
+
+}
+
+.breadcrumbs__link:first-of-type {
+    margin-right: 1rem;    
+}
+
+.breadcrumbs__link:hover {
+    color: var(--main-accent);
 }
 
 @media screen and (min-width: 30rem) {

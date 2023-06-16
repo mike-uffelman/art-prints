@@ -8,7 +8,7 @@
 
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
-    margin: 1rem 0;
+    /* margin: 1rem 0; */
     padding: 1rem;
     /* overflow-x: scroll; */
 }
@@ -58,7 +58,7 @@
     /* overflow-x: scroll; */
     overflow: hidden;
     flex-wrap: wrap;
-    padding: 1rem;
+    /* padding: 1rem; */
     /* scroll-snap-type: mandatory; */
     width: 100%;
     
