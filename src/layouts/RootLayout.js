@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useLocation } from "react-router-dom";
 import Search from "../components/Search";
 import Footer from "../components/Footer";
 import Logo from "../components/Logo";
@@ -9,6 +9,8 @@ export default function RootLayout() {
         return state.cart
     })
 
+    const location = useLocation();
+
     const results = useSelector((state) => {
         return state.search
     })
@@ -16,13 +18,14 @@ export default function RootLayout() {
     return (
         <article className="app">
             <header className="app__header">
+                <section className='header'>
                     <Logo />
-                    <div className="app__header--actions">
+                    <div className="header__actions">
                         <Search />
 
                         {cart.length > 0 &&
                         <Link to='cart'>
-                            <div className="app__header--cart">
+                            <div className="header__cart">
                                 <span className="cart--icon material-symbols-outlined">
                                     shopping_bag
                                 </span>
@@ -30,11 +33,16 @@ export default function RootLayout() {
                             </div>
                         </Link>}
                     </div>
-            </header>
-            <aside className="breadcrumbs">
-                <Link to={`/results/${results.term}`}>Back to results</Link>
+                </section>
 
-            </aside>
+                <aside className="breadcrumbs">
+                    {location.pathname === '/' ? '' : <Link className="breadcrumbs__link" to='/'>Home</Link>}
+
+                    {location.pathname !== '/' && !location.pathname.includes('/results/') && <Link className="breadcrumbs__link" to={`/results/${results.term}`}>Back to results</Link>}
+
+                </aside>
+            </header>
+
             <section className="content">
                 <Outlet />
             </section>
