@@ -102,12 +102,27 @@ body {
 } */
 
 .header__actions {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
     width: 100%;
+}
+
+.header__history {
+    margin: 0 1rem;
+
+}
+
+.header__history > .material-symbols-rounded:hover {
+    cursor: pointer;
+    color: var(--main-accent);
+}
+
+.header__history > .material-symbols-rounded {
+    color: black;
 }
 
 .header__cart {

@@ -1,16 +1,20 @@
+// styling import
 import './Product.css';
+
+// react and library imports
 import React, { useEffect, useState } from "react";
-// import NavContext from "../context/navigation";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { createPortal } from 'react-dom';
-import { shortenDescription } from "../../utility/helpers";
-import ProductSizeDropdown from "./Product-Size/ProductSizeDropdown";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToCart } from '../../store/slices/cartsSlice';
-import Products from "./AllProducts";
+
+// utilities and helpers
 import classNames from 'classnames';
 import {v4 as uuidv4 } from 'uuid';
 import { UNSPLASH_URL } from '../../data/config';
+import { shortenDescription } from "../../utility/helpers";
+
+// components
 import ProductReception from './Product-Reception/ProductReception';
 import ProductSize from './Product-Size/ProductSize';
 import PhotoModal from './PhotoModal';

@@ -8,7 +8,7 @@ import { addResults, reset } from '../../store/slices/searchSlice';
 import { addReviews } from '../../store/slices/reviewsSlice';
 import { buildReviews } from '../../data/productGenerator';
 
-export default function History({history}) {
+export default function History({history, isModalOpen, setIsModalOpen}) {
     const [ isOpen, setIsOpen ] = useState(false)
     const dispatch = useDispatch();
     const store = useSelector((state) => {
@@ -46,8 +46,21 @@ export default function History({history}) {
     })
 
     useEffect(() => {
-        console.log(isOpen)
-    }, [isOpen])
+        const closeModal = (e) => {
+            if(!e.target.classList.contains('history__list')) {
+                setIsModalOpen(false);
+
+            }
+            console.log('closing modal...', e)
+        }
+
+        window.addEventListener('click', e => closeModal(e));
+
+        return () => {
+            window.removeEventListener('click', e => closeModal(e), true);
+        }
+
+    }, [isModalOpen])
 
     // const handleDropdownClick = () => {
     //     setIsOpen(!isOpen)
@@ -58,16 +71,22 @@ export default function History({history}) {
 
 
     return (
-        <div className={`history ${isToggled}`}>
-            <div className='history__icons' onClick={() => setIsOpen(!isOpen)}>
+        // <div className={`history ${isToggled}`}>
+        <div className={`history `}>
+
+            {/* <div className='history__icons' onClick={() => setIsOpen(!isOpen)}>
                 <span className="material-symbols-rounded clock">
                     history
                 </span>
                 <span className="material-symbols-rounded arrow">
                     {`arrow_drop_${arrow}`}
                 </span>
-            </div>
-            
+            </div> */}
+            <div className='history__close'>
+                    <span onClick={() => setIsModalOpen(false)} className="material-symbols-outlined">
+                        close
+                    </span>    
+            </div>            
             
             <div className='history__list'>
                 {renderHistory}

@@ -7,7 +7,7 @@ const historySlice = createSlice({
     initialState,
     reducers: {
         addHistory(state, action) {
-            state.push(action.payload)
+            state.unshift(action.payload)
         },
         resetHistory(state, action) {
             return initialState;

@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import { Outlet, Link, useLocation } from "react-router-dom";
 import Search from "../components/Search";
 import Footer from "../components/Footer";
 import Logo from "../components/Logo";
 import { useSelector } from 'react-redux';
 import History from "../components/History/History";
+import { createPortal } from "react-dom";
 
 export default function RootLayout() {
+    const [ isModalOpen, setIsModalOpen ] = useState(false);
     const cart = useSelector((state) => {
         return state.cart
     })
@@ -17,13 +20,25 @@ export default function RootLayout() {
     })
 
 
+
     return (
         <article className="app">
             <header className="app__header">
                 <section className='header'>
                     <Logo />
                     <div className="header__actions">
-                        <History history={results.history} />
+                        <div className='header__history'>
+                            <span onClick={() => setIsModalOpen(!isModalOpen)} className="material-symbols-rounded">
+                                history
+                            </span>
+
+                            {isModalOpen && createPortal(
+                                <History isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} history={results.history} />, 
+                                document.body
+
+                            )}
+                        </div>
+                        
 
                         <Search />
 

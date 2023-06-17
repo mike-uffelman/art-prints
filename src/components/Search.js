@@ -15,8 +15,8 @@ import { search } from '../data/dataHelper';
 
 function Search() {
     const [term, setTerm] = useState('');
-    const prevSearch = useSelector((state) => {
-        return state.search;
+    const store = useSelector((state) => {
+        return state;
     })
     const dispatch = useDispatch();
 
@@ -31,14 +31,17 @@ function Search() {
         
         const results = await search(
             term, 
-            prevSearch.term === term ? prevSearch.tags : undefined
+            store.search.term === term ? store.search.tags : undefined
         );
 
         await dispatch(addResults(results));
 
         const reviews = await buildReviews(results);
         await dispatch(addReviews(reviews));
-        await dispatch(addHistory(term))
+        
+
+        
+        !store.history.includes(term) && await dispatch(addHistory(term))
         setTerm('')
     }
 
