@@ -1,5 +1,5 @@
 import './History.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { addHistory, resetHistory } from '../../store/slices/historySlice';
 import { search } from '../../data/dataHelper';
@@ -10,6 +10,7 @@ import { buildReviews } from '../../data/productGenerator';
 
 export default function History({history, isModalOpen, setIsModalOpen}) {
     const [ isOpen, setIsOpen ] = useState(false)
+    const el = useRef();
     const dispatch = useDispatch();
     const store = useSelector((state) => {
         return state;
@@ -32,7 +33,30 @@ export default function History({history, isModalOpen, setIsModalOpen}) {
         !store.history.includes(term) && await dispatch(addHistory(term));
         // setTerm('')
 
+        close();
+
     }
+
+    const close = () => {
+        setIsModalOpen(false)
+    }
+
+    const closeModal = (e) => {
+        if(el.current && !el.current.contains(e.target)) {
+            console.log('clicking the ref')
+            close();
+        }
+    }
+
+    useEffect(() => {
+        
+
+        window.addEventListener('click', e => closeModal(e), true);
+
+        return () => {
+            window.removeEventListener('click', e => closeModal(e));
+        }
+    }, [])
 
     const clearHistory = (e) => {
         e.preventDefault();
@@ -41,30 +65,9 @@ export default function History({history, isModalOpen, setIsModalOpen}) {
 
     const renderHistory = history.map((term, index) => {
         return (
-            <Link to={`results/${term}`} onClick={() => handleClick(term)} key={`history-${index}`} className=''>{term}</Link>
+            <Link to={`results/${term}`} onClick={() => handleClick(term)} key={`history-${index}`} className='history__link'>{term}</Link>
         )
     })
-
-    useEffect(() => {
-        const closeModal = (e) => {
-            if(!e.target.classList.contains('history__list')) {
-                setIsModalOpen(false);
-
-            }
-            console.log('closing modal...', e)
-        }
-
-        window.addEventListener('click', e => closeModal(e));
-
-        return () => {
-            window.removeEventListener('click', e => closeModal(e), true);
-        }
-
-    }, [isModalOpen])
-
-    // const handleDropdownClick = () => {
-    //     setIsOpen(!isOpen)
-    // }
 
     const isToggled = isOpen ? 'isOpen' : '';
     const arrow = isOpen ? 'up' : 'down';
@@ -82,14 +85,22 @@ export default function History({history, isModalOpen, setIsModalOpen}) {
                     {`arrow_drop_${arrow}`}
                 </span>
             </div> */}
-            <div className='history__close'>
-                    <span onClick={() => setIsModalOpen(false)} className="material-symbols-outlined">
-                        close
-                    </span>    
-            </div>            
+                        
             
-            <div className='history__list'>
-                {renderHistory}
+            <div ref={el} className='history__list'>
+                <div className='history__header'>
+                    <h3 className='history__heading'>Recent Searches</h3>
+                    <div className='history__close'>
+                        <span onClick={() => setIsModalOpen(false)} className="material-symbols-outlined">
+                            close
+                        </span>    
+                    </div>
+                </div>
+                
+
+                <div className='history__items'>
+                    {renderHistory}
+                </div>
                 
                 <button onClick={(e) => clearHistory(e)} className='history__clearBtn'>Clear History</button>
             </div>

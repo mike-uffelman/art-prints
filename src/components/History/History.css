@@ -11,7 +11,7 @@
     font-family: var(--text-bold);
     height: 100%;
     width: 100%;
-    background-color: rgb(0, 0, 0, .25);
+    background-color: rgb(0, 0, 0, .75);
 }
 
 .history__icons {
@@ -46,18 +46,49 @@
 }
 
 
+
 .history__list {
     position: relative;
     top: 3rem;
     display: flex;
     flex-direction: column;
-    border: 2px solid black;
     border-radius: 1rem;
+    box-shadow: 0 0 1rem black;
     padding: 1rem;
     background-color: aliceblue;
-    width: 12rem;
-    height: auto;
+    width: 90%;
+    height: 30rem;
+    /* min-height: 60%;
+    max-height: 80%; */
 
+}
+
+.history__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.history__items {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: scroll;
+    padding: .5rem;
+    font-size: 1.4rem;
+}
+
+.history__link {
+    text-decoration: none;
+    padding: .25rem 1rem;
+    border-radius: .5rem;
+    color: black;
+}
+
+.history__link:hover {
+    background-color: var(--main-accent);
+    color: white;
+    
 }
 
 .history.isOpen .history__list {

@@ -9,17 +9,13 @@ import { createPortal } from "react-dom";
 
 export default function RootLayout() {
     const [ isModalOpen, setIsModalOpen ] = useState(false);
+    const location = useLocation();
     const cart = useSelector((state) => {
         return state.cart
     })
-
-    const location = useLocation();
-
     const results = useSelector((state) => {
         return state
     })
-
-
 
     return (
         <article className="app">
