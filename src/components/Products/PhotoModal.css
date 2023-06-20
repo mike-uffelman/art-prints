@@ -1,40 +1,35 @@
 .modal {
     position: absolute;
     z-index: 9999;
-    top: 0;
-    /* bottom: 0; */
-    left: 0;
+    top: 0%;
+    left: 0%;
+
     display: flex;
-    /* transform: translate(-50%, -50%); */
-
-
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, .5);
+  
+    background-color: rgba(0, 0, 0, .75);
 
-    /* max-height: calc(100vh - 50px); */
-    /* overflow-y: auto; */
+    overflow: auto;
 }
 
 .modal__img-container {
-    /* position: relative; */
-    /* display: flex; */
-    /* max-width: 80%; */
-    height: 100%;
-    width: 100%;
-    /* max-height: 80%; */
-    /* margin: 5rem auto; */
-    /* flex: 1 0; */
-    /* max-inline-size: 100%; */
-    padding: 2.5rem;
-    block-size: auto;
-    /* overflow: auto; */
+    max-height: 90%;
+    max-width: 90%;
 }
 
-.modal__image-container.landscape, .modal__image-container.modal__img-container.portrait {
-    
+.modal__img-container.portrait {
+
+}
+
+.modal__image-container.landscape {
+    width: 0;
+    padding: 3rem;
+   
 }
 
 .modal__close {
@@ -42,6 +37,11 @@
     z-index: 9999;
     right: 1rem;
     top: 2rem;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
 }
 
 
@@ -55,22 +55,35 @@
 }
 
 .modal__close > span {
-    background-color: white;
-    color: black;
-    
+    background-color: none;
+    color: white;
+    font-size: 5rem;
+    /* transform: scale(1.5); */
+
+
 }
 
 .material-symbols-outlined:hover {
     cursor: pointer;
-    color: #0095a6;
+    /* color: #0095a6; */
+}
+
+
+
+@media screen and (min-width: 25rem) {
+    .modal__img-container.portrait {
+        max-width: 40rem;
+    }
 }
 
 @media screen and (min-width: 35rem) {
     .modal__img-container.portrait {
-        max-width: 55rem;
-    }
-    .modal__img-container.landscape {
-        max-width: 90rem;
+        max-width: 40rem;
     }
 }
 
+@media screen and (min-width: 45rem) {
+    .modal__img-container.portrait {
+        max-width: 45rem;
+    }
+}

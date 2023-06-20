@@ -4,66 +4,89 @@
     align-items: center;
 
     height: 100%;
+    width: 100%;
 
-    /* margin: 1rem; */
-    padding: 2rem;
+    border: none;
+    object-fit: contain;
 }
 
-.img__product {
+.img .photo-modal {
+    /* height: none; */
+    /* width: none; */
+    /* border: none; */
+    /* object-fit: contain; */
+    /* display: flex; */
+    /* min-width: 0; */
+    /* flex-wrap: wrap; */
+} 
+
+/* .img.photo-modal.portrait {
+} */
+
+/* .img.photo-modal.landscape {
+} */
+
+.img .img__product {
     max-width: 100%;
     max-height: 100%;
+    
+    padding: 10%;
+    border-radius: .5rem;
 
-    padding: 1rem;
-
-    background-color: rgb(252, 252, 252);
+    background-color: rgb(245, 245, 245);
     box-shadow: 0 0 1rem black;
 
     object-fit: contain;
     transition: all ease 300ms;
 }
 
-.img.product {
-    /* padding: 0; */
-    margin: 0;
-    width: 100%;
-}
-
-
-.img.product.landscape {
-    /* min-width: 100%; */
-    /* max-height: 100%; */
+.img .img__product.photo-modal {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-
+    flex-wrap: wrap;
+    min-width: 0;
 }
 
-.img__product.product {
-    /* min-width: 100%; */
-    /* max-width: none; */
-    /* max-height: none; */
-    /* min-width: 100%; */
-    /* flex: 1; */
+/* .img .img__product.photo-modal.portrait {
+} */
+
+/* .img .img__product.photo-modal.landscape {
+} */
+
+/** keep this */
+.product {
+    padding: 2rem;
 }
 
+/** keep this */
+.img.results { 
+    padding: 2rem;
+}
+
+.img__product.results {
+    /* padding: 2rem; */
+}
+
+/* .img.product.landscape {
+} */
+
+/* .photo-modal.portrait {
+
+} */
+
+/* .img__product.product {
+} */
+
+/** keep this */
 .img__product:hover {
     cursor: pointer;
 }
 
-.img__product.product.landscape {
-    object-fit: contain;
-    /* max-height: 100%; */
-    /* max-width: 100%; */
-}
+/* .img__product.product.landscape {
+} */
 
-@media screen and (min-width: 45em) {
-    /* .img.product.landscape { */
-        /* padding-top: 0; */
-        /* padding-bottom: 0; */
-    /* } */
+/* @media screen and (min-width: 45em) {
     .img.product.landscape {
-        
+
     }
 
-}
+} */

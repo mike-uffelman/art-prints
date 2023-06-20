@@ -44,16 +44,16 @@ function Product({product, className}) {
         window.scrollTo({top: 0, left: 0, behavior: 'instant'})
     }, [])
 
-    useEffect(() => {
+    // useEffect(() => {
         // if(isModalOpen) {
             // document.body.style.overflow = 'hidden';
-            document.body.classList.toggle('modal-open');
+            // document.body.classList.toggle('modal-open');
         // }
         // return () => {
             // document.body.style.overflow = 'none';
         // }
     
-    }, [isModalOpen])
+    // }, [isModalOpen])
 
 
     
@@ -77,7 +77,7 @@ function Product({product, className}) {
     }
 
     const handleImgClick = () => {
-        // console.log('img clicked')
+    //     // console.log('img clicked')
         setIsModalOpen(!isModalOpen)
     }
 
@@ -87,7 +87,7 @@ function Product({product, className}) {
                         <div className={`product__image ${product.orientation}`}>
                             <Image product={product} modalOpen={handleImgClick} className={`product ${product.orientation}`} />
                             {isModalOpen && createPortal(
-                                <PhotoModal product={product} image={product.image_urls.regular} alt={product.description} className={``} toggleModal={handleImgClick} />, document.body
+                                <PhotoModal product={product} image={product.image_urls.regular} alt={product.description} className={`photo-modal ${product.orientation}`} setIsModalOpen={setIsModalOpen} toggleModal={handleImgClick} />, document.body
                             )}
                         </div>
                         
