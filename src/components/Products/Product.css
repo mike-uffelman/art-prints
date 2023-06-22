@@ -156,8 +156,8 @@
 
 .product__add-to-cart--btn:hover {
     cursor: pointer;
-    background-color: rgb(0, 149, 166);
-    color: white;
+    background-color: var(--main-accent);
+    color: var(--main-white);
     transition: all ease 300ms;
 }
 

@@ -10,5 +10,7 @@
     --text-light: 'Barlow-Light';
     --text-regular: 'Barlow-Regular';
     --text-bold: 'Barlow-SemiBold';
+
+    --transition: all ease 300ms;
 }
 

@@ -3,8 +3,9 @@
     margin-top: auto;
     position: relative;
     bottom: 0;
-    background-color: lightgray;
+    background-color: rgba(182, 204, 213, 0.657);
     display: flex;
+    padding: 1rem;
 
     /* width: 100%; */
 }

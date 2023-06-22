@@ -90,3 +90,9 @@
     }
 
 } */
+
+
+.img__product.cart {
+    box-shadow: 0 0 .25rem black;
+    border-radius: 0;
+}

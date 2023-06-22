@@ -1,3 +1,4 @@
+import './Cart.css';
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
@@ -13,8 +14,9 @@ export default function CartTotal() {
     // }, [])
 
     return (
-        <div className='cart__subtotal'>
-            Subtotal: ${cartSubtotal.toFixed(2)}
+        <div className='subtotal'>
+            <p className='subtotal__amount' >Subtotal: ${cartSubtotal.toFixed(2)}</p>
+            <button className='subtotal__checkout-btn'>Checkout</button>
         </div>
     )
 }
