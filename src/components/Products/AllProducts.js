@@ -1,39 +1,16 @@
 import './AllProducts.css';
 // import Link from './Link';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { shortenDescription } from '../../utility/helpers';
 import classNames from 'classnames';
-import { UNSPLASH_URL } from '../../data/config';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import Image from '../Image';
-import Pagination from './Pagination/Pagination';
 
 function Products({className, results}) {
-    // const data = useLoaderData()
-    // const searchResults = useSelector( (state) => {
-    //     return state.search[0].results
-    // })
-    // console.log(products)
-
-    // const handleClick = () => {
-
-    // }
-
-    useEffect(() => {
-        // console.log(results)
-        
-    }, [])
-    
     const productsClassNames = classNames(className)
     
-    // const renderProducts = <div>these are the products!!!!!</div>
-
     const renderProducts = results && results.flat().map(photo => {
-    //     // console.log('photo urls...', photo.image_urls)
 
         return (
-            // <div >{searchResults[0][0].id}</div>
             <Link to={`/product/${photo.id}`} key={photo.id} className='product__link'>
 
                 <div className="product__item" >

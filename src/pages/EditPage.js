@@ -1,17 +1,20 @@
 import EditProduct from "../components/Products/EditProduct"
-
+import { useSelector } from "react-redux"
+import { useParams } from "react-router-dom"
+import Product from "../components/Products/Product"
 
 // renders the edit product layout page
 
 export default function EditPage() {
+    const cart = useSelector(state => {
+        return state.cart
+    })
+    const {id} = useParams();
+    const product = cart.filter(item => item.id === id);
 
     return (
         <div className="product-page__container">
-            <EditProduct className='' />
-
-            {/* want this to be a carousel... */}
-            {/* <Products products={products} className='products__similar'/> */}
-
+            {product ? <Product type='edit-view' product={product[0]} className='edit-cart' /> : 'Loading product...'}
         </div>
     )
 }

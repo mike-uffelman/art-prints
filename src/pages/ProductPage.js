@@ -22,7 +22,7 @@ export default function ProductPage({products, addToCart}) {
     return (
         <div className="product-page__container">
             {productData ? <Tags tagsData={productTags} /> : 'Loading tags...'}
-            {selectedProduct ? <Product product={selectedProduct[0]} className=''/> : 'Loading Product...'}
+            {selectedProduct ? <Product type='product-view' product={selectedProduct[0]} className=''/> : 'Loading Product...'}
             
             <ProductTabs product={selectedProduct}>
 
@@ -30,9 +30,6 @@ export default function ProductPage({products, addToCart}) {
                 {productData ? <Tags tagsData={productTags} /> : 'Loading tags...'}
 
             </ProductTabs >
-            {/* want this to be a carousel... */}
-            {/* <Products products={products} className='products__similar'/> */}
-
         </div>
     )
 }

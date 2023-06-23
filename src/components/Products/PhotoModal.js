@@ -8,24 +8,18 @@ import Image from '../Image';
 export default function PhotoModal({product, toggleModal, className, setIsModalOpen}) {
     const el = useRef();
     const classes = classNames(className)
-    // console.log(classes)
 
     const close = () => {
         setIsModalOpen(false)
     }
 
     const closeModal = (e) => {
-        console.log(e.target)
-        console.log(el.current)
         if(el.current && !el.current.contains(e.target)) {
-            console.log('clicking the ref')
             close();
         }
     }
 
     useEffect(() => {
-        
-
         window.addEventListener('click', e => closeModal(e), true);
 
         return () => {

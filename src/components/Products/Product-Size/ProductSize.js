@@ -3,7 +3,7 @@ import {useState, useEffect, useRef} from 'react';
 import SizeOptions from './SizeOptions';
 import classNames from 'classnames';
 
-export default function ProductSize({product, updatePrice, size}) {
+export default function ProductSize({product, updateSize, size}) {
     const [activeTab, setActiveTab] = useState(0);
     const [selectedIndex, setSelectedIndex] = useState(0);
     const dropDownEl = useRef()
@@ -33,12 +33,12 @@ export default function ProductSize({product, updatePrice, size}) {
     }
 
     useEffect(() => {
-        // console.log(size)
+        console.log(size)
         if(!size) {
             return;
         }
         const sizeIndex = size && Object.values(sizes).map(sizeOption => sizeOption).findIndex(option => option.width === size.width);
-        // console.log(sizeIndex)
+        console.log(sizeIndex)
 
         setSelectedIndex(sizeIndex)
     }, [selectedIndex])
@@ -46,7 +46,7 @@ export default function ProductSize({product, updatePrice, size}) {
     const handleSelection = (e, index, size) => {
         e.preventDefault();
         setSelectedIndex(index)
-        updatePrice(size)
+        updateSize(size)
     }
 
     const renderSizes = Object.values(sizes).map((size, index) => {

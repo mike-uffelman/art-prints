@@ -14,11 +14,12 @@ export const cartsSlice = createSlice({
             state.splice(index, 1)
         },
         updateCartItem: (state, action) => {
+            console.log('action payload: ', action.payload)
             const {id} = action.payload;
             // console.log(state, action, id)
             
             Object.values(state).find(item => {
-                if(item.id === action.payload.id) {
+                if(item.id === id) {
                     item.quantity = action.payload.quantity
                     item.size = action.payload.size
                 };
