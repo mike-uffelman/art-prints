@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import ProductDetails from '../Product-Details/ProductDetails';
 import Tags from '../../Tags';
 
-export default function ProductTabs() {
+export default function ProductTabs({selectedReviews}) {
     const [ tabIndex, setTabIndex ] = useState(0);
     const results = useSelector((state) => {
         return state.search
@@ -15,7 +15,7 @@ export default function ProductTabs() {
 
     const productTabs = [
         { label: 'Details', element: <ProductDetails />},
-        { label: 'Reviews', element: <Reviews />},
+        { label: 'Reviews', element: <Reviews selectedReviews={selectedReviews}/>},
         { label: 'Similar', element: <Tags tagsData={tagsData}/>}
     ]
 

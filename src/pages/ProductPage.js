@@ -15,21 +15,41 @@ export default function ProductPage({products, addToCart}) {
         return state.search;
     })
 
+    const productReviews = useSelector((state) => {
+        return state.reviews;
+    })
+
+    // console.log(productReviews)
+    // console.log(id)
+
+    const selectedReviews = productReviews.flat(2).filter(review => review.product_id === id);
+
+    // const selectedReviews = productReviews
+    // console.log(selectedReviews)
     const selectedProduct = productData.results.flat().filter(product => product.id === id && product)
 
     const productTags = selectedProduct[0].tags.map(tag => tag.title)
+
+    // console.log(selectedProduct)
+
+    // if(!reviews) {
+    //     return <div>'Reviews not available...'</div>
+    // }
 
     return (
         <div className="product-page__container">
             {productData ? <Tags tagsData={productTags} /> : 'Loading tags...'}
             {selectedProduct ? <Product type='product-view' product={selectedProduct[0]} className=''/> : 'Loading Product...'}
             
-            <ProductTabs product={selectedProduct}>
+            {/* {selectedReviews && productData && selectedProduct  */}
+                {/* ?  */}
+                <ProductTabs product={productData} selectedReviews={selectedReviews}>
 
-                <Reviews />
-                {productData ? <Tags tagsData={productTags} /> : 'Loading tags...'}
+                    {/* {productReviews ? <Reviews selectedReviews={productReviews}/> : 'Reviews not found'} */}
+                    {/* {productData ? <Tags tagsData={productTags} /> : 'Loading tags...'} */}
 
-            </ProductTabs >
+                </ProductTabs >
+                {/* : 'Loading product details...'} */}
         </div>
     )
 }
