@@ -84,11 +84,7 @@
 
 }
 
-.active {
-    font-family: var(--text-bold);
-    padding: 1rem;
-    
-}
+
 
 .review__detail--text {
 }
@@ -96,8 +92,41 @@
 .review__pagination {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 50%;
 }
+
+.pagination__btn {
+    /* margin: 0; */
+    padding: 0;
+    max-width: 3rem;
+}
+
+/* .pagination__btn:hover {
+    background-color: orange;
+} */
+
+.pagination__btn.active {
+    font-family: var(--text-bold);
+    /* padding: 1rem; */
+    background-color: var(--main-accent);
+    color: var(--main-white);
+
+    
+}
+
+.pagination__btn:hover , .review__pagination > .material-symbols-rounded:hover {
+    cursor: pointer;
+    background-color: orange;
+}
+
+.material-symbols-rounded.hideForward, .material-symbols-rounded.hideBack {
+    display: none;
+}
+
+
 
 @media screen and (min-width: 30em) {
     .review__item {

@@ -17,6 +17,7 @@
 .tabs__list {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
 
@@ -26,7 +27,10 @@
 }
 
 .tab__listItem {
+    height: 100%;
     width: 100%;
+
+    padding: 1rem;
     text-align: center;
     opacity: .75;
     font-family: var(--text-labels);
@@ -60,7 +64,7 @@
     border-top-left-radius: 1rem;
 }
 
-.active {
+.tab__listItem.active {
     z-index: 9999;
 
     color: var(--main-white);
