@@ -7,20 +7,26 @@ import RatingStars from '../Products/Product-Reception/RatingStars';
 
 export default function Reviews({selectedReviews}) {
     const [ currentPage, setCurrentPage ] = useState(1);
-    const [ startPage, setStartPage ] = useState(1);
-    const [ endPage, setEndPage ] = useState(null)
-    const [ startIndex, setStartIndex ] = useState(null);
+
+    // state for pagination navigation controls
+    const [ startPageNav, setStartPageNav ] = useState(1);
+    const [ endPageNav, setEndPageNav ] = useState(null);
+
+    // state for review indexes to render
+    const [ startIndex, setStartIndex ] = useState(1);
     const [ endIndex, setEndIndex ] = useState(null);
     const reviewsPerPage = 5;
 
-    useEffect(() => {
-        console.log(currentPage)
+    console.log('all reviews: ', selectedReviews)
+
+    // useEffect(() => {
+        // console.log(currentPage)
 
         // setEndPage(selectedReviews.length/endIndex)
 
         // const count = reviews.flat(2).filter(review => review.product_id === id).length
         // setEndPage(count)
-    }, [currentPage])
+    // }, [currentPage])
 
     // retrieve the product reviews from state
     // const reviews = useSelector((state) => {
@@ -28,9 +34,9 @@ export default function Reviews({selectedReviews}) {
     // })
     const { id } = useParams();
     useEffect(() => {
-        setEndPage(Math.ceil(selectedReviews.length/reviewsPerPage))
-        setStartIndex(1);
-        setEndIndex(5)
+        setEndPageNav(Math.ceil(selectedReviews.length/reviewsPerPage))
+        setEndIndex(reviewsPerPage)
+        // setStartIndex((reviewsPerPage * currentPage) - reviewsPerPage);
     }, [])
 
     // if param id matches the product id render the product reviews
@@ -65,22 +71,67 @@ export default function Reviews({selectedReviews}) {
     // create and build pagination vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
     let pages = []
 
-    for (let i = startPage; i <= endPage; i++ ) {
+    for (let i = startPageNav; i <= endPageNav; i++ ) {
         console.log('create pagination i:', i)
         pages.push(i)
     }
 
     const renderPageButtons = pages.map((page, index) => {
-        const activePage = currentPage === index + 1 ? 'active' : '';
+        const activePage = currentPage === index + 1 ? 'isActive' : '';
 
         return (
             <button className={`pagination__btn ${activePage}`} onClick={() => setCurrentPage(index + 1)}>{page}</button>
         )
     })
     // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    let reviewsToRender = [];
+
+    useEffect(() => {
+        if(reviewsPerPage * currentPage > selectedReviews.length) {
+            setEndIndex(selectedReviews.length - 1)
+        } else {
+            setEndIndex((reviewsPerPage * currentPage) - 1)
+
+        }
+        setStartIndex((reviewsPerPage * currentPage) - reviewsPerPage);
+
+        
+    }, [currentPage])
+
+    for(let i = startIndex; i <= endIndex; i++ ) {
+        
+        console.log('rendering...', i)
+        console.log(startIndex, endIndex)
+        reviewsToRender.push(selectedReviews[i])
+    }
+
+    console.log(reviewsToRender)
+
+
+    const renderingTheseReviews = reviewsToRender.map((review, index) => {
+        console.log(index, review.review_id)
+            // return <div key={review.review_id}>{review.review_id}</div>
+            return (
+                        <section key={review.review_id} className="review__item">
+                            <div className="review__header">
+                                <div className='review__header--rating'>
+                                    <RatingStars rating={review.rating} className='review__header--rating'/>
+                                </div>
+                                <div className='review__header--title'>{review.user}</div>
+                                <div className='review__header--date'>{dateTransformer(review.date)}</div>
+                            </div>
+                            <div className="review__detail">
+                                <p className='review__detail--title'>{review.comment.title}</p>
+                                <p className="review__detail--text">{review.comment.comments}</p>
+                            </div>
+                        </section>
+                    )
+    })
+
     
     const showReviews = selectedReviews.map((rev, index) => {
-        console.log(selectedReviews, index)
+        // console.log(selectedReviews, index)
         
         // if(index + 1 >= )
         // if(index+1 >= startPage && index+1 <= endPage) {
@@ -90,32 +141,33 @@ export default function Reviews({selectedReviews}) {
         // }
         
         return (
-            <div>{rev.review_id}</div>
+            <div>{index + 1}: {rev.review_id}</div>
         )
         
     })
 
     const handleForwardBack = (n) => {
-        console.log(currentPage, endPage, startPage)
+        console.log(currentPage, endPageNav, startPageNav)
         setCurrentPage(currentPage + n)
-        setStartIndex(n * reviewsPerPage);
-        setEndIndex(((n + 1) * reviewsPerPage) - 1)
+
+        setEndIndex((reviewsPerPage * currentPage) - 1)
+        setStartIndex((reviewsPerPage * currentPage) - reviewsPerPage);
     }
 
     if(!selectedReviews || selectedReviews === undefined) {
         return <div>Loading reviews...</div>
     }
 
-    const hideBack = currentPage === startPage ? 'hideBack' : '';
-    const hideForward = currentPage >= endPage ? 'hideForward' : '';
+    const hideBack = currentPage === startPageNav ? 'hideBack' : '';
+    const hideForward = currentPage >= endPageNav ? 'hideForward' : '';
 
 
     return (
         <section className="reviews" id='reviews'>
             <h3 className='reviews__heading'>Reviews</h3>
             {/* {reviews ? renderReviews : 'Loading reviews...'} */}
-            
-            {showReviews}
+            {renderingTheseReviews}
+            {/* {showReviews} */}
             <div className='review__pagination'>
                 {/* {reviewPagination} */}
                     <span className={`material-symbols-rounded ${hideBack}`} onClick={() => handleForwardBack(-1)}>

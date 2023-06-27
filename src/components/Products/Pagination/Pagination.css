@@ -10,13 +10,13 @@
     font-family: 'Barlow-SemiBold';
     width: 12rem;
     align-self: center;
-    color: rgb(91, 140, 205);
+    color: var(--main-accent);
     transition: all ease 300ms;
 }
 
 .pagination__btn:hover {
     cursor: pointer;
-    background-color: rgb(91, 140, 205);
+    background-color: var(--main-accent);
     color: white;
     /* box-shadow: 0 0 1rem black; */
     transition: all ease 300ms;
