@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import ProductDetails from '../Product-Details/ProductDetails';
 import Tags from '../../Tags';
+import ReviewsPagination from '../../Reviews/ReviewsPagination';
 
 export default function ProductTabs({selectedReviews}) {
     const [ tabIndex, setTabIndex ] = useState(0);
@@ -15,7 +16,8 @@ export default function ProductTabs({selectedReviews}) {
 
     const productTabs = [
         { label: 'Details', element: <ProductDetails />},
-        { label: 'Reviews', element: <Reviews selectedReviews={selectedReviews}/>},
+        { label: 'Reviews', element: <ReviewsPagination selectedReviews={selectedReviews} />},
+        // { label: 'Reviews', element: <Reviews selectedReviews={selectedReviews}/>},
         { label: 'Similar', element: <Tags tagsData={tagsData}/>}
     ]
 

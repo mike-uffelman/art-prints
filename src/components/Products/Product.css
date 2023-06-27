@@ -23,6 +23,7 @@
     justify-self: flex-start;
 }
 
+
 .products-page__product {
     display: grid;
     grid-template-columns: 1fr;

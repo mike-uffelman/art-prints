@@ -123,7 +123,11 @@
 
 .review__pagination .material-symbols-rounded {
     color: var(--main-accent);
+    display: flex;
+    justify-self: center;
+    align-self: center;
     padding: .5rem;
+    border-radius: .5rem;
 }
 
 .review__pagination .material-symbols-rounded:hover {
@@ -134,7 +138,7 @@
 }
 
 .review__pagination .material-symbols-rounded:active {
-    color: magenta;
+    /* color: magenta; */
 }
 
 .material-symbols-rounded.hideForward, .material-symbols-rounded.hideBack {
