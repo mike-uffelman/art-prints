@@ -1,12 +1,12 @@
 import './Tags.css';
 import { useEffect } from "react";
 import { Link } from "react-router-dom"
-import { buildReviews } from '../data/productGenerator';
+import { buildReviews } from '../../data/productGenerator';
 import { useDispatch } from 'react-redux';
-import { addResults, reset } from '../store/slices/searchSlice';
-import { addReviews } from '../store/slices/reviewsSlice';
-import { search } from '../data/dataHelper';
-import { addHistory } from '../store/slices/historySlice';
+import { addResults, reset } from '../../store/slices/searchSlice';
+import { addReviews } from '../../store/slices/reviewsSlice';
+import { search } from '../../data/dataHelper';
+import { addHistory } from '../../store/slices/historySlice';
 
 export default function Tags({tagsData}) {
     // define the dispatch hook for store actions

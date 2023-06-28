@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import CartTotal from './CartTotal';
 import { shortenDescription } from '../../utility/helpers';
 import { removeFromCart } from '../../store/slices/cartsSlice';
-import Image from '../Image';
+import Image from '../Image/Image';
 
 function Cart() {
     const dispatch = useDispatch();

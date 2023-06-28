@@ -33,12 +33,10 @@ export default function ProductSize({product, updateSize, size}) {
     }
 
     useEffect(() => {
-        console.log(size)
         if(!size) {
             return;
         }
         const sizeIndex = size && Object.values(sizes).map(sizeOption => sizeOption).findIndex(option => option.width === size.width);
-        console.log(sizeIndex)
 
         setSelectedIndex(sizeIndex)
     }, [selectedIndex])

@@ -14,7 +14,7 @@ export const cartsSlice = createSlice({
             state.splice(index, 1)
         },
         updateCartItem: (state, action) => {
-            console.log('action payload: ', action.payload)
+            // console.log('action payload: ', action.payload)
             const {id} = action.payload;
             // console.log(state, action, id)
             

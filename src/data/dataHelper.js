@@ -13,7 +13,7 @@ export const search = async(term, prevTags = {}, page = 1) => {
         }
     })
 
-    console.log('response: ', res);
+    // console.log('response: ', res);
     const data = await buildProducts(res.data.results);
 
     const tags = await getTags(res.data.results);

@@ -3,7 +3,7 @@ import './Product.css';
 
 // react and library imports
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart, updateCartItem } from '../../store/slices/cartsSlice';
@@ -18,7 +18,7 @@ import { shortenDescription } from "../../utility/helpers";
 import ProductReception from './Product-Reception/ProductReception';
 import ProductSize from './Product-Size/ProductSize';
 import PhotoModal from './PhotoModal';
-import Image from '../Image';
+import Image from '../Image/Image';
 import ProductQuantity from './Product-Quantity/ProductQuantity'
 
 function Product({type, product, className}) {
@@ -64,7 +64,7 @@ function Product({type, product, className}) {
 
     // add to cart callback, create cart item dispatch to reducer
     const submitForm = (e, product) => {
-        console.log(size)
+        // console.log(size)
         e.preventDefault();
         const cartItem = {
             quantity: Number(quantity),

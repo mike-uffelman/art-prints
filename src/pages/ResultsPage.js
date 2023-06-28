@@ -1,5 +1,5 @@
 import Products from "../components/Products/AllProducts";
-import Tags from "../components/Tags";
+import Tags from "../components/Tags/Tags";
 import React from "react";
 import { useSelector } from "react-redux";
 import Pagination from "../components/Products/Pagination/Pagination";

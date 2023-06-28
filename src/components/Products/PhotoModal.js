@@ -2,7 +2,7 @@ import './PhotoModal.css';
 
 import { useEffect, useRef } from 'react';
 import classNames from 'classnames';
-import Image from '../Image';
+import Image from '../Image/Image';
 
 
 export default function PhotoModal({product, toggleModal, className, setIsModalOpen}) {
@@ -28,7 +28,7 @@ export default function PhotoModal({product, toggleModal, className, setIsModalO
     }, [])
     
     return (
-        <section onClick={e => console.log(e.target)}  className="modal" >
+        <section className="modal" >
                 <button className='modal__close' onClick={() => setIsModalOpen(false)} >
                     <span className="material-symbols-outlined">
                         close

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Outlet, Link, useLocation } from "react-router-dom";
-import Search from "../components/Search";
-import Footer from "../components/Footer";
-import Logo from "../components/Logo";
+import Search from "../components/Search/Search";
+import Footer from "../components/HomeNav/Footer";
+import Logo from "../components/HomeNav/Logo";
 import { useSelector } from 'react-redux';
 import History from "../components/History/History";
 import { createPortal } from "react-dom";

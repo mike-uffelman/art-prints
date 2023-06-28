@@ -3,7 +3,7 @@ import './AllProducts.css';
 import { Link } from 'react-router-dom';
 import { shortenDescription } from '../../utility/helpers';
 import classNames from 'classnames';
-import Image from '../Image';
+import Image from '../Image/Image';
 
 function Products({className, results}) {
     const productsClassNames = classNames(className)

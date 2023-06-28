@@ -1,6 +1,6 @@
-import Search from "../components/Search"
-import Cart from "../components/Cart/Cart"
-import { Outlet } from "react-router-dom"
+// import Search from "../components/Search/Search"
+// import Cart from "../components/Cart/Cart"
+// import { Outlet } from "react-router-dom"
 
 export default function Home() {
 

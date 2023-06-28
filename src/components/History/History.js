@@ -43,7 +43,7 @@ export default function History({history, isModalOpen, setIsModalOpen}) {
 
     const closeModal = (e) => {
         if(el.current && !el.current.contains(e.target)) {
-            console.log('clicking the ref')
+            // console.log('clicking the ref')
             close();
         }
     }

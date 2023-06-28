@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import Product from "../components/Products/Product"
 import Reviews from "../components/Reviews/Reviews"
-import Tags from "../components/Tags"
+import Tags from "../components/Tags/Tags"
 import { useParams } from "react-router-dom"
 import ProductTabs from "../components/Products/Product-Tabs/ProductTabs"
 

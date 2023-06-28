@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { Form, redirect } from 'react-router-dom';
+import { Form } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { addResults, reset } from '../store/slices/searchSlice';
-import { addReviews } from '../store/slices/reviewsSlice';
-import { addHistory } from '../store/slices/historySlice';
+import { addResults, reset } from '../../store/slices/searchSlice';
+import { addReviews } from '../../store/slices/reviewsSlice';
+import { addHistory } from '../../store/slices/historySlice';
 
-import { buildReviews } from '../data/productGenerator';
-import { search } from '../data/dataHelper';
+import { buildReviews } from '../../data/productGenerator';
+import { search } from '../../data/dataHelper';
 
 
 // Search bar component

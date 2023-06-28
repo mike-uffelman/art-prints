@@ -1,7 +1,6 @@
-import testData from './testData.json';
+// import testData from './testData.json';
 import { faker } from '@faker-js/faker';
 import {v4 as uuidv4 } from 'uuid';
-import { useSelector } from 'react-redux';
 
 
 // builds each product based on the data response from api request

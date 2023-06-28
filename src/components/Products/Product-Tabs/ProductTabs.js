@@ -3,7 +3,7 @@ import './ProductTabs.css';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import ProductDetails from '../Product-Details/ProductDetails';
-import Tags from '../../Tags';
+import Tags from '../../Tags/Tags';
 import ReviewsPagination from '../../Reviews/ReviewsPagination';
 
 export default function ProductTabs({selectedReviews}) {
@@ -22,7 +22,7 @@ export default function ProductTabs({selectedReviews}) {
     ]
 
     const handleTabClick = (e, index) => {
-        console.log(e, index)
+        // console.log(e, index)
         setTabIndex(index)
     }
 
