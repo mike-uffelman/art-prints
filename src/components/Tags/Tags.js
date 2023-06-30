@@ -9,8 +9,10 @@ import { search } from '../../data/dataHelper';
 import { addHistory } from '../../store/slices/historySlice';
 import UpdatedComponent from '../withSearch';
 
-function Tags({tagsData, handleSubmit}) {
+function Tags({tagsData, handleSubmit, setTerm}) {
+    const type = 'tags'
     console.log(tagsData)
+
     // define the dispatch hook for store actions
     // const dispatch = useDispatch();
 
@@ -29,7 +31,9 @@ function Tags({tagsData, handleSubmit}) {
     const renderTags = tagsData && tagsData.map((tag, index) => {
         // console.log(tag)
         return ( 
-            <Link to={`/results/${tag}`} onClick={() => handleSubmit(tag)} key={`${tag}-${index}`} className="tags__link" >{tag}</Link>
+            <Link to={`/results/${tag}`} onClick={() => {
+                handleSubmit(type, tag)
+            } } key={`${tag}-${index}`} className="tags__link" >{tag}</Link>
         )
     })
     

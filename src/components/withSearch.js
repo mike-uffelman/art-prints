@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { reset } from '../store/slices/searchSlice';
 import { search } from '../data/dataHelper';
@@ -9,7 +9,7 @@ import { buildReviews } from '../data/productGenerator';
 
 const UpdatedComponent = (OriginalComponent) => {
 
-    const NewComponent = ({tagsData}) => {
+    const NewComponent = ({...props}) => {
         const [term, setTerm] = useState('');
         const [page, setPage] = useState(2)
         const dispatch = useDispatch();
@@ -21,7 +21,12 @@ const UpdatedComponent = (OriginalComponent) => {
             setTerm(e.target.value);
         }
 
-        const handleSubmit = async (type) => {
+        useEffect(() => {
+            console.log(term)
+            // setTerm(store.search.term || '')
+        }, [term])
+
+        const handleSubmit = async (type, tagTerm) => {
             console.log(
                 'term: ', term, 
                 'type: ', type, 
@@ -35,8 +40,9 @@ const UpdatedComponent = (OriginalComponent) => {
                 setPage(page + 1)
             }
             
+
             const results = await search(
-                type === 'load more' ? store.search.term : term, 
+                type === 'load more' ? store.search.term : term !== '' ? term : tagTerm, 
                 type === 'load more' ? store.search.tags : undefined,
                 type === 'load more' ? page : undefined
             );
@@ -52,20 +58,29 @@ const UpdatedComponent = (OriginalComponent) => {
                 !store.history.includes(term) && await dispatch(addHistory(term))
             }
             
-            
             if(type === 'search') {
                 setTerm('')
             }
+
+            if(type === 'history') {
+                props.setIsModalOpen(false)
+            }
+            
         }
 
         return (
             <OriginalComponent 
-                term={term} 
-                setTerm={setTerm} 
+                // term={term} 
+                // setTerm={setTerm} 
                 handleSubmit={handleSubmit} 
                 handleChange={handleChange}
 
-                tagsData={tagsData} 
+                // close={close}
+                // closeModal={closeModal}
+                // setIsModalOpen={setIsModalOpen}
+                // tagsData={tagsData} 
+                {...props}
+                // history={history}
 
                 />
         )

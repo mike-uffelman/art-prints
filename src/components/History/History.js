@@ -7,35 +7,37 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addResults, reset } from '../../store/slices/searchSlice';
 import { addReviews } from '../../store/slices/reviewsSlice';
 import { buildReviews } from '../../data/productGenerator';
+import UpdatedComponent from '../withSearch';
 
-export default function History({history, isModalOpen, setIsModalOpen}) {
-    const [ isOpen, setIsOpen ] = useState(false)
+function History({handleSubmit, isModalOpen, setIsModalOpen, history}) {
+    const type = 'history';
+    // const [ isOpen, setIsOpen ] = useState(false)
     const el = useRef();
     const dispatch = useDispatch();
-    const store = useSelector((state) => {
-        return state;
-    })
+    // const store = useSelector((state) => {
+    //     return state;
+    // })
 
     //? handleClick is duplicated in other files, need to refactor and abstract to separate module
-    const handleClick = async (term) => {
-        dispatch(reset())
-        const results = await search(
-            term, 
-            store.search.term === term ? store.search.tags : undefined
-        );
+    // const handleClick = async (term) => {
+    //     dispatch(reset())
+    //     const results = await search(
+    //         term, 
+    //         store.search.term === term ? store.search.tags : undefined
+    //     );
 
-        await dispatch(addResults(results));
+    //     await dispatch(addResults(results));
 
-        const reviews = await buildReviews(results);
-        await dispatch(addReviews(reviews));
+    //     const reviews = await buildReviews(results);
+    //     await dispatch(addReviews(reviews));
 
 
-        !store.history.includes(term) && await dispatch(addHistory(term));
-        // setTerm('')
+    //     !store.history.includes(term) && await dispatch(addHistory(term));
+    //     // setTerm('')
 
-        close();
+    //     close();
 
-    }
+    // }
 
     const close = () => {
         setIsModalOpen(false)
@@ -65,12 +67,12 @@ export default function History({history, isModalOpen, setIsModalOpen}) {
 
     const renderHistory = history.map((term, index) => {
         return (
-            <Link to={`results/${term}`} onClick={() => handleClick(term)} key={`history-${index}`} className='history__link'>{term}</Link>
+            <Link to={`results/${term}`} onClick={() => handleSubmit(type, term)} key={`history-${index}`} className='history__link'>{term}</Link>
         )
     })
 
-    const isToggled = isOpen ? 'isOpen' : '';
-    const arrow = isOpen ? 'up' : 'down';
+    // const isToggled = isOpen ? 'isOpen' : '';
+    // const arrow = isOpen ? 'up' : 'down';
 
 
     return (
@@ -108,3 +110,5 @@ export default function History({history, isModalOpen, setIsModalOpen}) {
         </div>
     )
 }
+
+export default UpdatedComponent(History);
