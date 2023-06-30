@@ -21,11 +21,6 @@ const UpdatedComponent = (OriginalComponent) => {
             setTerm(e.target.value);
         }
 
-        useEffect(() => {
-            console.log(term)
-            // setTerm(store.search.term || '')
-        }, [term])
-
         const handleSubmit = async (type, tagTerm) => {
             console.log(
                 'term: ', term, 
@@ -46,6 +41,7 @@ const UpdatedComponent = (OriginalComponent) => {
                 type === 'load more' ? store.search.tags : undefined,
                 type === 'load more' ? page : undefined
             );
+            
     
             await dispatch(addResults(results));
     
@@ -54,10 +50,11 @@ const UpdatedComponent = (OriginalComponent) => {
             
     
             
-            if(term !== '') {
-                !store.history.includes(term) && await dispatch(addHistory(term))
+            if(type === 'tags' || term !== '') {
+                !store.history.includes(term || tagTerm) && await dispatch(addHistory(term || tagTerm))
             }
             
+            // console.log('resetting term...')
             if(type === 'search') {
                 setTerm('')
             }
@@ -74,7 +71,7 @@ const UpdatedComponent = (OriginalComponent) => {
                 // setTerm={setTerm} 
                 handleSubmit={handleSubmit} 
                 handleChange={handleChange}
-
+                term={term}
                 // close={close}
                 // closeModal={closeModal}
                 // setIsModalOpen={setIsModalOpen}

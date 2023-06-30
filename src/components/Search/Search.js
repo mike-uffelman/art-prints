@@ -40,7 +40,12 @@ function Search({handleSubmit, term, setTerm, handleChange}) {
 
     //     const reviews = await buildReviews(results);
     //     await dispatch(addReviews(reviews));
-        
+    
+    // const submittingForm = async (e) => {
+    //     e.preventDefault();
+    //     await handleSubmit(type)
+    //     clear()
+    // }
 
         
     //     !store.history.includes(term) && await dispatch(addHistory(term))
@@ -49,7 +54,13 @@ function Search({handleSubmit, term, setTerm, handleChange}) {
 
     return (
         <section className='search'>
-            <Form className='search__form' onSubmit={() => handleSubmit(type)} action={`/results/${term}`}>
+            <Form  
+                className='search__form' 
+                onSubmit={() => {
+                    handleSubmit(type)
+                }} 
+                action={`/results/${term}`}
+            >
                 <input className='search__input' onChange={handleChange} type='text' value={term}></input>
                 <button className='search__btn'>Search</button>
             </Form>

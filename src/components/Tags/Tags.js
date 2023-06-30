@@ -11,7 +11,6 @@ import UpdatedComponent from '../withSearch';
 
 function Tags({tagsData, handleSubmit, setTerm}) {
     const type = 'tags'
-    console.log(tagsData)
 
     // define the dispatch hook for store actions
     // const dispatch = useDispatch();
@@ -37,8 +36,6 @@ function Tags({tagsData, handleSubmit, setTerm}) {
         )
     })
     
-    console.log(tagsData)
-
     // if tags undefined or null, render loading
     if(!tagsData || tagsData === undefined) {
         return <div>Loading tags...</div>
