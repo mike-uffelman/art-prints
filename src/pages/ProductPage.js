@@ -30,6 +30,7 @@ export default function ProductPage({products, addToCart}) {
 
     const productTags = selectedProduct[0].tags.map(tag => tag.title)
 
+    console.log(productData)
     // console.log(selectedProduct)
 
     // if(!reviews) {
@@ -38,7 +39,7 @@ export default function ProductPage({products, addToCart}) {
 
     return (
         <div className="product-page__container">
-            {productData ? <Tags tagsData={productTags} /> : 'Loading tags...'}
+            {productTags ? <Tags tagsData={productTags} /> : 'Loading tags...'}
             {selectedProduct ? <Product type='product-view' product={selectedProduct[0]} className=''/> : 'Loading Product...'}
             
             {/* {selectedReviews && productData && selectedProduct  */}
