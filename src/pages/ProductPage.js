@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux"
 import Product from "../components/Products/Product"
-import Reviews from "../components/Reviews/Reviews"
 import Tags from "../components/Tags/Tags"
 import { useParams } from "react-router-dom"
 import ProductTabs from "../components/Products/Product-Tabs/ProductTabs"
@@ -19,23 +18,11 @@ export default function ProductPage({products, addToCart}) {
         return state.reviews;
     })
 
-    // console.log(productReviews)
-    // console.log(id)
-
     const selectedReviews = productReviews.flat(2).filter(review => review.product_id === id);
 
-    // const selectedReviews = productReviews
-    // console.log(selectedReviews)
     const selectedProduct = productData.results.flat().filter(product => product.id === id && product)
 
     const productTags = selectedProduct[0].tags.map(tag => tag.title)
-
-    console.log(productData)
-    // console.log(selectedProduct)
-
-    // if(!reviews) {
-    //     return <div>'Reviews not available...'</div>
-    // }
 
     return (
         <div className="product-page__container">

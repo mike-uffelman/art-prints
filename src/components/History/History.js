@@ -1,43 +1,14 @@
 import './History.css';
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { addHistory, resetHistory } from '../../store/slices/historySlice';
-import { search } from '../../data/dataHelper';
-import { useDispatch, useSelector } from 'react-redux';
-import { addResults, reset } from '../../store/slices/searchSlice';
-import { addReviews } from '../../store/slices/reviewsSlice';
-import { buildReviews } from '../../data/productGenerator';
+import { resetHistory } from '../../store/slices/historySlice';
+import { useDispatch } from 'react-redux';
 import UpdatedComponent from '../withSearch';
 
 function History({handleSubmit, isModalOpen, setIsModalOpen, history}) {
     const type = 'history';
-    // const [ isOpen, setIsOpen ] = useState(false)
     const el = useRef();
     const dispatch = useDispatch();
-    // const store = useSelector((state) => {
-    //     return state;
-    // })
-
-    //? handleClick is duplicated in other files, need to refactor and abstract to separate module
-    // const handleClick = async (term) => {
-    //     dispatch(reset())
-    //     const results = await search(
-    //         term, 
-    //         store.search.term === term ? store.search.tags : undefined
-    //     );
-
-    //     await dispatch(addResults(results));
-
-    //     const reviews = await buildReviews(results);
-    //     await dispatch(addReviews(reviews));
-
-
-    //     !store.history.includes(term) && await dispatch(addHistory(term));
-    //     // setTerm('')
-
-    //     close();
-
-    // }
 
     const close = () => {
         setIsModalOpen(false)
@@ -45,14 +16,11 @@ function History({handleSubmit, isModalOpen, setIsModalOpen, history}) {
 
     const closeModal = (e) => {
         if(el.current && !el.current.contains(e.target)) {
-            // console.log('clicking the ref')
             close();
         }
     }
 
     useEffect(() => {
-        
-
         window.addEventListener('click', e => closeModal(e), true);
 
         return () => {
@@ -70,10 +38,6 @@ function History({handleSubmit, isModalOpen, setIsModalOpen, history}) {
             <Link to={`results/${term}`} onClick={() => handleSubmit(type, term)} key={`history-${index}`} className='history__link'>{term}</Link>
         )
     })
-
-    // const isToggled = isOpen ? 'isOpen' : '';
-    // const arrow = isOpen ? 'up' : 'down';
-
 
     return (
         // <div className={`history ${isToggled}`}>

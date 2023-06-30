@@ -1,6 +1,5 @@
 import unsplash from "./unsplash";
 import { buildProducts, getTags } from "./productGenerator";
-import { all } from "axios";
 
 // search request - fetches data from api, builds a result object for components and state
 export const search = async(term, prevTags = {}, page = 1) => {
@@ -13,13 +12,10 @@ export const search = async(term, prevTags = {}, page = 1) => {
         }
     })
 
-    // console.log('response: ', res);
     const data = await buildProducts(res.data.results);
 
     const tags = await getTags(res.data.results);
     
-    // console.log(prevTags, tags)
-
     const allTags = prevTags && { ...prevTags, ...tags}
 
     allTags && Object.keys(allTags).forEach(key => {
@@ -27,8 +23,6 @@ export const search = async(term, prevTags = {}, page = 1) => {
             allTags[key] = prevTags[key] + tags[key]
         }
     })
-
-    // console.log(allTags)
 
     const resultsObj = {
         pages: res.headers.link,

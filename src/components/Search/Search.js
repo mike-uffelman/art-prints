@@ -1,13 +1,4 @@
-import { useState } from 'react';
 import { Form } from 'react-router-dom';
-
-import { useSelector, useDispatch } from 'react-redux';
-import { addResults, reset } from '../../store/slices/searchSlice';
-import { addReviews } from '../../store/slices/reviewsSlice';
-import { addHistory } from '../../store/slices/historySlice';
-
-import { buildReviews } from '../../data/productGenerator';
-import { search } from '../../data/dataHelper';
 import UpdatedComponent from '../withSearch';
 
 
@@ -16,42 +7,7 @@ import UpdatedComponent from '../withSearch';
 
 function Search({handleSubmit, term, setTerm, handleChange}) {
     const type = 'search'
-    // const [term, setTerm] = useState('');
-    // const store = useSelector((state) => {
-    //     return state;
-    // })
-    // const dispatch = useDispatch();
-
         
-    // const handleChange = (e) => {
-    //     setTerm(e.target.value);
-    // }
-
-    // const handleSubmit = async (e) => {
-        
-    //     await dispatch(reset());
-        
-    //     const results = await search(
-    //         term, 
-    //         store.search.term === term ? store.search.tags : undefined
-    //     );
-
-    //     await dispatch(addResults(results));
-
-    //     const reviews = await buildReviews(results);
-    //     await dispatch(addReviews(reviews));
-    
-    // const submittingForm = async (e) => {
-    //     e.preventDefault();
-    //     await handleSubmit(type)
-    //     clear()
-    // }
-
-        
-    //     !store.history.includes(term) && await dispatch(addHistory(term))
-    //     setTerm('')
-    // }
-
     return (
         <section className='search'>
             <Form  

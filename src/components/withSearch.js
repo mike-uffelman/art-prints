@@ -22,11 +22,6 @@ const UpdatedComponent = (OriginalComponent) => {
         }
 
         const handleSubmit = async (type, tagTerm) => {
-            console.log(
-                'term: ', term, 
-                'type: ', type, 
-                'page: ', page)
-
             if(type !== 'load more') {
                 await dispatch(reset());
             }
@@ -54,7 +49,6 @@ const UpdatedComponent = (OriginalComponent) => {
                 !store.history.includes(term || tagTerm) && await dispatch(addHistory(term || tagTerm))
             }
             
-            // console.log('resetting term...')
             if(type === 'search') {
                 setTerm('')
             }
@@ -67,18 +61,10 @@ const UpdatedComponent = (OriginalComponent) => {
 
         return (
             <OriginalComponent 
-                // term={term} 
-                // setTerm={setTerm} 
                 handleSubmit={handleSubmit} 
                 handleChange={handleChange}
                 term={term}
-                // close={close}
-                // closeModal={closeModal}
-                // setIsModalOpen={setIsModalOpen}
-                // tagsData={tagsData} 
                 {...props}
-                // history={history}
-
                 />
         )
     }
