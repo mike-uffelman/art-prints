@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Outlet, Link, useLocation } from "react-router-dom";
 import Search from "../components/Search/Search";
 import Footer from "../components/HomeNav/Footer";
@@ -6,9 +6,11 @@ import Logo from "../components/HomeNav/Logo";
 import { useSelector } from 'react-redux';
 import History from "../components/History/History";
 import { createPortal } from "react-dom";
+import Toasts from '../components/Toasts/Toasts';
 
 export default function RootLayout() {
     const [ isModalOpen, setIsModalOpen ] = useState(false);
+    const [ isPageLoaded, setIsPageLoaded ] = useState(false);
     const location = useLocation();
     const cart = useSelector((state) => {
         return state.cart
@@ -16,6 +18,10 @@ export default function RootLayout() {
     const results = useSelector((state) => {
         return state
     })
+
+    useEffect(() => {
+        setIsPageLoaded(true)
+    }, [])
 
     return (
         <article className="app">
@@ -57,7 +63,10 @@ export default function RootLayout() {
 
                 </aside>
             </header>
+            {isPageLoaded && createPortal(
+                <Toasts className={'success'} message={'Loaded Successfuly!'}/>, document.body
 
+            )}
             <section className="content">
                 <Outlet />
             </section>
