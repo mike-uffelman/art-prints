@@ -9,6 +9,7 @@ import { createPortal } from "react-dom";
 import Toasts from '../components/Toasts/Toasts';
 
 export default function RootLayout() {
+    const [ toastsArray, setToastsArray ] = useState([{id: 1, label: 'success', icon: 'check_circle'}, {id: 2, label: 'error', icon: 'error'}])
     const [ isModalOpen, setIsModalOpen ] = useState(false);
     const [ isPageLoaded, setIsPageLoaded ] = useState(false);
     const location = useLocation();
@@ -19,8 +20,17 @@ export default function RootLayout() {
         return state
     })
 
+    // [{id: 1, label: 'success', icon: 'check_circle'},
+    // {id: 2, label: 'error', icon: 'error'},
+    // {id: 3, label: 'warning', icon: 'warning'},
+    // {id: 4, label: 'danger', icon: 'dangerous'},
+    // {id: 5, label: 'info', icon: 'info'},
+    // {id: 6, label: 'help', icon: 'help'}]
+
     useEffect(() => {
         setIsPageLoaded(true)
+
+        
     }, [])
 
     return (
@@ -62,11 +72,12 @@ export default function RootLayout() {
                     {location.pathname !== '/' && !location.pathname.includes('/results/') && <Link className="breadcrumbs__link" to={`/results/${results.search.term}`}>Back to results</Link>}
 
                 </aside>
-            </header>
-            {isPageLoaded && createPortal(
-                <Toasts className={'success'} message={'Loaded Successfuly!'}/>, document.body
+                {createPortal(
+                <Toasts toasts={toastsArray} setToastsArray={setToastsArray} message={'Loaded Successfuly!'}/>, document.body
 
             )}
+            </header>
+
             <section className="content">
                 <Outlet />
             </section>

@@ -7,38 +7,11 @@ import React, { useState, useRef, useEffect } from 'react';
 
 
 
-function Toasts({className, message}) {
+function Toasts({toasts, className, message}) {
     const [ isModalOpen, setIsModalOpen ] = useState(false);
     const toastEl = useRef();
     const classes = classNames(className)
 
-    const icons = [
-        {label: 'success', icon: 'check_box'},
-        {label: 'error', icon: 'close'},
-        {label: 'warning', icon: 'warning'},
-        {label: 'danger', icon: 'dangerous'}
-    ]
-
-    const iconSwitch = () => {
-        const icons = classes.split('.')
-        console.log(icons)
-        switch(icons.includes(classes) ? classes : undefined) {
-            case 'success':
-                return 'check_circle';
-            case 'error':
-                return 'error';
-            case 'warning':
-                return 'warning';
-            case 'danger':
-                return 'dangerous';
-            case 'info':
-                return 'info';
-                case 'help':
-                    return 'help';
-            default:
-                return 'light_mode';
-        }
-    }
 
     const close = () => {
         setIsModalOpen(false)
@@ -50,24 +23,33 @@ function Toasts({className, message}) {
         }
     }
 
-    useEffect(() => {
-        setTimeout(() => {
-            console.log('closing modal now...')
-        }, 2000)
-        window.addEventListener('click', e => closeModal(e), true);
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         console.log('closing modal now...')
+    //     }, 2000)
+    //     window.addEventListener('click', e => closeModal(e), true);
 
-        return () => {
-            window.removeEventListener('click', e => closeModal(e));
+    //     return () => {
+    //         window.removeEventListener('click', e => closeModal(e));
+    //     }
+    // }, [])
+
+    const hideToast = (e, id) => {
+        if(toastEl.current && toastEl.current.contains(e.target)) {
+            console.log('clicking the toast')
         }
-    }, [])
+        // console.log(toastEl.current, id)
+        // toastEl.current.classList.add('hide')
+    }
     
-
-    return (
-        <div ref={toastEl} className={`toast__container ${classes}`}>
+    const renderToasts = toasts.map(toast => {
+        console.log(toast)
+        return (
+            <output key={toast.id}  ref={toastEl} onClick={(e) => hideToast(e, toast.id)} className={`toast__item ${toast.label}`}>
             
-            <span class="material-symbols-outlined icon--close">close</span>
+            <span className="material-symbols-outlined icon--close">close</span>
             <div className='toast__icon-container'>
-                <span class="material-symbols-outlined icon--success">{iconSwitch()} </span>
+                <span className="material-symbols-outlined icon--success">{toast.icon} </span>
             </div>
 
             <div className='toast__details-container'>
@@ -76,7 +58,19 @@ function Toasts({className, message}) {
             </div>
             
 
-        </div>
+        </output>
+        )
+    })
+
+    // create an array of objects, map over to display toasts inside a container to prevent overlap
+
+    return (
+        <section className='toasts__container'>
+            toasts here........
+            {/* {console.log(toasts)} */}
+            {toasts && renderToasts}
+        </section>
+
     )
 }
 
