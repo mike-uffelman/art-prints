@@ -7,9 +7,9 @@ import React, { useState, useRef, useEffect } from 'react';
 
 
 
-function Toasts({toasts, className, message}) {
+function Toasts({toasts, setToastsArray, className, message}) {
     const [ isModalOpen, setIsModalOpen ] = useState(false);
-    const toastEl = useRef();
+    const toastEl = useRef([]);
     const classes = classNames(className)
 
 
@@ -23,7 +23,11 @@ function Toasts({toasts, className, message}) {
         }
     }
 
-    // useEffect(() => {
+    useEffect(() => {
+        toastEl.current = toastEl.current.slice(0, toasts.length);
+        toastEl.current.forEach((ref, index) => {
+            ref.current = toasts[index];
+        })
     //     setTimeout(() => {
     //         console.log('closing modal now...')
     //     }, 2000)
@@ -32,20 +36,29 @@ function Toasts({toasts, className, message}) {
     //     return () => {
     //         window.removeEventListener('click', e => closeModal(e));
     //     }
-    // }, [])
+        console.log(toastEl.current)
+    }, [toasts])
 
-    const hideToast = (e, id) => {
-        if(toastEl.current && toastEl.current.contains(e.target)) {
-            console.log('clicking the toast')
-        }
-        // console.log(toastEl.current, id)
-        // toastEl.current.classList.add('hide')
+    const handleClick = (e, index) => {
+        // toastEl.current[index].classList.toggle('hide')
+
+        console.log(toasts[index], toastEl.current[index])
+        // const findToast = toasts.findIndex(e => e.id === )
+        
+
+
+        // setTimeout(() => {
+            // toastEl.current[index].remove()
+            // setToastsArray(...toasts,)
+
+        // }, 2000)
+
     }
     
-    const renderToasts = toasts.map(toast => {
+    const renderToasts = toasts.map((toast, index) => {
         console.log(toast)
         return (
-            <output key={toast.id}  ref={toastEl} onClick={(e) => hideToast(e, toast.id)} className={`toast__item ${toast.label}`}>
+            <output key={toast.id} ref={(el) => (toastEl.current[index] = el)}  onClick={(e) => handleClick(e, index)} className={`toast__item position ${toast.label}`}>
             
             <span className="material-symbols-outlined icon--close">close</span>
             <div className='toast__icon-container'>

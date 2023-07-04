@@ -59,6 +59,11 @@
     
 }
 
+.position {
+    transition: transform .6s ease-in-out;
+    animation: toast-in-left .7s;
+}
+
 .icon--close {
     position: absolute;
     top: 0.5rem;
@@ -137,4 +142,24 @@
         transform: translateX(100%);
         display: none;
     }
+}
+
+@keyframes toast-in-right {
+	from {
+	  transform: translateX(100%);
+	  
+	}
+	to {
+	  transform: translateX(0);
+	}
+}
+
+@keyframes toast-in-left {
+	from {
+		transform: translateX(-100%);
+		
+	}
+	to {
+		transform: translateX(0);
+	}
 }

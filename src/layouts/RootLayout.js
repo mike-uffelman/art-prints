@@ -9,7 +9,10 @@ import { createPortal } from "react-dom";
 import Toasts from '../components/Toasts/Toasts';
 
 export default function RootLayout() {
-    const [ toastsArray, setToastsArray ] = useState([{id: 1, label: 'success', icon: 'check_circle'}, {id: 2, label: 'error', icon: 'error'}])
+    const [ toastsArray, setToastsArray ] = useState([{id: 1, label: 'success', icon: 'check_circle'}, {id: 2, label: 'error', icon: 'error'}, {id: 3, label: 'warning', icon: 'warning'},
+    {id: 4, label: 'danger', icon: 'dangerous'},
+    {id: 5, label: 'info', icon: 'info'},
+    {id: 6, label: 'help', icon: 'help'}])
     const [ isModalOpen, setIsModalOpen ] = useState(false);
     const [ isPageLoaded, setIsPageLoaded ] = useState(false);
     const location = useLocation();
