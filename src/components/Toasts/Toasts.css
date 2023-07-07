@@ -1,5 +1,5 @@
 .toasts__container {
-    position: relative;
+    position: absolute;
     top: 5rem;
     right: 0;
     
@@ -15,7 +15,7 @@
     flex-direction: row;
     align-items: center;
 
-    margin: 1rem auto;
+    /* margin: 1rem auto; */
     /* margin: 1rem; */
     padding: 1rem;
     max-width: 30rem;
@@ -61,7 +61,7 @@
 
 .position {
     transition: transform .6s ease-in-out;
-    animation: toast-in-left .7s;
+    animation: toast-in-right .7s;
 }
 
 .icon--close {
@@ -78,32 +78,32 @@
 
 .success {
     border-left: 10px solid green;
-    background-color: rgba(0, 255, 0, 0.1);    
+    background-color: #e8ffe8;    
 }
 
 .error {
     border-left: 10px solid red;
-    background-color: rgba(255, 0, 0, 0.1);
+    background-color: #ffe7e7;
 }
 
 .warning {
     border-left: 10px solid orange;
-    background-color: rgba(255, 166, 0, 0.1);
+    background-color: rgb(255, 246, 228);
 }
 
 .danger {
     border-left: 10px solid red;
-    background-color: rgba(255, 0, 0, 0.1);
+    background-color: rgb(255, 226, 226);
 }
 
 .info {
     border-left: 10px solid cyan;
-    background-color: rgba(0, 255, 255, 0.1);
+    background-color: rgb(233, 255, 255);
 }
 
 .help {
     border-left: 10px solid purple;
-    background-color: rgba(128, 0, 128, 0.1);
+    background-color: rgb(255, 231, 255);
 }
 
 /* .outline {
@@ -116,6 +116,11 @@
     animation-duration: 1s;
     animation-timing-function: ease;
     animation-iteration-count: 1;
+}
+
+.hideToast {
+    transform: translateX(100%);
+    transition: all ease 300ms;
 }
 
 @keyframes exit {

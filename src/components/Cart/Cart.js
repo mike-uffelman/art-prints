@@ -7,6 +7,7 @@ import CartTotal from './CartTotal';
 import { shortenDescription } from '../../utility/helpers';
 import { removeFromCart } from '../../store/slices/cartsSlice';
 import Image from '../Image/Image';
+import { addToast } from '../../store/slices/toastsSlice';
 
 function Cart() {
     const dispatch = useDispatch();
@@ -21,6 +22,7 @@ function Cart() {
 
     const handleClick = (id) => {
         dispatch(removeFromCart(id))
+        dispatch(addToast({id: 9, label: 'success', icon: 'check_circle', message: 'Item removed from cart...'}))
     }
 
     const renderCart = cart.map(item => {

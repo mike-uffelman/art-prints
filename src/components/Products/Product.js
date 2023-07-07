@@ -20,6 +20,7 @@ import ProductSize from './Product-Size/ProductSize';
 import PhotoModal from './PhotoModal';
 import Image from '../Image/Image';
 import ProductQuantity from './Product-Quantity/ProductQuantity'
+import { addToast } from '../../store/slices/toastsSlice';
 
 function Product({type, product, className}) {
     const [ isModalOpen, setIsModalOpen ] = useState(false);
@@ -74,6 +75,9 @@ function Product({type, product, className}) {
         }
 
         type === 'product-view' ? dispatch(addToCart(cartItem)) : dispatch(updateCartItem(cartItem))
+        
+        dispatch(addToast({id: 7, label: 'success', icon: 'check_circle', message: 'Added to Cart!'}))
+
     }
 
     const handleImgClick = () => {

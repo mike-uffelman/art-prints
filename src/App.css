@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    /* outline: 1px solid rgba(255, 0, 0, .5); */
+    outline: 1px solid rgba(255, 0, 0, .5);
 }
 
 html {
@@ -111,6 +111,15 @@ body {
     position: relative;
     justify-self: flex-end;
     margin-left: 1rem;
+}
+
+.header__toasts {
+    /* min-height: 2rem; */
+    position: absolute;
+    z-index: 99999;
+    top: 10rem;
+    right: 0;
+    /* border: 3px solid blue; */
 }
 
 .app__footer {
