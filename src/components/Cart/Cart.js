@@ -81,7 +81,7 @@ function Cart() {
 
             </div>
             <div className='cart__items'>
-                {renderCart}
+                {cart.length > 0 ? renderCart : <div className=''>Cart is empty...</div>}
             </div>
         </div>
     )

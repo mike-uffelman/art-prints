@@ -7,7 +7,8 @@ export const search = async(term, prevTags = {}, page = 1) => {
     const res = await unsplash.get('/search/photos', {
         params: {
             query: term,
-            page: page
+            page: page,
+            content_filter: 'high',
             // per_page: 30
         }
     })
