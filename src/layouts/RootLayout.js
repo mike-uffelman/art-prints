@@ -29,17 +29,19 @@ export default function RootLayout() {
         return state.toasts
     })
 
+console.log(results)
+
     const renderCartIcon = 
-    cart.length > 0 
-        ? <Link to='cart'>
-            <div className="header__cart">
-                <span className="cart--icon material-symbols-outlined">
-                    shopping_bag
-                </span>
-                <div className="cart--quantity"></div>
-            </div>
-        </Link>
-        : null;
+        cart.length > 0 
+            ? <Link to='cart'>
+                <div className="header__cart">
+                    <span className="cart--icon material-symbols-outlined">
+                        shopping_bag
+                    </span>
+                    <div className="cart--quantity"></div>
+                </div>
+            </Link>
+            : null;
 
     const renderToasts = toasts.length > 0 
         ? <section className='header__toasts'>
@@ -54,6 +56,26 @@ export default function RootLayout() {
             }
         </section>
         : null;
+
+    const renderBreadCrumbs = 
+        <aside className="breadcrumbs">
+            {location.pathname === '/' ? '' : <Link className="breadcrumbs__link" to='/'>Home</Link>} 
+    
+            {
+                results.search.results && results.search.results.length > 0
+                // location.pathname !== '/'
+                && !location.pathname.includes('/results/')
+                //  results && results.results.length > 0
+                 ? <Link className="breadcrumbs__link" to={`/results/${results.search.term}`}>Back to results</Link>
+                 : null
+            }
+
+            {
+                location.pathname.includes('/product/editCartItem') &&
+                    <Link className="breadcrumbs__link" to={`/cart`}>Back to cart</Link>
+            }
+
+        </aside>
 
     return (
         <article className="app">
@@ -83,11 +105,7 @@ export default function RootLayout() {
                     
                 </section>
                             
-                <aside className="breadcrumbs">
-                    {location.pathname === '/' ? '' : <Link className="breadcrumbs__link" to='/'>Home</Link>} 
-                    {location.pathname !== '/' && !location.pathname.includes('/results/') && <Link className="breadcrumbs__link" to={`/results/${results.search.term}`}>Back to results</Link>}
-
-                </aside>
+                {renderBreadCrumbs}
                 
                 
             </header>

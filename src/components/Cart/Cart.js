@@ -75,7 +75,7 @@ function Cart() {
 
     const renderEmptyCartMessage = 
         <section className='cart__empty'>
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                     shopping_cart
                 </span>
                 <h2 className='cart__empty--message'>Your cart is empty.</h2>

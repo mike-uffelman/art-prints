@@ -188,11 +188,12 @@ body {
 .breadcrumbs__link {
     text-decoration: none;
     color: black;
+    margin-right: 1rem;
 
 }
 
-.breadcrumbs__link:first-of-type {
-    margin-right: 1rem;    
+.breadcrumbs__link:last-of-type {
+    margin-right: 0;    
 }
 
 .breadcrumbs__link:hover {
