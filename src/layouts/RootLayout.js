@@ -46,7 +46,7 @@ export default function RootLayout() {
         {toasts.map((toast, index) => {
             return (
                 <React.Fragment key={toast.id}>
-                    <Toasts toast={toast} index={index}setToastsArray={setToastsArray} />
+                    <Toasts toast={toast} index={index} />
                 </React.Fragment>
                 
             )

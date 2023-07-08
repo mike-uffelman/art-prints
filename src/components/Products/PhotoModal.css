@@ -63,7 +63,7 @@
 
 }
 
-.material-symbols-outlined:hover {
+.modal__close > .material-symbols-outlined:hover {
     cursor: pointer;
     /* color: #0095a6; */
 }

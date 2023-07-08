@@ -15,9 +15,7 @@ function Search({handleSubmit, term, setTerm, handleChange}) {
         <section className='search'>
             <Form  
                 className='search__form' 
-                onSubmit={() => {
-                    handleSubmit(type)
-                }} 
+                onSubmit={() => handleSubmit(type)} 
                 action={`/results/${term}`}
             >
                 <input className='search__input' onChange={handleChange} type='text' value={term}></input>

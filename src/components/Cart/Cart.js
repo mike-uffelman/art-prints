@@ -73,6 +73,14 @@ function Cart() {
         )
     })
 
+    const renderEmptyCartMessage = 
+        <section className='cart__empty'>
+                <span class="material-symbols-outlined">
+                    shopping_cart
+                </span>
+                <h2 className='cart__empty--message'>Your cart is empty.</h2>
+
+        </section>
 
     return (
         <div className="cart">
@@ -80,9 +88,14 @@ function Cart() {
                 <CartTotal />
 
             </div>
-            <div className='cart__items'>
-                {cart.length > 0 ? renderCart : <div className=''>Cart is empty...</div>}
-            </div>
+            {cart.length > 0 
+                ?
+                <div className='cart__items'>
+                    {renderCart} 
+                </div>
+
+                : renderEmptyCartMessage
+            }
         </div>
     )
 }
