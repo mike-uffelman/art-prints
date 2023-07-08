@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = [
-    {id: 1, label: 'success', icon: 'check_circle', message: 'Added to Cart!'}, 
-    {id: 5, label: 'info', icon: 'info', message: 'Please select a size!'}
+    // {id: 1, label: 'success', icon: 'check_circle', message: 'Added to Cart!'}, 
+    // {id: 5, label: 'info', icon: 'info', message: 'Please select a size!'}
 ]
 
 export const toastsSlice = createSlice({
