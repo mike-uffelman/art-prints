@@ -1,3 +1,4 @@
+import './Search.css';
 import { Form } from 'react-router-dom';
 import UpdatedComponent from '../withSearch';
 
@@ -7,6 +8,8 @@ import UpdatedComponent from '../withSearch';
 
 function Search({handleSubmit, term, setTerm, handleChange}) {
     const type = 'search'
+
+    const disabled = term === '' ? true : false
         
     return (
         <section className='search'>
@@ -18,7 +21,7 @@ function Search({handleSubmit, term, setTerm, handleChange}) {
                 action={`/results/${term}`}
             >
                 <input className='search__input' onChange={handleChange} type='text' value={term}></input>
-                <button className='search__btn'>Search</button>
+                <button className='search__btn' disabled={disabled}>Search</button>
             </Form>
         </section>
     )
