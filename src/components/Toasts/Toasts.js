@@ -12,7 +12,7 @@ function Toasts({toast}) {
     useEffect(() => {
         // clear toast after a timeout
         if(toastEl.current) {
-            console.log('closing toast message')
+            // console.log('closing toast message')
             setTimeout(() => {
                 // check for toastEl.current before adding hide animation, prevents 'toastEl.current is null' error due to user click removal
                 toastEl.current && toastEl.current.classList.add('hideToast');

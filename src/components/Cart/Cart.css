@@ -189,6 +189,7 @@
 @media screen and (min-width: 35rem) {
     .cart {
         flex-direction: row;
+        height: 100%;
     }
 
     .cart__subtotal {
