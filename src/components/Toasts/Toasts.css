@@ -15,11 +15,10 @@
     flex-direction: row;
     align-items: center;
 
-    /* margin: 1rem auto; */
-    /* margin: 1rem; */
+    margin: 1rem;
     padding: 1rem;
-    max-width: 30rem;
-
+    max-width: 90%;
+    width: 100%;
     font-size: 1.4rem;
     font-family: var(--text-bold);
 
@@ -32,6 +31,9 @@
     animation-iteration-count: 1; */
 }
 
+.toast__item:hover {
+    cursor: pointer;
+}
 
 
 .toast__icon-container {
@@ -46,7 +48,6 @@
     /* flex: 2; */
     width: 100%;
     justify-self: flex-start;
-    border: 1px solid red;
     padding: 0 1rem;
 
 }
@@ -119,8 +120,15 @@
 }
 
 .hideToast {
-    transform: translateX(100%);
+    transform: translateX(120%);
     transition: all ease 300ms;
+}
+
+@media screen and (min-width: 30rem) {
+    .toast__item {
+        max-width: 30rem;
+        /* width: 100%; */
+    }
 }
 
 @keyframes exit {

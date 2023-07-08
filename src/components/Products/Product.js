@@ -2,7 +2,7 @@
 import './Product.css';
 
 // react and library imports
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useId } from "react";
 // import { useParams } from "react-router-dom";
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
@@ -76,7 +76,12 @@ function Product({type, product, className}) {
 
         type === 'product-view' ? dispatch(addToCart(cartItem)) : dispatch(updateCartItem(cartItem))
         
-        dispatch(addToast({id: 7, label: 'success', icon: 'check_circle', message: 'Added to Cart!'}))
+        if(type === 'edit-view') {
+            dispatch(addToast({id: uuidv4(), label: 'success', icon: 'check_circle', message: 'Cart has been updated!'}))
+        } else {
+            dispatch(addToast({id: uuidv4(), label: 'success', icon: 'check_circle', message: 'Added to Cart!'}))
+
+        }
 
     }
 

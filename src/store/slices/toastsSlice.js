@@ -10,7 +10,7 @@ export const toastsSlice = createSlice({
     initialState,
     reducers: {
         addToast: (state, action) => {
-            state.push(action.payload)
+            state.unshift(action.payload)
         },
         removeToast: (state, action) => {
             const index = Object.values(state).findIndex(item => item.id === action.payload);

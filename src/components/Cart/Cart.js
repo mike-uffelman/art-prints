@@ -8,6 +8,8 @@ import { shortenDescription } from '../../utility/helpers';
 import { removeFromCart } from '../../store/slices/cartsSlice';
 import Image from '../Image/Image';
 import { addToast } from '../../store/slices/toastsSlice';
+import { v4 as uuidv4 } from 'uuid';
+
 
 function Cart() {
     const dispatch = useDispatch();
@@ -20,9 +22,13 @@ function Cart() {
         return (item.product.base_amt * item.size.price_multiplier * item.quantity).toFixed(2)
     }
 
+    const handleEditClick = () => {
+        dispatch(addToast({id: uuidv4(), label: 'info', icon: 'info', message: 'Editing cart item'}))
+    }
+
     const handleClick = (id) => {
         dispatch(removeFromCart(id))
-        dispatch(addToast({id: 9, label: 'success', icon: 'check_circle', message: 'Item removed from cart...'}))
+        dispatch(addToast({id: uuidv4(), label: 'warning', icon: 'warning', message: 'Item removed from cart...'}))
     }
 
     const renderCart = cart.map(item => {
@@ -57,7 +63,7 @@ function Cart() {
                     
                     <div className='cart__item-actions'>
                         
-                        <Link to={`/product/editCartItem/${item.id}`} className='cart__btn cart__btn--edit'>Edit</Link>
+                        <Link onClick={handleEditClick} to={`/product/editCartItem/${item.id}`} className='cart__btn cart__btn--edit'>Edit</Link>
                         <button onClick={() => handleClick(item.id)} className='cart__btn cart__btn--delete'>Delete</button>
                     </div>
                     
