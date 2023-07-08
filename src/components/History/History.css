@@ -56,10 +56,10 @@
     box-shadow: 0 0 1rem black;
     padding: 1rem;
     background-color: aliceblue;
-    width: 90%;
-    height: 30rem;
-    /* min-height: 60%;
-    max-height: 80%; */
+    width: 100%;
+    max-width: 40rem;
+    height: 100%;
+    max-height: 50rem;
 
 }
 
