@@ -206,7 +206,7 @@ body {
 
     .header__toasts {
         width: auto;
-        right: 8rem;
+        right: 0;
         padding: 1rem;
     }
 }
