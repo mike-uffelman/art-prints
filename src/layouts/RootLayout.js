@@ -29,16 +29,16 @@ export default function RootLayout() {
         return state.toasts
     })
 
-console.log(results)
+console.log(cart)
 
     const renderCartIcon = 
         cart.length > 0 
             ? <Link to='cart'>
                 <div className="header__cart">
                     <span className="cart--icon material-symbols-outlined">
-                        shopping_bag
+                        shopping_cart
                     </span>
-                    <div className="cart--quantity"></div>
+                    <div className="cart--quantity">{cart.length}</div>
                 </div>
             </Link>
             : null;

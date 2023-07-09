@@ -141,22 +141,24 @@ body {
     align-self: flex-end;
 }
 
-.cart--icon {
-    stroke: 1px;
-    fill: orange;
+.header__cart > .material-symbols-outlined {
+    font-size: 2.4rem;
 }
 
 .cart--quantity {
-    content: '';
     position: absolute;
-    bottom: .85rem;
-    right: .85rem;
+    bottom: .2rem;
+    right: 0;
 
-    height: .75rem;
-    width: .75rem;
+    height: 1.5rem;
+    width: 1.5rem;
 
+    font-weight: bold;
     border-radius: 50%;
-    background-color: gray;
+    text-align: center;
+
+    color: var(--main-white);
+    background-color: var(--main-accent);
 }
 
 .content {
