@@ -1,10 +1,11 @@
 import './Reviews.css';
 import { useEffect, useState } from 'react';
 import Reviews from './Reviews';
+import PropTypes from 'prop-types';
 
 export default function ReviewsPagination({selectedReviews}) {
     const [ currentPage, setCurrentPage ] = useState(1);
-
+    console.log(selectedReviews)
     // state for pagination navigation controls
     const [ startPageNav ] = useState(1);
     const [ endPageNav, setEndPageNav ] = useState(null);
@@ -70,4 +71,8 @@ export default function ReviewsPagination({selectedReviews}) {
             </div>
         </section>
     )
+}
+
+ReviewsPagination.propTypes = {
+    selectedReviews: PropTypes.array.isRequired
 }

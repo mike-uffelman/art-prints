@@ -94,10 +94,22 @@ function Product({type, product, className}) {
                     <section key={activeProduct.id} className={`products-page__product ${activeProduct.orientation}`}>
                         <div className={`product__image ${activeProduct.orientation}`}>
                             
-                            {activeProduct.image_urls ? <Image product={activeProduct} modalOpen={handleImgClick} className={`product ${activeProduct.orientation}`} /> : 'Loading'}
+                            {activeProduct.image_urls ? 
+                                <Image 
+                                    product={activeProduct} 
+                                    handleImgClick={handleImgClick} 
+                                    className={`product ${activeProduct.orientation}`} 
+                                /> : 'Loading'
+                            }
 
                             {isModalOpen && createPortal(
-                                <PhotoModal product={product} image={activeProduct.image_urls.regular} alt={activeProduct.description} className={`photo-modal ${activeProduct.orientation}`} setIsModalOpen={setIsModalOpen} toggleModal={handleImgClick} />, document.body
+                                <PhotoModal 
+                                    product={product} 
+                                    image={activeProduct.image_urls.regular} 
+                                    alt={activeProduct.description} 
+                                    className={`photo-modal ${activeProduct.orientation}`} setIsModalOpen={setIsModalOpen} 
+                                    toggleModal={handleImgClick} 
+                                />, document.body
                             )}
                         </div>
                         

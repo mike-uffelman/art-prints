@@ -1,9 +1,17 @@
+// styling import
 import './History.css';
+
+// react, router, redux
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { resetHistory } from '../../store/slices/historySlice';
 import { useDispatch } from 'react-redux';
+
+// components
 import UpdatedComponent from '../withSearch';
+
+// utilities and helpers
+import PropTypes from 'prop-types';
 
 function History({handleSubmit, isModalOpen, setIsModalOpen, history}) {
     const type = 'history';
@@ -40,19 +48,7 @@ function History({handleSubmit, isModalOpen, setIsModalOpen, history}) {
     })
 
     return (
-        // <div className={`history ${isToggled}`}>
         <div className={`history `}>
-
-            {/* <div className='history__icons' onClick={() => setIsOpen(!isOpen)}>
-                <span className="material-symbols-rounded clock">
-                    history
-                </span>
-                <span className="material-symbols-rounded arrow">
-                    {`arrow_drop_${arrow}`}
-                </span>
-            </div> */}
-                        
-            
             <div ref={el} className='history__list'>
                 <div className='history__header'>
                     <h3 className='history__heading'>Recent Searches</h3>
@@ -62,7 +58,6 @@ function History({handleSubmit, isModalOpen, setIsModalOpen, history}) {
                         </span>    
                     </div>
                 </div>
-                
 
                 <div className='history__items'>
                     {renderHistory}
@@ -76,3 +71,9 @@ function History({handleSubmit, isModalOpen, setIsModalOpen, history}) {
 }
 
 export default UpdatedComponent(History);
+
+History.propTypes = {
+    handleSubmit: PropTypes.func.isRequired,
+    setIsModalOpen: PropTypes.func.isRequired,
+    history: PropTypes.array.isRequired
+}

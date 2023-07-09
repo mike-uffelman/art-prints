@@ -1,10 +1,11 @@
 import './Image.css';
 import { useState, useRef, useEffect } from 'react';
 import classNames from "classnames";
+import PropTypes from 'prop-types';
 
 
 // reusable image component 
-export default function Image({product, modalOpen, className}) {
+export default function Image({product, handleImgClick, className}) {
     const imgRef = useRef();
     const [ isHovered, setIsHovered ] = useState(null)
     
@@ -48,7 +49,7 @@ export default function Image({product, modalOpen, className}) {
                 {/* <div className={`img__border ${classes} ${hovered}`}> */}
                         {/* <div className={`img__inset ${classes} ${hovered}`}> */}
                             <img 
-                                onClick={modalOpen} 
+                                onClick={handleImgClick} 
                                 ref={imgRef} 
                                 className={`img__product ${classes} ${hovered}`} 
                                 src={imgSwitch()} 
@@ -60,4 +61,9 @@ export default function Image({product, modalOpen, className}) {
         </div>
         
     ) 
+}
+
+Image.propTypes = {
+    product: PropTypes.object.isRequired,
+    handleImgClick: PropTypes.func,
 }

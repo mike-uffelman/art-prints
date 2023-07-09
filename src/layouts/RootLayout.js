@@ -29,7 +29,6 @@ export default function RootLayout() {
         return state.toasts
     })
 
-console.log(cart)
 
     const renderCartIcon = 
         cart.length > 0 

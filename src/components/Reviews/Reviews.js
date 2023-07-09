@@ -2,9 +2,10 @@ import './Reviews.css';
 import React from 'react';
 import { dateTransformer } from '../../utility/helpers';
 import RatingStars from '../Products/Product-Reception/RatingStars';
+import PropTypes from 'prop-types';
 
 export default function Reviews({reviewsToRender}) {
-
+    console.log(reviewsToRender)
     const renderingTheseReviews = reviewsToRender.map((review, index) => {
         return (
             <section key={review.review_id} className="review__item">
@@ -29,4 +30,8 @@ export default function Reviews({reviewsToRender}) {
             {renderingTheseReviews}
         </React.Fragment>
     )
+}
+
+Reviews.propTypes = {
+    reviewsToRender: PropTypes.array.isRequired
 }
