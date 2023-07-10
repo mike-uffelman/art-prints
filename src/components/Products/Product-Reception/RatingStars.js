@@ -1,12 +1,11 @@
+// react
 import React from 'react';
-import classNames from 'classnames';
+// utilities and helpers
+import PropTypes from 'prop-types';
 
-export default function RatingStars({className, rating}) {
-    const classes = classNames();
-    
+
+export default function RatingStars({rating}) {
     // const div = <span className="material-icons-outlined product__ratings--icon">star</span>
-    const fullStar = <span className="material-icons">star_outline</span>
-    const halfStar = <span className="material-icons">star_half</span>
 
     const getStars = () => {
         let stars = [];
@@ -38,4 +37,8 @@ export default function RatingStars({className, rating}) {
         </React.Fragment>
         
     )
+}
+
+RatingStars.propTypes = {
+    rating: PropTypes.string.isRequired
 }

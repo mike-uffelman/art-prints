@@ -1,12 +1,14 @@
+// styles
 import './ProductSizeDropdown.css';
-import {useState, useEffect, useRef} from 'react';
-import SizeOptions from './SizeOptions';
-import classNames from 'classnames';
 
-export default function ProductSize({product, updateSize, size}) {
-    const [activeTab, setActiveTab] = useState(0);
+// react
+import {useState, useEffect} from 'react';
+
+// utilities and helpers
+import PropTypes from 'prop-types';
+
+export default function ProductSize({updateSize, size}) {
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const dropDownEl = useRef()
 
     const sizes = {
         small: {
@@ -62,4 +64,9 @@ export default function ProductSize({product, updateSize, size}) {
                 </div>
         </div>
     )
+}
+
+ProductSize.propTypes = {
+    updateSize: PropTypes.func.isRequired,
+    size: PropTypes.object.isRequired
 }

@@ -1,11 +1,18 @@
+// styles
 import './PhotoModal.css';
 
+// react, router, redux
 import { useEffect, useRef } from 'react';
-import classNames from 'classnames';
+
+// components
 import Image from '../Image/Image';
 
+// utilities and helpers
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
-export default function PhotoModal({product, toggleModal, className, setIsModalOpen}) {
+
+export default function PhotoModal({product, className, setIsModalOpen}) {
     const el = useRef();
     const classes = classNames(className)
 
@@ -41,4 +48,10 @@ export default function PhotoModal({product, toggleModal, className, setIsModalO
             </div>
         </section>
     )
+}
+
+PhotoModal.propTypes = {
+    product: PropTypes.object.isRequired,
+    setIsModalOpen: PropTypes.func.isRequired,
+    className: PropTypes.string
 }

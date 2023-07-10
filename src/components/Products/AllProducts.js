@@ -1,9 +1,17 @@
+// styles
 import './AllProducts.css';
-// import Link from './Link';
+
+// react, redux, router
 import { Link } from 'react-router-dom';
-import { shortenDescription } from '../../utility/helpers';
-import classNames from 'classnames';
+
+// components
 import Image from '../Image/Image';
+
+// utilities and helpers
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { shortenDescription } from '../../utility/helpers';
+
 
 function Products({className, results}) {
     const productsClassNames = classNames(className)
@@ -55,3 +63,9 @@ function Products({className, results}) {
 }
 
 export default Products;
+
+
+Products.propTypes = {
+    results: PropTypes.array.isRequired,
+    className: PropTypes.string
+}
