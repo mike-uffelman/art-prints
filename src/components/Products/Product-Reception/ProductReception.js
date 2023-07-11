@@ -1,9 +1,14 @@
+// styles
 import './ProductReception.css';
-import { Link } from "react-router-dom"
-import RatingStars from './RatingStars';
+// react, router, redux
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+// components
+import RatingStars from './RatingStars';
+// utilities and helpers
 import { getProductRating } from '../../../utility/helpers';
+import PropTypes from 'prop-types';
+
 
 export default function ProductReception({product}) {
     const reviews = useSelector((state) => {
@@ -32,4 +37,8 @@ export default function ProductReception({product}) {
 
         </div>       
     )
+}
+
+ProductReception.propTypes = {
+    product: PropTypes.object.isRequired
 }

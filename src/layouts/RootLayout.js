@@ -1,12 +1,16 @@
+// react, router, redux
 import React, { useState } from 'react';
 import { Outlet, Link, useLocation } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { createPortal } from "react-dom";
+
+// components
 import Search from "../components/Search/Search";
 import Footer from "../components/HomeNav/Footer";
 import Logo from "../components/HomeNav/Logo";
-import { useSelector } from 'react-redux';
 import History from "../components/History/History";
-import { createPortal } from "react-dom";
 import Toasts from '../components/Toasts/Toasts';
+
 
 export default function RootLayout() {
     const [ toastsArray, setToastsArray ] = useState([

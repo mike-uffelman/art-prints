@@ -1,5 +1,5 @@
 // styles
-import './ProductSizeDropdown.css';
+import './ProductSize.css';
 
 // react
 import {useState, useEffect} from 'react';

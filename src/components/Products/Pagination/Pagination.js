@@ -1,5 +1,9 @@
+// styles
 import './Pagination.css';
+// components
 import UpdatedComponent from '../../withSearch';
+// utilities and helpers
+import PropTypes from 'prop-types';
 
 function Pagination({handleSubmit}) {
     const type = 'load more'
@@ -13,3 +17,7 @@ function Pagination({handleSubmit}) {
 }
 
 export default UpdatedComponent(Pagination);
+
+Pagination.propTypes = {
+    handleSubmit: PropTypes.func
+}

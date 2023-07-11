@@ -7,7 +7,7 @@ import ProductTabs from "../components/Products/Product-Tabs/ProductTabs"
 
 // Builds the layout for the individual product page
 
-export default function ProductPage({products, addToCart}) {
+export default function ProductPage() {
     const {id} = useParams();
 
     const productData = useSelector((state) => {

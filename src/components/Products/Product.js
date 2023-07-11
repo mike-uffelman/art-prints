@@ -2,7 +2,7 @@
 import './Product.css';
 
 // react and library imports
-import React, { useEffect, useState, useId } from "react";
+import React, { useEffect, useState } from "react";
 // import { useParams } from "react-router-dom";
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
@@ -13,6 +13,7 @@ import classNames from 'classnames';
 import {v4 as uuidv4 } from 'uuid';
 import { UNSPLASH_URL } from '../../data/config';
 import { shortenDescription } from "../../utility/helpers";
+import PropTypes from 'prop-types';
 
 // components
 import ProductReception from './Product-Reception/ProductReception';
@@ -169,3 +170,9 @@ function Product({type, product, className}) {
 }
 
 export default Product;
+
+Product.propTypes = {
+    type: PropTypes.string.isRequired,
+    product: PropTypes.object.isRequired,
+    className: PropTypes.string.isRequired
+}

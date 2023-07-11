@@ -1,6 +1,11 @@
+// styles
 import './Search.css';
+// react, router
 import { Form } from 'react-router-dom';
+// components
 import UpdatedComponent from '../withSearch';
+// utilities and helpers
+import PropTypes from 'prop-types';
 
 
 // Search bar component
@@ -26,3 +31,9 @@ function Search({handleSubmit, term, setTerm, handleChange}) {
 }
 
 export default UpdatedComponent(Search);
+
+Search.propTypes = {
+    handleSubmit: PropTypes.func.isRequired,
+    term: PropTypes.string,
+    handleChange: PropTypes.func.isRequired
+}

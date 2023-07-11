@@ -1,10 +1,11 @@
+// styles
 import './Logo.css';
+// react, router
 import { Link } from "react-router-dom"
 
 export default function Logo() {
 
     return (
-        // <div className="app__header--logo">
             <Link to='/' className="logo__link">
                 <div className='logo__container'>
                     <span className="material-symbols-outlined logo--icon">
@@ -19,7 +20,6 @@ export default function Logo() {
                 </div>
                 
             </Link>
-        // </div>
 
     )
 }

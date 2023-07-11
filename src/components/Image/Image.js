@@ -1,5 +1,8 @@
+// styles
 import './Image.css';
-import { useState, useRef, useEffect } from 'react';
+// react
+import { useState, useRef } from 'react';
+// utilities and helpers
 import classNames from "classnames";
 import PropTypes from 'prop-types';
 

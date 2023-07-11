@@ -1,6 +1,11 @@
+// styles
 import './Tags.css';
-import { Link } from "react-router-dom"
+// react, router
+import { Link } from 'react-router-dom';
+// components
 import UpdatedComponent from '../withSearch';
+// utilities and helpers
+import PropTypes from 'prop-types';
 
 function Tags({tagsData, handleSubmit, setTerm}) {
     const type = 'tags'
@@ -37,3 +42,8 @@ function Tags({tagsData, handleSubmit, setTerm}) {
 }
 
 export default UpdatedComponent(Tags);
+
+Tags.propTypes = {
+    tagsData: PropTypes.array.isRequired,
+    handleSubmit: PropTypes.func.isRequired
+}

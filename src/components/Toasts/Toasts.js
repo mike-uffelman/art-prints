@@ -1,8 +1,11 @@
+// styles
 import './Toasts.css';
-
+// react, redux, router
 import React, { useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { removeToast } from '../../store/slices/toastsSlice';
+// utilities and helpers
+import PropTypes from 'prop-types';
 
 
 function Toasts({toast}) {
@@ -58,3 +61,7 @@ function Toasts({toast}) {
 }
 
 export default Toasts;
+
+Toasts.propTypes = {
+    toasts: PropTypes.object
+}

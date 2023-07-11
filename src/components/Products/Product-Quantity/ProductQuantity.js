@@ -1,18 +1,13 @@
+// styles
 import './ProductQuantity.css';
-import {useEffect, useState} from 'react';
+// utilities and helpers
+import PropTypes from 'prop-types';
 
 export default function ProductQuantity({quantity, setQuantity}) {
-
-
     const handleClick = (e, n) => {
         e.preventDefault();
         setQuantity(quantity + n)
-        // console.log('clicked', n)
     }
-
-    // useEffect(() => {
-    //     console.log('quantity: ', quantity)
-    // }, [quantity])
 
     const isDisabledMin = quantity < 2 ? true : false;
     const isDisabledMax = quantity > 98 ? true : false;
@@ -40,4 +35,9 @@ export default function ProductQuantity({quantity, setQuantity}) {
             </div>
         </section>
     )
+}
+
+ProductQuantity.propTypes = {
+    quantity: PropTypes.number,
+    setQuantity: PropTypes.func.isRequired
 }
