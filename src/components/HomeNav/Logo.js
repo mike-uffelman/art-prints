@@ -8,7 +8,7 @@ export default function Logo() {
     return (
             <Link to='/' className="logo__link">
                 <div className='logo__container'>
-                    <span className="material-symbols-outlined logo--icon">
+                    <span role='img' data-testid='logo-img' className="material-symbols-outlined logo--icon">
                         panorama
                     </span>
                     <h1 className="logo__text">
