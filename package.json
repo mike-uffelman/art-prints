@@ -22,7 +22,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "coverage": "npm test -- --coverage --watchAll"
   },
   "eslintConfig": {
     "extends": [
@@ -44,5 +45,11 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "axios": "axios/dist/node/axios.cjs"
+    }
   }
+
 }

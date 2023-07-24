@@ -16,7 +16,8 @@ import PropTypes from 'prop-types';
 function History({handleSubmit, isModalOpen, setIsModalOpen, history}) {
     const type = 'history';
     const el = useRef();
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
+
 
     const close = () => {
         setIsModalOpen(false)
@@ -38,7 +39,7 @@ function History({handleSubmit, isModalOpen, setIsModalOpen, history}) {
 
     const clearHistory = (e) => {
         e.preventDefault();
-        dispatch(resetHistory())
+        // dispatch(resetHistory())
     }
 
     const renderHistory = history.map((term, index) => {
@@ -48,7 +49,7 @@ function History({handleSubmit, isModalOpen, setIsModalOpen, history}) {
     })
 
     return (
-        <div className={`history `}>
+        <div data-testid='history' className={`history `}>
             <div ref={el} className='history__list'>
                 <div className='history__header'>
                     <h3 className='history__heading'>Recent Searches</h3>
