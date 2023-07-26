@@ -5,13 +5,25 @@ import { Provider } from 'react-redux'
 // As a basic setup, import your same slice reducers
 import { store as storeReducers } from './store'
 import { historyReducer } from './store/slices/historySlice'
+import { cartsReducer } from './store/slices/cartsSlice'
+import { reviewReducer } from './store/slices/reviewsSlice'
+import { searchReducer } from './store/slices/searchSlice'
+import { toastsReducer } from './store/slices/toastsSlice'
+
 
 export function renderWithProviders(
   ui,
   {
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
-    store = configureStore({ reducer: {history: historyReducer}, preloadedState }),
+    store = configureStore(
+        { reducer: {
+            cart: cartsReducer,
+            search: searchReducer,
+            reviews: reviewReducer,
+            history: historyReducer,
+            toasts: toastsReducer
+        }, preloadedState }),
     ...renderOptions
   } = {}
 ) {

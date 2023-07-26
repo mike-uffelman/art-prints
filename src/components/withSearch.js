@@ -6,6 +6,7 @@ import { addResults } from '../store/slices/searchSlice';
 import { addHistory } from '../store/slices/historySlice';
 import { addReviews } from '../store/slices/reviewsSlice';
 import { buildReviews } from '../data/productGenerator';
+import { resetHistory } from '../store/slices/historySlice';
 
 const UpdatedComponent = (OriginalComponent) => {
 
@@ -19,6 +20,11 @@ const UpdatedComponent = (OriginalComponent) => {
 
         const handleChange = (e) => {
             setTerm(e.target.value);
+        }
+
+        const clearHistory = (e) => {
+            e.preventDefault();
+            dispatch(resetHistory())
         }
 
         const handleSubmit = async (type, tagTerm) => {
@@ -63,6 +69,7 @@ const UpdatedComponent = (OriginalComponent) => {
             <OriginalComponent 
                 handleSubmit={handleSubmit} 
                 handleChange={handleChange}
+                clearHistory={clearHistory}
                 term={term}
                 {...props}
                 />

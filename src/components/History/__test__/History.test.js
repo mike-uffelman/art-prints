@@ -1,21 +1,18 @@
-import { render, screen } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import { renderWithProviders } from '../../../test-utils';
 import History from '../History';
-import Logo from '../../HomeNav/Logo';
 import '@testing-library/jest-dom'
+import { useLocation } from 'react-router-dom'
 
 
 import { Provider } from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
 
 import { store } from '../../../store/index';
-import { configureStore } from '@reduxjs/toolkit';
-import { historyReducer } from '../../../store/slices/historySlice';
-import UpdatedComponent from '../../withSearch';
 
 describe('History', () => {
     
-
+    const mockModalOpen = jest.fn()
     const historyArray = [
         "cats",
         "food",
@@ -23,42 +20,46 @@ describe('History', () => {
         "mountains",
         "sunsets"
       ]
-    const wrappedComponent = <Provider store={store}>UpdatedComponent(<History history={historyArray} isModalOpen='true'/>)</Provider>
-
-    console.log(wrappedComponent)
+    const View = <Provider store={store}>
+                    <History history={historyArray} setIsModalOpen={mockModalOpen} isModalOpen='true'/>
+                </Provider>
 
     it('should render all the history links', () => {
         
-        const mockModalOpen = jest.fn()
-        // const dispatch = jest.fn();
-        
-        // const store = configureStore({reducer: {
-        //     history: historyReducer,
-        // }})
-        // const historyArray = [
-        //     "cats",
-        //     "food",
-        //     "nature",
-        //     "mountains",
-        //     "sunsets"
-        //   ]
-        const View = UpdatedComponent(<History history={historyArray} isModalOpen='true'/>)
-        // const {getByTestId} = 
-            // render(<View />, {wrapper: BrowserRouter})
-        
-        
-        // render(MockHistoryComp, {wrapper: BrowserRouter})
-        //     MockHistoryComp , {wrapper: BrowserRouter}
+        renderWithProviders(View, { wrapper: BrowserRouter })
 
-        // console.log('does this work.............', getByTestId)
-        renderWithProviders(<Provider store={store}><History history={historyArray} setIsModalOpen={mockModalOpen} isModalOpen='true'/></Provider>, {wrapper: BrowserRouter})
-
-        // console.log(render)
-        // )
-
-        screen.debug()
-        const items = screen.getByTestId('history')
-        expect(items).toBeInTheDocument()
+        const list = screen.getAllByRole('link')
+        expect(list.length < 1).not.toBe(true)
     })
+   
     
+    // it('should navigate to clicked element href', () => {
+    //     renderWithProviders(View, { wrapper: BrowserRouter })
+
+    //     const listItem = screen.getByRole('link', {name: 'nature'})
+    //     fireEvent.click(listItem)
+    //     const location = window.location.pathname;
+    //     expect(location).toBe('/results/nature')
+    // })
+
+    // it.skip('should close when clicked away from the modal', () => {
+    //     renderWithProviders(<Provider store={store}>
+    //         <History history={historyArray} setIsModalOpen={mockModalOpen} isModalOpen='true'/>
+    //     </Provider>, { wrapper: BrowserRouter })
+    //     screen.debug()
+    //     // const history = screen.getByTestId('history')
+    //     console.log(fireEvent.click(document.body))
+    //     console.log(document.body)
+    //     // expect(history).not.toBeInTheDocument()
+    // })
+    // it('should close when "x" is clicked', () => {
+    //     renderWithProviders(View, { wrapper: BrowserRouter })
+    //     const history = screen.getByTestId('history')
+    //     const close = screen.getByText('close')
+    //     fireEvent.click(close)
+    //     screen.debug()
+
+    //     console.log(document.body)
+    //     expect(history).not.toBeInTheDocument()
+    // })
 }) 

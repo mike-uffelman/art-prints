@@ -17,16 +17,17 @@ function Search({handleSubmit, term, setTerm, handleChange}) {
     const disabled = term === '' ? true : false
         
     return (
-        <section className='search'>
+        // <section className='search'>
             <Form  
                 className='search__form' 
                 onSubmit={() => handleSubmit(type)} 
                 action={`/results/${term}`}
+                name='search_form'
             >
                 <input className='search__input' onChange={handleChange} type='text' value={term}></input>
                 <button className='search__btn' disabled={disabled}>Search</button>
             </Form>
-        </section>
+        // </section>
     )
 }
 

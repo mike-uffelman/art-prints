@@ -13,7 +13,7 @@ import UpdatedComponent from '../withSearch';
 // utilities and helpers
 import PropTypes from 'prop-types';
 
-function History({handleSubmit, isModalOpen, setIsModalOpen, history}) {
+function History({handleSubmit, isModalOpen, setIsModalOpen, history, clearHistory}) {
     const type = 'history';
     const el = useRef();
     // const dispatch = useDispatch();
@@ -37,10 +37,7 @@ function History({handleSubmit, isModalOpen, setIsModalOpen, history}) {
         }
     }, [])
 
-    const clearHistory = (e) => {
-        e.preventDefault();
-        // dispatch(resetHistory())
-    }
+    
 
     const renderHistory = history.map((term, index) => {
         return (

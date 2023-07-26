@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { useSelector } from 'react-redux';
-import { createPortal } from "react-dom";
 
 // components
 import Search from "../components/Search/Search";
@@ -10,7 +9,7 @@ import Footer from "../components/HomeNav/Footer";
 import Logo from "../components/HomeNav/Logo";
 import History from "../components/History/History";
 import Toasts from '../components/Toasts/Toasts';
-
+import Header from '../components/HomeNav/Header';
 
 export default function RootLayout() {
     const [ toastsArray, setToastsArray ] = useState([
@@ -34,17 +33,7 @@ export default function RootLayout() {
     })
 
 
-    const renderCartIcon = 
-        cart.length > 0 
-            ? <Link to='cart'>
-                <div className="header__cart">
-                    <span className="cart--icon material-symbols-outlined">
-                        shopping_cart
-                    </span>
-                    <div className="cart--quantity">{cart.length}</div>
-                </div>
-            </Link>
-            : null;
+    
 
     const renderToasts = toasts.length > 0 
         ? <section className='header__toasts'>
@@ -83,30 +72,8 @@ export default function RootLayout() {
     return (
         <article className="app">
             <header className="app__header">
-                <section className='header'>
-                    <Logo />
-                    <div className="header__actions">
-                        <div className='header__history'>
-                            <span onClick={() => setIsModalOpen(!isModalOpen)} className="material-symbols-rounded">
-                                history
-                            </span>
-
-                            {isModalOpen && createPortal(
-                                <History isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} history={results.history} />, 
-                                document.body
-
-                            )}
-                        </div>
-
-                        <Search />
-
-                        {renderCartIcon}
-                        
-                        
-                    </div>
-                    
-                    
-                </section>
+                <Header results={results} cart={cart} setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen}/>
+                
                             
                 {renderBreadCrumbs}
                 
