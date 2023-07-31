@@ -77,4 +77,23 @@ describe('cart item(s)', () => {
         expect(item).toBeInTheDocument()
         screen.debug()
     })
+
+    it('should render the product details', () => {
+        renderWithProviders(
+            <CartItem 
+                item={initialCart} 
+                handleClick={handleClick} 
+                handleEditClick={handleEditClick}
+            />, {
+                wrapper: BrowserRouter
+            }
+        )
+        // img
+        // const img = 
+        // title
+        // size
+        // quantity
+        // price
+        // edit and delete buttons
+    })
 })
