@@ -13,7 +13,7 @@ export default function CartItem({item, handleClick, handleEditClick}) {
     }
 
     return (
-        <div key={Math.random()} className='cart__item'>
+        <div key={Math.random()} className='cart__item' data-testid='cart-item'>
             <div className='item__img'>
                 <Link to={`/product/${item.product.id}`} className=''>
                     <Image product={item.product} className={`cart`} />

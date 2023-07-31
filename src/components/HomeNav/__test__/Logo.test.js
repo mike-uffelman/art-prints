@@ -1,9 +1,12 @@
-import {screen, render} from '@testing-library/react';
-import Logo from '../Logo';
-import {BrowserRouter} from 'react-router-dom';
+// testing imports
+import {screen, render, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom'
-// import { }
 
+// setup imports
+import {BrowserRouter} from 'react-router-dom';
+
+// components
+import Logo from '../Logo';
 
 
 describe('logo', () => {
@@ -27,22 +30,13 @@ describe('logo', () => {
         expect(href).toHaveAttribute('href', '/')
     })
 
-    // it('should return to homepage on click', () => {
-    //     // const routes = [
-    //     //     {
-    //     //         path: '/',
 
-    //     //     }
-            
-    //     // ]
+    
+    // it('should return to homepage on click', () => {
         
     //     render(<Logo />, {wrapper: BrowserRouter});
-    //     // const history = createMemoryRouter(routes);
     //     const logo = screen.getByRole('link', { title : 'logo-link' })
-
-    //     // history.push = jest.fn();
     //     fireEvent.click(logo);
-    //     // const location = useLocation();
 
     //     expect(logo).toHaveAttribute('href', '/')
 

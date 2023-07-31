@@ -1,6 +1,6 @@
 // react, router, redux
 import React, { useState } from 'react';
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
 // components
@@ -21,7 +21,6 @@ export default function RootLayout() {
         // {id: 6, label: 'help', icon: 'help'}
     ])
     const [ isModalOpen, setIsModalOpen ] = useState(false);
-    const location = useLocation();
     const cart = useSelector((state) => {
         return state.cart
     })
@@ -49,25 +48,7 @@ export default function RootLayout() {
         </section>
         : null;
 
-    const renderBreadCrumbs = 
-        <aside className="breadcrumbs">
-            {location.pathname === '/' ? '' : <Link className="breadcrumbs__link" to='/'>Home</Link>} 
     
-            {
-                results.search.results && results.search.results.length > 0
-                // location.pathname !== '/'
-                && !location.pathname.includes('/results/')
-                //  results && results.results.length > 0
-                 ? <Link className="breadcrumbs__link" to={`/results/${results.search.term}`}>Back to results</Link>
-                 : null
-            }
-
-            {
-                location.pathname.includes('/product/editCartItem') &&
-                    <Link className="breadcrumbs__link" to={`/cart`}>Back to cart</Link>
-            }
-
-        </aside>
 
     return (
         <article className="app">
@@ -75,7 +56,6 @@ export default function RootLayout() {
                 <Header results={results} cart={cart} setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen}/>
                 
                             
-                {renderBreadCrumbs}
                 
                 
             </header>
@@ -83,9 +63,9 @@ export default function RootLayout() {
             <section className="content">
                 <Outlet />
             </section>
-            <footer className="app__footer">
+
                 <Footer />
-            </footer>
+
 
             {renderToasts}
         

@@ -45,6 +45,9 @@
     right: 6rem;
 }
 
+.history__close .material-symbols-outlined:hover {
+    cursor: pointer;
+}
 
 
 .history__list {

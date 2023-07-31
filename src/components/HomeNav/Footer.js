@@ -8,9 +8,11 @@ import Logo from './Logo';
 export default function Footer() {
 
     return (
-        <div className="footer">
-            <Logo /> 
-            @2023 Mike Uffelman
-        </div>
+        <footer className="app__footer">
+            <div className="footer">
+                <Logo /> 
+                @2023 Mike Uffelman
+            </div>
+        </footer>
     )
 }

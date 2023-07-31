@@ -11,19 +11,23 @@ import { searchReducer } from './store/slices/searchSlice'
 import { toastsReducer } from './store/slices/toastsSlice'
 
 
+const setupStore = preloadedState => {
+  return configureStore(
+    { reducer: {
+        cart: cartsReducer,
+        search: searchReducer,
+        reviews: reviewReducer,
+        history: historyReducer,
+        toasts: toastsReducer
+    }, preloadedState })
+}
+
 export function renderWithProviders(
   ui,
   {
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
-    store = configureStore(
-        { reducer: {
-            cart: cartsReducer,
-            search: searchReducer,
-            reviews: reviewReducer,
-            history: historyReducer,
-            toasts: toastsReducer
-        }, preloadedState }),
+    store = setupStore(preloadedState),
     ...renderOptions
   } = {}
 ) {

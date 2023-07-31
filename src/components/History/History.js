@@ -51,7 +51,7 @@ function History({handleSubmit, isModalOpen, setIsModalOpen, history, clearHisto
                 <div className='history__header'>
                     <h3 className='history__heading'>Recent Searches</h3>
                     <div className='history__close'>
-                        <span onClick={() => setIsModalOpen(false)} className="material-symbols-outlined">
+                        <span data-testid='close-modal' onClick={() => setIsModalOpen(false)} className="material-symbols-outlined">
                             close
                         </span>    
                     </div>

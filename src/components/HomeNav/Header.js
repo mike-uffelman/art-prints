@@ -1,6 +1,6 @@
 import History from "../History/History"
 import Logo from "./Logo";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { createPortal } from "react-dom";
 import Search from "../Search/Search";
 
@@ -11,6 +11,9 @@ import Search from "../Search/Search";
 
 
 export default function Header({results, cart, setIsModalOpen, isModalOpen=false}) {
+    const location = useLocation();
+
+
     const renderCartIcon = 
     cart.length > 0 
         ? <Link to='cart'>
@@ -23,31 +26,50 @@ export default function Header({results, cart, setIsModalOpen, isModalOpen=false
         </Link>
         : null;
 
+        const renderBreadCrumbs = 
+        <aside className="breadcrumbs">
+            {location.pathname === '/' ? '' : <Link className="breadcrumbs__link" title='home-breadcrumb' to='/'>Home</Link>} 
+    
+            {
+                results.search.results && results.search.results.length > 0
+                // location.pathname !== '/'
+                && !location.pathname.includes('/results/')
+                //  results && results.results.length > 0
+                 ? <Link className="breadcrumbs__link" to={`/results/${results.search.term}`}>Back to results</Link>
+                 : null
+            }
+
+            {
+                location.pathname.includes('/product/editCartItem') &&
+                    <Link className="breadcrumbs__link" to={`/cart`}>Back to cart</Link>
+            }
+
+        </aside>
+
 
     return (
         <section className='header'>
-                    <Logo />
-                    <div className="header__actions">
-                        <div className='header__history'>
-                            <span onClick={() => setIsModalOpen(!isModalOpen)} className="material-symbols-rounded">
-                                history
-                            </span>
+            <div className='header__box'>
+                <Logo />
+                <div className="header__actions">
+                    <div className='header__history'>
+                        <span onClick={() => setIsModalOpen(!isModalOpen)} className="material-symbols-rounded">
+                            history
+                        </span>
 
-                            {isModalOpen && createPortal(
-                                <History isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} history={results.history} />, 
-                                document.body
-
-                            )}
-                        </div>
-
-                        <Search />
-
-                        {renderCartIcon}
-                        
-                        
+                        {isModalOpen && createPortal(
+                            <History isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} history={results.history} />, 
+                            document.body
+                        )}
                     </div>
-                    
-                    
-                </section>
+                    <Search />
+                    {renderCartIcon}
+
+                </div>
+            </div>
+            
+            {renderBreadCrumbs}
+
+        </section>
     )
 }

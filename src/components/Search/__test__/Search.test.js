@@ -1,13 +1,19 @@
+// testing imports
 import '@testing-library/jest-dom'
 import { screen, fireEvent } from '@testing-library/react';
-import Search from '../Search';
+
+// setup imports
 import { renderWithProviders } from '../../../test-utils';
 import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { routesConfig } from '../../../routesConfig';
 
+// components
+import Search from '../Search';
 
 
-describe('search', () => {
+
+
+describe('search component', () => {
     // const submit = jest.fn()
     // const change = jest.fn()
     // const term = 'dogs'

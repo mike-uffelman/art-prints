@@ -22,7 +22,7 @@ function Cart() {
     })
 
     // calculate product total, base amount, size, quantity factors
-    
+    let testMessage;
 
     const handleEditClick = () => {
         dispatch(addToast({id: uuidv4(), label: 'info', icon: 'info', message: 'Editing cart item'}))
@@ -34,9 +34,10 @@ function Cart() {
     }
 
     const renderCart = cart.map(item => {
+        console.log(cart)
         return (
             <React.Fragment key={item.product.id}>
-                <CartItem item={item} handleEditClick={handleEditClick} handleClick={handleClick} />
+                <CartItem  item={item} handleEditClick={handleEditClick} handleClick={handleClick} />
             </React.Fragment>
         )
     })
@@ -64,6 +65,7 @@ function Cart() {
 
                 : renderEmptyCartMessage
             }
+            <div>{testMessage}</div>
         </div>
     )
 }

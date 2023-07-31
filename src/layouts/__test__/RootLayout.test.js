@@ -1,14 +1,20 @@
+// testing imports
 import { render, screen } from '@testing-library/react';
-import History from '../../components/History/History';
-import RootLayout from '../RootLayout';
-import { renderWithProviders } from '../../test-utils';
 import '@testing-library/jest-dom'
-import Search from '../../components/Search/Search';
 
-
+// setup imports
 import { Provider } from 'react-redux';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import { store } from '../../store/index';
+import { renderWithProviders } from '../../test-utils';
+
+// components
+import History from '../../components/History/History';
+import RootLayout from '../RootLayout';
+import Search from '../../components/Search/Search';
+
+
+
 
 
 describe('RootLayout', () => {
