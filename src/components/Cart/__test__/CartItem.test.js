@@ -11,9 +11,7 @@ import { renderWithProviders } from '../../../test-utils';
 import { routesConfig } from '../../../routesConfig';
 
 // components
-import Cart from '../Cart';
 import CartItem from '../CartItem';
-import CartTotal from '../CartTotal';
 
 describe('cart item(s)', () => {
     const handleClick = jest.fn();
@@ -21,12 +19,12 @@ describe('cart item(s)', () => {
 
     const initialCart = 
         {
-            id: 'asdfasdfasdf',
+            id: '98765',
             product: {
-                id: 'qwertyqwertyqwerty',
-                description: 'this is test product',
+                id: '12345',
+                description: 'product name',
                 base_amt: '10.00',
-                alt_description: 'this is a test product description',
+                alt_description: 'product description',
                 height: 4917,
                 image_urls: {
                     raw: 'asdf',
@@ -60,48 +58,37 @@ describe('cart item(s)', () => {
                 price_multiplier: 1
             }
         }
-    
 
     it('should display a cart items if cart has items', () => {
-        renderWithProviders(<CartItem item={initialCart} handleClick={handleClick} handleEditClick={handleEditClick}/>, {wrapper: BrowserRouter}
-        // , {
-        //     preloadedState: {
-        //         cart: initialCart
-        //     }
-        // }
-        )
+        renderWithProviders(<CartItem item={initialCart} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
 
         // console.log(getByTestId)
 
         const item = screen.getByTestId('cart-item')
         expect(item).toBeInTheDocument()
-        screen.debug()
     })
 
     it('should render the product details', () => {
-        renderWithProviders(
-            <CartItem 
-                item={initialCart} 
-                handleClick={handleClick} 
-                handleEditClick={handleEditClick}
-            />, {
-                wrapper: BrowserRouter
-            }
-        )
+        renderWithProviders(<CartItem item={initialCart} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
+        
         // img
+        const imgBox = screen.getByTestId('img-box');
+        const imgComponent = screen.getByTestId('img-wrapper')
+        expect(imgBox).toContainElement(imgComponent)
 
         // title
-        const titleHeading = screen.getByRole('heading', { title: 'this is a test product description' })
+        const titleHeading = screen.getByRole('heading', {level: 3})
+
         expect(titleHeading).toBeInTheDocument()
 
         // size
         const productSize = screen.getByText(/Size: 9" x 12"/i);
         expect(productSize).toBeInTheDocument()
 
-        // product link
+        // product link img and header
         const productLink = screen.getAllByRole('link', { name: 'product-link'})
         productLink.forEach(link => {
-            expect(link).toHaveAttribute('href', '/product/qwertyqwertyqwerty')
+            expect(link).toHaveAttribute('href', '/product/12345')
         })
 
         // quantity
@@ -113,14 +100,43 @@ describe('cart item(s)', () => {
         expect(productPrice).toBeInTheDocument()
 
         // edit and delete buttons
-        const editBtn = screen.getByRole('button', {title: 'Edit'});
+        const editBtn = screen.getByRole('link', {name: 'Edit'});
         expect(editBtn).toBeInTheDocument()
+        // console.log('editbtn++++++++++++++++++++', editBtn)
+        expect(editBtn).toHaveAttribute('href', '/product/editCartItem/98765')
 
         const deleteBtn = screen.getByRole('button', {title: 'Delete'});
         expect(deleteBtn).toBeInTheDocument()
     })
 
-    // img and title click directs to produt page
+    // img and title click directs to product page
+    it('should direct to the product page on img and title click', () => {
+        renderWithProviders(<CartItem item={initialCart} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
+
+        const productLink = screen.getAllByRole('link', { name: 'product-link'})
+        productLink.forEach(link => {
+            fireEvent.click(link)
+
+            const location = window.location.pathname;
+            expect(location).toBe('/product/12345')
+        })
+    })
     // edit btn directs to edit page
+    it('should reddirect user to edit page when "Edit" button is clicked', () => {
+        renderWithProviders(<CartItem item={initialCart} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
+
+        const editBtn = screen.getByRole('link', {name: 'Edit'});
+
+        fireEvent.click(editBtn)
+        const location = window.location.pathname;
+        expect(location).toBe('/product/editCartItem/98765')
+    })
     // delete btn initiates store update
+    it('should initiate a store update to delete cart item', () => {
+        renderWithProviders(<CartItem item={initialCart} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
+
+        const deleteBtn = screen.getByRole('button', { title: 'Delete'})
+        fireEvent.click(deleteBtn);
+        expect(handleClick).toHaveBeenCalled();
+    })
 })

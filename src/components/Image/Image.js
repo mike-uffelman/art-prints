@@ -43,7 +43,7 @@ export default function Image({product, handleImgClick, className}) {
     const hovered = isHovered ? 'hovered' : '';
 
     return (
-        <div className={`img ${classes} ${hovered}`} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+        <div data-testid='img-wrapper' className={`img ${classes} ${hovered}`} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
             {/* <div className={`img__container ${classes} ${hovered}`}  > */}
             {/* {isHovered 
                 ?   
