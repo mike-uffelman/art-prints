@@ -15,7 +15,7 @@ export default function CartItem({item, handleClick, handleEditClick}) {
     return (
         <div key={Math.random()} className='cart__item' data-testid='cart-item'>
             <div className='item__img'>
-                <Link to={`/product/${item.product.id}`} className=''>
+                <Link aria-label='product-link' to={`/product/${item.product.id}`} className=''>
                     <Image product={item.product} className={`cart`} />
                 </Link>
 
@@ -23,7 +23,11 @@ export default function CartItem({item, handleClick, handleEditClick}) {
             
 
             <div className='item__detail'>
-                <h3 className='item__title'><Link to={`/product/${item.product.id}`}>{shortenDescription(item.product.alt_description)}</Link></h3>
+                <h3 className='item__title'>
+                    <Link aria-label='product-link' to={`/product/${item.product.id}`}>
+                        {shortenDescription(item.product.alt_description)}
+                    </Link>
+                </h3>
                 {/* <p className=''>image type i.e. poster, painting, etc</p> */}
                 <div className='item__details'>
                     <div className='item__specs'>

@@ -89,11 +89,38 @@ describe('cart item(s)', () => {
             }
         )
         // img
-        // const img = 
+
         // title
+        const titleHeading = screen.getByRole('heading', { title: 'this is a test product description' })
+        expect(titleHeading).toBeInTheDocument()
+
         // size
+        const productSize = screen.getByText(/Size: 9" x 12"/i);
+        expect(productSize).toBeInTheDocument()
+
+        // product link
+        const productLink = screen.getAllByRole('link', { name: 'product-link'})
+        productLink.forEach(link => {
+            expect(link).toHaveAttribute('href', '/product/qwertyqwertyqwerty')
+        })
+
         // quantity
+        const productQuantity = screen.getByText(/Quantity: 1/i)
+        expect(productQuantity).toBeInTheDocument()
+
         // price
+        const productPrice = screen.getByText(/\$10.00/i)
+        expect(productPrice).toBeInTheDocument()
+
         // edit and delete buttons
+        const editBtn = screen.getByRole('button', {title: 'Edit'});
+        expect(editBtn).toBeInTheDocument()
+
+        const deleteBtn = screen.getByRole('button', {title: 'Delete'});
+        expect(deleteBtn).toBeInTheDocument()
     })
+
+    // img and title click directs to produt page
+    // edit btn directs to edit page
+    // delete btn initiates store update
 })
