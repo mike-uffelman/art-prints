@@ -22,7 +22,6 @@ function Cart() {
     })
 
     // calculate product total, base amount, size, quantity factors
-    let testMessage;
 
     const handleEditClick = () => {
         dispatch(addToast({id: uuidv4(), label: 'info', icon: 'info', message: 'Editing cart item'}))
@@ -65,7 +64,6 @@ function Cart() {
 
                 : renderEmptyCartMessage
             }
-            <div>{testMessage}</div>
         </div>
     )
 }

@@ -10,6 +10,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { store } from '../../../store/index';
 import { renderWithProviders } from '../../../test-utils';
 import { routesConfig } from '../../../routesConfig';
+import { initialCart } from './mockCartData';
 
 // components
 import Cart from '../Cart';
@@ -18,88 +19,14 @@ import CartTotal from '../CartTotal';
 
 
 describe('cart component', () => {
-    const initialCart = 
-        [{
-            id: 'cartID1',
-            product: {
-                id: 'productID1',
-                description: 'this is test product',
-                base_amt: '10.00',
-                alt_description: 'this is a test product description',
-                height: 4917,
-                image_urls: {
-                    raw: 'asdf',
-                    full: 'asdf',
-                    regular: 'asdf',
-                    thumb: 'asdf',
-                    small_s3: 'asdf',
-                    small: 'asdf'
-                },
-                likes: '30',
-                orientation: 'portrait',
-                owner: {},
-                quantity_available: 10,
-                review_count: 900,
-                tags: [
-                    {
-                        type: 'search',
-                        title: 'tag1'
-                    },
-                    {
-                        type: 'search',
-                        title: 'tag2'
-                    }
-                ],
-                width: 3934
-            },
-            quantity: 1,
-            size: {
-                width: 9,
-                height: 12,
-                price_multiplier: 1
-            }
-        },
-        {
-            id: 'cartID2',
-            product: {
-                id: 'productID2',
-                description: 'this is test product',
-                base_amt: '30.50',
-                alt_description: 'this is a test product description',
-                height: 4917,
-                image_urls: {
-                    raw: 'asdf',
-                    full: 'asdf',
-                    regular: 'asdf',
-                    thumb: 'asdf',
-                    small_s3: 'asdf',
-                    small: 'asdf'
-                },
-                likes: '30',
-                orientation: 'portrait',
-                owner: {},
-                quantity_available: 11,
-                review_count: 900,
-                tags: [
-                    {
-                        type: 'search',
-                        title: 'tag1'
-                    },
-                    {
-                        type: 'search',
-                        title: 'tag2'
-                    }
-                ],
-                width: 3934
-            },
-            quantity: 1,
-            size: {
-                width: 9,
-                height: 12,
-                price_multiplier: 1
-            }
-        }
-    ]
+    
+
+    // jest.mock('../CartItem', () => {
+    //     return {
+    //         _esModule: true,
+    //         default: jest.fn(() => <div>mocked</div>)
+    //     }
+    // })
 
     const router = createMemoryRouter(routesConfig, {
         initialEntries: ['/cart']
@@ -109,12 +36,19 @@ describe('cart component', () => {
                     <Cart />
                 </Provider>;
 
-    jest.mock('react-redux', () => ({
-        ...jest.requireActual('react-redux'), useSelector: mockItem
-    }))
+    // jest.mock('react-redux', () => ({
+    //     ...jest.requireActual('react-redux'), useSelector: mockItem
+    // }))
 
     it('should render', () => {
-        renderWithProviders(<Cart />)
+        renderWithProviders(
+            <RouterProvider router={router} >
+                <Cart />
+            </RouterProvider>, {
+                preloadedState: {
+                    cart: []
+                }
+            })
         const total = screen.getByText(/Subtotal/i)
         const checkoutBtn = screen.getByRole('button', {name: 'Checkout'})
         // console.log(checkoutBtn)

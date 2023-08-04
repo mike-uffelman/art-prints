@@ -9,58 +9,19 @@ import {BrowserRouter} from 'react-router-dom';
 import { store } from '../../../store/index';
 import { renderWithProviders } from '../../../test-utils';
 import { routesConfig } from '../../../routesConfig';
+import { initialCart } from './mockCartData'
 
 // components
 import CartItem from '../CartItem';
 
-describe('cart item(s)', () => {
+describe('test cart item(s)', () => {
     const handleClick = jest.fn();
     const handleEditClick = jest.fn();
 
-    const initialCart = 
-        {
-            id: '98765',
-            product: {
-                id: '12345',
-                description: 'product name',
-                base_amt: '10.00',
-                alt_description: 'product description',
-                height: 4917,
-                image_urls: {
-                    raw: 'asdf',
-                    full: 'asdf',
-                    regular: 'asdf',
-                    thumb: 'asdf',
-                    small_s3: 'asdf',
-                    small: 'asdf'
-                },
-                likes: '30',
-                orientation: 'portrait',
-                owner: {},
-                quantity_available: 10,
-                review_count: 900,
-                tags: [
-                    {
-                        type: 'search',
-                        title: 'tag1'
-                    },
-                    {
-                        type: 'search',
-                        title: 'tag2'
-                    }
-                ],
-                width: 3934
-            },
-            quantity: 1,
-            size: {
-                width: 9,
-                height: 12,
-                price_multiplier: 1
-            }
-        }
+    
 
-    it('should display a cart items if cart has items', () => {
-        renderWithProviders(<CartItem item={initialCart} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
+    it('should display cart items if cart has items', () => {
+        renderWithProviders(<CartItem item={initialCart[0]} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
 
         // console.log(getByTestId)
 
@@ -69,7 +30,7 @@ describe('cart item(s)', () => {
     })
 
     it('should render the product details', () => {
-        renderWithProviders(<CartItem item={initialCart} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
+        renderWithProviders(<CartItem item={initialCart[0]} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
         
         // img
         const imgBox = screen.getByTestId('img-box');
@@ -78,7 +39,6 @@ describe('cart item(s)', () => {
 
         // title
         const titleHeading = screen.getByRole('heading', {level: 3})
-
         expect(titleHeading).toBeInTheDocument()
 
         // size
@@ -88,7 +48,7 @@ describe('cart item(s)', () => {
         // product link img and header
         const productLink = screen.getAllByRole('link', { name: 'product-link'})
         productLink.forEach(link => {
-            expect(link).toHaveAttribute('href', '/product/12345')
+            expect(link).toHaveAttribute('href', '/product/1a')
         })
 
         // quantity
@@ -102,8 +62,7 @@ describe('cart item(s)', () => {
         // edit and delete buttons
         const editBtn = screen.getByRole('link', {name: 'Edit'});
         expect(editBtn).toBeInTheDocument()
-        // console.log('editbtn++++++++++++++++++++', editBtn)
-        expect(editBtn).toHaveAttribute('href', '/product/editCartItem/98765')
+        expect(editBtn).toHaveAttribute('href', '/product/editCartItem/1')
 
         const deleteBtn = screen.getByRole('button', {title: 'Delete'});
         expect(deleteBtn).toBeInTheDocument()
@@ -111,29 +70,29 @@ describe('cart item(s)', () => {
 
     // img and title click directs to product page
     it('should direct to the product page on img and title click', () => {
-        renderWithProviders(<CartItem item={initialCart} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
+        renderWithProviders(<CartItem item={initialCart[0]} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
 
         const productLink = screen.getAllByRole('link', { name: 'product-link'})
         productLink.forEach(link => {
             fireEvent.click(link)
 
             const location = window.location.pathname;
-            expect(location).toBe('/product/12345')
+            expect(location).toBe('/product/1a')
         })
     })
     // edit btn directs to edit page
     it('should reddirect user to edit page when "Edit" button is clicked', () => {
-        renderWithProviders(<CartItem item={initialCart} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
+        renderWithProviders(<CartItem item={initialCart[0]} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
 
         const editBtn = screen.getByRole('link', {name: 'Edit'});
 
         fireEvent.click(editBtn)
         const location = window.location.pathname;
-        expect(location).toBe('/product/editCartItem/98765')
+        expect(location).toBe('/product/editCartItem/1')
     })
     // delete btn initiates store update
     it('should initiate a store update to delete cart item', () => {
-        renderWithProviders(<CartItem item={initialCart} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
+        renderWithProviders(<CartItem item={initialCart[0]} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
 
         const deleteBtn = screen.getByRole('button', { title: 'Delete'})
         fireEvent.click(deleteBtn);
