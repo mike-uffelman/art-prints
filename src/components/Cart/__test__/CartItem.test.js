@@ -1,14 +1,10 @@
-import { render,screen, fireEvent } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import '@testing-library/user-event';
 
 // setup imports
-import { createMemoryRouter } from 'react-router-dom'
-import { Provider, useSelector } from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
-import { store } from '../../../store/index';
 import { renderWithProviders } from '../../../test-utils';
-import { routesConfig } from '../../../routesConfig';
 import { initialCart } from './mockCartData'
 
 // components
@@ -18,14 +14,14 @@ describe('test cart item(s)', () => {
     const handleClick = jest.fn();
     const handleEditClick = jest.fn();
 
-    
+
 
     it('should display cart items if cart has items', () => {
         renderWithProviders(<CartItem item={initialCart[0]} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
 
         // console.log(getByTestId)
 
-        const item = screen.getByTestId('cart-item')
+        const item = screen.queryByTestId('cart-item')
         expect(item).toBeInTheDocument()
     })
 
@@ -80,6 +76,7 @@ describe('test cart item(s)', () => {
             expect(location).toBe('/product/1a')
         })
     })
+
     // edit btn directs to edit page
     it('should reddirect user to edit page when "Edit" button is clicked', () => {
         renderWithProviders(<CartItem item={initialCart[0]} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
@@ -90,6 +87,7 @@ describe('test cart item(s)', () => {
         const location = window.location.pathname;
         expect(location).toBe('/product/editCartItem/1')
     })
+
     // delete btn initiates store update
     it('should initiate a store update to delete cart item', () => {
         renderWithProviders(<CartItem item={initialCart[0]} handleClick={handleClick} handleEditClick={handleEditClick} />, { wrapper: BrowserRouter })
