@@ -16,9 +16,6 @@ import History from '../History';
 
 
 describe('History', () => {
-    const router = createMemoryRouter(routesConfig, {
-        initialEntries: ['/']
-    })
     const mockModalOpen = jest.fn()
     const historyArray = [
         "cats",
@@ -33,7 +30,7 @@ describe('History', () => {
 
     it('should render all the history links', () => {
         
-        renderWithProviders(View, { wrapper: BrowserRouter })
+        renderWithProviders(View, {preloadedState: { history: historyArray}, wrapper: BrowserRouter })
 
         const list = screen.getAllByRole('link')
         expect(list.length < 1).not.toBe(true)
@@ -42,7 +39,8 @@ describe('History', () => {
    
     
     it('should navigate to clicked element href', () => {
-        renderWithProviders(View, { wrapper: BrowserRouter })
+        // renderWithProviders(View, { wrapper: BrowserRouter })
+        renderWithProviders(View, {preloadedState: { history: historyArray}, wrapper: BrowserRouter })
 
         const listItem = screen.getByRole('link', {name: 'nature'})
         fireEvent.click(listItem)
@@ -53,13 +51,17 @@ describe('History', () => {
     })
 
     it('should close when clicked away from the modal', () => {
-        renderWithProviders(View, { wrapper: BrowserRouter });
+        // renderWithProviders(View, { wrapper: BrowserRouter });
+        renderWithProviders(View, {preloadedState: { history: historyArray}, wrapper: BrowserRouter })
+
         const doc = screen.getByTestId('history')
         fireEvent.click(doc);
         expect(mockModalOpen).toHaveBeenCalledTimes(1)
     })
     it('should close when "x" is clicked', () => {
-        renderWithProviders(View, { wrapper: BrowserRouter })
+        // renderWithProviders(View, { wrapper: BrowserRouter })
+        renderWithProviders(View, {preloadedState: { history: historyArray}, wrapper: BrowserRouter })
+
         fireEvent.click(screen.getByTestId('close-modal'))
 
         // mockModalOpen is the setter to open/close modal, check for if called instead of modal existence in document (which would fail due to removal of modal after click)
@@ -68,12 +70,14 @@ describe('History', () => {
 
     // clear history
     // it('should clear history and return initial list', () => {
-    //     renderWithProviders(View, { wrapper: BrowserRouter })
+    // //     renderWithProviders(View, { wrapper: BrowserRouter })
+    //     renderWithProviders(View, {preloadedState: { history: historyArray}, wrapper: BrowserRouter })
     //     const clear = screen.getByRole('button', {title: 'Clear History'});
 
     //     fireEvent.click(clear)
+    //     dis
 
-
+    //     screen.debug()
     // })
 
     // add term to history

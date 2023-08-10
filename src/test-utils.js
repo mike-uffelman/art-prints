@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 // As a basic setup, import your same slice reducers
-import { store as storeReducers } from './store'
+// import { store as storeReducers } from './store'
 import { historyReducer } from './store/slices/historySlice'
 import { cartsReducer } from './store/slices/cartsSlice'
 import { reviewReducer } from './store/slices/reviewsSlice'
@@ -12,14 +12,15 @@ import { toastsReducer } from './store/slices/toastsSlice'
 
 
 const setupStore = preloadedState => {
-  return configureStore(
-    { reducer: {
+  return configureStore({ 
+    reducer: {
         cart: cartsReducer,
         search: searchReducer,
         reviews: reviewReducer,
         history: historyReducer,
         toasts: toastsReducer
-    }, preloadedState })
+    }, preloadedState
+   })
 }
 
 export function renderWithProviders(

@@ -30,14 +30,14 @@ describe('Home and footer page', () => {
         "sunsets"
       ]
 
-    it.skip('should render  footer', () => {
+    it('should render  footer', () => {
         render(<Footer />, {wrapper: BrowserRouter});
         const footer = screen.getByRole('contentinfo')
         expect(footer).toBeInTheDocument()
         // const footer = screen.get
     })
 
-    it.skip('should render the header', () => {
+    it('should render the header', () => {
         const mockModalOpenFunc = jest.fn()
         renderWithProviders(
             <RouterProvider router={router}>
@@ -52,7 +52,7 @@ describe('Home and footer page', () => {
         expect(header).toBeInTheDocument()
     })
 
-    it.only('should show "Home" in the breadcrumbs when navigated away from "/"', () => {
+    it('should show "Home" in the breadcrumbs when navigated away from "/"', () => {
         const router = createMemoryRouter(routesConfig, {
             initialEntries: ['/results/dogs']
         })
@@ -68,14 +68,13 @@ describe('Home and footer page', () => {
         // const nav = screen.getByRole('complementary')
         // console.log('get the breadcrumbs: ', nav)
         const homeCrumb = screen.getByRole('link', { name: 'Home'})
-        console.log(homeCrumb)
         // expect(nav)
         expect(homeCrumb).toBeInTheDocument()
     })
 
     it.skip('should show "Back to results" in the breadcrumbs when navigated to a product page', () => {
         const router = createMemoryRouter(routesConfig, {
-            initialEntries: ['/product/*']
+            initialEntries: ['/product/asdf']
         })
         const mockModalOpenFunc = jest.fn()
         renderWithProviders(
@@ -87,9 +86,7 @@ describe('Home and footer page', () => {
         )       
 
         // const nav = screen.getByRole('complementary')
-        // console.log('get the breadcrumbs: ', nav)
         const resultsCrumb = screen.getByRole('link', { name: 'Back to results'})
-        console.log(resultsCrumb)
         // expect(nav)
         expect(resultsCrumb).toBeInTheDocument()
     })

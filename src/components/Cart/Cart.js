@@ -33,7 +33,6 @@ function Cart() {
     }
 
     const renderCart = cart.map(item => {
-        console.log(cart)
         return (
             <React.Fragment key={item.product.id}>
                 <CartItem  item={item} handleEditClick={handleEditClick} handleClick={handleClick} />

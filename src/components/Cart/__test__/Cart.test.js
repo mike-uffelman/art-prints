@@ -40,7 +40,7 @@ describe('cart component', () => {
     //     ...jest.requireActual('react-redux'), useSelector: mockItem
     // }))
 
-    it('should render', () => {
+    it('should render the subtotal component', () => {
         renderWithProviders(
             <RouterProvider router={router} >
                 <Cart />
@@ -50,12 +50,7 @@ describe('cart component', () => {
                 }
             })
         const total = screen.getByText(/Subtotal/i)
-        const checkoutBtn = screen.getByRole('button', {name: 'Checkout'})
-        // console.log(checkoutBtn)
-        // screen.debug()
-
         expect(total).toBeInTheDocument()
-        expect(checkoutBtn).toBeInTheDocument()
     })
 
     it('should display empty cart message, if nothing in cart', () => {

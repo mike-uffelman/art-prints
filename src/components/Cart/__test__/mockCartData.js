@@ -17,7 +17,12 @@ export const initialCart = [
             },
             likes: '30',
             orientation: 'portrait',
-            owner: {},
+            owner: {
+                name: 'Owners Name',
+                links: {
+                    html: '"https://unsplash.com/ownersname'
+                }
+            },
             quantity_available: 10,
             review_count: 900,
             tags: [

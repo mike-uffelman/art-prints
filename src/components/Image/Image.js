@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 export default function Image({product, handleImgClick, className}) {
     const imgRef = useRef();
     const [ isHovered, setIsHovered ] = useState(null)
-    console.log(className)
+    
     const classes = classNames(className)
 
     const handleMouseOver = () => {
@@ -43,7 +43,7 @@ export default function Image({product, handleImgClick, className}) {
     const hovered = isHovered ? 'hovered' : '';
 
     return (
-        <div data-testid='img-wrapper' className={`img ${classes} ${hovered}`} >
+        <div data-testid='img-wrapper' className={`img ${classes} ${hovered}`} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
             {/* <div className={`img__container ${classes} ${hovered}`}  > */}
             {/* {isHovered 
                 ?   

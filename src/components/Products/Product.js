@@ -30,6 +30,7 @@ function Product({type, product, className}) {
     const [ activeProduct, setActiveProduct ] = useState({}) // 
     const dispatch = useDispatch();
     
+
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'instant'})
 
@@ -121,7 +122,7 @@ function Product({type, product, className}) {
                                 {activeProduct.owner ? 
                                 <label className='product__owner'>
                                     Photo by&nbsp; 
-                                        <a href={`${activeProduct.owner.links.html} utm_source=image-print-react-practice&utm_medium=referral`} target='_blank' rel="noreferrer" className='product__owner--links'>
+                                        <a href={`${activeProduct.owner.links.html}/utm_source=image-print-react-practice&utm_medium=referral`} target='_blank' rel="noreferrer" className='product__owner--links'>
                                             {activeProduct.owner.name}
                                         </a>
                                         &nbsp;on&nbsp;  
@@ -174,5 +175,5 @@ export default Product;
 Product.propTypes = {
     type: PropTypes.string.isRequired,
     product: PropTypes.object.isRequired,
-    className: PropTypes.string.isRequired
+    className: PropTypes.string
 }
