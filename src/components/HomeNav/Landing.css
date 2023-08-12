@@ -1,8 +1,23 @@
+
 .hero {
+    position: relative;
     height: 40rem;
 }
 
-.hero__img {
+canvas {
+    border: 1px solid red;
     height: 100%;
-    background-image: linear-gradient(45deg, rgba(0, 255, 100, .5), rgba(0, 200, 255, .5));
+    width: 100%;
 }
+
+/* .hero__img { */
+    /* height: 100%; */
+    /* background-image: linear-gradient(45deg, rgba(0, 255, 100, .5), rgba(0, 200, 255, .5)); */
+/* } */
+
+.collage {
+    position: absolute;
+    max-width: 20rem;
+
+}
+

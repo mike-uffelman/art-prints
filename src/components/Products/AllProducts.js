@@ -15,6 +15,7 @@ import { shortenDescription } from '../../utility/helpers';
 
 function Products({className, results}) {
     const productsClassNames = classNames(className)
+    console.log(results)
     
     const renderProducts = results && results.flat().map(photo => {
 
