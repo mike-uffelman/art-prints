@@ -27,14 +27,34 @@ export function hero() {
         })
     // }, false)
     
-
+    
     imgs.map((img, index) => {
-        const startX = Math.floor(Math.random() * canvas.width);
-        const startY = Math.floor(Math.random() * canvas.height)
-        // ctx.beginPath();
-        // ctx.moveTo(0, 0)
-        // ctx.lineTo(100, 100)
-        ctx.drawImage(img, startX, startY)
+        img.addEventListener('load', () => {
+            const startX = Math.floor(Math.random() * canvas.width);
+            const startY = Math.floor(Math.random() * canvas.height)
+            // ctx.beginPath();
+            // ctx.moveTo(0, 0)
+            // ctx.lineTo(100, 100)
+            ctx.lineWidth = 10
+            ctx.strokeStyle = 'white'
+            // ctx.fill()
+
+
+            ctx.moveTo(startX - 10, startY - 10  );
+            ctx.lineTo(startX + (img.width * .5) + 10, startY - 10  )
+            ctx.lineTo(startX - 10  + img.width * .5, startY - 10  + img.height * .5)
+            ctx.lineTo(startX - 10, startY - 10  + img.height * .5)
+
+            // ctx.setTransform(1, 1, .5, 1, 0, 1)
+            ctx.closePath()
+            ctx.stroke()
+            ctx.drawImage(img, startX, startY, img.width * .5, img.height * .5 )
+
+
+        }, false)
+        
+        // ctx.transfrom(1, 0)
+        // ctx.fill()
 
 
     })

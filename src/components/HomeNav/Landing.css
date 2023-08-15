@@ -1,11 +1,14 @@
 
 .hero {
     position: relative;
-    height: 40rem;
+    height: 100%;
+    overflow: hidden;
+    background-image: linear-gradient(45deg, rgba(170, 0, 255, .5), rgba(0, 72, 255, .5));
 }
 
 canvas {
-    border: 1px solid red;
+
+    /* border: 1px solid red; */
     height: 100%;
     width: 100%;
 }
@@ -16,8 +19,21 @@ canvas {
 /* } */
 
 .collage {
-    position: absolute;
-    max-width: 20rem;
+    /* position: absolute; */
+    /* max-width: 20rem; */
+    /* transform: rotateY(12deg); */
 
+}
+
+
+
+.collage-1 {
+    /* transform: rotateX(12deg); */
+}
+
+.collage__item {
+    position: absolute;
+    top: 0;;
+    /* border: 1px solid magenta; */
 }
 

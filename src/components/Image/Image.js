@@ -34,7 +34,7 @@ export default function Image({product, handleImgClick, className}) {
             case 'modal':
                 return product.image_urls.regular;
             case 'results':
-                return product.image_urls.thumb
+                return product.image_urls.thumb;
             default:
                 return product.image_urls.regular;
         }
