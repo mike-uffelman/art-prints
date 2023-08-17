@@ -7,10 +7,14 @@
 }
 
 canvas {
-
-    /* border: 1px solid red; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    border: 1px solid red;
     height: 100%;
     width: 100%;
+    background-color: white;
 }
 
 /* .hero__img { */
