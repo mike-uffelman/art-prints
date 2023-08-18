@@ -168,7 +168,7 @@ body {
 
 .content {
     flex: 1;
-    /* position: relative; */
+    position: relative;
     z-index: 0;
     /* height: 100%; */
 

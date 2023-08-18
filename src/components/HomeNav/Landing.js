@@ -21,12 +21,24 @@ export default function Landing() {
     // }, [])
 
     useEffect(() => {
-        const heroVar = hero()
+        const heroCoords = hero()
+        console.log(heroCoords)
         // setWidth(heroRef.current.clientWidth)
-        elRef.current.map(el => {
-            el.current.style.transform = `translate(${Math.random() * heroRef.current.clientWidth}px, ${Math.random() * heroRef.current.clientHeight}px) rotate(${Math.floor(Math.random()* 40)}deg) scale(.75)`
+        elRef.current.map((el, index) => {
+            const polarity = Math.random() > .5 ? 1 : -1;
+            const angle = Math.floor(Math.random() * 40) 
 
-            // console.log(el)
+            el.current.style.left = `${heroCoords[index][0]}px`
+            el.current.style.top = `${heroCoords[index][1]}px`
+
+            el.current.style.transform = `rotate(${angle * polarity}deg) scale(.75)`
+
+            // el.current.style.transform = `rotate(-40deg)`
+
+            // el.current.style.transform = 
+            //     `translate(${heroCoords[index][0]}px, ${heroCoords[index][1]}px) rotate(${Math.floor(Math.random()* 40)}deg) scale(.75)`
+
+            // console.log(index, `translate(${heroCoords[index][0]}px, ${heroCoords[index][1]}px) rotate(${Math.floor(Math.random()* 40)}deg)`)
         })
     })
 
@@ -36,8 +48,9 @@ export default function Landing() {
 
     return (
         <div className='hero' ref={heroRef}>
-            This is the landing page!
+            {/* This is the landing page! */}
             <canvas id='hero'></canvas>
+            <div className='hero__detail'>Welcome to Art Prints!</div>
             {collage.flat().map((item, index) => {
         
                 // elRef.current[index].style.transform = `translate(${Math.random() * 400}px, ${Math.random() * 400}px)`
