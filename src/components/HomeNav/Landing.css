@@ -15,10 +15,26 @@
 .hero__detail {
     position: absolute;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     z-index: 999999;
-    background-color: var(--main-white);
-    font-size: 3rem;
+    background-color: #f6f6f6;
+    font-size: 2rem;
     padding: 2rem;
+ 
+    text-align: center;
+    font-family: 'Barlow-Regular';
+}
+
+.hero__subtext {
+    font-family: 'Barlow-Light';
+}
+
+.hero__img {
+    position: absolute;
+    /* width: 100%; */
+    height: 120%;
+    object-fit: contain;
     
 }
 
@@ -61,3 +77,8 @@ canvas {
     /* border: 1px solid magenta; */
 }
 
+@media screen and (min-width: 40em) {
+    .hero__detail {
+        font-size: 3rem;
+    }
+}

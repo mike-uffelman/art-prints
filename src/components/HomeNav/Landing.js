@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import testData2 from '../../data/testData2.json';
 import Image from '../Image/Image';
 import { hero } from '../../data/heroCanvas';
+import heroImg from '../../hero-large.png';
 
 
 
@@ -20,27 +21,27 @@ export default function Landing() {
     //     })
     // }, [])
 
-    useEffect(() => {
-        const heroCoords = hero()
-        console.log(heroCoords)
-        // setWidth(heroRef.current.clientWidth)
-        elRef.current.map((el, index) => {
-            const polarity = Math.random() > .5 ? 1 : -1;
-            const angle = Math.floor(Math.random() * 40) 
+    // useEffect(() => {
+    //     const heroCoords = hero()
+    //     console.log(heroCoords)
+    //     // setWidth(heroRef.current.clientWidth)
+    //     elRef.current.map((el, index) => {
+    //         const polarity = Math.random() > .5 ? 1 : -1;
+    //         const angle = Math.floor(Math.random() * 40) 
 
-            el.current.style.left = `${heroCoords[index][0]}px`
-            el.current.style.top = `${heroCoords[index][1]}px`
+    //         el.current.style.left = `${heroCoords[index][0]}px`
+    //         el.current.style.top = `${heroCoords[index][1]}px`
 
-            el.current.style.transform = `rotate(${angle * polarity}deg) scale(.75)`
+    //         el.current.style.transform = `rotate(${angle * polarity}deg) scale(.75)`
 
-            // el.current.style.transform = `rotate(-40deg)`
+    //         // el.current.style.transform = `rotate(-40deg)`
 
-            // el.current.style.transform = 
-            //     `translate(${heroCoords[index][0]}px, ${heroCoords[index][1]}px) rotate(${Math.floor(Math.random()* 40)}deg) scale(.75)`
+    //         // el.current.style.transform = 
+    //         //     `translate(${heroCoords[index][0]}px, ${heroCoords[index][1]}px) rotate(${Math.floor(Math.random()* 40)}deg) scale(.75)`
 
-            // console.log(index, `translate(${heroCoords[index][0]}px, ${heroCoords[index][1]}px) rotate(${Math.floor(Math.random()* 40)}deg)`)
-        })
-    })
+    //         // console.log(index, `translate(${heroCoords[index][0]}px, ${heroCoords[index][1]}px) rotate(${Math.floor(Math.random()* 40)}deg)`)
+    //     })
+    // })
 
 
     
@@ -50,8 +51,14 @@ export default function Landing() {
         <div className='hero' ref={heroRef}>
             {/* This is the landing page! */}
             <canvas id='hero'></canvas>
-            <div className='hero__detail'>Welcome to Art Prints!</div>
-            {collage.flat().map((item, index) => {
+            <div className='hero__detail'>
+                <h1 className='hero__header'>
+                    Welcome to Art Prints!
+                </h1>
+                <p className='hero__subtext'>Duis aute irure dolor in reprehenderit in voluptate.</p>
+            </div>
+            <img className='hero__img' src={heroImg} alt='hero'/>
+            {/* {collage.flat().map((item, index) => {
         
                 // elRef.current[index].style.transform = `translate(${Math.random() * 400}px, ${Math.random() * 400}px)`
 
@@ -65,8 +72,9 @@ export default function Landing() {
                         
                     </div>
 
+
                 )
-            })}
+            })} */}
             {/* <div className='hero__img'>
                 <h1>Find your art today</h1>
                 <p></p>
