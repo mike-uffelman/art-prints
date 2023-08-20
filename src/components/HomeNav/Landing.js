@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import testData2 from '../../data/testData2.json';
 import Image from '../Image/Image';
 import { hero } from '../../data/heroCanvas';
-import heroImg from '../../hero-large.png';
+import heroImg from '../../hero-large2.png';
 
 
 
@@ -21,6 +21,7 @@ export default function Landing() {
     //     })
     // }, [])
 
+    //? to implement collage positioning -------------------
     // useEffect(() => {
     //     const heroCoords = hero()
     //     console.log(heroCoords)
@@ -32,16 +33,11 @@ export default function Landing() {
     //         el.current.style.left = `${heroCoords[index][0]}px`
     //         el.current.style.top = `${heroCoords[index][1]}px`
 
-    //         el.current.style.transform = `rotate(${angle * polarity}deg) scale(.75)`
+    //         el.current.style.transform = `rotate(${angle * polarity}deg) scale(${Math.random() * .5 + .25})`
 
-    //         // el.current.style.transform = `rotate(-40deg)`
-
-    //         // el.current.style.transform = 
-    //         //     `translate(${heroCoords[index][0]}px, ${heroCoords[index][1]}px) rotate(${Math.floor(Math.random()* 40)}deg) scale(.75)`
-
-    //         // console.log(index, `translate(${heroCoords[index][0]}px, ${heroCoords[index][1]}px) rotate(${Math.floor(Math.random()* 40)}deg)`)
     //     })
-    // })
+    // }, [])
+    //? ------------------------------------------------------
 
 
     
@@ -58,6 +54,8 @@ export default function Landing() {
                 <p className='hero__subtext'>Duis aute irure dolor in reprehenderit in voluptate.</p>
             </div>
             <img className='hero__img' src={heroImg} alt='hero'/>
+            
+            {/* collage positioning ---------------------------- */}
             {/* {collage.flat().map((item, index) => {
         
                 // elRef.current[index].style.transform = `translate(${Math.random() * 400}px, ${Math.random() * 400}px)`
@@ -75,13 +73,8 @@ export default function Landing() {
 
                 )
             })} */}
-            {/* <div className='hero__img'>
-                <h1>Find your art today</h1>
-                <p></p>
-                <button className='hero__btn'>Browse</button>
-                <button className='hero__btn'></button>
-                
-            </div> */}
+            {/* ---------------------------------------------------- */}
+            
             
         </div>
     )

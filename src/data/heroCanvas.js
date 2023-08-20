@@ -13,7 +13,7 @@ export function hero() {
     // let samples = [[ 281, 182 ], [ 74, 25 ], [ 285, 70 ], [ 571, 148 ], [ 13, 251 ]]
     let samples = [];
     let coords = [
-        [-25, -25], [canvas.width * .5, -25], [canvas.width * .25, -25], [canvas.width * .75, -25], [canvas.width + 25, -25], [canvas.width + 25, canvas.height + 25], [canvas.width + 25, canvas.height * .25], [canvas.width + 25, canvas.height * .75], [canvas.width + 25, canvas.height * .5], [canvas.width * .5, canvas.height + 25], [canvas.width * .25, canvas.height + 25], [canvas.width * .75, canvas.height + 25], [-25, canvas.height +25], [-25, canvas.height * .5], [-25, canvas.height * .25], [-25, canvas.height * .75]
+        [-100, -100], [canvas.width * .5, -100], [canvas.width * .25, -100], [canvas.width * .75, -100], [canvas.width + 100, -100], [canvas.width + 100, canvas.height + 100], [canvas.width + 100, canvas.height * .25], [canvas.width + 100, canvas.height * .75], [canvas.width + 100, canvas.height * .5], [canvas.width * .5, canvas.height + 100], [canvas.width * .25, canvas.height + 100], [canvas.width * .75, canvas.height + 100], [-100, canvas.height +100], [-100, canvas.height * .5], [-100, canvas.height * .25], [-100, canvas.height * .75]
     ];
 
     //? create a random coordintate
