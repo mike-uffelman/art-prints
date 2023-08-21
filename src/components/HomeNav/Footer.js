@@ -4,6 +4,10 @@ import './Footer.css';
 import { Link } from 'react-router-dom';
 // components
 import Logo from './Logo';
+// resources
+import githubLogo from '../../github.svg'
+
+
 
 export default function Footer() {
 
@@ -11,8 +15,15 @@ export default function Footer() {
         <footer className="app__footer">
             <div className="footer">
                 <Logo /> 
-                @2023 Mike Uffelman
+                <div className='footer__attribution'>
+                    <a className='footer__link' alt='github' target='_blank' rel='noreferrer' href='https://github.com/mike-uffelman/art-prints'>
+                        <p className=''>&#169;2023</p> 
+                        <p className=''>&nbsp; Mike Uffelman &nbsp; </p>
+                        <img alt='github' className='footer__icon--github' src={githubLogo}></img>    
+                    </a>
+                    
+                </div>
             </div>
         </footer>
     )
-}
+} 

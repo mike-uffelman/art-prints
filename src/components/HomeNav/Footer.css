@@ -3,9 +3,41 @@
     margin-top: auto;
     position: relative;
     bottom: 0;
-    background-color: rgba(182, 204, 213, 0.657);
+    /* background-color: var(--main-black); */
     display: flex;
+    justify-content: space-between;
     padding: 1rem;
 
+    background-image: linear-gradient(135deg, transparent 30%, rgb(70, 0, 104));
+
     /* width: 100%; */
+}
+
+.footer__attribution {
+    align-self: flex-end;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    color: var(--main-lightgray);
+    font-size: 1.2rem;
+
+}
+
+.footer__link {
+    display: flex;
+    /* color: magenta; */
+    text-decoration: none;
+    color: inherit;
+    font-family: 'Barlow-Light';
+    /* background-image: linear-gradient(45deg, rgb(170, 0, 255), rgb(0, 72, 255)); */
+}
+
+.footer__icon--github {
+    width: 2rem;
+    fill: white;
+}
+
+img {
+    fill: white;
 }
