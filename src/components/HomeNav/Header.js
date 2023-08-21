@@ -12,6 +12,7 @@ import Search from "../Search/Search";
 
 export default function Header({results, cart, setIsModalOpen, isModalOpen=false}) {
     const location = useLocation();
+    console.log(location)
 
 
     const renderCartIcon = 
@@ -26,7 +27,7 @@ export default function Header({results, cart, setIsModalOpen, isModalOpen=false
         </Link>
         : null;
 
-        const renderBreadCrumbs = 
+    const renderBreadCrumbs = 
         <aside className="breadcrumbs">
             {location.pathname === '/' ? '' : <Link className="breadcrumbs__link" title='home-breadcrumb' to='/'>Home</Link>} 
     
@@ -68,7 +69,7 @@ export default function Header({results, cart, setIsModalOpen, isModalOpen=false
                 </div>
             </div>
             
-            {renderBreadCrumbs}
+            {location.pathname === '/' ? '' : renderBreadCrumbs}
 
         </section>
     )
