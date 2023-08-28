@@ -67,10 +67,10 @@ export default function Landing() {
                     className='hero__img' 
                     src={heroLgImg}
 
-                    srcSet={`${heroSmImg} 300w, ${heroMdImg} 768w, ${heroLgImg} 1080w, ${heroXLImg} 1080w`}
+                    srcSet={`${heroSmImg} 500w, ${heroMdImg} 768w, ${heroLgImg} 1080w, ${heroXLImg} 1080w`}
                     // sizes={{'(max-width: 300px)', '300px'}}
                     alt='hero' 
-                    loading='lazy'
+                    loading='eager'
                 />
 
                 {/* </source> */}
