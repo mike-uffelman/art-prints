@@ -23,11 +23,11 @@
     padding: 2rem;
  
     text-align: center;
-    font-family: 'Barlow-Regular';
+    font-family: var(--text-regular);
 }
 
 .hero__subtext {
-    font-family: 'Barlow-Light';
+    font-family: var(--text-light);
 }
 
 .hero__img {

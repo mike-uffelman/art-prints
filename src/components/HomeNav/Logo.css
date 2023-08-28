@@ -23,7 +23,7 @@
 }
 
 .logo__text {
-    font-family: 'Barlow-SemiBold';
+    font-family: var(--text-bold);
     position: relative;
     /* padding: 1rem 0; */
     
@@ -40,7 +40,7 @@
 }
 
 .logo__text--span {
-    font-family: 'Barlow-Light';
+    font-family: var(--text-light);
     /* text-shadow: 0 0 1px magenta; */
     letter-spacing: .75rem;
     margin-top: -1.5rem;

@@ -5,7 +5,7 @@
 
     font-size: 2.4rem;
     height: 100%;
-    font-family: 'Barlow-Regular'
+    font-family: var(--text-regular);
 }
 
 .quantity__input {
@@ -19,7 +19,7 @@
 
 .quantity__label {
     font-size: 1.4rem;
-    font-family: 'Barlow-SemiBold';
+    font-family: var(--text-bold);
     margin-bottom: .5rem;
 }
 

@@ -3,6 +3,7 @@ import ProductPage from './pages/ProductPage';
 import Cart from "./components/Cart/Cart";
 import RootLayout from './layouts/RootLayout';
 import Landing from './components/HomeNav/Landing';
+import Home from './pages/Home';
 // import Home from './pages/Home';
 import ResultsPage from './pages/ResultsPage';
 import ErrorPage from './error-page';
@@ -16,7 +17,7 @@ export const routesConfig = [
             {
                 index: true,
                 path: '/',
-                element: <Landing />
+                element: <Home />
             },
             {
                 path: 'results/:term',

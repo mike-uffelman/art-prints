@@ -68,10 +68,11 @@
 } */
 
 .review__header--title {
-    font-family: 'Barlow-SemiBold';
+    font-family: var(--text-bold);
 }
 
 .review__header--date {
+    font-family: var(--text-regular);
     margin-bottom: 0;
 }
 
@@ -80,13 +81,14 @@
 }
 
 .review__detail--title {
-    font-family: 'Barlow-SemiBold';
+    font-family: var(--text-bold);
 
 }
 
 
 
 .review__detail--text {
+    font-family: var(--text-regular);
 }
 
 .review__pagination {

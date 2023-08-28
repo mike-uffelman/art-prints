@@ -1,31 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@200;300;400;600&display=swap');
-
 @font-face {
     font-family: "Barlow-ExtraLight";
     src: local("Barlow-ExtraLight"),
-        url("../fonts/Barlow/Barlow-ExtraLight.ttf");
+        url("../fonts/Barlow/Barlow-ExtraLight.ttf") format('woff2');
     font-weight: 200;
+    unicode-range: U+0025-00FF;
 }
 
 @font-face {
     font-family: "Barlow-Light";
     src: local("Barlow-Light"),
-        url("../fonts/Barlow/Barlow-Light.ttf");
+        url("../fonts/Barlow/Barlow-Light.ttf") format('woff2');
     font-weight: 300;
+    unicode-range: U+0025-00FF;
 }
 
 @font-face {
     font-family: "Barlow-Regular";
     src: local("Barlow-Regular"),
-        url("../fonts/Barlow/Barlow-Regular.ttf");
+        url("../fonts/Barlow/Barlow-Regular.ttf") format('woff2');
     font-weight: 400;
+    unicode-range: U+0025-00FF;
 }
 
 @font-face {
     font-family: "Barlow-SemiBold";
     src: local("DM-Barlow-SemiBold"),
-        url("../fonts/Barlow/Barlow-SemiBold.ttf");
+        url("../fonts/Barlow/Barlow-SemiBold.ttf") format('woff2');
     font-weight: 700;
+    unicode-range: U+0025-00FF;
 }
 
 :root {

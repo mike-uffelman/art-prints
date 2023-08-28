@@ -3,7 +3,10 @@ import React, { useEffect, useState, useRef } from 'react';
 import testData2 from '../../data/testData2.json';
 import Image from '../Image/Image';
 import { hero } from '../../data/heroCanvas';
-import heroImg from '../../hero-large2.png';
+import heroXLImg from '../../hero-extralarge.png';
+import heroLgImg from '../../hero-large.png';
+import heroSmImg from '../../hero-small.png';
+import heroMdImg from '../../hero-medium.png'
 
 
 
@@ -53,7 +56,25 @@ export default function Landing() {
                 </h1>
                 <p className='hero__subtext'>Duis aute irure dolor in reprehenderit in voluptate.</p>
             </div>
-            <img className='hero__img' src={heroImg} alt='hero'/>
+            {/* <picture>
+                <source
+                    type='image/png' 
+                    srcset={heroSmall} 
+                    media='(min-width: 600px)'
+                > */}
+
+                <img 
+                    className='hero__img' 
+                    src={heroLgImg}
+
+                    srcSet={`${heroSmImg} 300w, ${heroMdImg} 768w, ${heroLgImg} 1080w, ${heroXLImg} 1080w`}
+                    // sizes={{'(max-width: 300px)', '300px'}}
+                    alt='hero' 
+                    loading='lazy'
+                />
+
+                {/* </source> */}
+            {/* // </picture> */}
             
             {/* collage positioning ---------------------------- */}
             {/* {collage.flat().map((item, index) => {

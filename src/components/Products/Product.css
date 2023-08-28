@@ -80,7 +80,7 @@
     flex-direction: row;
 
     font-size: 1.4rem;
-    font-family: 'Barlow-Light';
+    font-family: var(--text-light);
     color: black;
 }
 
@@ -97,7 +97,7 @@
 .product__description {
     flex: 1;
 
-    font-family: 'Barlow-SemiBold';
+    font-family: var(--text-bold);
     font-size: 2rem;
     text-transform: capitalize;
 }
@@ -124,13 +124,15 @@
 
 .product__price--label {
     font-size: 1.4rem;
-    font-family: 'Barlow-SemiBold';
+    font-family: var(--text-bold);
 
 }
 
 .product__price--amount {
     font-size: 3rem;
     justify-self: center;
+    font-family: var(--text-light);
+
 }
 
 
@@ -151,7 +153,7 @@
 
 .product__quantity label {
     margin: .5rem 0;
-    font-family: 'Barlow-SemiBold';
+    font-family: var(--text-bold);
     font-size: 1.4rem;
 }
 
@@ -161,7 +163,7 @@
     margin: 1rem 0;
     width: 100%;
     
-    font-family: 'Barlow-Regular';
+    font-family: var(--text-regular);
     color: black;
     font-size: 1.6rem;
     text-transform: capitalize;

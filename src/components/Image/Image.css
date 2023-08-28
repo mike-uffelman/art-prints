@@ -104,3 +104,25 @@
     box-shadow: 0 0 .25rem black;
     border-radius: 0;
 }
+
+.isLoaded {
+    animation-name: imgLoad;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+}
+
+@keyframes imgLoad {
+
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

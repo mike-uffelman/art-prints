@@ -1,0 +1,11 @@
+.details__box {
+    padding: 1rem;
+}
+
+.details__heading {
+    font-family: var(--text-bold);
+}
+
+.details__detail {
+    font-family: var(--text-regular);
+}

@@ -29,7 +29,7 @@
     /* color: magenta; */
     text-decoration: none;
     color: inherit;
-    font-family: 'Barlow-Light';
+    font-family: var(--text-light);
     /* background-image: linear-gradient(45deg, rgb(170, 0, 255), rgb(0, 72, 255)); */
 }
 

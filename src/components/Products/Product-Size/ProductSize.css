@@ -25,7 +25,7 @@
 }
 
 .size label {
-    font-family: 'Barlow-SemiBold';
+    font-family: var(--text-bold);
     font-size: 1.4rem;
 }
 
@@ -52,7 +52,7 @@
     color: black;
     border: 2px solid transparent;
     transition: all ease 300ms;
-    font-family: 'Barlow-SemiBold';
+    font-family: var(--text-bold);
     font-size: 1rem;
     padding: .5rem 0;
     /* max-width: 5rem; */
@@ -73,7 +73,7 @@
 
 .size__dropdown--option {
     padding: .5rem 1rem;
-    font-family: 'Barlow-SemiBold';
+    font-family: var(--text-bold);
     font-size: 1.4rem;
     letter-spacing: .15rem;
     width: 100%;
@@ -96,7 +96,7 @@
 .selected {
     background-color: rgb(0, 149, 166);;
     color: white;
-    font-family: 'Barlow-SemiBold';
+    font-family: var(--text-bold);
 }
 
 @media screen and (min-width: 20em) {

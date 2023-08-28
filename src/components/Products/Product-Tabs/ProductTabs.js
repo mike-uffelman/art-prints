@@ -13,7 +13,7 @@ import ReviewsPagination from '../../Reviews/ReviewsPagination';
 // utilities and helpers
 import PropTypes from 'prop-types';
 
-export default function ProductTabs({selectedReviews}) {
+export default function ProductTabs({product, selectedReviews}) {
     const [ tabIndex, setTabIndex ] = useState(0);
     const results = useSelector((state) => {
         return state.search
@@ -22,7 +22,7 @@ export default function ProductTabs({selectedReviews}) {
     const tagsData = Object.entries(results.tags).filter(tags => tags[1] > 0).map(tag => tag[0])    
 
     const productTabs = [
-        { label: 'Details', element: <ProductDetails />},
+        { label: 'Details', element: <ProductDetails product={product} />},
         { label: 'Reviews', element: <ReviewsPagination selectedReviews={selectedReviews} />},
         // { label: 'Reviews', element: <Reviews selectedReviews={selectedReviews}/>},
         { label: 'Similar', element: <Tags tagsData={tagsData}/>}

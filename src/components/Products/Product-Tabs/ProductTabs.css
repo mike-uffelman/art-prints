@@ -33,7 +33,7 @@
     padding: 1rem;
     text-align: center;
     opacity: .75;
-    font-family: var(--text-labels);
+    font-family: var(--text-regular);
 }
 
 .tab__listItem:hover {

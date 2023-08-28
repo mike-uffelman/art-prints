@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 export default function Image({product, handleImgClick, className}) {
     const imgRef = useRef();
     const [ isHovered, setIsHovered ] = useState(null)
+    const [isLoaded, setIsLoaded ] = useState(false);
     
     const classes = classNames(className)
 
@@ -43,7 +44,12 @@ export default function Image({product, handleImgClick, className}) {
     const hovered = isHovered ? 'hovered' : '';
 
     return (
-        <div data-testid='img-wrapper' className={`img ${classes} ${hovered}`} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+        <div 
+            data-testid='img-wrapper' 
+            className={`img ${classes} ${hovered} ${isLoaded ? 'imgLoad': ''}`} 
+            onMouseOver={handleMouseOver} 
+            onMouseOut={handleMouseOut}
+>
             {/* <div className={`img__container ${classes} ${hovered}`}  > */}
             {/* {isHovered 
                 ?   
@@ -52,7 +58,10 @@ export default function Image({product, handleImgClick, className}) {
                 {/* <div className={`img__border ${classes} ${hovered}`}> */}
                         {/* <div className={`img__inset ${classes} ${hovered}`}> */}
                             <img 
-                                onClick={handleImgClick} 
+                                onLoad={() => setIsLoaded(true)}
+
+                                onClick={handleImgClick}
+                                loading='lazy'
                                 ref={imgRef} 
                                 className={`img__product ${classes} ${hovered}`} 
                                 src={imgSwitch()} 
@@ -61,6 +70,7 @@ export default function Image({product, handleImgClick, className}) {
                     {/* // </div> */}
             {/* } */}
         {/* // </div> */}
+            {/* {!isLoaded && <div className='img__loading'>Loading...</div>} */}
         </div>
         
     ) 

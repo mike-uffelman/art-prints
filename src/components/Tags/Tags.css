@@ -15,7 +15,7 @@
 
 .tags__label {
     font-size: 1.6rem;
-    font-family: 'Barlow-SemiBold';
+    font-family: var(--text-bold);
 }
 
 .tags__content {
@@ -71,14 +71,14 @@
     font-size: 1.4rem;
     color: black;
     text-decoration: none;
-    font-weight: bold;
+    font-family: var(--text-bold);
     white-space: nowrap;
 }
 
 .tags__link:hover {
     cursor: pointer;
     color: rgb(5, 42, 255);
-    font-family: 'Barlow-SemiBold';
+    font-family: var(--text-bold);
 }
 
 .tags__link:focus {
