@@ -44,7 +44,7 @@ export default function Landing() {
 
 
     
-    console.log('collage data: ', collage.flat())
+    // console.log('collage data: ', collage.flat())
 
     return (
         <div className='hero' ref={heroRef}>

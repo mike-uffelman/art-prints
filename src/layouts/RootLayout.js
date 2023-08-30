@@ -1,5 +1,5 @@
 // react, router, redux
-import React, { useState, Suspense } from 'react';
+import React, { useState } from 'react';
 import { Outlet, Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
@@ -61,10 +61,8 @@ export default function RootLayout() {
             </header>
 
                 <section className="content">
-                <Suspense fallback={<div>Loading...</div>}>
 
                     <Outlet />
-                </Suspense>
 
                 </section>
             

@@ -1,11 +1,9 @@
-// import Products from "../components/Products/AllProducts";
-// import Tags from "../components/Tags/Tags";
-import React, {useState, useEffect, Suspense, lazy} from "react";
+import Products from "../components/Products/AllProducts";
+import Tags from "../components/Tags/Tags";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Pagination from "../components/Products/Pagination/Pagination";
 
-const Tags = lazy(() => import('../components/Tags/Tags'));
-const Products = lazy(() => import('../components/Products/AllProducts'));
 
 // layout component for the search results page
 export default function ResultsPage() {
@@ -22,7 +20,6 @@ export default function ResultsPage() {
     }
 
     return (
-        <Suspense>
             <React.Fragment >
 
                 {/* check for tags and results, render components if defined, otherwise render a loading message */}
@@ -33,7 +30,6 @@ export default function ResultsPage() {
                 <Pagination />
 
             </React.Fragment>
-        </Suspense>
         
     )
 }

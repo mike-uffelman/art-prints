@@ -30,6 +30,7 @@
 }
 
 .cart__empty--message {
+    font-family: var(--text-light);
     text-shadow: 0 0 .5rem var(--main-light-accent);
 }
 
