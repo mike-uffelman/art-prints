@@ -16,7 +16,21 @@ const Cart = lazy(() => import('./components/Cart/Cart'));
 const ErrorPage = lazy(() => import('./error-page'));
 
 function App() {
+    // styles for fallback message
+    const styles = {
+        position: "absolute",
+        display: "flex",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        zIndex: "9999999",
+        fontFamily: "'Trebuchet MS', sans-serif",
+        fontSize: "3rem",
+        backgroundImage: "linear-gradient(45deg, rgb(170, 0, 255), rgb(0, 72, 255))",
+        backgroundClip: "text",
+        color: "transparent"
 
+    }
     // setting up react router to control page access/rendering using paths
     const router = createBrowserRouter(
         // routesConfig needed for testing, but cant seem to implement code splitting with a routes config object...
@@ -44,21 +58,7 @@ function App() {
         )
     )
 
-    const styles = {
-        position: "absolute",
-        display: "flex",
-        height: "100%",
-        width: "100%",
-        justifyCOntent: "center",
-        alignItems: "center",
-        margin: "0 auto",
-        zIndex: "9999999",
-        fontSize: "3rem",
-        color: "purple",
-        // background: "linear-gradient(45deg, rgb(170, 0, 255), rgb(0, 72, 255))",
-        // backgroundClip: "text"
 
-    }
 
     return( 
         // pass the router object into RouterProvider to render the route setup

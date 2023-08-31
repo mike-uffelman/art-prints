@@ -12,7 +12,7 @@ import Search from "../Search/Search";
 
 export default function Header({results, cart, setIsModalOpen, isModalOpen=false}) {
     const location = useLocation();
-    console.log(location)
+    console.log(results)
 
 
     const renderCartIcon = 
@@ -69,7 +69,7 @@ export default function Header({results, cart, setIsModalOpen, isModalOpen=false
                 </div>
             </div>
             
-            {location.pathname === '/' ? '' : renderBreadCrumbs}
+            {location.pathname === '/' && results.search.results.length === 0 ? '' : renderBreadCrumbs}
 
         </section>
     )

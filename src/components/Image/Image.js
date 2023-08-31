@@ -61,7 +61,7 @@ export default function Image({product, handleImgClick, className}) {
                                 onLoad={() => setIsLoaded(true)}
 
                                 onClick={handleImgClick}
-                                loading='lazy'
+                                loading='eager'
                                 ref={imgRef} 
                                 className={`img__product ${classes} ${hovered}`} 
                                 src={imgSwitch()} 
