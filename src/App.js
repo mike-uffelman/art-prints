@@ -44,9 +44,25 @@ function App() {
         )
     )
 
+    const styles = {
+        position: "absolute",
+        display: "flex",
+        height: "100%",
+        width: "100%",
+        justifyCOntent: "center",
+        alignItems: "center",
+        margin: "0 auto",
+        zIndex: "9999999",
+        fontSize: "3rem",
+        color: "purple",
+        // background: "linear-gradient(45deg, rgb(170, 0, 255), rgb(0, 72, 255))",
+        // backgroundClip: "text"
+
+    }
+
     return( 
         // pass the router object into RouterProvider to render the route setup
-        <Suspense fallback={<div className='app__loading'>Loading App...</div>}>
+        <Suspense fallback={<div style={styles}>Loading App...</div>}>
             <RouterProvider router={router} />
         </Suspense>
     )
