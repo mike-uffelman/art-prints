@@ -69,6 +69,11 @@ button:active {
 }
 
 button:disabled {
-    cursor: none;
+    background-color: none;
+    cursor:not-allowed;
     opacity: .5;
+}
+
+button:disabled:hover {
+    background-color: var(--main-lightgray);
 }

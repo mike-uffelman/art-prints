@@ -60,14 +60,14 @@ export default function RootLayout() {
                 
             </header>
 
-                <section className="content">
+            <section className="content">
 
-                    <Outlet />
+                <Outlet />
 
-                </section>
+            </section>
             
 
-                <Footer />
+            <Footer />
 
 
             {renderToasts}
