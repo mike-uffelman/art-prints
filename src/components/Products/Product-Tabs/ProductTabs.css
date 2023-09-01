@@ -78,7 +78,24 @@
 
 .tab__content {
     height: 50rem;
-    overflow-y: scroll
+    overflow-y: scroll;
+
+    scrollbar-width: thin;
+}
+
+
+.tab__content::-webkit-scrollbar {
+    width: .75rem;
+}
+
+
+.tab__content::-webkit-scrollbar-thumb {
+    background-color: #cdcdcd;
+}
+
+.tab__content::-webkit-scrollbar-thumb:hover {
+    background-color: #a1a1a1;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 40em) {

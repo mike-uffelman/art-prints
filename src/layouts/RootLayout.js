@@ -60,14 +60,17 @@ export default function RootLayout() {
                 
             </header>
 
-            <section className="content">
+            <div className='content'>
+                {/* <section className="content__box"> */}
 
-                <Outlet />
+                    <Outlet />
 
-            </section>
+                {/* </section> */}
+
+
+                <Footer />
+            </div>
             
-
-            <Footer />
 
 
             {renderToasts}
