@@ -43,12 +43,12 @@
     padding: 1rem;
 }
 
-.isLoaded {
+/* .isLoaded {
     animation-name: imgLoad;
     animation-duration: 2s;
     animation-timing-function: ease;
     animation-iteration-count: 1;
-}
+} */
 
 @keyframes imgLoad {
     0% {opacity: 0;}
