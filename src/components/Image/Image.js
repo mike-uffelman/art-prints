@@ -16,13 +16,13 @@ export default function Image({product, handleImgClick, className}) {
     const classes = classNames(className)
 
     const handleMouseOver = () => {
-        imgRef.current.classList.toggle('hovered')
+        imgRef.current?.classList.toggle('hovered')
 
         setIsHovered(true)
     }
 
     const handleMouseOut = () => {
-        imgRef.current.classList.toggle('hovered')
+        imgRef.current?.classList.toggle('hovered')
         setIsHovered(null)
     }
 

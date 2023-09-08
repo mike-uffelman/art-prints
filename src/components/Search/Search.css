@@ -29,5 +29,9 @@
 }
 
 .search__btn:hover {
-    background-color: var(--main-light-accent);
+    background-color: var(--main-light-blue);
+}
+
+.search__btn:active {
+    color: var(--main-white); 
 }

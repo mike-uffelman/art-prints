@@ -89,8 +89,8 @@
 }
 
 .history__link:hover {
-    background-color: var(--main-accent);
-    color: white;
+    background-color: var(--main-lighter-accent);
+    /* color: white; */
     
 }
 

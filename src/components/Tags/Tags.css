@@ -77,7 +77,7 @@
 
 .tags__link:hover {
     cursor: pointer;
-    color: rgb(5, 42, 255);
+    color: var(--main-accent);
     font-family: var(--text-bold);
 }
 
