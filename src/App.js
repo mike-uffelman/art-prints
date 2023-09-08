@@ -28,8 +28,10 @@ function App() {
         fontSize: "3rem",
         backgroundImage: "linear-gradient(45deg, rgb(170, 0, 255), rgb(0, 72, 255))",
         backgroundClip: "text",
-        color: "transparent"
-
+        color: "transparent",
+        WebkitBackgroundClip: "text",
+        width: "100%",
+        justifyContent: "center"
     }
     // setting up react router to control page access/rendering using paths
     const router = createBrowserRouter(
@@ -62,7 +64,7 @@ function App() {
 
     return( 
         // pass the router object into RouterProvider to render the route setup
-        <Suspense fallback={<div style={styles}>Loading App...</div>}>
+        <Suspense fallback={<div style={styles}>Loading Art Prints!...</div>}>
             <RouterProvider router={router} />
         </Suspense>
     )
