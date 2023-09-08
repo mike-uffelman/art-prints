@@ -1,28 +1,57 @@
+import heroThumb from '../../hero-thumb.jpg';
 import './Landing.css';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, Suspense, lazy } from 'react';
 import testData2 from '../../data/testData2.json';
 import Image from '../Image/Image';
 import { hero } from '../../data/heroCanvas';
-import heroXLImg from '../../hero-extralarge.png';
-import heroLgImg from '../../hero-large.png';
-import heroSmImg from '../../hero-small.png';
-import heroMdImg from '../../hero-medium.png'
+import heroXLImg from '../../hero-extralarge.jpg';
+import heroLgImg from '../../hero-large.jpg';
+import heroSmImg from '../../hero-small.jpg';
+import heroMdImg from '../../hero-medium.jpg'
+
+// const heroXLImg = lazy(() => import('../../hero-extralarge.png'))
+// const heroLgImg = lazy(() => import('../../hero-large.png'))
+// const heroSmImg = lazy(() => import('../../hero-small.png'))
+// const heroMdImg = lazy(() => import('../../hero-medium.png'))
+
+
+
 
 
 
 export default function Landing() {
     const [ collage, setCollage ] = useState(testData2);
+    const [ imgLoaded, setImgLoaded ] = useState(false);
     // const [ width, setWidth ] = useState(0)
     const elRef = useRef(testData2.flat().map(() => React.createRef()));
     const heroRef = useRef();
 
-    // useEffect(() => {
+    useEffect(() => {
     //     console.log('heroRef', heroRef.current)
     //     elRef.current.map(el => {
     //         el.current.style.transform = `translate(${Math.random() * heroRef.current.clientWidth}px, ${Math.random() * heroRef.current.clientHeight}px) rotate(${Math.floor(Math.random()* 40)}deg) scale(.75)`
 
     //     })
-    // }, [])
+        
+        // new Promise((resolve, reject) => {
+        //     const img = import('../../hero-extralarge.png')
+        //     resolve(setImgLoaded(true));
+        //     console.log('image loaded', img, imgLoaded)
+        // })
+
+//         import heroXLImg from '../../hero-extralarge.png';
+// import heroLgImg from '../../hero-large.png';
+// import heroSmImg from '../../hero-small.png';
+// import heroMdImg from '../../hero-medium.png'
+
+
+
+        // setTimeout(() => {
+        //     setImgLoaded(true)
+        // }, 2000)
+
+    }, [])
+
 
     //? to implement collage positioning -------------------
     // useEffect(() => {
@@ -42,6 +71,7 @@ export default function Landing() {
     // }, [])
     //? ------------------------------------------------------
 
+    const loadFade = imgLoaded && 'loadFade'
 
     
     // console.log('collage data: ', collage.flat())
@@ -62,17 +92,44 @@ export default function Landing() {
                     srcset={heroSmall} 
                     media='(min-width: 600px)'
                 > */}
+                {/* {!imgLoaded
+                    ?  
+                        <img 
+                            className='hero__img' 
+                            src={heroThumb}
 
-                <img 
-                    className='hero__img' 
-                    src={heroLgImg}
+                            srcSet={`${heroThumb} 500w`}
+                            // sizes={{'(max-width: 300px)', '300px'}}
+                            alt='hero' 
+                            loading='eager'
+                        />    
+                    : */}
+                    {/* <img 
+                    className={`hero__img ${loadFade}`} 
+                    src={heroThumb}
 
-                    srcSet={`${heroSmImg} 500w, ${heroMdImg} 768w, ${heroLgImg} 1080w, ${heroXLImg} 1080w`}
+                    srcSet={`${heroThumb} 500w`}
                     // sizes={{'(max-width: 300px)', '300px'}}
                     alt='hero' 
                     loading='eager'
-                />
+                />     */}
+                    <img 
+                    className={`hero__img ${loadFade}`} 
+                    src={heroXLImg}
 
+                    srcSet={imgLoaded ? `${heroMdImg} 300w, ${heroLgImg} 1080w, ${heroXLImg} 1080w` : `${heroThumb} 500w`}
+                    // sizes={{'(max-width: 300px)', '300px'}}
+                    alt='hero' 
+                    fetchpriority='high'
+                    onLoad={() => {
+                        
+                        setImgLoaded(true)
+                    }}
+
+                    // loading='eager'
+                />    
+            {/* } */}
+                
                 {/* </source> */}
             {/* // </picture> */}
             

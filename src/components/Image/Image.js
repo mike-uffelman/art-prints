@@ -46,7 +46,7 @@ export default function Image({product, handleImgClick, className}) {
     return (
         <div 
             data-testid='img-wrapper' 
-            className={`img ${classes} ${hovered} ${isLoaded ? 'imgLoad': ''}`} 
+            className={`img  ${hovered} ${isLoaded ? 'isLoaded': ''}`} 
             onMouseOver={handleMouseOver} 
             onMouseOut={handleMouseOut}
 >
@@ -56,16 +56,19 @@ export default function Image({product, handleImgClick, className}) {
                 <img onClick={modalOpen}  className={`img__product`}  src={product.image_urls.regular} alt={product.description}/> 
                 :    */}
                 {/* <div className={`img__border ${classes} ${hovered}`}> */}
-                        {/* <div className={`img__inset ${classes} ${hovered}`}> */}
+                        {/* <div className={`img__inset ${hovered}`}> */}
                             <img 
                                 onLoad={() => setIsLoaded(true)}
-
+                                // width={product.width}
+                                // height={product.height}
                                 onClick={handleImgClick}
                                 loading='eager'
                                 ref={imgRef} 
                                 className={`img__product ${classes} ${hovered}`} 
                                 src={imgSwitch()} 
-                                alt={product.description}/>
+                                alt={product.description}
+                                
+                            />
                         {/* </div> */}
                     {/* // </div> */}
             {/* } */}
