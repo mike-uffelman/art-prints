@@ -12,8 +12,6 @@ import Search from "../Search/Search";
 
 export default function Header({results, cart, setIsModalOpen, isModalOpen=false}) {
     const location = useLocation();
-    console.log(results)
-
 
     const renderCartIcon = 
     cart.length > 0 

@@ -64,7 +64,7 @@
 
 @media screen and (min-width: 30rem) {
     .img__product.cart {
-        padding: 2rem;
+        padding: 1rem;
     }
 
     .img__product.product {

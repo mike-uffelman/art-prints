@@ -29,6 +29,7 @@
     grid-template-columns: 1fr;
     justify-items: stretch;
 
+    min-width: 100%;
     padding: 1rem 2rem 2rem 2rem;
 
     background-color: #d9e8ea;
@@ -41,7 +42,7 @@
 }
 
 .products-page__product.portrait {
-    max-width: 40rem;
+    /* max-width: 40rem; */
 }
 
 .product__image {

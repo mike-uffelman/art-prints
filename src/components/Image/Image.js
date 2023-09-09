@@ -26,12 +26,14 @@ export default function Image({product, handleImgClick, className}) {
         setIsHovered(null)
     }
 
+    // console.log('image component - product: ', product)
+
     // switch for image size to render
     const imgSwitch = () => {
         const classValue = classes.split(' ')[0]
         switch(classValue) {
             case 'product':
-                return product.image_urls.small;
+                return product.image_urls.regular;
             case 'modal':
                 return product.image_urls.regular;
             case 'results':

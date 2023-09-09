@@ -5,7 +5,6 @@ import RatingStars from '../Products/Product-Reception/RatingStars';
 import PropTypes from 'prop-types';
 
 export default function Reviews({reviewsToRender}) {
-    console.log(reviewsToRender)
     const renderingTheseReviews = reviewsToRender.map((review, index) => {
         return (
             <section key={review.review_id} className="review__item">

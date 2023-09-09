@@ -2,7 +2,6 @@ import('./ProductDetails.css')
 
 
 export default function ProductDetails({product}) {
-    console.log(product)
 
     return (
         <div className='details__box'>
