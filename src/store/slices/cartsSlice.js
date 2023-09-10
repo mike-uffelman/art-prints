@@ -5,18 +5,14 @@ export const cartsSlice = createSlice({
     initialState: [],
     reducers: {
         addToCart: (state, action) => {
-            // console.log(state, action)
             state.push(action.payload)
         },
         removeFromCart: (state, action) => {
-            // console.log(action.payload)
             const index = Object.values(state).findIndex(item => item.id === action.payload);
             state.splice(index, 1)
         },
         updateCartItem: (state, action) => {
-            // console.log('action payload: ', action.payload)
             const {id} = action.payload;
-            // console.log(state, action, id)
             
             Object.values(state).find(item => {
                 if(item.id === id) {

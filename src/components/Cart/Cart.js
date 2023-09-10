@@ -32,9 +32,9 @@ function Cart() {
         dispatch(addToast({id: uuidv4(), label: 'warning', icon: 'warning', message: 'Item removed from cart...'}))
     }
 
-    const renderCart = cart.map(item => {
+    const renderCart = cart.map((item, index) => {
         return (
-            <React.Fragment key={item.product.id}>
+            <React.Fragment key={`${item.product.id}-${index}`}>
                 <CartItem  item={item} handleEditClick={handleEditClick} handleClick={handleClick} />
             </React.Fragment>
         )

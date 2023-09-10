@@ -30,7 +30,6 @@ function Product({type, product, className}) {
     const [ activeProduct, setActiveProduct ] = useState({}) // 
     const dispatch = useDispatch();
     
-
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'instant'})
 
@@ -67,13 +66,13 @@ function Product({type, product, className}) {
 
     // add to cart callback, create cart item dispatch to reducer
     const submitForm = (e, product) => {
-        // console.log(size)
         e.preventDefault();
+        
         const cartItem = {
             quantity: Number(quantity),
             product,
             size,
-            id: product.id || uuidv4()
+            id: type === 'edit-view' ? product.id : uuidv4() // if edit-view use the cart item id, else generate a new cart it
         }
 
         type === 'product-view' ? dispatch(addToCart(cartItem)) : dispatch(updateCartItem(cartItem))
