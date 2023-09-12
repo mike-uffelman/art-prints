@@ -12,7 +12,7 @@
   <p align="center">
     A responsive weather dashboard and mobile app.
     <br>
-    Vanilla JS, Leaflet, OpenWeatherMap, OpenStreetMap, MVC, Sass
+    React, React Router, React Redux, Unsplash
     <br />
     <a href="https://main--tubular-seahorse-1bbe92.netlify.app/">View Demo</a>
     ·
@@ -22,7 +22,9 @@
   </p>
 <br>
 
-[![weather showcase][product-screenshot]]('./images/weather-showcase.png')
+--> Screenshot here
+
+<!-- [![weather showcase][product-screenshot]]('./images/weather-showcase.png') -->
 <br>
 
 </div>
@@ -52,6 +54,7 @@
 ## About The Project
 
 --> brief discussion about the application
+This application was built to mimick the user experience of an e-commerce website. The primary user flow goes from product
 
 --> built using
 
@@ -69,8 +72,8 @@
 | ----------------------------------------------- | ----------------------------------------- |
 | JavaScript                                      |                                           |
 | [OpenWeather API](https://openweathermap.org/)  | Weather and geocoding                     |
-| [React](https://react.dev/)                     | front end                                 |
-| [React Router](https://reactrouter.com/en/main) | Page routing                              |
+| [React](https://react.dev/)                     |                                           |
+| [React Router](https://reactrouter.com/en/main) | Client side routing                       |
 | [React Redux](https://react-redux.js.org/)      | State management                          |
 | [Redux Toolkit](https://redux-toolkit.js.org/)  | State management tool                     |
 | [uuid](https://www.npmjs.com/package/uuid)      | **U**niversally **U**nique **ID**entifier |
@@ -188,6 +191,8 @@ In the cart the use may view all the items added to the cart, edit individual pr
 ## Going Forward
 
 Additional features may include:
+
+- Rest API for server/db storage persistence of products/cart
 
 Known items to refactor:
 
