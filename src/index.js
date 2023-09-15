@@ -1,8 +1,12 @@
+// React, Redux 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import { store } from './store/index';
 import { Provider } from 'react-redux'
+import { store } from './store/index';
+
+// import components
+import App from './App';
+
 // import { NavProvider } from './context/navigation';
 
 const el = document.querySelector('#root');

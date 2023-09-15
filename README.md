@@ -10,7 +10,7 @@
 
 <h3 align="center">art prints</h3>
   <p align="center">
-    A responsive weather dashboard and mobile app.
+    E-commerce photo ordering app
     <br>
     React, React Router, React Redux, Unsplash
     <br />
@@ -54,7 +54,7 @@
 ## About The Project
 
 --> brief discussion about the application
-This application was built to mimick the user experience of an e-commerce website. The primary user flow goes from product
+This is an abbreviated e-commerce website built to mimick the user experience of an e-commerce website, up to cart checkout.
 
 --> built using
 
@@ -110,7 +110,15 @@ localhost:3000
 
 --> brief discussion - what is the project, what you were looking to achieve
 
-This application was conceived to practice using React, React Router, and React Redux...the application features a responsive layout...
+The primary purpose for the application was to practice building a modern Single Page Application using several modern development tools including:
+
+- React - front end user interface and reusable components
+- React Router - client side routing
+- React Redux - global state management.
+
+A few secondary objectives included responsive layout, ...
+
+Some additional objectives included optimization of images via file type and loading priority
 
 <p align="right">(<a href="#art-prints">back to top</a>)</p>
 
