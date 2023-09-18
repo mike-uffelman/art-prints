@@ -61,6 +61,11 @@
     margin-bottom: 1rem;
 }
 
+
+.product__image.landscape {
+    padding: 1rem;
+}
+
 .product__details {
     grid-row: 2 / 3;
     display: grid;
