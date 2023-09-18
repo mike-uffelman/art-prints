@@ -53,8 +53,7 @@
 
 ## About The Project
 
---> brief discussion about the application
-This is an abbreviated e-commerce website built to mimick the user experience of an e-commerce website, up to cart checkout.
+This application is built to mimick the user experience of an e-commerce website from searching/browsing products to product review and selection, to cart review/edit (no checkout implemented).
 
 --> built using
 
@@ -62,7 +61,21 @@ This is an abbreviated e-commerce website built to mimick the user experience of
 
 ### Basic Usage
 
---> basic usage of the application
+The basic usage of the application is as follows:
+
+1. Upon load of the application the user may navigate to the search bar at the top and enter a search term for a desired search result, e.g. "nature", and click the 'Search' button or hit enter. The user may also select the history icon, to view suggested searches.
+
+2. Once the application has loaded the search results, the user may:
+
+   - browse the results
+   - select 'Load More' to fetch more results
+   - select a tag from above the results for similar search results
+
+3. When you user has selected a product, the user will be directed to the product page where the user will be able to view the product in detail. The user may review the product, select the quantity, change the desired size, read reviews, navigate to similar results, and add the product to their cart.
+
+4. In the user's cart, the user will see a list of products added to the cart and the subtotal of all the products for checkout. Here the user may edit an existing cart item, which will direct them to a page similar to the product page where they can edit the quantity and size selections. The user may also delete the item from the cart.
+
+NOTE: There is no checkout functionality built into this application.
 
 <br>
 
