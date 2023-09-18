@@ -10,7 +10,7 @@
 
 <h3 align="center">art prints</h3>
   <p align="center">
-    E-commerce photo ordering app
+    E-commerce photo store app
     <br>
     React, React Router, React Redux, Unsplash
     <br />
@@ -53,9 +53,15 @@
 
 ## About The Project
 
-This application is built to mimick the user experience of an e-commerce website from searching/browsing products to product review and selection, to cart review/edit (no checkout implemented).
+Art Prints is an e-commerce application, where users can search images and add them to their shopping cart.
 
---> built using
+This application is built to mimick the user experience of an e-commerce website. Features include image search, product customization (size, quantity), shopping cart review/edit/delete, search history, product reviews, similar product tags, and more.
+
+There is no checkout process implemented in the application.
+
+This is a client-side single-page application (SPA) built using React for the client interface capabilities, React Redux for centralized state management, React Router for client-side routing, and Unsplash API for image search.
+
+This is purely a practice project built to improve skills of the aforementioned technology stack.
 
 [Demo the app here](https://main--tubular-seahorse-1bbe92.netlify.app/).
 
@@ -65,31 +71,30 @@ The basic usage of the application is as follows:
 
 1. Upon load of the application the user may navigate to the search bar at the top and enter a search term for a desired search result, e.g. "nature", and click the 'Search' button or hit enter. The user may also select the history icon, to view suggested searches.
 
-2. Once the application has loaded the search results, the user may:
+2. Once the search results have been loaded, the user may:
 
    - browse the results
-   - select 'Load More' to fetch more results
+   - select 'Load More' at the bottom of the results listing to fetch more results
    - select a tag from above the results for similar search results
 
-3. When you user has selected a product, the user will be directed to the product page where the user will be able to view the product in detail. The user may review the product, select the quantity, change the desired size, read reviews, navigate to similar results, and add the product to their cart.
+3. When you user has selected a product, the user will be redirected to the product page where the user will be able to view the product in detail. The user may review the product, select the quantity, change the desired size, read reviews, navigate to similar results, and add the product to their cart.
 
-4. In the user's cart, the user will see a list of products added to the cart and the subtotal of all the products for checkout. Here the user may edit an existing cart item, which will direct them to a page similar to the product page where they can edit the quantity and size selections. The user may also delete the item from the cart.
+4. In the user's cart, the user will see a listing of products added to the cart and the subtotal of all the products for checkout. Here the user may edit an existing cart item, which will direct them to a page similar to the product page where they can edit the quantity and size selections. The user may also delete the item from the cart.
 
-NOTE: There is no checkout functionality built into this application.
+NOTE: There is no checkout feature built into this application.
 
 <br>
 
 ### Built With
 
-| Technology Stack                                | Description                               |
-| ----------------------------------------------- | ----------------------------------------- |
-| JavaScript                                      |                                           |
-| [OpenWeather API](https://openweathermap.org/)  | Weather and geocoding                     |
-| [React](https://react.dev/)                     |                                           |
-| [React Router](https://reactrouter.com/en/main) | Client side routing                       |
-| [React Redux](https://react-redux.js.org/)      | State management                          |
-| [Redux Toolkit](https://redux-toolkit.js.org/)  | State management tool                     |
-| [uuid](https://www.npmjs.com/package/uuid)      | **U**niversally **U**nique **ID**entifier |
+| Technology Stack                                | Description           |
+| ----------------------------------------------- | --------------------- |
+| JavaScript                                      |                       |
+| [React](https://react.dev/)                     | Client side interface |
+| [React Router](https://reactrouter.com/en/main) | Client side routing   |
+| [React Redux](https://react-redux.js.org/)      | State management      |
+| [Redux Toolkit](https://redux-toolkit.js.org/)  | State management tool |
+| [Unsplash](https://unsplash.com/)               | Image search          |
 
 <p align="right">(<a href="#art-prints">back to top</a>)</p>
 
@@ -123,7 +128,7 @@ localhost:3000
 
 --> brief discussion - what is the project, what you were looking to achieve
 
-The primary purpose for the application was to practice building a modern Single Page Application using several modern development tools including:
+The primary purpose for the application was to practice building a modern Single Page Application using several modern development libraries including:
 
 - React - front end user interface and reusable components
 - React Router - client side routing
@@ -131,7 +136,7 @@ The primary purpose for the application was to practice building a modern Single
 
 A few secondary objectives included responsive layout, ...
 
-Some additional objectives included optimization of images via file type and loading priority
+Some additional objectives included application optimization via images file type and loading priority, as well as coding splitting using Reacts Suspense and Lazy features to download components in chunks as needed.
 
 <p align="right">(<a href="#art-prints">back to top</a>)</p>
 
@@ -145,8 +150,9 @@ Some additional objectives included optimization of images via file type and loa
 
 ---
 
---> react front end component based
---> redux state management,
+--> react front end component based - discuss components, reusability
+--> redux state management, reducer slices for each state value - cart, history, reviews, search, toasts
+--> react router - discuss routing, layouts, pages
 
 <br>
 
@@ -160,7 +166,9 @@ Some additional objectives included optimization of images via file type and loa
 
 --> Discuss challenges
 
---> code splitt
+--> code splitting
+--> image optimization
+-->
 
 Throughout the development of this project, there were many challenges that arose, from layout headaches to broken functionality.
 
