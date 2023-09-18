@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: .25rem;
 }
 
 .search__input {
@@ -16,7 +17,9 @@
 
     width: 100%;
 
-    font-family: var(--text-regular);
+    font-family: var(--text-bold);
+    font-size: 1.4rem;
+
     background-color: var(--main-white);
 }
 
@@ -26,6 +29,7 @@
 
 .search__btn {
     font-family: var(--text-bold);
+    font-size: 1.4rem;
 }
 
 .search__btn:hover {
