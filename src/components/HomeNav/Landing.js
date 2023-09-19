@@ -1,29 +1,19 @@
-import heroThumb from '../../hero-thumb.jpg';
+import heroThumb from '../../images/hero-thumb.jpg';
 import './Landing.css';
-import React, { useEffect, useState, useRef, Suspense, lazy } from 'react';
-import testData2 from '../../data/testData2.json';
-import Image from '../Image/Image';
-import { hero } from '../../data/heroCanvas';
-import heroXLImg from '../../hero-extralarge.jpg';
-import heroLgImg from '../../hero-large.jpg';
-import heroSmImg from '../../hero-small.jpg';
-import heroMdImg from '../../hero-medium.jpg'
-
-// const heroXLImg = lazy(() => import('../../hero-extralarge.png'))
-// const heroLgImg = lazy(() => import('../../hero-large.png'))
-// const heroSmImg = lazy(() => import('../../hero-small.png'))
-// const heroMdImg = lazy(() => import('../../hero-medium.png'))
-
-
-
-
-
+import React, { useEffect, useState, useRef } from 'react';
+// import testData2 from '../../data/testData2.json';
+// import Image from '../Image/Image';
+// import { hero } from '../../data/heroCanvas';
+import heroXLImg from '../../images/hero-extralarge.jpg';
+import heroLgImg from '../../images/hero-large.jpg';
+// import heroSmImg from '../../images/hero-small.jpg';
+import heroMdImg from '../../images/hero-medium.jpg'
 
 export default function Landing() {
-    const [ collage, setCollage ] = useState(testData2);
+    // const [ collage, setCollage ] = useState(testData2);
     const [ imgLoaded, setImgLoaded ] = useState(false);
     // const [ width, setWidth ] = useState(0)
-    const elRef = useRef(testData2.flat().map(() => React.createRef()));
+    // const elRef = useRef(testData2.flat().map(() => React.createRef()));
     const heroRef = useRef();
 
     useEffect(() => {

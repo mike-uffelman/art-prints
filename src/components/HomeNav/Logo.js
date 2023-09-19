@@ -1,6 +1,6 @@
 // styles
 import './Logo.css';
-import logoIcon from '../../logo.svg';
+import logoIcon from '../../images/logo.svg';
 // react, router
 import { Link } from "react-router-dom"
 

@@ -1,11 +1,11 @@
 // styles
 import './Footer.css';
 // react, router
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // components
 import Logo from './Logo';
 // resources
-import githubLogo from '../../github.svg'
+import githubLogo from '../../images/github.svg'
 
 
 
