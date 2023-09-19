@@ -53,9 +53,9 @@
 
 ## About The Project
 
-Art Prints is an e-commerce application, where users can search images and add them to their shopping cart.
+Art Prints is an e-commerce application, where users can search images and add them to a shopping cart.
 
-This application is built to mimick the user experience of an e-commerce website. Features include image search, product customization (size, quantity), shopping cart review/edit/delete, search history, product reviews, similar product tags, and more.
+This application is built to mimick the user experience of an e-commerce website. Features include image search, product customization (size and quantity), shopping cart review/edit/delete, search history, product reviews, similar product tags, and more.
 
 There is no checkout process implemented in the application.
 
