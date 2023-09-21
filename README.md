@@ -65,24 +65,6 @@ This is purely a practice project built to improve skills of the aforementioned 
 
 [Demo the app here](https://main--tubular-seahorse-1bbe92.netlify.app/).
 
-### Basic Usage
-
-The basic usage of the application is as follows:
-
-1. Upon load of the application the user may navigate to the search bar at the top and enter a search term for a desired search result, e.g. "nature", and click the 'Search' button or hit enter. The user may also select the history icon, to view suggested searches.
-
-2. Once the search results have been loaded, the user may:
-
-   - browse the results
-   - select 'Load More' at the bottom of the results listing to fetch more results
-   - select a tag from above the results for similar search results
-
-3. When you user has selected a product, the user will be redirected to the product page where the user will be able to view the product in detail. The user may review the product, select the quantity, change the desired size, read reviews, navigate to similar results, and add the product to their cart.
-
-4. In the user's cart, the user will see a listing of products added to the cart and the subtotal of all the products for checkout. Here the user may edit an existing cart item, which will direct them to a page similar to the product page where they can edit the quantity and size selections. The user may also delete the item from the cart.
-
-NOTE: There is no checkout feature built into this application.
-
 <br>
 
 ### Built With
@@ -126,17 +108,65 @@ localhost:3000
 
 ## Background and Discussion
 
---> brief discussion - what is the project, what you were looking to achieve
-
-The primary purpose for the application was to practice building a modern Single Page Application using several modern development libraries including:
+The primary purpose for the application was to practice building a modern Single Page Application (SPA) using several modern development libraries including:
 
 - React - front end user interface and reusable components
-- React Router - client side routing
-- React Redux - global state management.
+- React Router - for client side routing and navigation of pages
+- React Redux - global state management
 
 A few secondary objectives included responsive layout, ...
 
 Some additional objectives included application optimization via images file type and loading priority, as well as coding splitting using Reacts Suspense and Lazy features to download components in chunks as needed.
+
+### Features (the tool to achieve outcome) (functionality - how the tool was implemented)
+
+This application has many features, built to improve the user experience.
+
+#### Primary Features
+
+| Feature | Discussion                             |
+| ------- | -------------------------------------- |
+| Search  | The search feature is essential to the |
+
+</details>
+
+<details>
+  <summary>Cart</summary>
+  <ul></ul>
+</details>
+
+#### History
+
+#### Cart
+
+#### Product
+
+#### Secondary Features
+
+| Feature    | Discussion                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Pagination | Pagination is implemented in two components of the application, the first in the results component, where the user can click 'Load More' to show more search results, as there are rate limits on the API this was kept to a button with limited results as opposed to an infinite scroll that may eat up the rate limit. The other component that features pagination is in the product reviews, where if there are more reviews than fits the page limit, the pagination will display at the bottom of the reviews as a numbered list of pages with forward and back arrows. |
+
+  <ul>implementation...</ul>
+</details>
+
+<details>
+<fieldset>
+  <summary>Tags</summary>
+  </fieldset>
+  <fieldset>
+  <ul>Tags are nice feature in an application where browsing is a primary activity, it provides the user with suggestions for similar results that may fit what they are looking for. The tags component is implemented in several places, atop the results page, in the product details tabs, and atop the product page(showing tags for just the selected product)</ul>
+  <ul>implementation...</ul>
+  
+</fieldset>
+</details>
+
+<!-- <field> -->
+<fieldset>
+asdf
+</fieldset>
+<!-- </field> -->
+#### Modals
 
 <p align="right">(<a href="#art-prints">back to top</a>)</p>
 
@@ -187,7 +217,21 @@ Throughout the development of this project, there were many challenges that aros
 
 ## Usage
 
-This is the basic usage of the application:
+The basic usage of the application is as follows:
+
+1. Upon load of the application the user may navigate to the search bar at the top and enter a search term for a desired search result, e.g. "nature", and click the 'Search' button or hit enter. The user may also select the history icon, to view suggested searches.
+
+2. Once the search results have been loaded, the user may:
+
+   - browse the results
+   - select 'Load More' at the bottom of the results listing to fetch more results
+   - select a tag from above the results for similar search results
+
+3. When you user has selected a product, the user will be redirected to the product page where the user will be able to view the product in detail. The user may review the product, select the quantity, change the desired size, read reviews, navigate to similar results, and add the product to their cart.
+
+4. In the user's cart, the user will see a listing of products added to the cart and the subtotal of all the products for checkout. Here the user may edit an existing cart item, which will direct them to a page similar to the product page where they can edit the quantity and size selections. The user may also delete the item from the cart.
+
+NOTE: There is no checkout feature built into this application.
 
 ### App Start
 
