@@ -19,11 +19,6 @@
 }
 
 .logo__text {
-    position: relative;
-
-    width: 100%;
-    text-align: left;
-
     font-family: var(--text-bold);
     font-size: 2.6rem;
     letter-spacing: .35rem;
@@ -32,10 +27,30 @@
     -webkit-text-fill-color: transparent;
 }
 
+.logo__container--top {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding-left: .15rem;
+}
+
+.logo__container--bottom {
+    position: relative;
+}
+
+.logo__container--bottom.logo__text {
+    width: 100%;
+}
+
 .logo__text--span {
+    /* width: 100%; */
+    text-align: center;
     font-family: var(--text-light);
     letter-spacing: .75rem;
-    margin-top: -1.5rem;
+    margin-top: -1.25rem;
+    margin-right: -.25rem;
     background: none;
     -webkit-text-fill-color: black;
 }
@@ -43,10 +58,16 @@
 
 
 .logo--icon {
+    /* align-self: flex-start; */
     position: absolute;
-    top: .5rem;
-    right: 1.75rem;
-    transform: scale(2, 1.5);
+    top: .75rem;
+    right: 1.25rem;
+
+    
+    transform: scale(2.25, 1.75);
+    /* border: 1px solid magenta; */
+    padding: -1rem;
+    margin: 0;
 
 }
 

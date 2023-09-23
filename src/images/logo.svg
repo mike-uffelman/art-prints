@@ -17,11 +17,11 @@
         fill: url(#Gradient1)
     }
     .stop2 {
-      stop-color: rgba(170, 0, 255);
+      stop-color: rgba(170, 0, 255, .85);
 
     }
     .stop1 {
-      stop-color: rgba(0, 72, 255);
+      stop-color: rgba(0, 72, 255, 0.85);
       stop-opacity: 1;
     }
   </style>

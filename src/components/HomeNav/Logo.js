@@ -9,11 +9,15 @@ export default function Logo() {
     return (
             <Link to='/' name='logo-link'  className="logo__link">
                 <div className='logo__container'>
-                    <img className='logo--icon' src={logoIcon} alt='logo'></img>
-                    <h1 className="logo__text">
-                        ART
-                    </h1>
-                    <span className='logo__text logo__text--span'>Prints</span>
+                    <div className='logo__container--top'>
+                        <h1 className="logo__text">
+                            ART
+                        </h1>
+                        <img className='logo--icon' src={logoIcon} alt='logo'></img>
+
+                    </div>
+                    
+                    <span className='logo__container--bottom logo__text logo__text--span'>Prints</span>
 
                 </div>
                 
