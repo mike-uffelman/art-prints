@@ -132,7 +132,13 @@ Tags are a very useful feature that allows the user to browse products that have
 
 History is a listing of all the searches and tag clicks have have occured in the current session. It is a useful feature for users to allow them to browse and return later
 
-The Search, Tags, and History components all use common state and event callbacks, therefore each component is passed into a higher order component when it is called to be rendered. Here the higher order component wraps around the original component and passes the state and event handlers down as props to the original components. This eliminates duplicate code shared between these components and allows for the higher order component owner for these shared pieces of state and event handlers.
+#### Implementation
+
+The Search, Tags, and History components share state types (e.g search term) and event handlers, therefore a higher order component (HOC) can be utilized. The HOC wraps around the original component and passes the state and event handlers down through props to the original component. This eliminates duplicate code written in each of these components and allows for the HOC to be the single location which defines the pieces of state and event handlers. When the component is called to render, the component first passes through the HOC to return a new component with the required state and event handlers now available.
+
+Tags and History also share a very similar approach of mapping over an array to return React Router Link components and could likely be refactored to a single component, as after all both components are simply producing a list of links.
+
+---
 
 ### Cart
 
@@ -142,7 +148,7 @@ The Search, Tags, and History components all use common state and event callback
 
 ### Pagination
 
-| Pagination | Pagination is implemented in two components of the application, the first in the results component, where the user can click 'Load More' to show more search results, as there are rate limits on the API this was kept to a button with limited results as opposed to an infinite scroll that may eat up the rate limit. The other component that features pagination is in the product reviews, where if there are more reviews than fits the page limit, the pagination will display at the bottom of the reviews as a numbered list of pages with forward and back arrows. |
+Pagination is implemented in two components of the application, the first in the results component, where the user can click 'Load More' to show more search results, as there are rate limits on the API this was kept to a button with limited results as opposed to an infinite scroll that may eat up the rate limit. The other component that features pagination is in the product reviews, where if there are more reviews than fits the page limit, the pagination will display at the bottom of the reviews as a numbered list of pages with forward and back arrows. |
 
   <ul>implementation...</ul>
 </details>
