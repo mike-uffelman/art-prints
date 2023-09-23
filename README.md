@@ -122,19 +122,23 @@ Some additional objectives included application optimization via images file typ
 
 ### Search
 
-Search is a key feature of any e-commerce application. The user must be able to find the product they are looking for and search is the most common method of doing so.
+#### Search by term
 
-### Tags
+Search by term is a key feature of any e-commerce application. The user must be able to find the product they are looking for and search is the most common method of doing so. In the UI this is the text input field where the user can type in their desired keyword.
 
-Tags are a very useful feature that allows the user to browse products that have been identified with a keyword to be similar or adjacent to their initial search.
+#### Tags
 
-### History
+Tags are a useful feature that allows the user to browse products that have been identified with a keyword to be similar or adjacent to their initial search. This can be found at the top of the results page and in the product details.
 
-History is a listing of all the searches and tag clicks have have occured in the current session. It is a useful feature for users to allow them to browse and return later
+#### History
+
+History is a listing of all the searches and tag clicks have have occured in the current session. It is a useful feature for users to allow them to browse and return later. This feature can be found in the header of the application next to the search input field.
 
 #### Implementation
 
 The Search, Tags, and History components share state types (e.g search term) and event handlers, therefore a higher order component (HOC) can be utilized. The HOC wraps around the original component and passes the state and event handlers down through props to the original component. This eliminates duplicate code written in each of these components and allows for the HOC to be the single location which defines the pieces of state and event handlers. When the component is called to render, the component first passes through the HOC to return a new component with the required state and event handlers now available.
+
+The execution of the search for all three features is very similar thanks to the HOC. When the user submits a term via the search input field or clicks a tag or history item, the submit type (e.g. 'search', 'tags', 'history') and the term is sent passed to the handleSubmit callback where the term will be sent to a data helper called 'search' to submit a request to Unsplash for results of the term. The response will be processed through additional helpers to generate products and tags for the results, then create a new results object for the results. After which the results are dispatched to Redux and the user is redirected to the results page.
 
 Tags and History also share a very similar approach of mapping over an array to return React Router Link components and could likely be refactored to a single component, as after all both components are simply producing a list of links.
 
@@ -150,25 +154,6 @@ Tags and History also share a very similar approach of mapping over an array to 
 
 Pagination is implemented in two components of the application, the first in the results component, where the user can click 'Load More' to show more search results, as there are rate limits on the API this was kept to a button with limited results as opposed to an infinite scroll that may eat up the rate limit. The other component that features pagination is in the product reviews, where if there are more reviews than fits the page limit, the pagination will display at the bottom of the reviews as a numbered list of pages with forward and back arrows. |
 
-  <ul>implementation...</ul>
-</details>
-
-<details>
-<fieldset>
-  <summary>Tags</summary>
-  </fieldset>
-  <fieldset>
-  <ul>Tags are nice feature in an application where browsing is a primary activity, it provides the user with suggestions for similar results that may fit what they are looking for. The tags component is implemented in several places, atop the results page, in the product details tabs, and atop the product page(showing tags for just the selected product)</ul>
-  <ul>implementation...</ul>
-  
-</fieldset>
-</details>
-
-<!-- <field> -->
-<fieldset>
-asdf
-</fieldset>
-<!-- </field> -->
 #### Modals
 
 <p align="right">(<a href="#art-prints">back to top</a>)</p>
