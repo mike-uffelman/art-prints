@@ -118,33 +118,30 @@ A few secondary objectives included responsive layout, ...
 
 Some additional objectives included application optimization via images file type and loading priority, as well as coding splitting using Reacts Suspense and Lazy features to download components in chunks as needed.
 
-### Features (the tool to achieve outcome) (functionality - how the tool was implemented)
+## Primary Features
 
-This application has many features, built to improve the user experience.
+### Search
 
-#### Primary Features
+Search is a key feature of any e-commerce application. The user must be able to find the product they are looking for and search is the most common method of doing so.
 
-| Feature | Discussion                             |
-| ------- | -------------------------------------- |
-| Search  | The search feature is essential to the |
+### Tags
 
-</details>
+Tags are a very useful feature that allows the user to browse products that have been identified with a keyword to be similar or adjacent to their initial search.
 
-<details>
-  <summary>Cart</summary>
-  <ul></ul>
-</details>
+### History
 
-#### History
+History is a listing of all the searches and tag clicks have have occured in the current session. It is a useful feature for users to allow them to browse and return later
 
-#### Cart
+The Search, Tags, and History components all use common state and event callbacks, therefore each component is passed into a higher order component when it is called to be rendered. Here the higher order component wraps around the original component and passes the state and event handlers down as props to the original components. This eliminates duplicate code shared between these components and allows for the higher order component owner for these shared pieces of state and event handlers.
 
-#### Product
+### Cart
+
+### Product
 
 #### Secondary Features
 
-| Feature    | Discussion                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+### Pagination
+
 | Pagination | Pagination is implemented in two components of the application, the first in the results component, where the user can click 'Load More' to show more search results, as there are rate limits on the API this was kept to a button with limited results as opposed to an infinite scroll that may eat up the rate limit. The other component that features pagination is in the product reviews, where if there are more reviews than fits the page limit, the pagination will display at the bottom of the reviews as a numbered list of pages with forward and back arrows. |
 
   <ul>implementation...</ul>
