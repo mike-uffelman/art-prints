@@ -22,9 +22,7 @@
   </p>
 <br>
 
---> Screenshot here
-
-<!-- [![weather showcase][product-screenshot]]('./images/weather-showcase.png') -->
+![weather showcase][home-screenshot]
 <br>
 
 </div>
@@ -57,27 +55,25 @@ Art Prints is an e-commerce application, where users can search images and add t
 
 This application is built to mimick the user experience of an e-commerce website. Features include image search, product customization (size and quantity), shopping cart review/edit/delete, search history, product reviews, similar product tags, and more.
 
-There is no checkout process implemented in the application.
-
 This is a client-side single-page application (SPA) built using React for the client interface capabilities, React Redux for centralized state management, React Router for client-side routing, and Unsplash API for image search.
 
-This is purely a practice project built to improve skills of the aforementioned technology stack.
+There is no checkout process implemented in the application.
 
-[Demo the app here](https://main--tubular-seahorse-1bbe92.netlify.app/).
+[Demo the app.](https://main--tubular-seahorse-1bbe92.netlify.app/)
 
 <br>
 
 ### Built With
 
-| Technology Stack                                | Description           |
-| ----------------------------------------------- | --------------------- |
-| JavaScript                                      |                       |
-| [React](https://react.dev/)                     | Client side interface |
-| [React Router](https://reactrouter.com/en/main) | Client side routing   |
-| [React Redux](https://react-redux.js.org/)      | State management      |
-| [Redux Toolkit](https://redux-toolkit.js.org/)  | State management tool |
-| [Unsplash](https://unsplash.com/)               | Image search          |
+<div align='center'>
 
+![JavaScript][javascript]
+[![React][react-shield]][react-url]
+[![Redux][redux-shield]][redux-url]<br/>
+[![React Router][router-shield]][react-router-url]
+[![UnSplash][unsplash-shield]][unsplash-url]
+
+</div>
 <p align="right">(<a href="#art-prints">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
@@ -98,7 +94,7 @@ Start Server
 npm start
 ```
 
-Navigate to localhost
+Navigate to localhost in your browser
 
 ```
 localhost:3000
@@ -120,16 +116,20 @@ Some additional objectives included application optimization via images file typ
 
 ## Primary Features
 
-### Search
+<details>
+<summary style="font-weight: bold">Search</summary>
+<br/>
 
-#### Search by term
+<hgroup><h1>Search by term</h1></hgroup>
 
 Search by term is a key feature of any e-commerce application. The user must be able to find the product they are looking for and search is the most common method of doing so. In the UI this is the text input field where the user can type in their desired keyword.
 
-#### Tags
+<dl>
+<dt>Tags</dt>
 
-Tags are a useful feature that allows the user to browse products that have been identified with a keyword to be similar or adjacent to their initial search. This can be found at the top of the results page and in the product details.
+<dd>Tags are a useful feature that allows the user to browse products that have been identified with a keyword to be similar or adjacent to their initial search. This can be found at the top of the results page and in the product details.</dd>
 
+</dl>
 #### History
 
 History is a listing of all the searches and tag clicks have have occured in the current session. It is a useful feature for users to allow them to browse and return later. This feature can be found in the header of the application next to the search input field.
@@ -142,15 +142,22 @@ The execution of the search for all three features is very similar thanks to the
 
 Tags and History also share a very similar approach of mapping over an array to return React Router Link components and could likely be refactored to a single component, as after all both components are simply producing a list of links.
 
+</details>
+
 ---
 
-### Cart
+<details>
+<summary>Cart</summary>
+asdfasdfasdf
+</details>
 
 ### Product
 
 #### Secondary Features
 
 ### Pagination
+
+Anytime a user will be browsing a large listing of items, it's always a good idea to implement pagination. Doing so breaks down the information in a structured way providing a more meaningful and easily digestible user experience.
 
 Pagination is implemented in two components of the application, the first in the results component, where the user can click 'Load More' to show more search results, as there are rate limits on the API this was kept to a button with limited results as opposed to an infinite scroll that may eat up the rate limit. The other component that features pagination is in the product reviews, where if there are more reviews than fits the page limit, the pagination will display at the bottom of the reviews as a numbered list of pages with forward and back arrows. |
 
@@ -191,10 +198,8 @@ Pagination is implemented in two components of the application, the first in the
 Throughout the development of this project, there were many challenges that arose, from layout headaches to broken functionality.
 
 <details>
-  <summary>Navigation & Menu Positioning</summary>
-    <ul>Building a responsive navigation and menu proved challenging as the layout design had navigation inside and outside the rendered weather component, depending on if the weather had been rendered or not.</ul>
-    <ul>For example, if the user blocks their location, the app will load and render the menu at the bottom (in mobile view) or in the lower right corner (in dashboard view). When the user selects a location and the weather loads, the navigation menu will hide in dashboard view and appear in the component itself.</ul>
-    <ul>In order to achieve this, the menu had to be rendered twice and hidden depending on the screen size using media queries. Using CSS grid properties it was not possible to render the menu once and display it inside the component as all grid children have to be inside the parent (which would not have been loaded).</ul>
+  <summary>Challenges Item summary</summary>
+    <ul>discussion here...</ul>
 </details>
 
 <br>
@@ -209,25 +214,39 @@ The basic usage of the application is as follows:
 
 1. Upon load of the application the user may navigate to the search bar at the top and enter a search term for a desired search result, e.g. "nature", and click the 'Search' button or hit enter. The user may also select the history icon, to view suggested searches.
 
+<div align='center'>
+
+![search-image][search-screenshot]
+
+![history-image][history-screenshot]
+
+</div>
 2. Once the search results have been loaded, the user may:
 
-   - browse the results
-   - select 'Load More' at the bottom of the results listing to fetch more results
-   - select a tag from above the results for similar search results
+- browse the results
+- select 'Load More' at the bottom of the results listing to fetch more results
+- select a tag from above the results for similar search results
 
+<div align='center'>
+
+![results-image][results-screenshot]
+
+</div>
 3. When you user has selected a product, the user will be redirected to the product page where the user will be able to view the product in detail. The user may review the product, select the quantity, change the desired size, read reviews, navigate to similar results, and add the product to their cart.
+<div align='center'>
 
+![product-image][product-screenshot]
+
+</div>
 4. In the user's cart, the user will see a listing of products added to the cart and the subtotal of all the products for checkout. Here the user may edit an existing cart item, which will direct them to a page similar to the product page where they can edit the quantity and size selections. The user may also delete the item from the cart.
 
+<div align='center'>
+
+![cart-image][cart-screenshot]
+
+</div>
+
 NOTE: There is no checkout feature built into this application.
-
-### App Start
-
-The user may enter a keyword into the search input or select a suggested keyword from the history icon.
-
---> screenshot of search bar and history
-
-  <br>
 
 ### Results
 
@@ -274,6 +293,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![GitHub][github-shield]][github-url]
 [![Project][project-shield]][project-repo]
+![JavaScript][javascript]<br/>
+[![React][react-shield]][react-url]<br/>
+[![Redux][redux-shield]][redux-url]<br/>
+[![React Router][router-shield]][react-router-url]<br/>
+[![UnSplash][unsplash-shield]][unsplash-url]
 
 <p align="right">(<a href="#art-prints">back to top</a>)</p>
 
@@ -286,7 +310,12 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [github-url]: https://github.com/mike-uffelman
 [github-shield]: https://img.shields.io/badge/GitHub-profle-orange
 [project-repo]: https://github.com/mike-uffelman/art-prints
-[product-screenshot]: public/images/weather-showcase.png
+[home-screenshot]: src/images/home-screenshot.jpg
+[search-screenshot]: src/images/search-screenshot.jpg
+[history-screenshot]: src/images/history-screenshot.jpg
+[results-screenshot]: src/images/results-screenshot.jpg
+[product-screenshot]: src/images/product-screenshot.jpg
+[cart-screenshot]: src/images/cart-screenshot.jpg
 [form-screenshot]: public/images/search-form.png
 [icons-screenshot]: images/readMeImgs/icons.png
 [project-shield]: https://img.shields.io/badge/GitHub-repo-gray?color=#6cc644
@@ -300,6 +329,17 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [bookmarks-screenshot]: public/images/bookmarks-screenshot.png
 [mobile-nav]: public/images/mobile-nav.png
 [desktop-nav]: public/images/desktop-nav.png
+[javascript]: https://img.shields.io/badge/JavaScript-grey?style=for-the-badge&logo=javascript
+[react-shield]: https://img.shields.io/badge/React-grey?style=for-the-badge&logo=react
+[react-url]: https://react.dev/
+[redux-shield]: https://img.shields.io/badge/Redux-grey?style=for-the-badge&logo=redux
+[redux-url]: https://react-redux.js.org/
+[redux-toolkit-url]: https://redux-toolkit.js.org/
+[rtk-shield]: https://img.shields.io/badge/Redux%20Toolkit-grey?style=for-the-badge&logo=redux-toolkit
+[react-router-url]: https://reactrouter.com/en/main
+[router-shield]: https://img.shields.io/badge/React%20Router-grey?style=for-the-badge&logo=react-router
+[unsplash-url]: https://unsplash.com/
+[unsplash-shield]: https://img.shields.io/badge/Unsplash-grey?style=for-the-badge&logo=unsplash
 
 ---
 
