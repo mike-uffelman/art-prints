@@ -1,9 +1,3 @@
-# art-prints
-
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -14,11 +8,21 @@
     <br>
     React, React Router, React Redux, Unsplash
     <br />
-    <a href="https://main--tubular-seahorse-1bbe92.netlify.app/">View Demo</a>
-    ·
-    <a href="https://github.com/mike-uffelman/art-prints/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/mike-uffelman/art-prints/issues">Request Feature</a>
+
+<div align='center'>
+
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+</div>
+
+<a href="https://main--tubular-seahorse-1bbe92.netlify.app/">View Demo</a>
+·
+<a href="https://github.com/mike-uffelman/art-prints/issues">Report Bug</a>
+·
+<a href="https://github.com/mike-uffelman/art-prints/issues">Request Feature</a>
+
   </p>
 <br>
 
@@ -38,10 +42,7 @@
     <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#background-and-discussion">Background & Discussion</a></li>
-    <li><a href="#architecture-and-design">Architecture & Design</a></li>
-    <li><a href="#challenges">Challenges</a></li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#going-forward">Going Forward</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -53,7 +54,7 @@
 
 Art Prints is an e-commerce application, where users can search images and add them to a shopping cart.
 
-This application is built to mimick the user experience of an e-commerce website. Features include image search, product customization (size and quantity), shopping cart review/edit/delete, search history, product reviews, similar product tags, and more.
+This application is built to mimick the user experience of an e-commerce website. Features include keyword search, product customization (size and quantity), shopping cart review/edit/delete, search history, product reviews, similar product tags, and more.
 
 This is a client-side single-page application (SPA) built using React for the client interface capabilities, React Redux for centralized state management, React Router for client-side routing, and Unsplash API for image search.
 
@@ -61,15 +62,13 @@ There is no checkout process implemented in the application.
 
 [Demo the app.](https://main--tubular-seahorse-1bbe92.netlify.app/)
 
-<br>
-
 ### Built With
 
 <div align='center'>
 
 ![JavaScript][javascript]
 [![React][react-shield]][react-url]
-[![Redux][redux-shield]][redux-url]<br/>
+[![Redux][redux-shield]][redux-url]
 [![React Router][router-shield]][react-router-url]
 [![UnSplash][unsplash-shield]][unsplash-url]
 
@@ -108,33 +107,50 @@ The primary purpose for the application was to practice building a modern Single
 
 - React - front end user interface and reusable components
 - React Router - for client side routing and navigation of pages
-- React Redux - global state management
+- Redux - global state management
 
-A few secondary objectives included responsive layout, ...
+<br/>
 
-Some additional objectives included application optimization via images file type and loading priority, as well as coding splitting using Reacts Suspense and Lazy features to download components in chunks as needed.
+A few secondary objectives included:
+
+- working with APIs
+- responsive layout
+- pagination
+- optimization
+  - Code Splitting (using React Suspense and Lazy)
+  - Image Optimization (file type, loading priority, )
+- testing (limited in scope)
 
 ## Primary Features
+
+Features help you do something
 
 <details>
 <summary style="font-weight: bold">Search</summary>
 <br/>
-
-<hgroup><h1>Search by term</h1></hgroup>
+<fieldset>
+<hgroup><h3>Search by term</h3></hgroup>
 
 Search by term is a key feature of any e-commerce application. The user must be able to find the product they are looking for and search is the most common method of doing so. In the UI this is the text input field where the user can type in their desired keyword.
 
-<dl>
-<dt>Tags</dt>
+</fieldset>
+<br/>
+<fieldset>
+<h3>Tags</h3>
 
-<dd>Tags are a useful feature that allows the user to browse products that have been identified with a keyword to be similar or adjacent to their initial search. This can be found at the top of the results page and in the product details.</dd>
+Tags are a useful feature that allows the user to browse products that have been identified with a keyword to be similar or adjacent to their initial search. This can be found at the top of the results page and in the product details.
 
-</dl>
-#### History
+</fieldset>
+<br/>
+<fieldset>
+<h3>History</h3>
 
-History is a listing of all the searches and tag clicks have have occured in the current session. It is a useful feature for users to allow them to browse and return later. This feature can be found in the header of the application next to the search input field.
+History is a listing of all the unique searches and tag clicks have have occured in the current session. It is a useful feature for users to allow them to browse and return at later time. This feature can be found in the header of the application next to the search input field.
 
-#### Implementation
+</fieldset>
+<br/>
+<fieldset>
+<h3>Implementation</h3>
 
 The Search, Tags, and History components share state types (e.g search term) and event handlers, therefore a higher order component (HOC) can be utilized. The HOC wraps around the original component and passes the state and event handlers down through props to the original component. This eliminates duplicate code written in each of these components and allows for the HOC to be the single location which defines the pieces of state and event handlers. When the component is called to render, the component first passes through the HOC to return a new component with the required state and event handlers now available.
 
@@ -142,71 +158,79 @@ The execution of the search for all three features is very similar thanks to the
 
 Tags and History also share a very similar approach of mapping over an array to return React Router Link components and could likely be refactored to a single component, as after all both components are simply producing a list of links.
 
+</fieldset>
+<br/>
 </details>
+</fieldset>
+<details>
+<summary style="font-weight: bold">Cart</summary>
+<br/>
+<fieldset>
+<h3>Review Cart Items</h3>
+The ability for the user to review the items they have added to their cart is essential for any e-commerce application. Users want to confirm that what they are going to purchase is what they actually want.
 
----
+<br/>
+
+In this shopping cart, the user see an image of the product in their cart as well as the customization the have applied to their selection (i.e. size and quantity), the user can also see the price for the product given their customized selections. The user may also click on the image or the product title and be redirected back to the product page.
+
+</fieldset>
+<br/>
+<fieldset>
+<h3>Edit/Delete Cart Items</h3>
+
+Additional useful features of a shopping cart is the ability to edit or delete the product the user has added to their cart.
+
+These features have been added such that the user may simply click the delete button listed in each cart item and the application state will update the shopping cart and re-render showing the updated cart items.
+
+</fieldset>
+<br/>
+</details>
 
 <details>
-<summary>Cart</summary>
-asdfasdfasdf
+<summary style="font-weight: bold">Responsive Design</summary>
+<fieldset>
+A responsive design is an essential feature in any modern web application and greatly improves the user experience. A good responsive design is intuitive and helps the user interactive with the application to achieve their purpose for visiting the website or using the application. This application is designed to work on a mobile, tablet, or desktop screensize.
+</fieldset>
+</details>
+<details>
+<summary style="font-weight: bold">Products</summary>
+<fieldset>
+<h3>Product Building<h3>
+discuss building a product after fetch here...
+
+</fieldset>
+<br/>
+
+<h3>Reviews</h3>
+
+<h3>Product Details</h3>
 </details>
 
-### Product
+## Secondary Features
 
-#### Secondary Features
-
-### Pagination
-
+<details>
+<summary style="font-weight: bold">Pagination</summary>
+<fieldset>
 Anytime a user will be browsing a large listing of items, it's always a good idea to implement pagination. Doing so breaks down the information in a structured way providing a more meaningful and easily digestible user experience.
 
-Pagination is implemented in two components of the application, the first in the results component, where the user can click 'Load More' to show more search results, as there are rate limits on the API this was kept to a button with limited results as opposed to an infinite scroll that may eat up the rate limit. The other component that features pagination is in the product reviews, where if there are more reviews than fits the page limit, the pagination will display at the bottom of the reviews as a numbered list of pages with forward and back arrows. |
+<br/>
 
-#### Modals
+Pagination is implemented in two components of the application, the first in the results component, where the user can click 'Load More' to show more search results, as there are rate limits on the API this was kept to a button with limited results as opposed to an infinite scroll that may eat up the rate limit. The other component that features pagination is in the product reviews, where if there are more reviews than fits the page limit, the pagination will display at the bottom of the reviews as a numbered list of pages with forward and back arrows.
 
-<p align="right">(<a href="#art-prints">back to top</a>)</p>
+</fieldset>
 
-## Architecture and Design
-
-### Architecture
-
----
-
-- built with ... architecture
-
----
-
---> react front end component based - discuss components, reusability
---> redux state management, reducer slices for each state value - cart, history, reviews, search, toasts
---> react router - discuss routing, layouts, pages
-
-<br>
-
-### Design
-
---> responsive design, router for pages
-
-<p align="right">(<a href="#art-prints">back to top</a>)</p>
-
-## Challenges
-
---> Discuss challenges
-
---> code splitting
---> image optimization
--->
-
-Throughout the development of this project, there were many challenges that arose, from layout headaches to broken functionality.
-
-<details>
-  <summary>Challenges Item summary</summary>
-    <ul>discussion here...</ul>
 </details>
+<details>
+<summary style="font-weight: bold">Modals</summary>
+<fieldset>
+A modal is used to draw the user's attention to an action or to highlight something they have interacted with. In this application modals are used to display the search history component and view the product in isolation when clicked on.
+<br/>
 
-<br>
+To implement modals, React's `createPortal()` method was employed to render the component outside the flow of the component where is it called.
 
+</fieldset>
+</details>
 <p align="right">(<a href="#art-prints">back to top</a>)</p>
-
-<!-- USAGE EXAMPLES -->
 
 ## Usage
 
@@ -223,7 +247,7 @@ The basic usage of the application is as follows:
 </div>
 2. Once the search results have been loaded, the user may:
 
-- browse the results
+- browse the search results
 - select 'Load More' at the bottom of the results listing to fetch more results
 - select a tag from above the results for similar search results
 
@@ -248,31 +272,9 @@ The basic usage of the application is as follows:
 
 NOTE: There is no checkout feature built into this application.
 
-### Results
-
-User may browse the returned results, and select a desired product. The user may also, select a new similar keyword from the tags listed above the search results. User can also, expand on the returned results by selecting 'Load More' at the bottom of the results.
-
---> Screenshot of results, tags, load more here
-
-[![Password Generator ouput screenshot][form-screenshot]]('public/images/search-form.png')
-
-### Product
-
-User may view the selected product, see the price, select a size and a quantity, and add to their cart. There is no user authentication or persistence built in, so it is all a single browser session. User may also, read reviews for the product, read a description, and browse keywords associated with the product. Once the user has selected their desired size and quantity, the product can be added to the cart.
-
-[![Bookmark the location][bookmark-location]]('./images/bookmark-location.png')
-
-### Cart
-
-In the cart the use may view all the items added to the cart, edit individual products or delete products from the cart. The can also view the cart subtotal. There is not checkout functionality built in to this application.
-
 <p align="right">(<a href="#art-prints">back to top</a>)</p>
 
 ## Going Forward
-
-Additional features may include:
-
-- Rest API for server/db storage persistence of products/cart
 
 Known items to refactor:
 
@@ -290,21 +292,20 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
+<div align='center'>
+
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![GitHub][github-shield]][github-url]
 [![Project][project-shield]][project-repo]
-![JavaScript][javascript]<br/>
-[![React][react-shield]][react-url]<br/>
-[![Redux][redux-shield]][redux-url]<br/>
-[![React Router][router-shield]][react-router-url]<br/>
-[![UnSplash][unsplash-shield]][unsplash-url]
+
+</div>
 
 <p align="right">(<a href="#art-prints">back to top</a>)</p>
 
 [issues-shield]: https://img.shields.io/github/issues/mike-uffelman/weather-app.svg?labelcolor=green
 [issues-url]: https://github.com/mike-uffelman/art-prints/issues
 [license-shield]: https://img.shields.io/github/license/mike-uffelman/weather-app.svg
-[license-url]: https://github.com/mike-uffelman/weather-app/blob/main/LICENSE.txt
+[license-url]: https://github.com/mike-uffelman/art-prints/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/LinkedIn-profile-blue
 [linkedin-url]: https://www.linkedin.com/in/michael-uffelman-34289521/
 [github-url]: https://github.com/mike-uffelman
