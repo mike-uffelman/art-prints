@@ -8,7 +8,7 @@
     <br>
     React, React Router, React Redux, Unsplash
     <br />
-
+    *Does not sell products*
 <div align='center'>
 
 [![Issues][issues-shield]][issues-url]
@@ -131,7 +131,7 @@ Features help you do something
 <fieldset>
 <hgroup><h3>Search by term</h3></hgroup>
 
-Search by term is a key feature of any e-commerce application. The user must be able to find the product they are looking for and search is the most common method of doing so. In the UI this is the text input field where the user can type in their desired keyword.
+Search by term is a key feature of any e-commerce application. The user must be able to describe the product they are looking for and search is the most common method of doing so. In the UI this is the text input field where the user can type in their desired keyword.
 
 </fieldset>
 <br/>
@@ -167,11 +167,11 @@ Tags and History also share a very similar approach of mapping over an array to 
 <br/>
 <fieldset>
 <h3>Review Cart Items</h3>
-The ability for the user to review the items they have added to their cart is essential for any e-commerce application. Users want to confirm that what they are going to purchase is what they actually want.
+The ability for the user to review the items they have added to their cart is essential for any e-commerce application. Users want to be able to confirm that the items in their cart are what they are buying.
 
 <br/>
 
-In this shopping cart, the user see an image of the product in their cart as well as the customization the have applied to their selection (i.e. size and quantity), the user can also see the price for the product given their customized selections. The user may also click on the image or the product title and be redirected back to the product page.
+In this shopping cart, the user can see an image of the product in their cart as well as the customization the have applied to their selection (i.e. size and quantity), the user can also see the price for the product given their customized selections. The user may also click on the image or the product title and be redirected back to the product page.
 
 </fieldset>
 <br/>
@@ -227,6 +227,58 @@ A modal is used to draw the user's attention to an action or to highlight someth
 <br/>
 
 To implement modals, React's `createPortal()` method was employed to render the component outside the flow of the component where is it called.
+
+</fieldset>
+</details>
+
+<details>
+<summary style="font-weight: bold">Data Generators</summary>
+<fieldset>
+This application doesn't actually sell real products, it uses the Unspash API which hosts a huge collection of high-quality photographs from photographers world-wide for free. Therefore, "products" had to be generated, to achieve this, functions were created to transform the search results into fake products that could be rendered and interacted with by the user.
+
+The response from the Unsplash API returns an array of objects, each of which include various properties about the image, e.g. image urls, owner information, and other data necessary for usage of the results. However, for this application more data was needed to flesh out products, such as a base amount for pricing, likes, reviews, and product tags.
+
+When the response from Unsplash is received, the results are passed into a function called `buildProducts()` which maps over the array and returns a new array of product objects with the following properties:
+
+```
+{
+    id: product.id,
+    description: product.description || 'none',
+    alt_description: product.alt_description || 'none',
+    image_urls: product.urls || 'none',
+    tags: product.tags || [],
+    base_amt: (Math.random() * 10 + 6).toFixed(2),
+    width: product.width || 2500,
+    height: product.height || 1600,
+    orientation: product.width > product.height ? 'landscape' : 'portrait',
+    quantity_available: stockQuantity(),
+    owner: product.user || 'none',
+    likes: (Math.random() * 1000).toFixed(),
+    created_at: product.created_at,
+    review_count: Math.round(Math.random() * 1000)
+
+}
+```
+
+In addition to generating products, another function `buildReviews()` generates fake product reviews using the fakerjs API, here is an example of a single review object returned by the function:
+
+```
+{
+    product_id: product.id,
+    review_id: uuidv4(),
+    comment: {
+        title: faker.lorem.words(),
+        comments: faker.lorem.paragraph(),
+    },
+    date: date.toString(),
+    user: faker.internet.userName(),
+    rating: Math.ceil(Math.random() * 5),
+}
+```
+
+All the products and reviews are added to their respective arrays then dispatched to be updated in the application state.
+
+<br/>
 
 </fieldset>
 </details>
@@ -317,19 +369,8 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [results-screenshot]: src/images/results-screenshot.jpg
 [product-screenshot]: src/images/product-screenshot.jpg
 [cart-screenshot]: src/images/cart-screenshot.jpg
-[form-screenshot]: public/images/search-form.png
 [icons-screenshot]: images/readMeImgs/icons.png
 [project-shield]: https://img.shields.io/badge/GitHub-repo-gray?color=#6cc644
-[shield-search]: images/check_password.svg
-[copy-icon]: images/copy2.svg
-[info-icon]: images/info.svg
-[checked-passwords]: ./images/readMeImgs/password-validation.png
-[usage-demo]: ./images/readMeImgs/pw_generator_demo.gif
-[bookmarks]: ./images/bookmarks_black_24dp.svg
-[bookmark-location]: public/images/bookmark-location.png
-[bookmarks-screenshot]: public/images/bookmarks-screenshot.png
-[mobile-nav]: public/images/mobile-nav.png
-[desktop-nav]: public/images/desktop-nav.png
 [javascript]: https://img.shields.io/badge/JavaScript-grey?style=for-the-badge&logo=javascript
 [react-shield]: https://img.shields.io/badge/React-grey?style=for-the-badge&logo=react
 [react-url]: https://react.dev/
