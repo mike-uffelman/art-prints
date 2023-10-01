@@ -12,6 +12,7 @@ export const search = async(term, prevTags = {}, page = 1) => {
                 // per_page: 30
             }
         })
+        console.log('response: ', res)
         const data = await buildProducts(res.data.results);
     
         const tags = await getTags(res.data.results);

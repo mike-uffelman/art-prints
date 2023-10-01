@@ -36,8 +36,6 @@
 
 ## Table of Contents
 
-<details>
-  <summary>Art Prints</summary>
   <ul>
     <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#getting-started">Getting Started</a></li>
@@ -46,7 +44,6 @@
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-</details>
 <br>
 <!-- ABOUT THE PROJECT -->
 
@@ -121,36 +118,34 @@ A few secondary objectives included:
   - Image Optimization (file type, loading priority, )
 - testing (limited in scope)
 
-## Primary Features
+### Primary Features
 
 Features help you do something
 
 <details>
 <summary style="font-weight: bold">Search</summary>
-<br/>
-<fieldset>
-<hgroup><h3>Search by term</h3></hgroup>
+
+<fieldset style="margin: 15px">
+<hgroup><h4>Search by term</h4></hgroup>
 
 Search by term is a key feature of any e-commerce application. The user must be able to describe the product they are looking for and search is the most common method of doing so. In the UI this is the text input field where the user can type in their desired keyword.
 
 </fieldset>
-<br/>
-<fieldset>
-<h3>Tags</h3>
+<fieldset style="margin: 15px">
+<h4>Tags</h4>
 
 Tags are a useful feature that allows the user to browse products that have been identified with a keyword to be similar or adjacent to their initial search. This can be found at the top of the results page and in the product details.
 
 </fieldset>
-<br/>
-<fieldset>
-<h3>History</h3>
+<fieldset style="margin: 15px">
+<h4>History</h4>
 
 History is a listing of all the unique searches and tag clicks have have occured in the current session. It is a useful feature for users to allow them to browse and return at later time. This feature can be found in the header of the application next to the search input field.
 
 </fieldset>
-<br/>
-<fieldset>
-<h3>Implementation</h3>
+<fieldset style="margin: 15px">
+<h4>Implementation</h4>
+<p><span style="font-weight: bold">TLDR</span> - used a higher order component to give state and event handlers to the components.</p>
 
 The Search, Tags, and History components share state types (e.g search term) and event handlers, therefore a higher order component (HOC) can be utilized. The HOC wraps around the original component and passes the state and event handlers down through props to the original component. This eliminates duplicate code written in each of these components and allows for the HOC to be the single location which defines the pieces of state and event handlers. When the component is called to render, the component first passes through the HOC to return a new component with the required state and event handlers now available.
 
@@ -159,14 +154,13 @@ The execution of the search for all three features is very similar thanks to the
 Tags and History also share a very similar approach of mapping over an array to return React Router Link components and could likely be refactored to a single component, as after all both components are simply producing a list of links.
 
 </fieldset>
-<br/>
+</fieldset>
 </details>
 </fieldset>
 <details>
 <summary style="font-weight: bold">Cart</summary>
-<br/>
-<fieldset>
-<h3>Review Cart Items</h3>
+<fieldset style="margin: 15px">
+<h4>Review Cart Items</h4>
 The ability for the user to review the items they have added to their cart is essential for any e-commerce application. Users want to be able to confirm that the items in their cart are what they are buying.
 
 <br/>
@@ -174,55 +168,58 @@ The ability for the user to review the items they have added to their cart is es
 In this shopping cart, the user can see an image of the product in their cart as well as the customization the have applied to their selection (i.e. size and quantity), the user can also see the price for the product given their customized selections. The user may also click on the image or the product title and be redirected back to the product page.
 
 </fieldset>
-<br/>
-<fieldset>
-<h3>Edit/Delete Cart Items</h3>
+<fieldset style="margin: 15px">
+<h4>Edit/Delete Cart Items</h4>
 
 Additional useful features of a shopping cart is the ability to edit or delete the product the user has added to their cart.
 
 These features have been added such that the user may simply click the delete button listed in each cart item and the application state will update the shopping cart and re-render showing the updated cart items.
 
 </fieldset>
-<br/>
 </details>
 
 <details>
 <summary style="font-weight: bold">Responsive Design</summary>
-<fieldset>
+<fieldset style="margin: 15px">
 A responsive design is an essential feature in any modern web application and greatly improves the user experience. A good responsive design is intuitive and helps the user interactive with the application to achieve their purpose for visiting the website or using the application. This application is designed to work on a mobile, tablet, or desktop screensize.
 </fieldset>
 </details>
 <details>
 <summary style="font-weight: bold">Products</summary>
-<fieldset>
-<h3>Product Building<h3>
+<fieldset style="margin: 15px">
+<h4>Product Building<h4>
 discuss building a product after fetch here...
 
 </fieldset>
 <br/>
 
-<h3>Reviews</h3>
-
-<h3>Product Details</h3>
+<h4>Product Details</h4>
 </details>
 
-## Secondary Features
+### Secondary Features
 
 <details>
 <summary style="font-weight: bold">Pagination</summary>
-<fieldset>
+<fieldset style="margin: 15px">
 Anytime a user will be browsing a large listing of items, it's always a good idea to implement pagination. Doing so breaks down the information in a structured way providing a more meaningful and easily digestible user experience.
 
 <br/>
 
 Pagination is implemented in two components of the application, the first in the results component, where the user can click 'Load More' to show more search results, as there are rate limits on the API this was kept to a button with limited results as opposed to an infinite scroll that may eat up the rate limit. The other component that features pagination is in the product reviews, where if there are more reviews than fits the page limit, the pagination will display at the bottom of the reviews as a numbered list of pages with forward and back arrows.
 
+<div align='center'>
+
+![pagination-results2][results-pagination-demo2]
+![pagination-reviews][reviews-pagination-demo]
+
+</div>
+
 </fieldset>
 
 </details>
 <details>
 <summary style="font-weight: bold">Modals</summary>
-<fieldset>
+<fieldset style="margin: 15px">
 A modal is used to draw the user's attention to an action or to highlight something they have interacted with. In this application modals are used to display the search history component and view the product in isolation when clicked on.
 <br/>
 
@@ -233,7 +230,7 @@ To implement modals, React's `createPortal()` method was employed to render the 
 
 <details>
 <summary style="font-weight: bold">Data Generators</summary>
-<fieldset>
+<fieldset style="margin: 15px">
 This application doesn't actually sell real products, it uses the Unspash API which hosts a huge collection of high-quality photographs from photographers world-wide for free. Therefore, "products" had to be generated, to achieve this, functions were created to transform the search results into fake products that could be rendered and interacted with by the user.
 
 The response from the Unsplash API returns an array of objects, each of which include various properties about the image, e.g. image urls, owner information, and other data necessary for usage of the results. However, for this application more data was needed to flesh out products, such as a base amount for pricing, likes, reviews, and product tags.
@@ -369,6 +366,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [results-screenshot]: src/images/results-screenshot.jpg
 [product-screenshot]: src/images/product-screenshot.jpg
 [cart-screenshot]: src/images/cart-screenshot.jpg
+[results-pagination-demo]: src/images/results-pagination-demo.gif
+[results-pagination-demo2]: src/images/results-pagination-demo2.gif
+[reviews-pagination-demo]: src/images/reviews-pagination-demo.gif
 [icons-screenshot]: images/readMeImgs/icons.png
 [project-shield]: https://img.shields.io/badge/GitHub-repo-gray?color=#6cc644
 [javascript]: https://img.shields.io/badge/JavaScript-grey?style=for-the-badge&logo=javascript

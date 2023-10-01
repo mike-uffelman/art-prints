@@ -14,7 +14,7 @@
     background-color: rgb(0, 0, 0, .75);
 }
 
-.history__icons {
+/* .history__icons {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -25,25 +25,27 @@
 .history__icons:hover {
     cursor: pointer;
 
-}
+} */
 
-.history__icons:hover .material-symbols-rounded {
+/* .history__icons:hover .material-symbols-rounded {
     color: var(--main-accent);
-}
+} */
 
-.material-symbols-rounded {
-    align-self: center;
+/* .material-symbols-rounded { */
+    /* align-self: center; */
+    /* background-color: magenta; */
 
-}
+    /* margin: 5rem; */
+/* } */
 
-.material-symbols-rounded.clock {
-}
+/* .material-symbols-rounded.clock {
+} */
 
-.material-symbols-rounded.arrow {
+/* .material-symbols-rounded.arrow {
     position: absolute;
     top: .6rem;
     right: 6rem;
-}
+} */
 
 .history__close .material-symbols-outlined:hover {
     cursor: pointer;

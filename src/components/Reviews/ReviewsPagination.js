@@ -62,7 +62,7 @@ export default function ReviewsPagination({selectedReviews}) {
         <section className="reviews" id='reviews'>
             <Reviews reviewsToRender={reviewsToRender} />
             <div className='review__pagination'>
-                    <span className={`material-symbols-rounded ${hideBack}`} onClick={() => handleForwardBack(-1)}>arrow_back_ios</span>
+                    <span className={`material-symbols-rounded ${hideBack}`} onClick={() => handleForwardBack(-1)}>arrow_back_ios_new</span>
 
                     {renderPageButtons}
                 
