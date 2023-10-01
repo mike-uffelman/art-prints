@@ -1,8 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-
-<h3 align="center">art prints</h3>
+<h3 id='art-prints' align="center">art prints</h3>
   <p align="center">
     E-commerce photo store app
     <br>
@@ -100,56 +99,52 @@ localhost:3000
 
 ## Background and Discussion
 
-The primary purpose for the application was to practice building a modern Single Page Application (SPA) using several modern development libraries including:
+The primary purpose for the application was to plan and practice building a modern Single Page Application (SPA) using several modern development libraries including:
 
-- React - front end user interface and reusable components
-- React Router - for client side routing and navigation of pages
-- Redux - global state management
+- **React** - front end user interface and reusable components
+- **React Router** - for client side routing and navigation of pages
+- **Redux** - global state management
+  <br/>
 
-<br/>
+A few secondary/add-on objectives included:
 
-A few secondary objectives included:
+- Working with APIs
+- Responsive layout
+- Optimization
+  - Code Splitting --> React Suspense and Lazy
+  - Image Optimization --> file type, loading priority, screen size
+- Testing --> React Testing Library
 
-- working with APIs
-- responsive layout
-- pagination
-- optimization
-  - Code Splitting (using React Suspense and Lazy)
-  - Image Optimization (file type, loading priority, )
-- testing (limited in scope)
-
-### Primary Features
-
-Features help you do something
+### Selected Features
 
 <details>
 <summary style="font-weight: bold">Search</summary>
 
 <fieldset style="margin: 15px">
-<hgroup><h4>Search by term</h4></hgroup>
+<hgroup><h4 style='font-weight: bold'>Search by term</h4></hgroup>
 
 Search by term is a key feature of any e-commerce application. The user must be able to describe the product they are looking for and search is the most common method of doing so. In the UI this is the text input field where the user can type in their desired keyword.
 
 </fieldset>
 <fieldset style="margin: 15px">
-<h4>Tags</h4>
+<h4 style='font-weight: bold'>Tags</h4>
 
-Tags are a useful feature that allows the user to browse products that have been identified with a keyword to be similar or adjacent to their initial search. This can be found at the top of the results page and in the product details.
+Tags are a feature that allows the user to browse products that have been identified with a keyword to be similar or adjacent to their initial search. This can be found at the top of the results page and in the product details.
 
 </fieldset>
 <fieldset style="margin: 15px">
-<h4>History</h4>
+<h4 style='font-weight: bold'>History</h4>
 
 History is a listing of all the unique searches and tag clicks have have occured in the current session. It is a useful feature for users to allow them to browse and return at later time. This feature can be found in the header of the application next to the search input field.
 
 </fieldset>
 <fieldset style="margin: 15px">
-<h4>Implementation</h4>
-<p><span style="font-weight: bold">TLDR</span> - used a higher order component to give state and event handlers to the components.</p>
+<h4 style='font-weight: bold'>Implementation</h4>
+<p><span style="font-weight: bold">TLDR</span> - higher order components were utiziled to give state and event handlers to the components.</p>
 
 The Search, Tags, and History components share state types (e.g search term) and event handlers, therefore a higher order component (HOC) can be utilized. The HOC wraps around the original component and passes the state and event handlers down through props to the original component. This eliminates duplicate code written in each of these components and allows for the HOC to be the single location which defines the pieces of state and event handlers. When the component is called to render, the component first passes through the HOC to return a new component with the required state and event handlers now available.
 
-The execution of the search for all three features is very similar thanks to the HOC. When the user submits a term via the search input field or clicks a tag or history item, the submit type (e.g. 'search', 'tags', 'history') and the term is sent passed to the handleSubmit callback where the term will be sent to a data helper called 'search' to submit a request to Unsplash for results of the term. The response will be processed through additional helpers to generate products and tags for the results, then create a new results object for the results. After which the results are dispatched to Redux and the user is redirected to the results page.
+The execution of the search for all three features is very similar thanks to the HOC. When the user submits a term via the search input field or clicks a tag or history item, the submit type (e.g. 'search', 'tags', 'history') and the term is passed to the handleSubmit callback where the term will be sent to a data helper called 'search' to submit a request to Unsplash for results of the term. The response will be processed through additional helpers to generate products and tags for the results, then create a new results object for the results. After which the results are dispatched to Redux and the user is redirected to the results page where the results will render.
 
 Tags and History also share a very similar approach of mapping over an array to return React Router Link components and could likely be refactored to a single component, as after all both components are simply producing a list of links.
 
@@ -160,7 +155,7 @@ Tags and History also share a very similar approach of mapping over an array to 
 <details>
 <summary style="font-weight: bold">Cart</summary>
 <fieldset style="margin: 15px">
-<h4>Review Cart Items</h4>
+<h4 style='font-weight: bold'>Review Cart Items</h4>
 The ability for the user to review the items they have added to their cart is essential for any e-commerce application. Users want to be able to confirm that the items in their cart are what they are buying.
 
 <br/>
@@ -169,13 +164,19 @@ In this shopping cart, the user can see an image of the product in their cart as
 
 </fieldset>
 <fieldset style="margin: 15px">
-<h4>Edit/Delete Cart Items</h4>
+<h4 style='font-weight: bold'>Edit/Delete Cart Items</h4>
 
 Additional useful features of a shopping cart is the ability to edit or delete the product the user has added to their cart.
 
 These features have been added such that the user may simply click the delete button listed in each cart item and the application state will update the shopping cart and re-render showing the updated cart items.
 
 </fieldset>
+
+<div align='center' style="margin: 15px">
+
+![cart-image][cart-screenshot]
+
+</div>
 </details>
 
 <details>
@@ -184,19 +185,6 @@ These features have been added such that the user may simply click the delete bu
 A responsive design is an essential feature in any modern web application and greatly improves the user experience. A good responsive design is intuitive and helps the user interactive with the application to achieve their purpose for visiting the website or using the application. This application is designed to work on a mobile, tablet, or desktop screensize.
 </fieldset>
 </details>
-<details>
-<summary style="font-weight: bold">Products</summary>
-<fieldset style="margin: 15px">
-<h4>Product Building<h4>
-discuss building a product after fetch here...
-
-</fieldset>
-<br/>
-
-<h4>Product Details</h4>
-</details>
-
-### Secondary Features
 
 <details>
 <summary style="font-weight: bold">Pagination</summary>
@@ -232,6 +220,8 @@ To implement modals, React's `createPortal()` method was employed to render the 
 <summary style="font-weight: bold">Data Generators</summary>
 <fieldset style="margin: 15px">
 This application doesn't actually sell real products, it uses the Unspash API which hosts a huge collection of high-quality photographs from photographers world-wide for free. Therefore, "products" had to be generated, to achieve this, functions were created to transform the search results into fake products that could be rendered and interacted with by the user.
+
+<br/>
 
 The response from the Unsplash API returns an array of objects, each of which include various properties about the image, e.g. image urls, owner information, and other data necessary for usage of the results. However, for this application more data was needed to flesh out products, such as a base amount for pricing, likes, reviews, and product tags.
 
@@ -287,7 +277,7 @@ The basic usage of the application is as follows:
 
 1. Upon load of the application the user may navigate to the search bar at the top and enter a search term for a desired search result, e.g. "nature", and click the 'Search' button or hit enter. The user may also select the history icon, to view suggested searches.
 
-<div align='center'>
+<div align='center' style='padding: 5rem;'>
 
 ![search-image][search-screenshot]
 
@@ -300,32 +290,26 @@ The basic usage of the application is as follows:
 - select 'Load More' at the bottom of the results listing to fetch more results
 - select a tag from above the results for similar search results
 
-<div align='center'>
+<div  align='center' style='padding: 5rem;'>
 
 ![results-image][results-screenshot]
 
 </div>
 3. When you user has selected a product, the user will be redirected to the product page where the user will be able to view the product in detail. The user may review the product, select the quantity, change the desired size, read reviews, navigate to similar results, and add the product to their cart.
-<div align='center'>
+<div align='center' style='padding: 5rem;'>
 
 ![product-image][product-screenshot]
 
 </div>
 4. In the user's cart, the user will see a listing of products added to the cart and the subtotal of all the products for checkout. Here the user may edit an existing cart item, which will direct them to a page similar to the product page where they can edit the quantity and size selections. The user may also delete the item from the cart.
 
-<div align='center'>
+<div align='center' style='padding: 5rem;'>
 
 ![cart-image][cart-screenshot]
 
 </div>
 
 NOTE: There is no checkout feature built into this application.
-
-<p align="right">(<a href="#art-prints">back to top</a>)</p>
-
-## Going Forward
-
-Known items to refactor:
 
 <p align="right">(<a href="#art-prints">back to top</a>)</p>
 
@@ -369,7 +353,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [results-pagination-demo]: src/images/results-pagination-demo.gif
 [results-pagination-demo2]: src/images/results-pagination-demo2.gif
 [reviews-pagination-demo]: src/images/reviews-pagination-demo.gif
-[icons-screenshot]: images/readMeImgs/icons.png
 [project-shield]: https://img.shields.io/badge/GitHub-repo-gray?color=#6cc644
 [javascript]: https://img.shields.io/badge/JavaScript-grey?style=for-the-badge&logo=javascript
 [react-shield]: https://img.shields.io/badge/React-grey?style=for-the-badge&logo=react
@@ -382,76 +365,3 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [router-shield]: https://img.shields.io/badge/React%20Router-grey?style=for-the-badge&logo=react-router
 [unsplash-url]: https://unsplash.com/
 [unsplash-shield]: https://img.shields.io/badge/Unsplash-grey?style=for-the-badge&logo=unsplash
-
----
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
