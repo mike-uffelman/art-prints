@@ -135,7 +135,7 @@ Tags are a feature that allows the user to browse products that have been identi
 <fieldset style="margin: 15px">
 <h4 style='font-weight: bold'>History</h4>
 
-History is a listing of all the unique searches and tag clicks have have occured in the current session. It is a useful feature for users to allow them to browse and return at later time. This feature can be found in the header of the application next to the search input field.
+History is a listing of all the unique searches and tag clicks that have occured in the current session. It's a useful feature that allows users to browse and return at later time. This feature can be found in the header of the application next to the search input field.
 
 </fieldset>
 <fieldset style="margin: 15px">
@@ -157,10 +157,10 @@ Tags and History also share a very similar approach of mapping over an array to 
 <fieldset style="margin: 15px">
 <h4 style='font-weight: bold'>Review Cart Items</h4>
 The ability for the user to review the items they have added to their cart is essential for any e-commerce application. Users want to be able to confirm that the items in their cart are what they are buying.
-
+<br/>
 <br/>
 
-In this shopping cart, the user can see an image of the product in their cart as well as the customization the have applied to their selection (i.e. size and quantity), the user can also see the price for the product given their customized selections. The user may also click on the image or the product title and be redirected back to the product page.
+In this shopping cart, the user can see their selected product, the customization they have applied (i.e. size and quantity), and the price for the product given their selections. The user may also click on the image or the product title and be redirected back to the product page.
 
 </fieldset>
 <fieldset style="margin: 15px">
@@ -174,7 +174,7 @@ These features have been added such that the user may simply click the delete bu
 
 <div align='center' style="margin: 15px">
 
-![cart-image][cart-screenshot]
+![cart-demo][cart-demo2]
 
 </div>
 </details>
@@ -182,18 +182,18 @@ These features have been added such that the user may simply click the delete bu
 <details>
 <summary style="font-weight: bold">Responsive Design</summary>
 <fieldset style="margin: 15px">
-A responsive design is an essential feature in any modern web application and greatly improves the user experience. A good responsive design is intuitive and helps the user interactive with the application to achieve their purpose for visiting the website or using the application. This application is designed to work on a mobile, tablet, or desktop screensize.
+A responsive design is an essential feature in any modern web application and greatly improves the user experience. A good responsive design is intuitive and helps the user interact with the application to achieve their purpose for using the application. This application is designed to work on a mobile, tablet, or desktop screensizes.
 </fieldset>
 </details>
 
 <details>
 <summary style="font-weight: bold">Pagination</summary>
 <fieldset style="margin: 15px">
-Anytime a user will be browsing a large listing of items, it's always a good idea to implement pagination. Doing so breaks down the information in a structured way providing a more meaningful and easily digestible user experience.
+Anytime a user will be browsing a large listing of items, it's always a good idea to implement pagination. Doing so breaks down the information in a structured way, thus providing a more meaningful and easily digestible user experience.
 
 <br/>
 
-Pagination is implemented in two components of the application, the first in the results component, where the user can click 'Load More' to show more search results, as there are rate limits on the API this was kept to a button with limited results as opposed to an infinite scroll that may eat up the rate limit. The other component that features pagination is in the product reviews, where if there are more reviews than fits the page limit, the pagination will display at the bottom of the reviews as a numbered list of pages with forward and back arrows.
+Pagination is implemented in two components of the application, the first in the results component, where the user can click the 'Load More' button to show more search results. The other component that features pagination is in the product reviews, where if there are more reviews than fits the page limit, the pagination will display at the bottom of the reviews as a numbered list of pages with forward and back arrows for navigation.
 
 <div align='center'>
 
@@ -208,7 +208,7 @@ Pagination is implemented in two components of the application, the first in the
 <details>
 <summary style="font-weight: bold">Modals</summary>
 <fieldset style="margin: 15px">
-A modal is used to draw the user's attention to an action or to highlight something they have interacted with. In this application modals are used to display the search history component and view the product in isolation when clicked on.
+A modal is used to draw the user's attention to an action or to highlight something they have interacted with. In this application modals are used to display the search history component and view the product (image) in isolation when clicked on.
 <br/>
 
 To implement modals, React's `createPortal()` method was employed to render the component outside the flow of the component where is it called.
@@ -225,7 +225,7 @@ This application doesn't actually sell real products, it uses the Unspash API wh
 
 The response from the Unsplash API returns an array of objects, each of which include various properties about the image, e.g. image urls, owner information, and other data necessary for usage of the results. However, for this application more data was needed to flesh out products, such as a base amount for pricing, likes, reviews, and product tags.
 
-When the response from Unsplash is received, the results are passed into a function called `buildProducts()` which maps over the array and returns a new array of product objects with the following properties:
+When the response from Unsplash is received, the results are passed into a function called `buildProducts()` which maps over the results array and returns a new array of product objects with the following properties:
 
 ```
 {
@@ -247,7 +247,7 @@ When the response from Unsplash is received, the results are passed into a funct
 }
 ```
 
-In addition to generating products, another function `buildReviews()` generates fake product reviews using the fakerjs API, here is an example of a single review object returned by the function:
+In addition to generating products, another function `buildReviews()` generates fake product reviews using the Faker API, here is an example of a single review object returned by the function:
 
 ```
 {
@@ -350,9 +350,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [results-screenshot]: src/images/results-screenshot.jpg
 [product-screenshot]: src/images/product-screenshot.jpg
 [cart-screenshot]: src/images/cart-screenshot.jpg
-[results-pagination-demo]: src/images/results-pagination-demo.gif
 [results-pagination-demo2]: src/images/results-pagination-demo2.gif
 [reviews-pagination-demo]: src/images/reviews-pagination-demo.gif
+[cart-demo2]: src/images/cart-demo2.gif
 [project-shield]: https://img.shields.io/badge/GitHub-repo-gray?color=#6cc644
 [javascript]: https://img.shields.io/badge/JavaScript-grey?style=for-the-badge&logo=javascript
 [react-shield]: https://img.shields.io/badge/React-grey?style=for-the-badge&logo=react
