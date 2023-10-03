@@ -16,7 +16,7 @@ export default function ProductQuantity({quantity, setQuantity}) {
     return (
         <section className='quantity__container'>
             
-            <label className='quantity__label'>Select Quantity:</label>
+            <label className='quantity__label'>Quantity:</label>
             
             <div className='quantity__input'>
                 <button onClick={(e) => handleClick(e, -1)} disabled={isDisabledMin} className='quantity__btn decrement'>

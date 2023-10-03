@@ -24,8 +24,8 @@ function Toasts({toast}) {
                 setTimeout(() => {
                     dispatch(removeToast(toast.id))
 
-                }, 2000)
-            }, 3000)
+                }, 1000)
+            }, 2000)
         }
     }, [])
 

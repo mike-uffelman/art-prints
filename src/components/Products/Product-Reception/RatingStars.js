@@ -40,5 +40,5 @@ export default function RatingStars({rating}) {
 }
 
 RatingStars.propTypes = {
-    rating: PropTypes.string.isRequired
+    rating: PropTypes.number.isRequired
 }

@@ -105,7 +105,7 @@ function Product({type, product, className}) {
 
                             {isModalOpen && createPortal(
                                 <PhotoModal 
-                                    product={product} 
+                                    product={activeProduct} 
                                     image={activeProduct.image_urls.regular} 
                                     alt={activeProduct.description} 
                                     className={`photo-modal ${activeProduct.orientation}`} setIsModalOpen={setIsModalOpen} 
@@ -129,7 +129,7 @@ function Product({type, product, className}) {
                                         
                                 </label>
                                 : 'Loading...'}
-                                <ProductReception product={product}/>
+                                {activeProduct.hasOwnProperty('id') && <ProductReception product={activeProduct}/> }
 
                             </div>
                             
