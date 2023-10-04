@@ -1,0 +1,31 @@
+<svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    height="24" 
+    viewBox="0 -960 960 960" 
+    width="24"
+    
+>
+<defs>
+    <linearGradient id="Gradient1" gradientTransform='rotate(60)'>
+      <stop class="stop1" offset="0%" />
+      <stop class="stop2" offset="100%" />
+    </linearGradient>
+  
+  </defs>
+  <style>
+    #icon {
+        fill: url(#Gradient1)
+    }
+    .stop2 {
+      stop-color: rgba(170, 0, 255, .85);
+
+    }
+    .stop1 {
+      stop-color: rgba(0, 72, 255, 0.85);
+      stop-opacity: 1;
+    }
+  </style>
+    <path id='icon' 
+        d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm40-160h480L570-480 450-320l-90-120-120 160Z"
+    />
+</svg>
