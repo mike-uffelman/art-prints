@@ -1,0 +1,22 @@
+.noresults {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.noresults__message {
+    text-align: center;
+    font-family: var(--text-regular);
+    
+    font-size: 2rem;
+
+}
+
+@media screen and (min-width: 30rem) {
+    .noresults__message {
+        font-size: 3rem;
+        padding: 0 3rem;
+    }
+}

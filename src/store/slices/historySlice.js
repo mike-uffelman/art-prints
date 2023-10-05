@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = ['dogs', 'food', 'nature', 'bike', 'cars'];
+const initialState = ['flowers', 'food', 'nature', 'bike', 'emptyresultsdemo'];
 
 const historySlice = createSlice({
     name: 'history',

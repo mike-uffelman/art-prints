@@ -3,6 +3,7 @@ import Tags from "../components/Tags/Tags";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Pagination from "../components/Products/Pagination/Pagination";
+import NoProducts from "../components/Products/NoProducts";
 
 
 // layout component for the search results page
@@ -19,7 +20,10 @@ export default function ResultsPage() {
         return <div>Loading...</div>
     }
 
-    return (
+    if(results.results.flat().length === 0) {
+        return <NoProducts results={results}/>
+    } else {
+        return (
             <React.Fragment >
 
                 {/* check for tags and results, render components if defined, otherwise render a loading message */}
@@ -32,4 +36,7 @@ export default function ResultsPage() {
             </React.Fragment>
         
     )
+    }
+
+    
 }
