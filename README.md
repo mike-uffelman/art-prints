@@ -16,7 +16,7 @@
 
 </div>
 
-<a href="https://main--tubular-seahorse-1bbe92.netlify.app/">View Demo</a>
+<a href="https://art-prints.netlify.app/">View Demo</a>
 ·
 <a href="https://github.com/mike-uffelman/art-prints/issues">Report Bug</a>
 ·
@@ -56,7 +56,7 @@ This is a client-side single-page application (SPA) built using React for the cl
 
 There is no checkout process implemented in the application.
 
-[Demo the app.](https://main--tubular-seahorse-1bbe92.netlify.app/)
+[Demo the app.][demo-link]
 
 ### Built With
 
@@ -75,7 +75,7 @@ There is no checkout process implemented in the application.
 
 ## Getting Started
 
-Open the [live demo here](https://main--tubular-seahorse-1bbe92.netlify.app/), or clone the repository, (node and npm are required).
+Open the [live demo here][demo-link], or clone the repository, (node and npm are required).
 
 Install npm packages
 
@@ -341,6 +341,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [license-url]: https://github.com/mike-uffelman/art-prints/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/LinkedIn-profile-blue
 [linkedin-url]: https://www.linkedin.com/in/michael-uffelman-34289521/
+[demo-link]: https://art-prints.netlify.app/
 [github-url]: https://github.com/mike-uffelman
 [github-shield]: https://img.shields.io/badge/GitHub-profle-orange
 [project-repo]: https://github.com/mike-uffelman/art-prints
