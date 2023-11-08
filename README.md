@@ -111,9 +111,9 @@ A few secondary/add-on objectives included:
 - Working with APIs
 - Responsive layout
 - Optimization
-  - Code Splitting --> React Suspense and Lazy
-  - Image Optimization --> file type, loading priority, screen size
-- Testing --> React Testing Library
+  - Code Splitting, using React Suspense and Lazy
+  - Image Optimization, via file type, loading priority, and screen size
+- Testing with React Testing Library
 
 ### Selected Features
 
