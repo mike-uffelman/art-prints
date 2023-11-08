@@ -25,7 +25,7 @@
   </p>
 <br>
 
-![weather showcase][home-screenshot]
+![project showcase][home-screenshot]
 <br>
 
 </div>
@@ -50,7 +50,7 @@
 
 Art Prints is an e-commerce application, where users can search images and add them to a shopping cart.
 
-This application is built to mimick the user experience of an e-commerce website. Features include keyword search, product customization (size and quantity), shopping cart review/edit/delete, search history, product reviews, similar product tags, and more.
+This application is built to mimic the user experience of an e-commerce website. Features include keyword search, product customization (size and quantity), shopping cart review/edit/delete, search history, product reviews, similar product tags, and more.
 
 This is a client-side single-page application (SPA) built using React for the client interface capabilities, React Redux for centralized state management, React Router for client-side routing, and Unsplash API for image search.
 
@@ -335,9 +335,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#art-prints">back to top</a>)</p>
 
-[issues-shield]: https://img.shields.io/github/issues/mike-uffelman/weather-app.svg?labelcolor=green
+[issues-shield]: https://img.shields.io/github/issues/mike-uffelman/art-prints.svg?labelcolor=green
 [issues-url]: https://github.com/mike-uffelman/art-prints/issues
-[license-shield]: https://img.shields.io/github/license/mike-uffelman/weather-app.svg
+[license-shield]: https://img.shields.io/github/license/mike-uffelman/art-prints.svg
 [license-url]: https://github.com/mike-uffelman/art-prints/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/LinkedIn-profile-blue
 [linkedin-url]: https://www.linkedin.com/in/michael-uffelman-34289521/
