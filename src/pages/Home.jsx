@@ -1,4 +1,4 @@
-import Landing from '../components/HomeNav/Landing.js';
+import Landing from '../components/HomeNav/Landing.jsx';
 
 export default function Home() {
 
