@@ -2,9 +2,13 @@
 import { faker } from '@faker-js/faker';
 import {v4 as uuidv4 } from 'uuid';
 
+// const faker = await import('@faker-js/faker')
+
+
 
 // builds each product based on the data response from api request
 export async function buildProducts(data) {
+
     // console.log(data);
     const newData = data.map(product => {
         const stockQuantity = () => {
@@ -45,14 +49,15 @@ export async function buildReviews(products) {
     const today = new Date().toISOString();
 
     const reviews = products.results.map(product => {
+        const { created_at, id } = product
         let productReviews = [];
         const reviewCount = Math.ceil(Math.random() * 30);
 
         for (let i = 0; i < reviewCount; i++) {
-            const date = faker.date.between(product.created_at, today)
+            const date = faker.date.between({created_at, today})
 
             productReviews.push({
-                product_id: product.id,
+                product_id: id,
                 review_id: uuidv4(),
                 comment: {
                     title: faker.lorem.words(),

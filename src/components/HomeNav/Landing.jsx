@@ -1,6 +1,6 @@
 import heroThumb from '../../images/hero-thumb.jpg';
 import './Landing.css';
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 // import testData2 from '../../data/testData2.json';
 // import Image from '../Image/Image';
 // import { hero } from '../../data/heroCanvas';
@@ -109,7 +109,7 @@ export default function Landing() {
 
                     srcSet={imgLoaded ? `${heroMdImg} 300w, ${heroLgImg} 1080w, ${heroXLImg} 1080w` : `${heroThumb} 500w`}
                     // sizes={{'(max-width: 300px)', '300px'}}
-                    alt='hero' 
+                    alt='' 
                     fetchpriority='high'
                     onLoad={() => {
                         

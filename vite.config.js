@@ -11,6 +11,10 @@ export default defineConfig(({ command, mode }) => {
       'process.env': env
     },
   plugins: [react()], 
+  // build: {
+    // sourcemap: false,
+    // manifest: true
+  // }
 
   }
 })

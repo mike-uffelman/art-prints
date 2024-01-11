@@ -10,7 +10,7 @@ export default function Reviews({reviewsToRender}) {
             <section key={review.review_id} className="review__item">
                 <div className="review__header">
                     <div className='review__header--rating'>
-                        <RatingStars rating={review.rating} className='review__header--rating'/>
+                        <RatingStars rating={review.rating.toString()} className='review__header--rating'/>
                     </div>
                     <div className='review__header--title'>{review.user}</div>
                     <div className='review__header--date'>{dateTransformer(review.date)}</div>

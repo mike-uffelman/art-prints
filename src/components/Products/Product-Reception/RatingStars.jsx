@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 
 export default function RatingStars({rating}) {
     // const div = <span className="material-icons-outlined product__ratings--icon">star</span>
-
     const getStars = () => {
         let stars = [];
 
@@ -40,5 +39,5 @@ export default function RatingStars({rating}) {
 }
 
 RatingStars.propTypes = {
-    rating: PropTypes.number.isRequired
+    rating: PropTypes.string.isRequired
 }

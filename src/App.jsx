@@ -6,6 +6,14 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } 
 // import { routesConfig } from './routesConfig.jsx';
 
 import React, { Suspense, lazy } from 'react';
+// import RootLayout from'./layouts/RootLayout.jsx';
+// import Home from'./pages/Home.jsx';
+// import ResultsPage from'./pages/ResultsPage.jsx';
+// import ProductPage from'./pages/ProductPage.jsx';
+// import EditPage from'./pages/EditPage.jsx';
+// import Cart from'./components/Cart/Cart.jsx';
+// import ErrorPage from'./error-page.jsx';
+
 
 const RootLayout = lazy(() => import('./layouts/RootLayout.jsx'));
 const Home = lazy(() => import('./pages/Home.jsx'));

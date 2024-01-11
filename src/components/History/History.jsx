@@ -73,5 +73,7 @@ export default UpdatedComponent(History);
 History.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     setIsModalOpen: PropTypes.func.isRequired,
-    history: PropTypes.array.isRequired
+    history: PropTypes.array.isRequired,
+    isModalOpen: PropTypes.bool.isRequired,
+    clearHistory: PropTypes.func.isRequired
 }

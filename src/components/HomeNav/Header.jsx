@@ -3,16 +3,9 @@ import Logo from "./Logo";
 import { Link, useLocation } from 'react-router-dom';
 import { createPortal } from "react-dom";
 import Search from "../Search/Search";
-
-
-
-
-
-
+import PropTypes from 'prop-types';
 
 export default function Header({results, history, cart, setIsModalOpen, isModalOpen=false}) {
-    console.log('results', results)
-    console.log('history', history)
     const location = useLocation();
 
     const renderCartIcon = 
@@ -73,4 +66,13 @@ export default function Header({results, history, cart, setIsModalOpen, isModalO
 
         </section>
     )
+}
+
+
+Header.propTypes = {
+    results: PropTypes.object.isRequired,
+    history: PropTypes.array.isRequired,
+    cart: PropTypes.array.isRequired,
+    setIsModalOpen: PropTypes.func.isRequired,
+    isModalOpen: PropTypes.bool.isRequired,
 }
