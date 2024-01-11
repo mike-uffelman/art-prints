@@ -11,13 +11,13 @@
 
 import { lazy } from 'react';
 
-const RootLayout = lazy(() => import('./layouts/RootLayout'));
-const Home = lazy(() => import('./pages/Home'));
-const ResultsPage = lazy(() => import('./pages/ResultsPage'));
-const ProductPage = lazy(() => import('./components/HomeNav/Landing'));
-const EditPage = lazy(() => import('./pages/EditPage'));
-const Cart = lazy(() => import('./components/Cart/Cart'));
-const ErrorPage = lazy(() => import('./error-page'));
+const RootLayout = lazy(() => import('./layouts/RootLayout.jsx'));
+const Home = lazy(() => import('./pages/Home.jsx'));
+const ResultsPage = lazy(() => import('./pages/ResultsPage.jsx'));
+const ProductPage = lazy(() => import('./components/HomeNav/Landing.jsx'));
+const EditPage = lazy(() => import('./pages/EditPage.jsx'));
+const Cart = lazy(() => import('./components/Cart/Cart.jsx'));
+const ErrorPage = lazy(() => import('./error-page.jsx'));
 
 
 export const routesConfig = [

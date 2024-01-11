@@ -14,9 +14,19 @@ export default function RootLayout() {
     const cart = useSelector((state) => {
         return state.cart
     })
-    const results = useSelector((state) => {
-        return state
+    // const results = useSelector((state) => {
+    //     console.log(state)
+    //     return state
+    // })
+
+    const stateSearch = useSelector((state) => {
+        return state.search;
     })
+
+    const stateHistory = useSelector((state) => {
+        return state.history;
+    })
+
     const toasts = useSelector((state) => {
         return state.toasts
     })
@@ -37,7 +47,7 @@ export default function RootLayout() {
     return (
         <article className="app">
             <header className="app__header">
-                <Header results={results} cart={cart} setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen}/>
+                <Header results={stateSearch} history={stateHistory}  cart={cart} setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen}/>
             </header>
 
             <div className='content'>

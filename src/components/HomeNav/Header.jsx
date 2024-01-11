@@ -10,7 +10,9 @@ import Search from "../Search/Search";
 
 
 
-export default function Header({results, cart, setIsModalOpen, isModalOpen=false}) {
+export default function Header({results, history, cart, setIsModalOpen, isModalOpen=false}) {
+    console.log('results', results)
+    console.log('history', history)
     const location = useLocation();
 
     const renderCartIcon = 
@@ -30,11 +32,11 @@ export default function Header({results, cart, setIsModalOpen, isModalOpen=false
             {location.pathname === '/' ? '' : <Link className="breadcrumbs__link" title='home-breadcrumb' to='/'>Home</Link>} 
     
             {
-                results.search.results && results.search.results.length > 0
+                results.results && results.results.length > 0
                 // location.pathname !== '/'
                 && !location.pathname.includes('/results/')
                 //  results && results.results.length > 0
-                 ? <Link className="breadcrumbs__link" to={`/results/${results.search.term}`}>Back to results</Link>
+                 ? <Link className="breadcrumbs__link" to={`/results/${results.term}`}>Back to results</Link>
                  : null
             }
 
@@ -57,7 +59,7 @@ export default function Header({results, cart, setIsModalOpen, isModalOpen=false
                         </span>
 
                         {isModalOpen && createPortal(
-                            <History isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} history={results.history} />, 
+                            <History isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} history={history} />, 
                             document.body
                         )}
                     </div>
@@ -67,7 +69,7 @@ export default function Header({results, cart, setIsModalOpen, isModalOpen=false
                 </div>
             </div>
             
-            {location.pathname === '/' && results.search.results.length === 0 ? '' : renderBreadCrumbs}
+            {location.pathname === '/' && results.results.length === 0 ? '' : renderBreadCrumbs}
 
         </section>
     )

@@ -1,7 +1,6 @@
-import EditProduct from "../components/Products/EditProduct"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import Product from "../components/Products/Product"
+import Product from "../components/Products/Product.jsx"
 
 // renders the edit product layout page
 

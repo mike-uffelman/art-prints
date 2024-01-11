@@ -14,8 +14,11 @@ const UpdatedComponent = (OriginalComponent) => {
         const [term, setTerm] = useState('');
         const [page, setPage] = useState(2)
         const dispatch = useDispatch();
-        const store = useSelector((state) => {
-            return state;
+        const stateSearch = useSelector((state) => {
+            return state.search;
+        })
+        const stateHistory = useSelector((state) => {
+            return state.history
         })
 
         const handleChange = (e) => {
@@ -38,8 +41,8 @@ const UpdatedComponent = (OriginalComponent) => {
             
 
             const results = await search(
-                type === 'load more' ? store.search.term : term !== '' ? term : tagTerm, 
-                type === 'load more' ? store.search.tags : undefined,
+                type === 'load more' ? stateSearch.term : term !== '' ? term : tagTerm, 
+                type === 'load more' ? stateSearch.tags : undefined,
                 type === 'load more' ? page : undefined
             );
             
@@ -52,7 +55,7 @@ const UpdatedComponent = (OriginalComponent) => {
     
             
             if(type === 'tags' || term !== '') {
-                !store.history.includes(term || tagTerm) && await dispatch(addHistory(term || tagTerm))
+                !stateHistory.includes(term || tagTerm) && await dispatch(addHistory(term || tagTerm))
             }
             
             if(type === 'search') {

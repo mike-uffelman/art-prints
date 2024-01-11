@@ -3,17 +3,17 @@ import './App.css';
 // import ProductPage from './pages/ProductPage';
 // import Cart from "./components/Cart/Cart";
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
-import { routesConfig } from './routesConfig';
+// import { routesConfig } from './routesConfig.jsx';
 
-import { Suspense, lazy } from 'react';
+import React, { Suspense, lazy } from 'react';
 
-const RootLayout = lazy(() => import('./layouts/RootLayout'));
-const Home = lazy(() => import('./pages/Home'));
-const ResultsPage = lazy(() => import('./pages/ResultsPage'));
-const ProductPage = lazy(() => import('./pages/ProductPage'));
-const EditPage = lazy(() => import('./pages/EditPage'));
-const Cart = lazy(() => import('./components/Cart/Cart'));
-const ErrorPage = lazy(() => import('./error-page'));
+const RootLayout = lazy(() => import('./layouts/RootLayout.jsx'));
+const Home = lazy(() => import('./pages/Home.jsx'));
+const ResultsPage = lazy(() => import('./pages/ResultsPage.jsx'));
+const ProductPage = lazy(() => import('./pages/ProductPage.jsx'));
+const EditPage = lazy(() => import('./pages/EditPage.jsx'));
+const Cart = lazy(() => import('./components/Cart/Cart.jsx'));
+const ErrorPage = lazy(() => import('./error-page.jsx'));
 
 function App() {
     // styles for fallback message
