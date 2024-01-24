@@ -1,18 +1,13 @@
-// Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
+// netlify function
+// this function takes in the search params and makes the request to the API and returns the data to be built into products
+
 import axios from 'axios';
-// const axios = require('axios');
-// import {unsplash} from '../../../src/data/unsplash';
-
-
+import { UNSPLASH_SEARCH_URL } from '../../src/data/config';
 
 export const handler = async (event) => {
-
-
   try {
-    console.log('event query params', event.queryStringParameters)
-
     const options = {
-      url: 'https://api.unsplash.com/search/photos',
+      url: UNSPLASH_SEARCH_URL,
       method: 'get',
       headers: {
         Authorization: `Client-ID ${process.env.REACT_APP_UNSPLASH_KEY}`
@@ -25,20 +20,7 @@ export const handler = async (event) => {
       }
     }
 
-    console.log('++++++++', axios.getUri(options))
-    const {
-      data
-    } = await axios.request(options)
-
-    console.log('data: ', data)
-    // const res = await unsplash.get('/search/photos', {
-    //   params: {
-    //       query: event.queryStringParameters,
-    //       page: page,
-    //       content_filter: 'high',
-    //       // per_page: 30
-    //   }
-    // })
+    const { data } = await axios.request(options)
 
     return {
       statusCode: 200,
@@ -48,30 +30,11 @@ export const handler = async (event) => {
       }
     }
 
-    //   const subject = event.queryStringParameters.name || 'World'
-    //   return {
-    //     statusCode: 200,
-    //     body: JSON.stringify({ message: `Hello ${subject}` }),
-    //     // // more keys you can return:
-    //     // headers: { "headerName": "headerValue", ... },
-    //     // isBase64Encoded: true,
-    //   }
   } catch (error) {
-    console.log('fetch-photos error', error)
-    const {
-      status,
-      statusText,
-      headers,
-      data
-    } = error.response
-    return {
-      statusCode: status,
-      body: JSON.stringify({
-        status,
-        statusText,
-        headers,
-        data
-      })
+    const { status, statusText, headers, data } = error.response
+    return { 
+        statusCode: status,
+        body: JSON.stringify({ status, statusText, headers, data })
     }
   }
 }

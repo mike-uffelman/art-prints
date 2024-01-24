@@ -11,7 +11,7 @@ import { addToCart, updateCartItem } from '../../store/slices/cartsSlice';
 // utilities and helpers
 import classNames from 'classnames';
 import {v4 as uuidv4 } from 'uuid';
-import { UNSPLASH_URL } from '../../data/config';
+import { UNSPLASH_URL_W_REFERRAL } from '../../data/config';
 import { shortenDescription } from "../../utility/helpers";
 import PropTypes from 'prop-types';
 
@@ -125,7 +125,7 @@ function Product({type, product, className}) {
                                             {activeProduct.owner.name}
                                         </a>
                                         &nbsp;on&nbsp;  
-                                        <a href={UNSPLASH_URL} className='product__owner--links' target='_blank' rel='noreferrer'>Unsplash</a>
+                                        <a href={UNSPLASH_URL_W_REFERRAL} className='product__owner--links' target='_blank' rel='noreferrer'>Unsplash</a>
                                         
                                 </label>
                                 : 'Loading...'}

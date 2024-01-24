@@ -8,11 +8,3 @@ export default axios.create({
     },
     timeout: 4000  
 })
-
-// const buildRequest = () => {
-//     const headers = new Headers({
-//         'Authorization': `Client-ID ${process.env.REACT_APP_UNSPLASH_KEY}`,
-//         'Content-Type': 'application/json',
-
-//     })
-// }
