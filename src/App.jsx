@@ -66,8 +66,17 @@ function App() {
                     <Suspense fallback={<div style={styles}>Loading product...</div>}>
                         <ProductPage />
                     </Suspense>} />
-                <Route path='product/editCartItem/:id' element={<EditPage />} />
-                <Route path='cart' element={<Cart />} />
+                <Route path='product/editCartItem/:id' element={
+                    <Suspense fallback={<div style={styles}>Loading edit product...</div>}>
+                    <EditPage /> 
+
+                    </Suspense>
+                } />
+                <Route path='cart' element={
+                    <Suspense fallback={<div style={styles}>Loading cart...</div>}>
+                        <Cart />    
+                    </Suspense>
+                } />
 
                 {/* Error page path */}
                 <Route path='*' element={<ErrorPage />} />
