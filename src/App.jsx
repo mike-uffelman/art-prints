@@ -56,8 +56,16 @@ function App() {
                 <Route index element={<Home />} />
 
                 {/* child paths */}
-                <Route path='results/:term' element={<ResultsPage />}  />
-                <Route path='product/:id' element={<ProductPage />} />
+                <Route path='results/:term' element={
+                    <Suspense fallback={<div style={styles}>Loading results...</div>}>
+                        <ResultsPage />
+                    </Suspense>
+                } />
+                    
+                <Route path='product/:id' element={
+                    <Suspense fallback={<div style={styles}>Loading product...</div>}>
+                        <ProductPage />
+                    </Suspense>} />
                 <Route path='product/editCartItem/:id' element={<EditPage />} />
                 <Route path='cart' element={<Cart />} />
 
@@ -72,7 +80,7 @@ function App() {
 
     return( 
         // pass the router object into RouterProvider to render the route setup
-        <Suspense fallback={<div style={styles}>Loading Art Prints!...</div>}>
+        <Suspense fallback={<div style={styles}>Loading Art Prints!</div>}>
             <RouterProvider router={router} />
         </Suspense>
     )
