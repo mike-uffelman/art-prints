@@ -1,5 +1,4 @@
 import axios from "axios";
-import unsplash from "./unsplash";
 import { buildProducts, getTags } from "./productGenerator";
 import { NETLIFY_SERVER_URL } from "./config";
 
