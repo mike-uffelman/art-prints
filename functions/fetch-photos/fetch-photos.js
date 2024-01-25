@@ -10,7 +10,7 @@ export const handler = async (event) => {
       url: UNSPLASH_SEARCH_URL,
       method: 'get',
       headers: {
-        Authorization: `Client-ID ${process.env.REACT_APP_UNSPLASH_KEY}`
+        Authorization: `Client-ID ${process.env.UNSPLASH_KEY}`
       },
       timeout: 4000,
       params: {

@@ -6,5 +6,3 @@
 [functions]
     node_bundler = "esbuild"
 
-[dev]
-    publish = "dist"
