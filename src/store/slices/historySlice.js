@@ -10,7 +10,7 @@ const historySlice = createSlice({
             state.unshift(action.payload)
         },
         resetHistory(state, action) {
-            return initialState;
+            return [];
         }
     }
 })

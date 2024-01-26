@@ -41,7 +41,15 @@ function History({handleSubmit, isModalOpen, setIsModalOpen, history, clearHisto
 
     const renderHistory = history.map((term, index) => {
         return (
-            <Link to={`results/${term}`} onClick={() => handleSubmit(type, term)} key={`history-${index}`} className='history__link'>{term}</Link>
+            <Link to={`results/${term}`} 
+                onClick={(e) => {
+                    close(e)
+                    handleSubmit(type, term)
+                } }
+                key={`history-${index}`} 
+                className='history__link'>
+                {term}
+            </Link>
         )
     })
 
